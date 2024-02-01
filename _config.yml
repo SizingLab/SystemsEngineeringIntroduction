@@ -1,0 +1,70 @@
+# Book settings
+title: Sizing and optimization of mechatronic systems
+author: Marc Budinger, Scott Delbecq, Félix Pollet
+logo: images/logo.png
+copyright: "2023"
+exclude_patterns: ["LICENSE.md", "README.md", _build, .DS_Store, "**.ipynb_checkpoints"]
+only_build_toc_files: true
+
+bibtex_bibfiles:
+  - references.bib
+
+execute:
+  execute_notebooks: force
+  allow_errors: true
+
+latex:
+  latex_engine: xelatex
+  latex_documents:
+    targetname: book.tex
+
+html:
+  favicon: images/logo.png
+  home_page_in_navbar : false
+  use_repository_button: true
+  use_issues_button: true
+  use_edit_page_button: true
+  navbar_number_sections : true
+  # announcement: "Welcome to this new course!"
+  # comments:
+  #   hypothesis: false
+  #   utterances:
+  #     repo: "SizingLab/sizing_course"
+  #   dokieli: false
+
+launch_buttons:
+  notebook_interface : "jupyterlab"
+  binderhub_url      : "https://mybinder.org"
+  colab_url          : "https://colab.research.google.com"
+
+repository: 
+  url          : https://github.com/SizingLab/sizing_course
+  path_to_book : ""
+  branch       : main
+
+sphinx:
+  extra_extensions:
+    - sphinx_exercise
+  config:
+    html_show_copyright: true
+    use_repository_button: true
+    use_issues_button: true
+    use_edit_page_button: true
+    use_download_button: true
+
+    bibtex_reference_style: author_year
+
+    myst_enable_extensions: 
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution
+
+    myst_substitutions:
+      TITLE: "Sizing and optimization of mechatronic systems"

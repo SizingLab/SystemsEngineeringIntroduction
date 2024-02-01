@@ -1,0 +1,16 @@
+format: jb-book
+root: about/homepage
+parts:
+- caption: Introduction and overview
+  chapters:
+  - file: about/syllabus
+  - file: about/installation
+- caption: Classes and Labs
+  numbered: true
+  maxdepth: 2
+  chapters:
+  - file: notebook/summary
+    title: Classes and Labs
+    sections:
+      - file: notebook/00.00-Introduction
+  
