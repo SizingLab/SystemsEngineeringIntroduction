@@ -10,7 +10,7 @@ parts:
   maxdepth: 2
   chapters:
   - file: notebook/summary
-    title: Classes and Labs
+    title: Cubesat preliminary design
     sections:
       - file: notebook/00.00-Introduction
   
