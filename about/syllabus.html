@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Systems Engineering Introduction &#8212; Systems Engineering Introduction</title>
+    <title>Systems Engineering Introduction with a cubesat thermal control study case &#8212; Systems Engineering Introduction</title>
   
   
   
@@ -164,12 +164,12 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction and overview</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Systems Engineering Introduction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Systems Engineering Introduction with a cubesat thermal control study case</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Classes and Labs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebook/summary.html">1. Technical requirements definition</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebook/summaryPartA.html">1. Technical requirements definition</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebook/01a_CM1_Systems_SpaceSystems.html">1.1. Systems, complex technological systems and space systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebook/01b_CM1_SystemEngineering.html">1.2. System engineering</a></li>
 
@@ -179,6 +179,14 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../notebook/05_CM4_SoftwareDevelopment_TCLabIntroduction.html">2. Control software development and TCLab Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebook/06a_TD2_TCLab_IdentificationStep.html">3. TCLab: identification step</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebook/06b_Home_IdentificationTransferFunctions.html">4. Fitting Step Test Data to Empirical Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebook/07a_TD_ControlLoops.html">5. PID control</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../notebook/07b_TD_LinearizationCubesatControlLoops.html">8. Cubesat thermal caracteristic linearization and control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebook/08a_TD_PIDnumericalimplementation.html">9. PID numerical implementation</a></li>
 </ul>
 
     </div>
@@ -381,7 +389,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Systems Engineering Introduction</h1>
+    <h1>Systems Engineering Introduction with a cubesat thermal control study case</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -411,8 +419,8 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><img alt="" src="../_images/header.jpg" /></p>
-<section class="tex2jax_ignore mathjax_ignore" id="systems-engineering-introduction">
-<h1>Systems Engineering Introduction<a class="headerlink" href="#systems-engineering-introduction" title="Permalink to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="systems-engineering-introduction-with-a-cubesat-thermal-control-study-case">
+<h1>Systems Engineering Introduction with a cubesat thermal control study case<a class="headerlink" href="#systems-engineering-introduction-with-a-cubesat-thermal-control-study-case" title="Permalink to this heading">#</a></h1>
 <section id="authors">
 <h2>Authors<a class="headerlink" href="#authors" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
@@ -437,6 +445,50 @@ document.write(`
 <section id="study-case">
 <h3>Study case<a class="headerlink" href="#study-case" title="Permalink to this heading">#</a></h3>
 <p>The course will focus on the thermal control of a nanosatellite battery.</p>
+<p>Les cubesat sont des nanosatellite utilisant des formats standardisés et des kits de sous-sytèmes techniques réutilisables fournis par un ecosystème d’entreprises et start-ups.
+Votre entreprise veut proposer des kits permettant le controle thermique des cubesat. Votre premier produit s’interessera aux applications nécessitant un réchauffement.</p>
+<p><img alt="image" src="https://phxcubesat.asu.edu/sites/default/files/styles/panopoly_image_full/public/general/image_1.png?itok=QFqUmAUZ" /></p>
+<p>Vous aurez:</p>
+<ul class="simple">
+<li><p>à adapter le kit aux besoins spécifiques des clients. Ces besoins seront capturés dans un formulaire spécifique .</p></li>
+<li><p>proposer des éléments chauffants/capteurs adaptés aux besoins (conception préliminaire).</p></li>
+<li><p>identifier rapidement la dynamique thermique du produit à partir d’une carte d’interface et d’un programme informatique sur PC</p></li>
+<li><p>proposer une loi de commande validée par simulation et expérimentalement. Vous prouverez par simulation le robustesse de la loi de commande par rapport à des variations paramétriques correspondant à différents environnement de tests/qualification/utilisation. Vous quantifierez également les rejets de perturbation.</p></li>
+<li><p>implementer la loi de commande sur un microcontroleur et un algorithme de monitoring (state flow) permettant la protection du sous-système à réchauffer.</p></li>
+</ul>
+<blockquote>
+<div><p>Déliverables à fournir:</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Document de spécification (formulaire) permettant de définir les besoins en contrôle de température</p></li>
+<li><p>Notebook de justification technique de la solution de rechauffage</p></li>
+<li><p>Notebook d’identification et justification des lois de commande</p></li>
+<li><p>Codes C ‘arduino’ d’implementation de la commande et du monitoring.</p></li>
+</ul>
+<blockquote>
+<div><p>Planning des séances:</p>
+</div></blockquote>
+<p>20h de contact et 20 h de travail personnel distribué selon le planning suivant:</p>
+<p><strong>Part 1 : Specification and predesign</strong></p>
+<p>| Séance | Type | Durée | Moyen / Salle | Objectif |
+| -:- | -:- | -:- | -:- |-:- |
+|| CM | 1.25 h | amphi (EM) | System engineering approachs in satellite program |
+|| CM | 1.25 h | amphi (AM) | Thermal control subsystem requirement |
+|| Home | 2.5 h | | Document Reading (CubeSat) + First Specification document |
+|| CM | 1.25 h | amphi (AR) | Jupyter notebook et python (control, odeint, …) |
+|| TD | 2.5h | salle TD (EM+AM+AR+ES)| Preliminary design |
+|| Home | 2.5h | | Specification document + widget de calcul |</p>
+<p>1er rendu</p>
+<p><strong>Part 2 : Control and software development</strong></p>
+<p>| Séance | Type | Durée | Moyen / Salle | Objectif |
+| -:- | -:- | -:- | -:- |-:- |
+| | CM | 1.25 h (AR ou Th. Rocacher ou LR) | Presentation carte TCLab +  microcontroleurs +  |
+| | TD | 2.5h | HIL + salle TD (AR+ES+AM+LR/GG) | Carte TClab et échelon d’identification |
+| | Home | 2.5h | | Identification d’un modèle (1er, 2nd ordre) pour la commande |
+| | TD | 2.5h | salle TD  (AR+ES+AM+LR/GG) | Commande et validation par simulation (carte TC Lab) |
+| | Home | 2.5h | | Commande et validation par simulation sur modèle linéarisé |
+| | TP | 3.75h | salle XAO (AR+ES+AM+LR + GG + MB + IH) | Prototypage de la commande (PID anti-windup) sur micro-controleur (python + arduino)|
+| | TP | 2.5h | salle HIL (AR+ES+AM+LR + GG + MB + IH) | Réponse à un nouveau besoin, TP exam|</p>
 </section>
 </section>
 <section id="tools">
