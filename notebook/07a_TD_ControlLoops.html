@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>5. PID control &#8212; Systems Engineering Introduction</title>
+    <title>2.4. PID control &#8212; Systems Engineering Introduction</title>
   
   
   
@@ -69,8 +69,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8. Cubesat thermal caracteristic linearization and control" href="07b_TD_LinearizationCubesatControlLoops.html" />
-    <link rel="prev" title="4. Fitting Step Test Data to Empirical Models" href="06b_Home_IdentificationTransferFunctions.html" />
+    <link rel="next" title="2.7. Cubesat thermal caracteristic linearization and control" href="07b_TD_LinearizationCubesatControlLoops.html" />
+    <link rel="prev" title="2.3. Fitting Step Test Data to Empirical Models" href="06b_Home_IdentificationTransferFunctions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,14 +181,17 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html">2. Control software development and TCLab Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06a_TD2_TCLab_IdentificationStep.html">3. TCLab: identification step</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06b_Home_IdentificationTransferFunctions.html">4. Fitting Step Test Data to Empirical Models</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. PID control</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="summaryPartB.html">2. Control software definition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html">2.1. Control software development and TCLab Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06a_TD2_TCLab_IdentificationStep.html">2.2. TCLab: identification step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06b_Home_IdentificationTransferFunctions.html">2.3. Fitting Step Test Data to Empirical Models</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.4. PID control</a></li>
 
 
-<li class="toctree-l1"><a class="reference internal" href="07b_TD_LinearizationCubesatControlLoops.html">8. Cubesat thermal caracteristic linearization and control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08a_TD_PIDnumericalimplementation.html">9. PID numerical implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07b_TD_LinearizationCubesatControlLoops.html">2.7. Cubesat thermal caracteristic linearization and control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08a_TD_PIDnumericalimplementation.html">2.8. PID numerical implementation</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -450,9 +453,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">5. PID control</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pi-controller-define-with-zielgler-nichols-method">6. PI Controller define with Zielgler-Nichols method</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-a-simple-pid-controller">7. Implementation of a simple PID controller</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2.4. PID control</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pi-controller-define-with-zielgler-nichols-method">2.5. PI Controller define with Zielgler-Nichols method</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-a-simple-pid-controller">2.6. Implementation of a simple PID controller</a></li>
 </ul>
 
             </nav>
@@ -466,7 +469,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pid-control">
-<h1><span class="section-number">5. </span>PID control<a class="headerlink" href="#pid-control" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2.4. </span>PID control<a class="headerlink" href="#pid-control" title="Permalink to this heading">#</a></h1>
 <p>Dans les travaux précédents on a pu identifier la fonction de transfert liant l’echauffement <span class="math notranslate nohighlight">\(Q1\)</span> à la température <span class="math notranslate nohighlight">\(T1\)</span> comme :</p>
 <ul class="simple">
 <li><p>un 1er ordre avec retard pur
@@ -483,7 +486,7 @@ $<span class="math notranslate nohighlight">\( G_1(s) = \frac{\Delta T_1(s)}{Q_1
 </div></blockquote>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="pi-controller-define-with-zielgler-nichols-method">
-<h1><span class="section-number">6. </span>PI Controller define with Zielgler-Nichols method<a class="headerlink" href="#pi-controller-define-with-zielgler-nichols-method" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2.5. </span>PI Controller define with Zielgler-Nichols method<a class="headerlink" href="#pi-controller-define-with-zielgler-nichols-method" title="Permalink to this heading">#</a></h1>
 <p>On reprend l’approche Ziegler-Nichols sur un controleur PI defini avec la fonction de transfert suivante:
 <span class="math notranslate nohighlight">\(G_c(s)=k_p(1+\frac{1}{\tau_i s}+\tau_d s)=k_p+\frac{k_i}{s}+k_s s\)</span></p>
 <p>Definit les gain suivant pour le controleur:<br />
@@ -593,12 +596,12 @@ $<span class="math notranslate nohighlight">\( G_1(s) = \frac{\Delta T_1(s)}{Q_1
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="implementation-of-a-simple-pid-controller">
-<h1><span class="section-number">7. </span>Implementation of a simple PID controller<a class="headerlink" href="#implementation-of-a-simple-pid-controller" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2.6. </span>Implementation of a simple PID controller<a class="headerlink" href="#implementation-of-a-simple-pid-controller" title="Permalink to this heading">#</a></h1>
 <p>La fonction de transfert d’un controleur Proportionnel - Integral PI est la suivante :
 <span class="math notranslate nohighlight">\(G_c(s)=k_p+\frac{k_i}{s}+k_d s\)</span></p>
 <p>Given a process variable <span class="math notranslate nohighlight">\(PV\)</span> and setpoint <span class="math notranslate nohighlight">\(SP\)</span>, proportional-integral-derivative control determines the value of a manipulated variable MV by the rule</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4987afa6-6ea1-43a9-85f0-b0c06e219da5">
-<span class="eqno">(7.1)<a class="headerlink" href="#equation-4987afa6-6ea1-43a9-85f0-b0c06e219da5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a4194b72-e9f5-4d5f-8af2-40a347ccc0d5">
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-a4194b72-e9f5-4d5f-8af2-40a347ccc0d5" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV &amp; = \bar{MV} + K_p\left(SP - PV\right) + K_i \int_0^t \left(SP-PV)\right)dt + K_d \frac{d\left(SP-PV\right)}{dt}
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(K_p\)</span>, <span class="math notranslate nohighlight">\(K_i\)</span>, and <span class="math notranslate nohighlight">\(K_d\)</span> are the proportional, integral, and derivative coefficients, respectively.</p>
@@ -876,7 +879,7 @@ MV &amp; = \bar{MV} + K_p\left(SP - PV\right) + K_i \int_0^t \left(SP-PV)\right)
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Fitting Step Test Data to Empirical Models</p>
+        <p class="prev-next-title"><span class="section-number">2.3. </span>Fitting Step Test Data to Empirical Models</p>
       </div>
     </a>
     <a class="right-next"
@@ -884,7 +887,7 @@ MV &amp; = \bar{MV} + K_p\left(SP - PV\right) + K_i \int_0^t \left(SP-PV)\right)
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Cubesat thermal caracteristic linearization and control</p>
+        <p class="prev-next-title"><span class="section-number">2.7. </span>Cubesat thermal caracteristic linearization and control</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -903,9 +906,9 @@ MV &amp; = \bar{MV} + K_p\left(SP - PV\right) + K_i \int_0^t \left(SP-PV)\right)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">5. PID control</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pi-controller-define-with-zielgler-nichols-method">6. PI Controller define with Zielgler-Nichols method</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-a-simple-pid-controller">7. Implementation of a simple PID controller</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2.4. PID control</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pi-controller-define-with-zielgler-nichols-method">2.5. PI Controller define with Zielgler-Nichols method</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-a-simple-pid-controller">2.6. Implementation of a simple PID controller</a></li>
 </ul>
 
   </nav></div>

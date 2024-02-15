@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4. Fitting Step Test Data to Empirical Models &#8212; Systems Engineering Introduction</title>
+    <title>2.3. Fitting Step Test Data to Empirical Models &#8212; Systems Engineering Introduction</title>
   
   
   
@@ -69,8 +69,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. PID control" href="07a_TD_ControlLoops.html" />
-    <link rel="prev" title="3. TCLab: identification step" href="06a_TD2_TCLab_IdentificationStep.html" />
+    <link rel="next" title="2.4. PID control" href="07a_TD_ControlLoops.html" />
+    <link rel="prev" title="2.2. TCLab: identification step" href="06a_TD2_TCLab_IdentificationStep.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,14 +181,17 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html">2. Control software development and TCLab Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06a_TD2_TCLab_IdentificationStep.html">3. TCLab: identification step</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Fitting Step Test Data to Empirical Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07a_TD_ControlLoops.html">5. PID control</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="summaryPartB.html">2. Control software definition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html">2.1. Control software development and TCLab Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06a_TD2_TCLab_IdentificationStep.html">2.2. TCLab: identification step</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.3. Fitting Step Test Data to Empirical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07a_TD_ControlLoops.html">2.4. PID control</a></li>
 
 
-<li class="toctree-l1"><a class="reference internal" href="07b_TD_LinearizationCubesatControlLoops.html">8. Cubesat thermal caracteristic linearization and control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08a_TD_PIDnumericalimplementation.html">9. PID numerical implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07b_TD_LinearizationCubesatControlLoops.html">2.7. Cubesat thermal caracteristic linearization and control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08a_TD_PIDnumericalimplementation.html">2.8. PID numerical implementation</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -450,16 +453,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-data-file">4.1. Read the Data File</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-estimation">4.2. Parameter Estimation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-the-step-change-data-to-a-first-order-model">4.2.1. Fitting the Step Change Data to a First Order Model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-saved-data">4.2.2. Reading Saved Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-gain-and-time-constant">4.2.3. Estimating Gain and Time Constant</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-data-file">2.3.1. Read the Data File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-estimation">2.3.2. Parameter Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-the-step-change-data-to-a-first-order-model">2.3.2.1. Fitting the Step Change Data to a First Order Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-saved-data">2.3.2.2. Reading Saved Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-gain-and-time-constant">2.3.2.3. Estimating Gain and Time Constant</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-plus-dead-time">4.3. First Order plus Dead Time</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order">4.4. Second Order</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-second-order-model-by-least-squares">4.5. Fitting a Second Order Model by Least Squares</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-plus-dead-time">2.3.3. First Order plus Dead Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order">2.3.4. Second Order</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-second-order-model-by-least-squares">2.3.5. Fitting a Second Order Model by Least Squares</a></li>
 </ul>
             </nav>
         </div>
@@ -472,12 +475,12 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="fitting-step-test-data-to-empirical-models">
-<h1><span class="section-number">4. </span>Fitting Step Test Data to Empirical Models<a class="headerlink" href="#fitting-step-test-data-to-empirical-models" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2.3. </span>Fitting Step Test Data to Empirical Models<a class="headerlink" href="#fitting-step-test-data-to-empirical-models" title="Permalink to this heading">#</a></h1>
 <blockquote>
 <div><p><strong>Objectif de ce notebook :</strong> nous allons analyser la réponse à un échelon de puissance réalisé précédemment. Nous allons tenter d’identifier les modèles présenter une réponse proche : 1er ordre, 1er ordre avec retard et second ordre.</p>
 </div></blockquote>
 <section id="read-the-data-file">
-<h2><span class="section-number">4.1. </span>Read the Data File<a class="headerlink" href="#read-the-data-file" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3.1. </span>Read the Data File<a class="headerlink" href="#read-the-data-file" title="Permalink to this heading">#</a></h2>
 <p>A l’aide de la librairie Pandas, il est possible de manipuler des fichiers de données .csv ou Excel sous la forme de DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -532,9 +535,9 @@ document.write(`
 </div>
 </section>
 <section id="parameter-estimation">
-<h2><span class="section-number">4.2. </span>Parameter Estimation<a class="headerlink" href="#parameter-estimation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3.2. </span>Parameter Estimation<a class="headerlink" href="#parameter-estimation" title="Permalink to this heading">#</a></h2>
 <section id="fitting-the-step-change-data-to-a-first-order-model">
-<h3><span class="section-number">4.2.1. </span>Fitting the Step Change Data to a First Order Model<a class="headerlink" href="#fitting-the-step-change-data-to-a-first-order-model" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.2.1. </span>Fitting the Step Change Data to a First Order Model<a class="headerlink" href="#fitting-the-step-change-data-to-a-first-order-model" title="Permalink to this heading">#</a></h3>
 <p>For a first-order linear system initially at steady-state, the response to a step input change at <span class="math notranslate nohighlight">\(t=0\)</span> is given by</p>
 <div class="math notranslate nohighlight">
 \[y(t) = y(0) + K(1 - e^{-t/\tau}) \Delta U\]</div>
@@ -547,7 +550,7 @@ document.write(`
 </div></blockquote>
 </section>
 <section id="reading-saved-data">
-<h3><span class="section-number">4.2.2. </span>Reading Saved Data<a class="headerlink" href="#reading-saved-data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.2.2. </span>Reading Saved Data<a class="headerlink" href="#reading-saved-data" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Q1&#39;</span><span class="p">,</span><span class="s1">&#39;T1&#39;</span><span class="p">,</span><span class="s1">&#39;T2&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -592,7 +595,7 @@ document.write(`
 </div>
 </section>
 <section id="estimating-gain-and-time-constant">
-<h3><span class="section-number">4.2.3. </span>Estimating Gain and Time Constant<a class="headerlink" href="#estimating-gain-and-time-constant" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.2.3. </span>Estimating Gain and Time Constant<a class="headerlink" href="#estimating-gain-and-time-constant" title="Permalink to this heading">#</a></h3>
 <p>In the limit <span class="math notranslate nohighlight">\(t\rightarrow\infty\)</span> the first order model becomes</p>
 <div class="math notranslate nohighlight">
 \[T_1(\infty) = T_1(0) + K_1\Delta Q_1\]</div>
@@ -685,7 +688,7 @@ document.write(`
 </section>
 </section>
 <section id="first-order-plus-dead-time">
-<h2><span class="section-number">4.3. </span>First Order plus Dead Time<a class="headerlink" href="#first-order-plus-dead-time" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3.3. </span>First Order plus Dead Time<a class="headerlink" href="#first-order-plus-dead-time" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[T_1(t) = T_1(0) + K (1-e^\frac{t-\theta}{\tau}) Q_{step}\]</div>
 <blockquote>
@@ -748,7 +751,7 @@ document.write(`
 </div>
 </section>
 <section id="second-order">
-<h2><span class="section-number">4.4. </span>Second Order<a class="headerlink" href="#second-order" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3.4. </span>Second Order<a class="headerlink" href="#second-order" title="Permalink to this heading">#</a></h2>
 <blockquote>
 <div><p><strong>Question:</strong> démontrer qu’une fonction de transfert du second ordre, produit de deux premiers ordres, répond à un échelon avec l’expression suivante :
 $<span class="math notranslate nohighlight">\(T_1(t) = T_1(0) + K\left(1 - \frac{\tau_1 e^{-t/\tau_1} - \tau_2 e^{-t/\tau_2}}{\tau_1 - \tau_2}\right)Q_1(t)\)</span>$</p>
@@ -812,7 +815,7 @@ $<span class="math notranslate nohighlight">\(T_1(t) = T_1(0) + K\left(1 - \frac
 </div>
 </section>
 <section id="fitting-a-second-order-model-by-least-squares">
-<h2><span class="section-number">4.5. </span>Fitting a Second Order Model by Least Squares<a class="headerlink" href="#fitting-a-second-order-model-by-least-squares" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3.5. </span>Fitting a Second Order Model by Least Squares<a class="headerlink" href="#fitting-a-second-order-model-by-least-squares" title="Permalink to this heading">#</a></h2>
 <p>La détermination graphique d’un nombre important de paramètres peut se révéler difficile. Il est possible de déterminer les paramètres du second ordre à l’aide de la fonction <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.least_squares.html">least_square</a> qui minimise une erreur par optimisation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -898,7 +901,7 @@ $<span class="math notranslate nohighlight">\(T_1(t) = T_1(0) + K\left(1 - \frac
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>TCLab: identification step</p>
+        <p class="prev-next-title"><span class="section-number">2.2. </span>TCLab: identification step</p>
       </div>
     </a>
     <a class="right-next"
@@ -906,7 +909,7 @@ $<span class="math notranslate nohighlight">\(T_1(t) = T_1(0) + K\left(1 - \frac
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>PID control</p>
+        <p class="prev-next-title"><span class="section-number">2.4. </span>PID control</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -925,16 +928,16 @@ $<span class="math notranslate nohighlight">\(T_1(t) = T_1(0) + K\left(1 - \frac
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-data-file">4.1. Read the Data File</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-estimation">4.2. Parameter Estimation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-the-step-change-data-to-a-first-order-model">4.2.1. Fitting the Step Change Data to a First Order Model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-saved-data">4.2.2. Reading Saved Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-gain-and-time-constant">4.2.3. Estimating Gain and Time Constant</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-data-file">2.3.1. Read the Data File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-estimation">2.3.2. Parameter Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-the-step-change-data-to-a-first-order-model">2.3.2.1. Fitting the Step Change Data to a First Order Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-saved-data">2.3.2.2. Reading Saved Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-gain-and-time-constant">2.3.2.3. Estimating Gain and Time Constant</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-plus-dead-time">4.3. First Order plus Dead Time</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order">4.4. Second Order</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-second-order-model-by-least-squares">4.5. Fitting a Second Order Model by Least Squares</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-plus-dead-time">2.3.3. First Order plus Dead Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order">2.3.4. Second Order</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-second-order-model-by-least-squares">2.3.5. Fitting a Second Order Model by Least Squares</a></li>
 </ul>
   </nav></div>
 

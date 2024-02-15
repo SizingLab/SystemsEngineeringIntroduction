@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3. TCLab: identification step &#8212; Systems Engineering Introduction</title>
+    <title>2.2. TCLab: identification step &#8212; Systems Engineering Introduction</title>
   
   
   
@@ -67,8 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. Fitting Step Test Data to Empirical Models" href="06b_Home_IdentificationTransferFunctions.html" />
-    <link rel="prev" title="2. Control software development and TCLab Introduction" href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html" />
+    <link rel="next" title="2.3. Fitting Step Test Data to Empirical Models" href="06b_Home_IdentificationTransferFunctions.html" />
+    <link rel="prev" title="2.1. Control software development and TCLab Introduction" href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -179,14 +179,17 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html">2. Control software development and TCLab Introduction</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. TCLab: identification step</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06b_Home_IdentificationTransferFunctions.html">4. Fitting Step Test Data to Empirical Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07a_TD_ControlLoops.html">5. PID control</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="summaryPartB.html">2. Control software definition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html">2.1. Control software development and TCLab Introduction</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. TCLab: identification step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06b_Home_IdentificationTransferFunctions.html">2.3. Fitting Step Test Data to Empirical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07a_TD_ControlLoops.html">2.4. PID control</a></li>
 
 
-<li class="toctree-l1"><a class="reference internal" href="07b_TD_LinearizationCubesatControlLoops.html">8. Cubesat thermal caracteristic linearization and control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08a_TD_PIDnumericalimplementation.html">9. PID numerical implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07b_TD_LinearizationCubesatControlLoops.html">2.7. Cubesat thermal caracteristic linearization and control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08a_TD_PIDnumericalimplementation.html">2.8. PID numerical implementation</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -448,14 +451,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-temperature-control-laboratory">3.1. Connecting to the Temperature Control Laboratory</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing">3.1.1. Importing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-temperature-control-laboratory">2.2.1. Connecting to the Temperature Control Laboratory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing">2.2.1.1. Importing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-temperatures">3.2. Reading Temperatures</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-heaters">3.3. Setting Heaters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronizing-with-real-time-using-clock">3.4. Synchronizing with Real Time using <code class="docutils literal notranslate"><span class="pre">clock</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-response-using-clock-with-tclab">3.4.1. Step response using <code class="docutils literal notranslate"><span class="pre">clock</span></code> with TCLab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-temperatures">2.2.2. Reading Temperatures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-heaters">2.2.3. Setting Heaters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronizing-with-real-time-using-clock">2.2.4. Synchronizing with Real Time using <code class="docutils literal notranslate"><span class="pre">clock</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-response-using-clock-with-tclab">2.2.4.1. Step response using <code class="docutils literal notranslate"><span class="pre">clock</span></code> with TCLab</a></li>
 </ul>
 </li>
 </ul>
@@ -470,7 +473,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tclab-identification-step">
-<h1><span class="section-number">3. </span>TCLab: identification step<a class="headerlink" href="#tclab-identification-step" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2.2. </span>TCLab: identification step<a class="headerlink" href="#tclab-identification-step" title="Permalink to this heading">#</a></h1>
 <p>The accompanying diagram shows how to access the temperature contol laboratory using the TCLab library.</p>
 <p><img alt="../_images/B.00-TCLabOverview.png" src="../_images/B.00-TCLabOverview.png" /></img></p>
 <p><strong><em>Jupyter notebooks and Python scripts:</em></strong>
@@ -485,7 +488,7 @@ The hardware platform for the Temperature Control Laboratory. The Python tools a
 <div><p><strong>Objectif de ce notebook:</strong> On va piloter ici l’Arduino à partir d’un code Python. L’objectif sera de réaliser un échelon de puissance et de mesurer la réponse en température. Cette réponse sera finalement enregistrée dans un fichier Excel.</p>
 </div></blockquote>
 <section id="connecting-to-the-temperature-control-laboratory">
-<h2><span class="section-number">3.1. </span>Connecting to the Temperature Control Laboratory<a class="headerlink" href="#connecting-to-the-temperature-control-laboratory" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.1. </span>Connecting to the Temperature Control Laboratory<a class="headerlink" href="#connecting-to-the-temperature-control-laboratory" title="Permalink to this heading">#</a></h2>
 <blockquote>
 <div><p>Note : dans ce projet nous allons utilisé une ancienne version logicielle de TCLab notemment au niveau du code python. Il est disponible sur Github <a class="reference external" href="https://github.com/APMonitor/arduino/tree/master/0_Test_Device/Python/tclab">ici</a> et présente l’avantage d’être plus simple et facile à modifier que la version la plus récente. Nous utiliserons les fichiers <code class="docutils literal notranslate"><span class="pre">tclab.py</span></code> et <code class="docutils literal notranslate"><span class="pre">labtime.py</span></code> présents dans ce répertoire.  Cela permettra d’analyser le code et de le modifier a terme.</p>
 </div></blockquote>
@@ -530,7 +533,7 @@ The hardware platform for the Temperature Control Laboratory. The Python tools a
 </div>
 </div>
 <section id="importing">
-<h3><span class="section-number">3.1.1. </span>Importing<a class="headerlink" href="#importing" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.1.1. </span>Importing<a class="headerlink" href="#importing" title="Permalink to this heading">#</a></h3>
 <p>Once installed, the <code class="docutils literal notranslate"><span class="pre">tclab</span></code> package can be imported into Python and an instance created with the Python statements</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>from tclab import TCLab
 lab = TCLab()
@@ -565,7 +568,7 @@ lab = TCLab()
 </section>
 </section>
 <section id="reading-temperatures">
-<h2><span class="section-number">3.2. </span>Reading Temperatures<a class="headerlink" href="#reading-temperatures" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.2. </span>Reading Temperatures<a class="headerlink" href="#reading-temperatures" title="Permalink to this heading">#</a></h2>
 <p>Once a tclab instance is created and connected to a device, the temperature sensors on the temperature control lab can be acccessed with the attributes <code class="docutils literal notranslate"><span class="pre">.T1</span></code> and <code class="docutils literal notranslate"><span class="pre">.T2</span></code>.  For example, given an instance <code class="docutils literal notranslate"><span class="pre">lab</span></code>, the temperatures are accessed as</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>T1 = lab.T1
 T2 = lab.T2
@@ -596,7 +599,7 @@ T2 = lab.T2
 </div>
 </section>
 <section id="setting-heaters">
-<h2><span class="section-number">3.3. </span>Setting Heaters<a class="headerlink" href="#setting-heaters" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.3. </span>Setting Heaters<a class="headerlink" href="#setting-heaters" title="Permalink to this heading">#</a></h2>
 <p>For legacy reasons, there are two ways to set the power levels of the heaters.</p>
 <p>The first way is to the functions<code class="docutils literal notranslate"><span class="pre">.Q1()</span></code> and <code class="docutils literal notranslate"><span class="pre">.Q2()</span></code> of a <code class="docutils literal notranslate"><span class="pre">TCLab</span></code> instance. For example, both heaters can be set to 100% power with the functions</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>lab = TCLab()
@@ -659,7 +662,7 @@ Q2 = lab.Q2()
 </div>
 </section>
 <section id="synchronizing-with-real-time-using-clock">
-<h2><span class="section-number">3.4. </span>Synchronizing with Real Time using <code class="docutils literal notranslate"><span class="pre">clock</span></code><a class="headerlink" href="#synchronizing-with-real-time-using-clock" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.4. </span>Synchronizing with Real Time using <code class="docutils literal notranslate"><span class="pre">clock</span></code><a class="headerlink" href="#synchronizing-with-real-time-using-clock" title="Permalink to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">tclab</span></code> module includes <code class="docutils literal notranslate"><span class="pre">clock</span></code> for synchronizing calculations with real time.  <code class="docutils literal notranslate"><span class="pre">clock(tperiod,</span> <span class="pre">tstep)</span></code> generates a sequence of iterations over a period of <code class="docutils literal notranslate"><span class="pre">tperiod</span></code> seconds evenly by <code class="docutils literal notranslate"><span class="pre">tstep</span></code> seconds. If <code class="docutils literal notranslate"><span class="pre">tstep</span></code> is omitted then the default period is set to 1 second.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -720,7 +723,7 @@ Q2 = lab.Q2()
 </div>
 </div>
 <section id="step-response-using-clock-with-tclab">
-<h3><span class="section-number">3.4.1. </span>Step response using <code class="docutils literal notranslate"><span class="pre">clock</span></code> with TCLab<a class="headerlink" href="#step-response-using-clock-with-tclab" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.4.1. </span>Step response using <code class="docutils literal notranslate"><span class="pre">clock</span></code> with TCLab<a class="headerlink" href="#step-response-using-clock-with-tclab" title="Permalink to this heading">#</a></h3>
 <p>For this exercise, write a code cell that turns on heater 1 at 50% power, then log the temperature response once per second for 600 seconds. The output of the cell should report the time, power level, and temperature for each measurement. You may wish to consult TCLab Python Package notebook for relevant code examples. You will need the clock function from tclab for this exercise.</p>
 <blockquote>
 <div><p>Effectuez un relever de temperature sur 600s (période d’échantillonage de 1s) pour un échelon de puissance de 0 à 50% sur Q1. Affichez le résultat de mesure de température sur T1 et T2 à l’aide de la fonction <code class="docutils literal notranslate"><span class="pre">plt</span></code> de la librairie matplotlib.</p>
@@ -851,7 +854,7 @@ Q2 = lab.Q2()
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Control software development and TCLab Introduction</p>
+        <p class="prev-next-title"><span class="section-number">2.1. </span>Control software development and TCLab Introduction</p>
       </div>
     </a>
     <a class="right-next"
@@ -859,7 +862,7 @@ Q2 = lab.Q2()
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Fitting Step Test Data to Empirical Models</p>
+        <p class="prev-next-title"><span class="section-number">2.3. </span>Fitting Step Test Data to Empirical Models</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -878,14 +881,14 @@ Q2 = lab.Q2()
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-temperature-control-laboratory">3.1. Connecting to the Temperature Control Laboratory</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing">3.1.1. Importing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-temperature-control-laboratory">2.2.1. Connecting to the Temperature Control Laboratory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing">2.2.1.1. Importing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-temperatures">3.2. Reading Temperatures</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-heaters">3.3. Setting Heaters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronizing-with-real-time-using-clock">3.4. Synchronizing with Real Time using <code class="docutils literal notranslate"><span class="pre">clock</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-response-using-clock-with-tclab">3.4.1. Step response using <code class="docutils literal notranslate"><span class="pre">clock</span></code> with TCLab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-temperatures">2.2.2. Reading Temperatures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-heaters">2.2.3. Setting Heaters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronizing-with-real-time-using-clock">2.2.4. Synchronizing with Real Time using <code class="docutils literal notranslate"><span class="pre">clock</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-response-using-clock-with-tclab">2.2.4.1. Step response using <code class="docutils literal notranslate"><span class="pre">clock</span></code> with TCLab</a></li>
 </ul>
 </li>
 </ul>
