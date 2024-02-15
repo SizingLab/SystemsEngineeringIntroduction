@@ -17,14 +17,16 @@ parts:
       - file: notebook/02_CM2_ThermalControlSystems
       - file: notebook/03_CM3_Introduction2MultiPhysicModeling
       - file: notebook/04_TD1_CubeSatThermalModeling
-  - file: notebook/summaryPartB
-    title: Control software definition
-    sections:
+  - file: notebook/summaryPartB  
+    title: Control software definition  
+    sections:  
       - file: notebook/05_CM4_SoftwareDevelopment_TCLabIntroduction
       - file: notebook/06a_TD2_TCLab_IdentificationStep
       - file: notebook/06b_Home_IdentificationTransferFunctions
       - file: notebook/07a_TD_ControlLoops
       - file: notebook/07b_TD_LinearizationCubesatControlLoops
       - file: notebook/08a_TD_PIDnumericalimplementation
+      
+      
 
       
