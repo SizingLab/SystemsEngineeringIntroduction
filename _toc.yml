@@ -17,7 +17,7 @@ parts:
       - file: notebook/02_CM2_ThermalControlSystems
       - file: notebook/03_CM3_Introduction2MultiPhysicModeling
       - file: notebook/04_TD1_CubeSatThermalModeling
-  - file: notebook/summaryPartA
+  - file: notebook/summaryPartB
     title: Control software definition
     sections:
       - file: notebook/05_CM4_SoftwareDevelopment_TCLabIntroduction
