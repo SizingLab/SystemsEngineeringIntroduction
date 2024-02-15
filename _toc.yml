@@ -12,5 +12,9 @@ parts:
   - file: notebook/summary
     title: Cubesat preliminary design
     sections:
-      - file: notebook/00.00-Introduction
+      - file: notebook/00_CM1_Systems_SpaceSystems
+      - file: notebook/01_CM1_SystemEngineering
+      - file: notebook/03_CM2_ThermalControlSystems
+      - file: notebook/04_CM3_Python
+      
 

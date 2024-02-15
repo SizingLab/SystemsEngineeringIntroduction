@@ -2,7 +2,7 @@
 title: Systems Engineering Introduction
 author: Marc Budinger
 logo: images/logo.png
-copyright: "2023"
+copyright: "2024"
 exclude_patterns: ["LICENSE.md", "README.md", _build, .DS_Store, "**.ipynb_checkpoints"]
 only_build_toc_files: true
 
