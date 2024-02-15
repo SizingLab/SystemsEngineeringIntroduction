@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.6. Systems, complex technological systems and space systems" href="00_CM1_Systems_SpaceSystems.html" />
+    <link rel="next" title="1.1. Systems, complex technological systems and space systems" href="01a_CM1_Systems_SpaceSystems.html" />
     <link rel="prev" title="Installation" href="../about/installation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -169,9 +169,13 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Classes and Labs</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">1. Cubesat preliminary design</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="00_CM1_Systems_SpaceSystems.html">1.6. Systems, complex technological systems and space systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="01_CM1_SystemEngineering.html">1.7. System engineering</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">1. Technical requirements definition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="01a_CM1_Systems_SpaceSystems.html">1.1. Systems, complex technological systems and space systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01b_CM1_SystemEngineering.html">1.2. System engineering</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="02_CM2_ThermalControlSystems.html">1.4. Thermal Control System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_CM3_Introduction2MultiPhysicModeling.html">1.5. Introduction to multiphysics modeling of sizing scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_TD1_CubeSatThermalModeling.html">1.6. Thermal Model for CubeSat</a></li>
 
 </ul>
 </li>
@@ -364,9 +368,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -382,18 +384,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#systeme-etudie">1.1. Système étudié</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sous-systeme-ou-produit-a-developper">1.2. Sous-système ou produit à développer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taches-et-attendus">1.3. Tâches et attendus</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables-a-fournir">1.4. Déliverables à fournir</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-des-seances">1.5. Planning des séances</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -405,22 +395,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="system-engineering-introduction-with-a-cubesat-thermal-control-study-case">
 <span id="page-lecture-1"></span><h1><span class="section-number">1. </span>System engineering introduction with a cubesat thermal control study case<a class="headerlink" href="#system-engineering-introduction-with-a-cubesat-thermal-control-study-case" title="Permalink to this heading">#</a></h1>
-<p>=======================</p>
-<section id="systeme-etudie">
-<h2><span class="section-number">1.1. </span>Système étudié<a class="headerlink" href="#systeme-etudie" title="Permalink to this heading">#</a></h2>
 <p>Les cubesat sont des nanosatellite utilisant des formats standardisés et des kits de sous-sytèmes techniques réutilisables fournis par un ecosystème d’entreprises et start-ups.
 Votre entreprise veut proposer des kits permettant le controle thermique des cubesat. Votre premier produit s’interessera aux applications nécessitant un réchauffement.</p>
 <p><img alt="image" src="https://phxcubesat.asu.edu/sites/default/files/styles/panopoly_image_full/public/general/image_1.png?itok=QFqUmAUZ" /></p>
-</section>
-<section id="sous-systeme-ou-produit-a-developper">
-<h2><span class="section-number">1.2. </span>Sous-système ou produit à développer<a class="headerlink" href="#sous-systeme-ou-produit-a-developper" title="Permalink to this heading">#</a></h2>
-<p>kit de controle en température d’éléments à réchauffer (batterie, liquid propellant, expérience scientifique, …).</p>
-<p><img alt="image" src="https://raw.githubusercontent.com/SizingLab/SystemsEngineeringIntroduction/main/figures/BatteryPack.PNG" /></p>
-<p><img alt="image" src="https://raw.githubusercontent.com/SizingLab/SystemsEngineeringIntroduction/main/figures/HeaterBatteryPack.PNG" /></p>
-</section>
-<section id="taches-et-attendus">
-<h2><span class="section-number">1.3. </span>Tâches et attendus<a class="headerlink" href="#taches-et-attendus" title="Permalink to this heading">#</a></h2>
-<p>Vous aurez :</p>
+<p>Vous aurez:</p>
 <ul class="simple">
 <li><p>à adapter le kit aux besoins spécifiques des clients. Ces besoins seront capturés dans un formulaire spécifique .</p></li>
 <li><p>proposer des éléments chauffants/capteurs adaptés aux besoins (conception préliminaire).</p></li>
@@ -428,18 +406,18 @@ Votre entreprise veut proposer des kits permettant le controle thermique des cub
 <li><p>proposer une loi de commande validée par simulation et expérimentalement. Vous prouverez par simulation le robustesse de la loi de commande par rapport à des variations paramétriques correspondant à différents environnement de tests/qualification/utilisation. Vous quantifierez également les rejets de perturbation.</p></li>
 <li><p>implementer la loi de commande sur un microcontroleur et un algorithme de monitoring (state flow) permettant la protection du sous-système à réchauffer.</p></li>
 </ul>
-</section>
-<section id="deliverables-a-fournir">
-<h2><span class="section-number">1.4. </span>Déliverables à fournir<a class="headerlink" href="#deliverables-a-fournir" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><p>Déliverables à fournir:</p>
+</div></blockquote>
 <ul class="simple">
 <li><p>Document de spécification (formulaire) permettant de définir les besoins en contrôle de température</p></li>
 <li><p>Notebook de justification technique de la solution de rechauffage</p></li>
 <li><p>Notebook d’identification et justification des lois de commande</p></li>
 <li><p>Codes C ‘arduino’ d’implementation de la commande et du monitoring.</p></li>
 </ul>
-</section>
-<section id="planning-des-seances">
-<h2><span class="section-number">1.5. </span>Planning des séances<a class="headerlink" href="#planning-des-seances" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><p>Planning des séances:</p>
+</div></blockquote>
 <p>20h de contact et 20 h de travail personnel distribué selon le planning suivant:</p>
 <p><strong>Part 1 : Specification and predesign</strong></p>
 <p>| Séance | Type | Durée | Moyen / Salle | Objectif |
@@ -454,14 +432,13 @@ Votre entreprise veut proposer des kits permettant le controle thermique des cub
 <p><strong>Part 2 : Control and software development</strong></p>
 <p>| Séance | Type | Durée | Moyen / Salle | Objectif |
 | -:- | -:- | -:- | -:- |-:- |
-|| CM | 1.25 h (AR ou Th. Rocacher ou LR) | Presentation carte TCLab +  microcontroleurs +  |
-|| TD | 2.5h | HIL + salle TD (AR+ES+AM+LR/GG) | Carte TClab et échelon d’identification |
-|| Home | 2.5h | | Identification d’un modèle (1er, 2nd ordre) pour la commande |
-|| TD | 2.5h | salle TD  (AR+ES+AM+LR/GG) | Commande et validation par simulation (carte TC Lab) |
-|| Home | 2.5h | | Commande et validation par simulation sur modèle linéarisé |
-|| TP | 3.75h | salle XAO (AR+ES+AM+LR + GG + MB + IH) | Prototypage de la commande (PID anti-windup) sur micro-controleur (python + arduino)|
-|| TP | 2.5h | salle HIL (AR+ES+AM+LR + GG + MB + IH) | Réponse à un nouveau besoin, TP exam|</p>
-</section>
+| | CM | 1.25 h (AR ou Th. Rocacher ou LR) | Presentation carte TCLab +  microcontroleurs +  |
+| | TD | 2.5h | HIL + salle TD (AR+ES+AM+LR/GG) | Carte TClab et échelon d’identification |
+| | Home | 2.5h | | Identification d’un modèle (1er, 2nd ordre) pour la commande |
+| | TD | 2.5h | salle TD  (AR+ES+AM+LR/GG) | Commande et validation par simulation (carte TC Lab) |
+| | Home | 2.5h | | Commande et validation par simulation sur modèle linéarisé |
+| | TP | 3.75h | salle XAO (AR+ES+AM+LR + GG + MB + IH) | Prototypage de la commande (PID anti-windup) sur micro-controleur (python + arduino)|
+| | TP | 2.5h | salle HIL (AR+ES+AM+LR + GG + MB + IH) | Réponse à un nouveau besoin, TP exam|</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -506,11 +483,11 @@ Votre entreprise veut proposer des kits permettant le controle thermique des cub
       </div>
     </a>
     <a class="right-next"
-       href="00_CM1_Systems_SpaceSystems.html"
+       href="01a_CM1_Systems_SpaceSystems.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.6. </span>Systems, complex technological systems and space systems</p>
+        <p class="prev-next-title"><span class="section-number">1.1. </span>Systems, complex technological systems and space systems</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -520,24 +497,6 @@ Votre entreprise veut proposer des kits permettant le controle thermique des cub
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#systeme-etudie">1.1. Système étudié</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sous-systeme-ou-produit-a-developper">1.2. Sous-système ou produit à développer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taches-et-attendus">1.3. Tâches et attendus</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables-a-fournir">1.4. Déliverables à fournir</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-des-seances">1.5. Planning des séances</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
