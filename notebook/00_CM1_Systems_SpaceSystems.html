@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1.1. System engineering introduction with a cubesat thermal control study case &#8212; Systems Engineering Introduction</title>
+    <title>1.6. Systems, complex technological systems and space systems &#8212; Systems Engineering Introduction</title>
   
   
   
@@ -63,11 +63,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebook/00.00-Introduction';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebook/00_CM1_Systems_SpaceSystems';</script>
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="1. Introduction" href="summary.html" />
+    <link rel="next" title="1.7. System engineering" href="01_CM1_SystemEngineering.html" />
+    <link rel="prev" title="1. System engineering introduction with a cubesat thermal control study case" href="summary.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -169,7 +170,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Classes and Labs</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="summary.html">1. Cubesat preliminary design</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.1. System engineering introduction with a cubesat thermal control study case</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.6. Systems, complex technological systems and space systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_CM1_SystemEngineering.html">1.7. System engineering</a></li>
+
 </ul>
 </li>
 </ul>
@@ -226,7 +229,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/SizingLab/SystemsEngineeringIntroduction/main?urlpath=lab/tree/notebook/00.00-Introduction.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/SizingLab/SystemsEngineeringIntroduction/main?urlpath=lab/tree/notebook/00_CM1_Systems_SpaceSystems.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -244,7 +247,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/SizingLab/SystemsEngineeringIntroduction/blob/main/notebook/00.00-Introduction.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/SizingLab/SystemsEngineeringIntroduction/blob/main/notebook/00_CM1_Systems_SpaceSystems.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -292,7 +295,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/SizingLab/SystemsEngineeringIntroduction/edit/main/notebook/00.00-Introduction.ipynb" target="_blank"
+      <li><a href="https://github.com/SizingLab/SystemsEngineeringIntroduction/edit/main/notebook/00_CM1_Systems_SpaceSystems.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -309,7 +312,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/SizingLab/SystemsEngineeringIntroduction/issues/new?title=Issue%20on%20page%20%2Fnotebook/00.00-Introduction.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/SizingLab/SystemsEngineeringIntroduction/issues/new?title=Issue%20on%20page%20%2Fnotebook/00_CM1_Systems_SpaceSystems.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -339,7 +342,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/notebook/00.00-Introduction.ipynb" target="_blank"
+      <li><a href="../_sources/notebook/00_CM1_Systems_SpaceSystems.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -423,7 +426,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>System engineering introduction with a cubesat thermal control study case</h1>
+    <h1>Systems, complex technological systems and space systems</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -433,12 +436,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#systeme-etudie">1.1.1. Système étudié</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sous-systeme-ou-produit-a-developper">1.1.2. Sous-système ou produit à développer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taches-et-attendus">1.1.3. Tâches et attendus</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables-a-fournir">1.1.4. Déliverables à fournir</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-des-seances">1.1.5. Planning des séances</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qui-pour-quoi">1.1.6. Qui ? Pour quoi ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#systems">1.6.1. Systems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mechanical-systems-to-complex-technological-systems">1.6.1.1. From mechanical systems to complex technological systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-definition">1.6.1.2. System definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#space-systems-in-new-space">1.6.1.3. Space systems in new Space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cubesat-platform">1.6.1.4. Cubesat platform</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.6.1.5. References</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -450,71 +455,108 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="system-engineering-introduction-with-a-cubesat-thermal-control-study-case">
-<h1><span class="section-number">1.1. </span>System engineering introduction with a cubesat thermal control study case<a class="headerlink" href="#system-engineering-introduction-with-a-cubesat-thermal-control-study-case" title="Permalink to this heading">#</a></h1>
-<section id="systeme-etudie">
-<h2><span class="section-number">1.1.1. </span>Système étudié<a class="headerlink" href="#systeme-etudie" title="Permalink to this heading">#</a></h2>
-<p>Les cubesat sont des nanosatellite utilisant des formats standardisés et des kits de sous-sytèmes techniques réutilisables fournis par un ecosystème d’entreprises et start-ups.
-Votre entreprise veut proposer des kits permettant le controle thermique des cubesat. Votre premier produit s’interessera aux applications nécessitant un réchauffement.</p>
-<p><img alt="image" src="https://phxcubesat.asu.edu/sites/default/files/styles/panopoly_image_full/public/general/image_1.png?itok=QFqUmAUZ" /></p>
-</section>
-<section id="sous-systeme-ou-produit-a-developper">
-<h2><span class="section-number">1.1.2. </span>Sous-système ou produit à développer<a class="headerlink" href="#sous-systeme-ou-produit-a-developper" title="Permalink to this heading">#</a></h2>
-<p>kit de controle en température d’éléments à réchauffer (batterie, liquid propellant, expérience scientifique, …).</p>
-<p><img alt="image" src="https://raw.githubusercontent.com/SizingLab/SystemsEngineeringIntroduction/main/figures/BatteryPack.PNG" /></p>
-<p><img alt="image" src="https://raw.githubusercontent.com/SizingLab/SystemsEngineeringIntroduction/main/figures/HeaterBatteryPack.PNG" /></p>
-</section>
-<section id="taches-et-attendus">
-<h2><span class="section-number">1.1.3. </span>Tâches et attendus<a class="headerlink" href="#taches-et-attendus" title="Permalink to this heading">#</a></h2>
-<p>Vous aurez :</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="systems-complex-technological-systems-and-space-systems">
+<h1><span class="section-number">1.6. </span>Systems, complex technological systems and space systems<a class="headerlink" href="#systems-complex-technological-systems-and-space-systems" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
-<li><p>à adapter le kit aux besoins spécifiques des clients. Ces besoins seront capturés dans un formulaire spécifique .</p></li>
-<li><p>proposer des éléments chauffants/capteurs adaptés aux besoins (conception préliminaire).</p></li>
-<li><p>identifier rapidement la dynamique thermique du produit à partir d’une carte d’interface et d’un programme informatique sur PC</p></li>
-<li><p>proposer une loi de commande validée par simulation et expérimentalement. Vous prouverez par simulation le robustesse de la loi de commande par rapport à des variations paramétriques correspondant à différents environnement de tests/qualification/utilisation. Vous quantifierez également les rejets de perturbation.</p></li>
-<li><p>implementer la loi de commande sur un microcontroleur et un algorithme de monitoring (state flow) permettant la protection du sous-système à réchauffer.</p></li>
+<li><p>Notion de système : évolution historique, définition, technologies</p></li>
+<li><p>Systèmes spatiaux, new space et cubesat</p></li>
+<li><p>Description d’architecture, interfaces</p></li>
+<li><p>Cas d’étude : TMS de cubesat, application au contrôle thermique de batterie</p></li>
+<li><p>Homework : analyse d’entreprise dans le domaine du new space, de besoins TMS (hardware, software, service) et definition d’interfaces. Préparation d’un pitch de positionnement d’une entrepise du newspace</p></li>
 </ul>
-</section>
-<section id="deliverables-a-fournir">
-<h2><span class="section-number">1.1.4. </span>Déliverables à fournir<a class="headerlink" href="#deliverables-a-fournir" title="Permalink to this heading">#</a></h2>
+<section id="systems">
+<h2><span class="section-number">1.6.1. </span>Systems<a class="headerlink" href="#systems" title="Permalink to this heading">#</a></h2>
+<section id="from-mechanical-systems-to-complex-technological-systems">
+<h3><span class="section-number">1.6.1.1. </span>From mechanical systems to complex technological systems<a class="headerlink" href="#from-mechanical-systems-to-complex-technological-systems" title="Permalink to this heading">#</a></h3>
+<p>Many mechanical systems have evolved into complex technological systems.</p>
+<blockquote>
+<div><p>Under each figure, answer the following questions:</p>
 <ul class="simple">
-<li><p>Document de spécification (formulaire) permettant de définir les besoins en contrôle de température</p></li>
-<li><p>Notebook de justification technique de la solution de rechauffage</p></li>
-<li><p>Notebook d’identification et justification des lois de commande</p></li>
-<li><p>Codes C ‘arduino’ d’implementation de la commande et du monitoring.</p></li>
+<li><p>What are their functions, performance and reliability?</p></li>
+<li><p>What technical fields are needed to design them?</p></li>
+<li><p>Which engineers?</p></li>
 </ul>
+</div></blockquote>
+<p><img alt="Mechanical Systems" src="../_images/MechanicalSystems.png" /></p>
+<p><img alt="Complex Systems" src="../_images/ComplexSystems.png" /></p>
+<p>The car is typical of this evolution in technological systems:</p>
+<p>Electronic and computer technologies have been integrated into combustion-powered vehicles:</p>
+<ul class="simple">
+<li><p>10 circuits (electrical and fluids)</p></li>
+<li><p>12% value = IT, &gt; 25 computers per vehicle</p></li>
+<li><p>30% value other than mechanical</p></li>
+</ul>
+<p>New architectures are seeing a multiplication of functions:</p>
+<ul class="simple">
+<li><p>GPS, Mobile, Multimedia</p></li>
+<li><p>Active safety (ABS, ESP, lane tracking, ADAS)</p></li>
+</ul>
+<p>Power electronics, electric motors and electrochemical technologies are playing an increasingly important role in:</p>
+<ul class="simple">
+<li><p>Driving assistance: electric steering, variable assistance and gear ratios</p></li>
+<li><p>Propulsion systems: hybrid and electric</p></li>
+<li><p>Energy storage: the price of the battery can represent 40 to 50% of the total price of the vehicle.</p></li>
+</ul>
+<p><img alt="Complex Systems" src="../_images/ElectricAutomotive.png" /></p>
 </section>
-<section id="planning-des-seances">
-<h2><span class="section-number">1.1.5. </span>Planning des séances<a class="headerlink" href="#planning-des-seances" title="Permalink to this heading">#</a></h2>
-<p>20h de contact et 20 h de travail personnel distribué selon le planning suivant:</p>
-<p><strong>Part 1 : Specification and predesign</strong></p>
-<p>| Séance | Type | Durée | Moyen / Salle | Objectif |
-| -:- | -:- | -:- | -:- |-:- |
-|| CM | 1.25 h | amphi (EM) | System engineering approachs in satellite program |
-|| CM | 1.25 h | amphi (AM) | Thermal control subsystem requirement |
-|| Home | 2.5 h | | Document Reading (CubeSat) + First Specification document |
-|| CM | 1.25 h | amphi (AR) | Jupyter notebook et python (control, odeint, …) |
-|| TD | 2.5h | salle TD (EM+AM+AR+ES)| Preliminary design |
-|| Home | 2.5h | | Specification document + widget de calcul |</p>
-<p>1er rendu</p>
-<p><strong>Part 2 : Control and software development</strong></p>
-<p>| Séance | Type | Durée | Moyen / Salle | Objectif |
-| -:- | -:- | -:- | -:- |-:- |
-|| CM | 1.25 h (AR ou Th. Rocacher ou LR) | Presentation carte TCLab +  microcontroleurs +  |
-|| TD | 2.5h | HIL + salle TD (AR+ES+AM+LR/GG) | Carte TClab et échelon d’identification |
-|| Home | 2.5h | | Identification d’un modèle (1er, 2nd ordre) pour la commande |
-|| TD | 2.5h | salle TD  (AR+ES+AM+LR/GG) | Commande et validation par simulation (carte TC Lab) |
-|| Home | 2.5h | | Commande et validation par simulation sur modèle linéarisé |
-|| TP | 3.75h | salle XAO (AR+ES+AM+LR + GG + MB + IH) | Prototypage de la commande (PID anti-windup) sur micro-controleur (python + arduino)|
-|| TP | 2.5h | salle HIL (AR+ES+AM+LR + GG + MB + IH) | Réponse à un nouveau besoin, TP exam|</p>
+<section id="system-definition">
+<h3><span class="section-number">1.6.1.2. </span>System definition<a class="headerlink" href="#system-definition" title="Permalink to this heading">#</a></h3>
+<p>The System Engineering Handbook of NASA define a system [<span class="xref myst">Nasa, 2017</span>] as:</p>
+<blockquote>
+<div><p>A <strong>“system”</strong> is the <em>combination of elements</em> that function together to produce the capability required to <em>meet a need</em>. The elements include all <em>hardware, software</em>, equipment, facilities, personnel, processes, and procedures needed for this purpose; that is, all things required to produce system-level results. […] The value added by the system as a whole, beyond that contributed independently by the parts, is primarily created by the <em>relationship among the parts</em>; that is, <em>how they are interconnected</em>.</p>
+</div></blockquote>
+<p>The aim of this teaching module is to introduce you to the approaches needed to design a system, particularly with regard to the following aspects:<br />
+-<em>meet a need</em>: functional analysis, preliminary design<br />
+-<em>hardware, software</em>: electronic technology, programming<br />
+-<em>how they are interconnected</em>: architecture, system simulation<br />
+through a space subsystem.</p>
 </section>
-<section id="qui-pour-quoi">
-<h2><span class="section-number">1.1.6. </span>Qui ? Pour quoi ?<a class="headerlink" href="#qui-pour-quoi" title="Permalink to this heading">#</a></h2>
-<p>Volume d’heure global
-Nb de groupe de TD: 4
-Nb de groupe de TP: 8</p>
-<p>Compétences: Notebook Python</p>
-<p>Compétences: µcontroleurs Arduino</p>
+<section id="space-systems-in-new-space">
+<h3><span class="section-number">1.6.1.3. </span>Space systems in new Space<a class="headerlink" href="#space-systems-in-new-space" title="Permalink to this heading">#</a></h3>
+<p>NewSpace refers to the emergence of a private-initiative space industry at the beginning of the 21st century, stimulated by certain governments to strengthen international competitiveness while guaranteeing strategic independence in key sectors.</p>
+<blockquote>
+<div><p><strong>Note:</strong> <a class="reference external" href="https://www.connectbycnes.fr/">Connect by CNES</a> is a CNES field programme launched in 2016 to support the development of new space in France.</p>
+</div></blockquote>
+<p><img alt="Complex Systems" src="../_images/ConnectByCnes.png" /></p>
+<p>NewSpace concern in particular a group of relatively new aerospace companies working to develop low-cost, public access to space exploration and space applications:</p>
+<ul class="simple">
+<li><p>new naunchers: <a class="reference external" href="https://www.latitude.eu">https://www.latitude.eu</a></p></li>
+<li><p>space logistics:
+Logistique dans l’espace (exotrail)</p></li>
+</ul>
+<p>Capsule (the exploration company)</p>
+<ul class="simple">
+<li><p>Nanosatellites constellations:
+<a class="reference external" href="https://www.hemeria-group.com/wp-content/uploads/2022/05/NANOSAT_FR_2022.pdf">https://www.hemeria-group.com/wp-content/uploads/2022/05/NANOSAT_FR_2022.pdf</a></p></li>
+<li><p>Constellations
+<a class="reference external" href="https://www.kineis.com/iot-technologie/">https://www.kineis.com/iot-technologie/</a></p></li>
+</ul>
+<p>Aval
+<a class="reference external" href="https://www.naio-technologies.com/">https://www.naio-technologies.com/</a>
+Autonome avec guidage et paramétrage des tâches par GNSS RTK. Système Naïo Core inclus</p>
+</section>
+<section id="cubesat-platform">
+<h3><span class="section-number">1.6.1.4. </span>Cubesat platform<a class="headerlink" href="#cubesat-platform" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>système cubesat :
+système breakdown</p></li>
+</ul>
+<p>Reseau de fournisseurs
+<a class="reference external" href="https://www.cubesatshop.com/">https://www.cubesatshop.com/</a></p>
+<p>Exemple de technologies :</p>
+<p>poussée ionique
+<a class="reference external" href="https://www.exotrail.com/">https://www.exotrail.com/</a>
+<a class="reference external" href="https://comat.space/p/small-sat/fr-pjp-technology/">https://comat.space/p/small-sat/fr-pjp-technology/</a></p>
+<p>Processus de conception</p>
+<p>Ingeniérie des exigences
+. Analyse du besoin
+.</p>
+</section>
+<section id="references">
+<h3><span class="section-number">1.6.1.5. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h3>
+<p>[Nasa, 2017] Hirshorn, S. R., Voss, L. D., &amp; Bromley, L. K. (2017). Nasa systems engineering handbook (No. HQ-E-DAA-TN38707). <a class="reference external" href="https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf">Link</a></p>
+<p><a class="reference external" href="https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf">https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf</a></p>
+</section>
 </section>
 </section>
 
@@ -554,8 +596,17 @@ Nb de groupe de TP: 8</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Introduction</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>System engineering introduction with a cubesat thermal control study case</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="01_CM1_SystemEngineering.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1.7. </span>System engineering</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -572,12 +623,14 @@ Nb de groupe de TP: 8</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#systeme-etudie">1.1.1. Système étudié</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sous-systeme-ou-produit-a-developper">1.1.2. Sous-système ou produit à développer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taches-et-attendus">1.1.3. Tâches et attendus</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables-a-fournir">1.1.4. Déliverables à fournir</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-des-seances">1.1.5. Planning des séances</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qui-pour-quoi">1.1.6. Qui ? Pour quoi ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#systems">1.6.1. Systems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mechanical-systems-to-complex-technological-systems">1.6.1.1. From mechanical systems to complex technological systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-definition">1.6.1.2. System definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#space-systems-in-new-space">1.6.1.3. Space systems in new Space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cubesat-platform">1.6.1.4. Cubesat platform</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.6.1.5. References</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -602,7 +655,7 @@ By Marc Budinger
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>
