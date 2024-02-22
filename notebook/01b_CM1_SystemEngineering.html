@@ -67,8 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.4. Thermal Control System" href="02_CM2_ThermalControlSystems.html" />
-    <link rel="prev" title="1.1. Systems, complex technological systems and space systems" href="01a_CM1_Systems_SpaceSystems.html" />
+    <link rel="next" title="1.3. Thermal Control System" href="02_CM2_ThermalControlSystems.html" />
+    <link rel="prev" title="1.1. Complex technological systems and space systems" href="01a_CM1_Systems_SpaceSystems.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,12 +170,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Classes and Labs</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="summaryPartA.html">1. Technical requirements definition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01a_CM1_Systems_SpaceSystems.html">1.1. Systems, complex technological systems and space systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01a_CM1_Systems_SpaceSystems.html">1.1. Complex technological systems and space systems</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">1.2. System engineering</a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="02_CM2_ThermalControlSystems.html">1.4. Thermal Control System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_CM3_Introduction2MultiPhysicModeling.html">1.5. Introduction to multiphysics modeling of sizing scenarios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_TD1_CubeSatThermalModeling.html">1.6. Thermal Model for CubeSat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_CM2_ThermalControlSystems.html">1.3. Thermal Control System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_CM3_Introduction2MultiPhysicModeling.html">1.4. Introduction to multiphysics modeling of sizing scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_TD1_CubeSatThermalModeling.html">1.5. Thermal Model for CubeSat</a></li>
 
 </ul>
 </li>
@@ -451,10 +450,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1.2. System engineering</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#systems-and-space-systems">1.3. Systems and space systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-design-process">1.2.1. System design process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stakeholders-expectations">1.2.2. Stakeholders expectations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-need">1.2.2.1. Fundamental need</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#life-cycle-analysis">1.2.2.2. Life cycle analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-boundaries-definition">1.2.2.3. System boundaries definition</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements-definition">1.2.3. Requirements Definition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-definition">1.2.3.1. Logical definition</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework">1.2.4. Homework</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.2.5. References</a></li>
+</ul>
             </nav>
         </div>
     </div>
@@ -473,46 +482,123 @@ document.write(`
 <li><p>Architecture et conceptual design : importance de la fiabilité, redondance (old et new sapce)</p></li>
 <li><p>Conception préliminaire : hardware () et software (model based design, rapid prototyping)</p></li>
 <li><p>Vérification et validation : importance dans le domaine spatial</p></li>
-<li><p>Homework :  Analyse du besoin –&gt; exigences technique ==&gt; preparer question lors conférence Yann Cervantes CNES pour pouvoir couvrir cette partie.</p></li>
+</ul>
+<p>Figure below illustrates the complete lifecycle of a complex technological system. Differents standards define the interdisciplinary tasks required to transform needs, requirements and constraints encountered. We will focus in this lecture on the first step: the system definition.</p>
+<p><img alt="System lifecycle" src="../_images/SystemEngineeringStandards.png" /></p>
+<section id="system-design-process">
+<h2><span class="section-number">1.2.1. </span>System design process<a class="headerlink" href="#system-design-process" title="Permalink to this heading">#</a></h2>
+<p>The NASA System Engineering Handbook [<span class="xref myst">NASA, 2017</span>] distingues four system design processes enabling the system definition: developing stakeholder expectations, technical requirements, logical decompositions, and design solutions. These system design processes are interdependent, highly iterative and recursive processes resulting on the different systems, subsystems in a validated set of requirements and a design solution that satisfies a set of stakeholder expectations.</p>
+<p><img alt="System design process" src="../_images/NasaDesignProcess.PNG" /></p>
+<p>Graphical representation tools can be uses for theses processes:</p>
+<ul class="simple">
+<li><p>Those of the APTE method [<span class="xref myst">Audry, 2010</span>]  derived from value analysis applied to the redesign of technical systems.</p></li>
+<li><p>The SYSML language, which offers a wide range of diagrams for representing technological or IT systems.</p></li>
+</ul>
+<p>We will follow the theses processes on a example of a space sub-system: the rocket nozzle thrust vector control actuation system. The actuation system of the 1st stage of a launcher consists of two actuators used to control the nozzle according to 2 axes of rotation.</p>
+<p><em>Vega Launcher 1st stage (P80) (from <a class="reference external" href="http://www.ingaero.uniroma1.it/attachments/1609_VEGA%20%20sapienza%20small.pdf">ESA presentation</a>):</em><br />
+<img alt="Vega 1st stage" src="../_images/P80_stage1.png" /></p>
+</section>
+<section id="stakeholders-expectations">
+<h2><span class="section-number">1.2.2. </span>Stakeholders expectations<a class="headerlink" href="#stakeholders-expectations" title="Permalink to this heading">#</a></h2>
+<section id="fundamental-need">
+<h3><span class="section-number">1.2.2.1. </span>Fundamental need<a class="headerlink" href="#fundamental-need" title="Permalink to this heading">#</a></h3>
+<p>The objective is first to understand the fundamental need justifying the development of the system studied. This can be done by answering the questions:</p>
+<ul class="simple">
+<li><p>Who does it serve? À qui le Produit rend-il service ?</p></li>
+<li><p>Who does it affect? Sur quoi le Produit agit-il ?</p></li>
+<li><p>“For what purpose” (what for?) « Dans quel but ? » (pour_quoi faire ?)</p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="systems-and-space-systems">
-<h1><span class="section-number">1.3. </span>Systems and space systems<a class="headerlink" href="#systems-and-space-systems" title="Permalink to this heading">#</a></h1>
-<p>Systems and space systems</p>
+<section id="life-cycle-analysis">
+<h3><span class="section-number">1.2.2.2. </span>Life cycle analysis<a class="headerlink" href="#life-cycle-analysis" title="Permalink to this heading">#</a></h3>
+<p>An analysis of the various life phases can help to determine which of them may have a significant influence on the solution finally developed.
+Examples of life phases:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p></p></th>
+<th class="head text-center"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>design</p></td>
+<td class="text-center"><p>normal (primary) use</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>manufacturing</p></td>
+<td class="text-center"><p>normal use (secondary)</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>metrology / integration testing</p></td>
+<td class="text-center"><p>abnormal use (degraded mode)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>packaging</p></td>
+<td class="text-center"><p>maintenance</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>transportation</p></td>
+<td class="text-center"><p>non-use</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>marketing</p></td>
+<td class="text-center"><p>storage</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>assembly</p></td>
+<td class="text-center"><p>repackaging</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>installation / implementation</p></td>
+<td class="text-center"><p>updating</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>validation</p></td>
+<td class="text-center"><p>recycling / destruction</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="system-boundaries-definition">
+<h3><span class="section-number">1.2.2.3. </span>System boundaries definition<a class="headerlink" href="#system-boundaries-definition" title="Permalink to this heading">#</a></h3>
+<p>It is also important to define the boundaries of the system under study. This will make it possible to
+define:</p>
 <ul class="simple">
-<li><p>definition d’un système</p></li>
-<li><p>mécanique vers multitechnologie
-ingénieur mécanicien peut tout comprendre -&gt; équipe d’ingenieur + ingénieur système</p></li>
-<li><p>systèmes spatiaux et new space</p></li>
+<li><p>what is imposed = the external elements with which the system will interact</p></li>
+<li><p>on what the designer can act = the system</p></li>
 </ul>
-<p>Amont
-Lanceurs
-<a class="reference external" href="https://www.latitude.eu">https://www.latitude.eu</a>
-Logistique dans l’espace (exotrail)</p>
-<p>Capsule (the exploration company)</p>
-<p>Voile solaire
-gamma</p>
-<p>Nanosatellite
-<a class="reference external" href="https://www.hemeria-group.com/wp-content/uploads/2022/05/NANOSAT_FR_2022.pdf">https://www.hemeria-group.com/wp-content/uploads/2022/05/NANOSAT_FR_2022.pdf</a></p>
-<p>Constellations
-<a class="reference external" href="https://www.kineis.com/iot-technologie/">https://www.kineis.com/iot-technologie/</a></p>
-<p>Aval
-<a class="reference external" href="https://www.naio-technologies.com/">https://www.naio-technologies.com/</a>
-Autonome avec guidage et paramétrage des tâches par GNSS RTK. Système Naïo Core inclus</p>
-<ul class="simple">
-<li><p>système cubesat :
-système breakdown</p></li>
+</section>
+</section>
+<section id="requirements-definition">
+<h2><span class="section-number">1.2.3. </span>Requirements Definition<a class="headerlink" href="#requirements-definition" title="Permalink to this heading">#</a></h2>
+<p>By analysing each life phase, we can determine all the service functions and constraints.</p>
+<p>Definition
+Main or Service function
+Constraint function</p>
+<p>Notation
+According to APTE method
+une fonction se compose d’un verbe ou d’un groupe verbal caractérisant l’action, et de compléments représentant les éléments du milieu extérieur concernés par la fonction. Le sujet de la phrase n’apparait pas, mais il renvoie toujours au produit.</p>
+<p>According to nasa handbook
+The requirement is in the form “product ABC shall XYZ.” A requirement should state “The product shall” (do, perform, provide, weigh, or other verb) followed by a description of what should be done.</p>
+<p>These functions make up the functional specifications. There are different specifications depending on the design stage.</p>
+<p>Requirements specification
+Independent of the solution and technological choices.
+Avoid influencing the designers or sub-contractors and focus on the fundamental need to be met.</p>
+<p>Technological specifications
+The choice of solution can lead to additional functions or requirements.</p>
+<p>For example, an elctromechanical solution is required in a thermal environment.</p>
+<section id="logical-definition">
+<h3><span class="section-number">1.2.3.1. </span>Logical definition<a class="headerlink" href="#logical-definition" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="homework">
+<h2><span class="section-number">1.2.4. </span>Homework<a class="headerlink" href="#homework" title="Permalink to this heading">#</a></h2>
+<p>Homework :  Analyse du besoin –&gt; exigences technique ==&gt; preparer question lors conférence Yann Cervantes CNES pour pouvoir couvrir cette partie.</p>
+<blockquote>
+<div><ul class="simple">
+<li></li>
+<li><p>Study the requirements for Thermal Managment Systems for CubeSats.</p></li>
+<li></li>
 </ul>
-<p>Reseau de fournisseurs
-<a class="reference external" href="https://www.cubesatshop.com/">https://www.cubesatshop.com/</a></p>
-<p>Exemple de technologies :</p>
-<p>poussée ionique
-<a class="reference external" href="https://www.exotrail.com/">https://www.exotrail.com/</a>
-<a class="reference external" href="https://comat.space/p/small-sat/fr-pjp-technology/">https://comat.space/p/small-sat/fr-pjp-technology/</a></p>
-<p>Processus de conception</p>
-<p>Ingeniérie des exigences
-. Analyse du besoin
-.</p>
+</div></blockquote>
+</section>
+<section id="references">
+<h2><span class="section-number">1.2.5. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<p>[Nasa, 2017] Hirshorn, S. R., Voss, L. D., &amp; Bromley, L. K. (2017). Nasa systems engineering handbook (No. HQ-E-DAA-TN38707). <a class="reference external" href="https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf">Link</a></p>
+<p>[Rossi, 2013] Rossi, S., &amp; Ivanov, A. (2013). Thermal model for cubesat: A simple and easy model from the Swisscube’s thermal flight data. In <em>Proceedings of the International Astronautical Congress</em> (Vol. 13, pp. 9919-9928). <a class="reference external" href="https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf">Link</a></p>
+<p>[Audry, 2010] Audry, M. F. (2010). La démarche d’analyse fonctionnelle. Académie de Versailles. <a class="reference external" href="https://sti.ac-versailles.fr/IMG/pdf/analyse_fonctionnelle_guide_pour_le_professeur-2.pdf">Link</a></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -551,7 +637,7 @@ système breakdown</p></li>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1.1. </span>Systems, complex technological systems and space systems</p>
+        <p class="prev-next-title"><span class="section-number">1.1. </span>Complex technological systems and space systems</p>
       </div>
     </a>
     <a class="right-next"
@@ -559,7 +645,7 @@ système breakdown</p></li>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.4. </span>Thermal Control System</p>
+        <p class="prev-next-title"><span class="section-number">1.3. </span>Thermal Control System</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -578,10 +664,20 @@ système breakdown</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1.2. System engineering</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#systems-and-space-systems">1.3. Systems and space systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-design-process">1.2.1. System design process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stakeholders-expectations">1.2.2. Stakeholders expectations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-need">1.2.2.1. Fundamental need</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#life-cycle-analysis">1.2.2.2. Life cycle analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-boundaries-definition">1.2.2.3. System boundaries definition</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements-definition">1.2.3. Requirements Definition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-definition">1.2.3.1. Logical definition</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework">1.2.4. Homework</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.2.5. References</a></li>
+</ul>
   </nav></div>
 
 </div></div>

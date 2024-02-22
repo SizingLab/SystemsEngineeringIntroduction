@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1.6. Thermal Model for CubeSat &#8212; Systems Engineering Introduction</title>
+    <title>1.5. Thermal Model for CubeSat &#8212; Systems Engineering Introduction</title>
   
   
   
@@ -70,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2. Part B" href="summaryPartB.html" />
-    <link rel="prev" title="1.5. Introduction to multiphysics modeling of sizing scenarios" href="03_CM3_Introduction2MultiPhysicModeling.html" />
+    <link rel="prev" title="1.4. Introduction to multiphysics modeling of sizing scenarios" href="03_CM3_Introduction2MultiPhysicModeling.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -172,12 +172,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Classes and Labs</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="summaryPartA.html">1. Technical requirements definition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01a_CM1_Systems_SpaceSystems.html">1.1. Systems, complex technological systems and space systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01a_CM1_Systems_SpaceSystems.html">1.1. Complex technological systems and space systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01b_CM1_SystemEngineering.html">1.2. System engineering</a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="02_CM2_ThermalControlSystems.html">1.4. Thermal Control System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_CM3_Introduction2MultiPhysicModeling.html">1.5. Introduction to multiphysics modeling of sizing scenarios</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.6. Thermal Model for CubeSat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_CM2_ThermalControlSystems.html">1.3. Thermal Control System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_CM3_Introduction2MultiPhysicModeling.html">1.4. Introduction to multiphysics modeling of sizing scenarios</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.5. Thermal Model for CubeSat</a></li>
 
 </ul>
 </li>
@@ -453,16 +452,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1.6. Thermal Model for CubeSat</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">1.6.1. <strong>ABSTRACT</strong> 📚</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1.5. Thermal Model for CubeSat</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">1.5.1. <strong>ABSTRACT</strong> 📚</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#specification-and-simulation">1.7. Specification and Simulation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-on-cubesat-batteries">1.7.1. ####<strong>INFORMATION ON CUBESAT BATTERIES</strong> 🔋</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-of-thermal-capacitance">1.7.2. ####<strong>EVALUATION OF THERMAL CAPACITANCE</strong> 💡</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-equivalent-aluminum-box">1.7.3. ####<strong>DEFINITION OF EQUIVALENT ALUMINUM BOX</strong> ⏹</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-thermal-model-of-swisscube">1.7.4. ####<strong>2-NODE THERMAL MODEL OF SWISSCUBE</strong> 🌡</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-necessary-for-a-consistent-15c">1.7.5. ####<strong>POWER NECESSARY FOR A CONSISTENT 15°C</strong> ⚡️</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#specification-and-simulation">1.6. Specification and Simulation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-on-cubesat-batteries">1.6.1. ####<strong>INFORMATION ON CUBESAT BATTERIES</strong> 🔋</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-of-thermal-capacitance">1.6.2. ####<strong>EVALUATION OF THERMAL CAPACITANCE</strong> 💡</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-equivalent-aluminum-box">1.6.3. ####<strong>DEFINITION OF EQUIVALENT ALUMINUM BOX</strong> ⏹</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-thermal-model-of-swisscube">1.6.4. ####<strong>2-NODE THERMAL MODEL OF SWISSCUBE</strong> 🌡</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-necessary-for-a-consistent-15c">1.6.5. ####<strong>POWER NECESSARY FOR A CONSISTENT 15°C</strong> ⚡️</a></li>
 </ul>
 </li>
 </ul>
@@ -478,9 +477,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="thermal-model-for-cubesat">
-<h1><span class="section-number">1.6. </span>Thermal Model for CubeSat<a class="headerlink" href="#thermal-model-for-cubesat" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">1.5. </span>Thermal Model for CubeSat<a class="headerlink" href="#thermal-model-for-cubesat" title="Permalink to this heading">#</a></h1>
 <section id="abstract">
-<h2><span class="section-number">1.6.1. </span><strong>ABSTRACT</strong> 📚<a class="headerlink" href="#abstract" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.5.1. </span><strong>ABSTRACT</strong> 📚<a class="headerlink" href="#abstract" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <details>
 <summary><b>Rossi, Ivanov</b> | <i>Thermal Model for CubeSat: A simple and easy model from the SwissCube's thermal flight data</i></summary>
@@ -502,10 +501,10 @@ The above illustrated figures show the simplified two node model defined to even
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="specification-and-simulation">
-<h1><span class="section-number">1.7. </span>Specification and Simulation<a class="headerlink" href="#specification-and-simulation" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">1.6. </span>Specification and Simulation<a class="headerlink" href="#specification-and-simulation" title="Permalink to this heading">#</a></h1>
 <p><em>Defining the Needs for a CubeSat Battery Pack Heating Solution</em></p>
 <section id="information-on-cubesat-batteries">
-<h2><span class="section-number">1.7.1. </span>####<strong>INFORMATION ON CUBESAT BATTERIES</strong> 🔋<a class="headerlink" href="#information-on-cubesat-batteries" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.6.1. </span>####<strong>INFORMATION ON CUBESAT BATTERIES</strong> 🔋<a class="headerlink" href="#information-on-cubesat-batteries" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The <strong>OPTIMUS Battery</strong> from <a class="reference external" href="https://www.aac-clyde.space/what-we-do/space-products-components/cubesat-batteries">AAC Clyde Space</a> has strings of cells connected in parallel with cell protection electronics and autonomous integrated heater systems for thermal control. It’s available in varrying battery range capacities [<em>30, 40, and 80 Wh</em>].</p></li>
 <li><p>The <a class="reference external" href="https://https://pw-sat.pl/wp-content/uploads/2014/07/PW-Sat2-A-03.00-EPS-PRR-EN-v1.1.pdf">SwissCube Satellite</a> utilized two (2) <strong>Varta PoLiFlex LiPo [<em>Lithium Polymer</em>]</strong> PLF503759 batteries with a maximum voltage of 4.2 V and a capacity of 1210 mAh</p></li>
@@ -513,7 +512,7 @@ The above illustrated figures show the simplified two node model defined to even
 </ul>
 </section>
 <section id="evaluation-of-thermal-capacitance">
-<h2><span class="section-number">1.7.2. </span>####<strong>EVALUATION OF THERMAL CAPACITANCE</strong> 💡<a class="headerlink" href="#evaluation-of-thermal-capacitance" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.6.2. </span>####<strong>EVALUATION OF THERMAL CAPACITANCE</strong> 💡<a class="headerlink" href="#evaluation-of-thermal-capacitance" title="Permalink to this heading">#</a></h2>
 <p>Try to evaluate the thermal capacitance of a battery pack composed of :</p>
 <ul class="simple">
 <li><p>2 Varta cells</p></li>
@@ -561,7 +560,7 @@ C_th_alu = 82.34
 </div>
 </section>
 <section id="definition-of-equivalent-aluminum-box">
-<h2><span class="section-number">1.7.3. </span>####<strong>DEFINITION OF EQUIVALENT ALUMINUM BOX</strong> ⏹<a class="headerlink" href="#definition-of-equivalent-aluminum-box" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.6.3. </span>####<strong>DEFINITION OF EQUIVALENT ALUMINUM BOX</strong> ⏹<a class="headerlink" href="#definition-of-equivalent-aluminum-box" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The dimensions will be scaled to that of the SwissCube Satellite’s Varta PoLiFlex LiPo PLF503759, with <strong>58.7 mm length</strong>, <strong>37.0 mm width</strong>, and <strong>5.2 mm height or thickness</strong></p></li>
 <li><p><strong>6061-T6 Aluminum</strong> with a thermal capacitance of 237 J/kg-K and density of 2.7 g/cm^3 is commonly used in satellite applications</p></li>
@@ -602,7 +601,7 @@ Height/Thickness: 0.700117428544917
 <p>With this, all dimensions of the Varta PoLiFlex LiPo PLF503759 shall be multiplied by <strong>2.23</strong> to stay on a scaled factor and obtain a total Thermal Capacitance of <strong>80 J/K</strong>, obtaining the following final equivalent dimensions: <strong>7.90 cm length</strong>, <strong>4.98 cm width</strong>, and <strong>0.700 cm height/thickness</strong></p>
 </section>
 <section id="node-thermal-model-of-swisscube">
-<h2><span class="section-number">1.7.4. </span>####<strong>2-NODE THERMAL MODEL OF SWISSCUBE</strong> 🌡<a class="headerlink" href="#node-thermal-model-of-swisscube" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.6.4. </span>####<strong>2-NODE THERMAL MODEL OF SWISSCUBE</strong> 🌡<a class="headerlink" href="#node-thermal-model-of-swisscube" title="Permalink to this heading">#</a></h2>
 <p>Note that the model is not to scale but follows the same trend as that of the study by Rossi and Ivanov.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -724,7 +723,7 @@ R: 1.381475138121547e-11
 </div>
 </section>
 <section id="power-necessary-for-a-consistent-15c">
-<h2><span class="section-number">1.7.5. </span>####<strong>POWER NECESSARY FOR A CONSISTENT 15°C</strong> ⚡️<a class="headerlink" href="#power-necessary-for-a-consistent-15c" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.6.5. </span>####<strong>POWER NECESSARY FOR A CONSISTENT 15°C</strong> ⚡️<a class="headerlink" href="#power-necessary-for-a-consistent-15c" title="Permalink to this heading">#</a></h2>
 <p><strong>NOTE</strong>: Use the following equation: <em>Power = Heat Load for Desired Temperature / (Thermal Capacitance * Efficiency)</em></p>
 <blockquote>
 <div><p>“In this way the heat produced by the resistance inside the battery-box has been setup to turn off once the temperature is over 5ºC and turn on when below the -5ºC. While turned on, in SwissCube, it produces between 100 mW and 150 mW: <strong>in the model it has been used 100 mW</strong>”</p>
@@ -936,7 +935,7 @@ Mean Power: -0.17737055770976012 W
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1.5. </span>Introduction to multiphysics modeling of sizing scenarios</p>
+        <p class="prev-next-title"><span class="section-number">1.4. </span>Introduction to multiphysics modeling of sizing scenarios</p>
       </div>
     </a>
     <a class="right-next"
@@ -963,16 +962,16 @@ Mean Power: -0.17737055770976012 W
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1.6. Thermal Model for CubeSat</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">1.6.1. <strong>ABSTRACT</strong> 📚</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1.5. Thermal Model for CubeSat</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">1.5.1. <strong>ABSTRACT</strong> 📚</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#specification-and-simulation">1.7. Specification and Simulation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-on-cubesat-batteries">1.7.1. ####<strong>INFORMATION ON CUBESAT BATTERIES</strong> 🔋</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-of-thermal-capacitance">1.7.2. ####<strong>EVALUATION OF THERMAL CAPACITANCE</strong> 💡</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-equivalent-aluminum-box">1.7.3. ####<strong>DEFINITION OF EQUIVALENT ALUMINUM BOX</strong> ⏹</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-thermal-model-of-swisscube">1.7.4. ####<strong>2-NODE THERMAL MODEL OF SWISSCUBE</strong> 🌡</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-necessary-for-a-consistent-15c">1.7.5. ####<strong>POWER NECESSARY FOR A CONSISTENT 15°C</strong> ⚡️</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#specification-and-simulation">1.6. Specification and Simulation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-on-cubesat-batteries">1.6.1. ####<strong>INFORMATION ON CUBESAT BATTERIES</strong> 🔋</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-of-thermal-capacitance">1.6.2. ####<strong>EVALUATION OF THERMAL CAPACITANCE</strong> 💡</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-equivalent-aluminum-box">1.6.3. ####<strong>DEFINITION OF EQUIVALENT ALUMINUM BOX</strong> ⏹</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-thermal-model-of-swisscube">1.6.4. ####<strong>2-NODE THERMAL MODEL OF SWISSCUBE</strong> 🌡</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-necessary-for-a-consistent-15c">1.6.5. ####<strong>POWER NECESSARY FOR A CONSISTENT 15°C</strong> ⚡️</a></li>
 </ul>
 </li>
 </ul>

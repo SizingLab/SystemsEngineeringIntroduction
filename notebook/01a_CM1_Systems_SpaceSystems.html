@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1.1. Systems, complex technological systems and space systems &#8212; Systems Engineering Introduction</title>
+    <title>1.1. Complex technological systems and space systems &#8212; Systems Engineering Introduction</title>
   
   
   
@@ -170,12 +170,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Classes and Labs</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="summaryPartA.html">1. Technical requirements definition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.1. Systems, complex technological systems and space systems</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.1. Complex technological systems and space systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01b_CM1_SystemEngineering.html">1.2. System engineering</a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="02_CM2_ThermalControlSystems.html">1.4. Thermal Control System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_CM3_Introduction2MultiPhysicModeling.html">1.5. Introduction to multiphysics modeling of sizing scenarios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_TD1_CubeSatThermalModeling.html">1.6. Thermal Model for CubeSat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_CM2_ThermalControlSystems.html">1.3. Thermal Control System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_CM3_Introduction2MultiPhysicModeling.html">1.4. Introduction to multiphysics modeling of sizing scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_TD1_CubeSatThermalModeling.html">1.5. Thermal Model for CubeSat</a></li>
 
 </ul>
 </li>
@@ -441,7 +440,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Systems, complex technological systems and space systems</h1>
+    <h1>Complex technological systems and space systems</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -451,14 +450,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#systems">1.1.1. Systems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mechanical-systems-to-complex-technological-systems">1.1.1.1. From mechanical systems to complex technological systems</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-definition">1.1.1.2. System definition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#space-systems-in-new-space">1.1.1.3. Space systems in new Space</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cubesat-platform">1.1.1.4. Cubesat platform</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.1.1.5. References</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mechanical-systems-to-complex-technological-systems">1.1.1. From mechanical systems to complex technological systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-definition">1.1.2. System definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#space-systems-in-new-space">1.1.3. Space systems in New Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cubesat-platform">1.1.4. Cubesat platform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study">1.1.5. Case study</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework">1.1.6. Homework</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.1.7. References</a></li>
 </ul>
             </nav>
         </div>
@@ -470,19 +468,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="systems-complex-technological-systems-and-space-systems">
-<h1><span class="section-number">1.1. </span>Systems, complex technological systems and space systems<a class="headerlink" href="#systems-complex-technological-systems-and-space-systems" title="Permalink to this heading">#</a></h1>
-<ul class="simple">
-<li><p>Notion de système : évolution historique, définition, technologies</p></li>
-<li><p>Systèmes spatiaux, new space et cubesat</p></li>
-<li><p>Description d’architecture, interfaces</p></li>
-<li><p>Cas d’étude : TMS de cubesat, application au contrôle thermique de batterie</p></li>
-<li><p>Homework : analyse d’entreprise dans le domaine du new space, de besoins TMS (hardware, software, service) et definition d’interfaces. Préparation d’un pitch de positionnement d’une entrepise du newspace</p></li>
-</ul>
-<section id="systems">
-<h2><span class="section-number">1.1.1. </span>Systems<a class="headerlink" href="#systems" title="Permalink to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="complex-technological-systems-and-space-systems">
+<h1><span class="section-number">1.1. </span>Complex technological systems and space systems<a class="headerlink" href="#complex-technological-systems-and-space-systems" title="Permalink to this heading">#</a></h1>
 <section id="from-mechanical-systems-to-complex-technological-systems">
-<h3><span class="section-number">1.1.1.1. </span>From mechanical systems to complex technological systems<a class="headerlink" href="#from-mechanical-systems-to-complex-technological-systems" title="Permalink to this heading">#</a></h3>
+<h2><span class="section-number">1.1.1. </span>From mechanical systems to complex technological systems<a class="headerlink" href="#from-mechanical-systems-to-complex-technological-systems" title="Permalink to this heading">#</a></h2>
 <p>Many mechanical systems have evolved into complex technological systems.</p>
 <blockquote>
 <div><p>Under each figure, answer the following questions:</p>
@@ -523,7 +512,7 @@ Description<div class="sd-summary-down docutils">
 </div>
 </details></section>
 <section id="system-definition">
-<h3><span class="section-number">1.1.1.2. </span>System definition<a class="headerlink" href="#system-definition" title="Permalink to this heading">#</a></h3>
+<h2><span class="section-number">1.1.2. </span>System definition<a class="headerlink" href="#system-definition" title="Permalink to this heading">#</a></h2>
 <p>The System Engineering Handbook of NASA define a system [<span class="xref myst">Nasa, 2017</span>] as:</p>
 <blockquote>
 <div><p>A <strong>“system”</strong> is the <em>combination of elements</em> that function together to produce the capability required to <em>meet a need</em>. The elements include all <em>hardware, software</em>, equipment, facilities, personnel, processes, and procedures needed for this purpose; that is, all things required to produce system-level results. […] The value added by the system as a whole, beyond that contributed independently by the parts, is primarily created by the <em>relationship among the parts</em>; that is, <em>how they are interconnected</em>.</p>
@@ -535,7 +524,7 @@ Description<div class="sd-summary-down docutils">
 through a <strong>space subsystem</strong>.</p>
 </section>
 <section id="space-systems-in-new-space">
-<h3><span class="section-number">1.1.1.3. </span>Space systems in new Space<a class="headerlink" href="#space-systems-in-new-space" title="Permalink to this heading">#</a></h3>
+<h2><span class="section-number">1.1.3. </span>Space systems in New Space<a class="headerlink" href="#space-systems-in-new-space" title="Permalink to this heading">#</a></h2>
 <p>NewSpace refers to the emergence of a private-initiative space industry at the beginning of the 21st century, stimulated by certain governments to strengthen international competitiveness while guaranteeing strategic independence in key sectors.</p>
 <blockquote>
 <div><p><strong>Note:</strong> <a class="reference external" href="https://www.connectbycnes.fr/">Connect by CNES</a> is a CNES field programme launched in 2016 to support the development of new space in France.</p>
@@ -543,43 +532,58 @@ through a <strong>space subsystem</strong>.</p>
 <p><img alt="Complex Systems" src="../_images/ConnectByCnes.png" /></p>
 <p>NewSpace concern in particular a group of relatively new aerospace companies working to develop low-cost, public access to space exploration and space applications:</p>
 <ul class="simple">
-<li><p>new naunchers: <a class="reference external" href="https://www.latitude.eu">https://www.latitude.eu</a></p></li>
-<li><p>space logistics:
-Logistique dans l’espace (exotrail)</p></li>
+<li><p><strong>New Launchers:</strong> <a class="reference external" href="https://www.latitude.eu">Latitude</a> (formerly Venture Orbital Systems) is a French start-up based in Reims. It produces the Zephyr micro-launcher and its Navier 3D-printed engine to provide orbital launch services tailored to nano-satellites.</p></li>
 </ul>
-<p>Capsule (the exploration company)</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="https://www.journaldugeek.com/app/uploads/2022/06/cover-1.jpg"><img alt="Latitude" class="bg-primary mb-1 align-center" src="https://www.journaldugeek.com/app/uploads/2022/06/cover-1.jpg" style="width: 300px;" /></a>
+<p><img alt="Latitude" src="https://www.journaldugeek.com/app/uploads/2022/06/cover-1.jpg" /></p>
 <ul class="simple">
-<li><p>Nanosatellites constellations:
-<a class="reference external" href="https://www.hemeria-group.com/wp-content/uploads/2022/05/NANOSAT_FR_2022.pdf">https://www.hemeria-group.com/wp-content/uploads/2022/05/NANOSAT_FR_2022.pdf</a></p></li>
-<li><p>Constellations
-<a class="reference external" href="https://www.kineis.com/iot-technologie/">https://www.kineis.com/iot-technologie/</a></p></li>
+<li><p><strong>Nanosatellites constellations:</strong> <a class="reference external" href="https://www.kineis.com/iot-technologie/">Kineis</a> is a French project for a constellation of nano-satellites designed to provide Internet of Things (IoT) services via satellite. The Kineis project is a continuation of the Argos system, which has been in existence since the 1980s. <a class="reference external" href="https://www.hemeria-group.com/wp-content/uploads/2022/05/NANOSAT_FR_2022.pdf">Hemeria</a> supplies Kineis with the 25 nanosatellites of this 1st European nanosatellite constellation dedicated to the Internet of Things.</p></li>
 </ul>
-<p>Aval
-<a class="reference external" href="https://www.naio-technologies.com/">https://www.naio-technologies.com/</a>
-Autonome avec guidage et paramétrage des tâches par GNSS RTK. Système Naïo Core inclus</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="https://www.kineis.com/wp-content/uploads/bb-plugin/cache/Constellation_1-circle-0de2c2188bf1839c34a8b9b26c0efb3b-5efuvcdow74l.jpg"><img alt="Kineis" class="bg-primary mb-1 align-center" src="https://www.kineis.com/wp-content/uploads/bb-plugin/cache/Constellation_1-circle-0de2c2188bf1839c34a8b9b26c0efb3b-5efuvcdow74l.jpg" style="width: 300px;" /></a>
+<p><img alt="Kineis" src="https://www.kineis.com/wp-content/uploads/bb-plugin/cache/Constellation_1-circle-0de2c2188bf1839c34a8b9b26c0efb3b-5efuvcdow74l.jpg" /></p>
+<ul class="simple">
+<li><p><strong>Ground applications</strong>: <a class="reference external" href="https://www.naio-technologies.com/">Naïo Technologies</a> is a Toulouse-based start-up specialising in agricultural robotics. The company develops and markets robots for farmers designed to reduce drudgery at work. Robtos are autonomous thanks to RTK GNSS positionning (Real-time kinematic satelite positioning providing up to centimetre-level accuracy).</p></li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="https://www.reference-agro.fr/wp-content/uploads/2020/09/Nouvelle-version-Ted-Naio-Technologies-min-1140x370.jpg.webp"><img alt="Naio" class="bg-primary mb-1 align-center" src="https://www.reference-agro.fr/wp-content/uploads/2020/09/Nouvelle-version-Ted-Naio-Technologies-min-1140x370.jpg.webp" style="width: 400px;" /></a>
+<p><img alt="Naio" src="https://www.reference-agro.fr/wp-content/uploads/2020/09/Nouvelle-version-Ted-Naio-Technologies-min-1140x370.jpg.webp" /></p>
 </section>
 <section id="cubesat-platform">
-<h3><span class="section-number">1.1.1.4. </span>Cubesat platform<a class="headerlink" href="#cubesat-platform" title="Permalink to this heading">#</a></h3>
+<h2><span class="section-number">1.1.4. </span>Cubesat platform<a class="headerlink" href="#cubesat-platform" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/CubeSat">Cubesats</a> are nanosatellites using standardised formats (1 unit or 1U = 10 cm x 10 cm x 10 cm) and reusable technical subsystem <a class="reference external" href="https://www.cubesatshop.com/">kits</a> supplied by an ecosystem of companies and start-ups.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/9/9d/ArduSat3.png"><img alt="Cubesat" class="bg-primary mb-1 align-center" src="https://upload.wikimedia.org/wikipedia/commons/9/9d/ArduSat3.png" style="width: 400px;" /></a>
+<p><img alt="Cubesat" src="https://upload.wikimedia.org/wikipedia/commons/9/9d/ArduSat3.png" /></p>
+<p>The graphic below, called Work Breakdown Structure (WBS), shows how a cubesat satellite programme can be broken down into products of different sizes or levels of complexity <span class="xref myst">Beale, 2006</span>: systems, sub-systems, components, parts.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/CubeSatWBS.svg"><img alt="CubeSatWBS" class="bg-primary mb-1 align-center" src="../_images/CubeSatWBS.svg" width="400px" /></a>
+<p><img alt="Cubesat WBS" src="../_images/CubeSatWBS.svg" /></p>
+<p>The Product Breakdown Structure (PBS) decomposes the studied system into products and the Work Breakdown Structure (WBS) complete this structure with the tasks [<span class="xref myst">Faure, 2020</span>]:</p>
 <ul class="simple">
-<li><p>système cubesat :
-système breakdown</p></li>
+<li><p>Products – Anything that can be built (e.g., structure), created (e.g., software), or bought
+(e.g., solar cells)</p></li>
+<li><p>Tasks – The work (and the workpackages) that need to be executed throughout the project (e.g., manage requirements; perform vibration test; carry out the integration of the payload with the
+satellite bus)</p></li>
 </ul>
-<p>Reseau de fournisseurs
-<a class="reference external" href="https://www.cubesatshop.com/">https://www.cubesatshop.com/</a></p>
-<p>Exemple de technologies :</p>
-<p>poussée ionique
-<a class="reference external" href="https://www.exotrail.com/">https://www.exotrail.com/</a>
-<a class="reference external" href="https://comat.space/p/small-sat/fr-pjp-technology/">https://comat.space/p/small-sat/fr-pjp-technology/</a></p>
-<p>Processus de conception</p>
-<p>Ingeniérie des exigences
-. Analyse du besoin
-.</p>
+</section>
+<section id="case-study">
+<h2><span class="section-number">1.1.5. </span>Case study<a class="headerlink" href="#case-study" title="Permalink to this heading">#</a></h2>
+<p>During this teaching module, you will have to put yourself in the role of a start-up wanting to offer kits enabling the thermal control of cubesats. Your first products will be for applications requiring heating, such as batteries, liquid propellant tanks, scientific experiments, etc. This type of product contains both hardware (temperature control components) and software (temperature control algorithms).</p>
+<p><img alt="Battery Pack" src="https://gomspace.com/Storage/cache/img/Storage/plugin_files/shop/productimages/12/59b7d4091c0df936bdccfd63e80de10b.png" /></p>
+</section>
+<section id="homework">
+<h2><span class="section-number">1.1.6. </span>Homework<a class="headerlink" href="#homework" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Create your team (“binome” compatible with your Tutorials and Labs groups).</p></li>
+<li><p>Analysing the activities, products and services offered by companies in the NewSpace.</p></li>
+<li><p>Prepare a 2-slide pitch positioning a company on CubeSat’s Thermal Managment System (hardware, software, service).</p></li>
+</ul>
+</div></blockquote>
 </section>
 <section id="references">
-<h3><span class="section-number">1.1.1.5. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h3>
-<p>[Nasa, 2017] Hirshorn, S. R., Voss, L. D., &amp; Bromley, L. K. (2017). Nasa systems engineering handbook (No. HQ-E-DAA-TN38707). <a class="reference external" href="https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf">Link</a></p>
-<p><a class="reference external" href="https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf">https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf</a></p>
-</section>
+<h2><span class="section-number">1.1.7. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<p>[Nasa, 2017a] Hirshorn, S. R., Voss, L. D., &amp; Bromley, L. K. (2017). Nasa systems engineering handbook (No. HQ-E-DAA-TN38707). <a class="reference external" href="https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf">Link</a></p>
+<p>[Nasa, 2017b] Jamie, C., Roland, C., Justin, F., &amp; Alicia, J. (2017). Basic concepts and processes for first-time CubeSat developers. CubeSat101, CaliforDesign of a CubeSat Testbednia. <a class="reference external" href="https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf">Link</a></p>
+<p>[Beale, 2006] Beale, D., &amp; Bonometti, J. (2006). Systems engineering (SE)-the systems design process. The Lunar Engineering Handbook, Auburg University, Auburn. <a class="reference external" href="https://www.eng.auburn.edu/~dbeale/ESMDCourse/Chapter3.htm">Link</a></p>
+<p>[Faure, 2020] Faure, P., (2020). SmallSats and Systems Engineering,  California Polytechnic State University.<a class="reference external" href="https://www.nasa.gov/wp-content/uploads/2020/06/s3vi_smallsats_and_se_pf_200715_0.pdf">Link</a></p>
 </section>
 </section>
 
@@ -646,14 +650,13 @@ système breakdown</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#systems">1.1.1. Systems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mechanical-systems-to-complex-technological-systems">1.1.1.1. From mechanical systems to complex technological systems</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-definition">1.1.1.2. System definition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#space-systems-in-new-space">1.1.1.3. Space systems in new Space</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cubesat-platform">1.1.1.4. Cubesat platform</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.1.1.5. References</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mechanical-systems-to-complex-technological-systems">1.1.1. From mechanical systems to complex technological systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-definition">1.1.2. System definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#space-systems-in-new-space">1.1.3. Space systems in New Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cubesat-platform">1.1.4. Cubesat platform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study">1.1.5. Case study</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework">1.1.6. Homework</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.1.7. References</a></li>
 </ul>
   </nav></div>
 
