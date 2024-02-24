@@ -67,8 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Part A" href="../notebook/summaryPartA.html" />
-    <link rel="prev" title="Systems Engineering Introduction with a cubesat thermal control study case" href="syllabus.html" />
+    <link rel="next" title="1. Part A : Technical requirements and predesign" href="../notebook/summaryPartA.html" />
+    <link rel="prev" title="Systems Engineering Introduction" href="syllabus.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -164,10 +164,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction and overview</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="syllabus.html">Systems Engineering Introduction with a cubesat thermal control study case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syllabus.html">Systems Engineering Introduction</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Installation</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Classes and Labs</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermal control system of a cubesat</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../notebook/summaryPartA.html">1. Technical requirements definition</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebook/01a_CM1_Systems_SpaceSystems.html">1.1. Complex technological systems and space systems</a></li>
@@ -418,22 +418,22 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h1>
 <p>The course is available on this repository:
-<a class="github reference external" href="https://github.com/SizingLab/IntroIS">SizingLab/IntroIS</a></p>
+<a class="github reference external" href="https://github.com/SizingLab/SystemsEngineeringIntroduction">SizingLab/SystemsEngineeringIntroduction</a></p>
 <section id="colab">
 <h2>Colab<a class="headerlink" href="#colab" title="Permalink to this heading">#</a></h2>
 <p>Open <a class="reference external" href="https://colab.research.google.com">Google Colab</a>, open a new notebook and clone the repository by running in a cell:</p>
-<p><code class="docutils literal notranslate"><span class="pre">!</span> <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/SizingLab/IntroIS.git</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">https://github.com/SizingLab/SystemsEngineeringIntroduction.git</span></code></p>
 <p>Then install the required dependencies by running in a cell:</p>
-<p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">IntroIS/requirements.txt</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">SystemsEngineeringIntroduction/requirements.txt</span></code></p>
 </section>
 <section id="local">
 <h2>Local<a class="headerlink" href="#local" title="Permalink to this heading">#</a></h2>
 <p>Install <a class="reference external" href="https://www.anaconda.com/download">Anaconda</a> environment.</p>
-<p>Download the zip file from <a class="reference external" href="https://github.com/SizingLab/IntroIS">Github</a> and unzip it.</p>
+<p>Download the zip file from <a class="reference external" href="https://github.com/SizingLab/SystemsEngineeringIntroduction">Github</a> and unzip it.</p>
 <p>Open a Anaconda Prompt terminal and <code class="docutils literal notranslate"><span class="pre">cd</span></code> to the recently unziped folder.</p>
 <p>You can then create a new conda environment by running:</p>
 <p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">-n</span> <span class="pre">IntroIS</span> <span class="pre">python=3.9</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">IntroIS</span></code> or <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">activate</span> <span class="pre">IntroIS</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">IntroIS</span></code> or <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">activate</span> <span class="pre">SystemsEngineeringIntroduction</span></code></p>
 <p>Then install required dependencies:
 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code></p>
 <p>Run jupyter lab:
@@ -477,7 +477,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Systems Engineering Introduction with a cubesat thermal control study case</p>
+        <p class="prev-next-title">Systems Engineering Introduction</p>
       </div>
     </a>
     <a class="right-next"
@@ -485,7 +485,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Part A</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Part A : Technical requirements and predesign</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
