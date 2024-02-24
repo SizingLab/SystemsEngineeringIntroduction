@@ -1,5 +1,5 @@
 # Book settings
-title: Systems Engineering Introduction
+title: Introduction to Mechatronics and System Engineering 
 author: Marc Budinger, INSA Toulouse
 logo: images/logo.png
 copyright: "2024"
@@ -67,4 +67,4 @@ sphinx:
     - substitution
 
     myst_substitutions:
-      TITLE: "Systems Engineering Introduction"
+      TITLE: "Introduction to Mechatronics and System Engineering"
