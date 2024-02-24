@@ -1,0 +1,83 @@
+<mxfile host="Electron" modified="2024-02-23T15:25:53.669Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="05IyWsjv8lmVyJ7BJB88" version="23.1.5" type="device">
+  <diagram name="Page-1" id="btSO6Okd-ESO7Uli01Kn">
+    <mxGraphModel dx="1036" dy="614" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bShLwHsbURq6fyHqxZIe-2" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;Position the nozzle along 2 axis" style="shape=rect;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+          <mxGeometry x="160" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-3" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;Generate force and speed" style="shape=rect;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+          <mxGeometry x="20" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-4" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;Mesure position" style="shape=rect;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+          <mxGeometry x="160" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-5" value="" style="rounded=0;html=1;labelBackgroundColor=none;endArrow=none;edgeStyle=elbowEdgeStyle;elbow=vertical;startArrow=sysMLPackCont;startSize=12;" edge="1" source="bShLwHsbURq6fyHqxZIe-2" target="bShLwHsbURq6fyHqxZIe-3" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-6" value="" style="rounded=0;html=1;labelBackgroundColor=none;endArrow=none;edgeStyle=elbowEdgeStyle;elbow=vertical;startArrow=sysMLPackCont;startSize=12;" edge="1" target="bShLwHsbURq6fyHqxZIe-4" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="240" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-7" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;Dampen vibration of the nozzle" style="shape=rect;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+          <mxGeometry x="315" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-16" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;Supply the energy and power&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;text-align:left;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="shape=rect;overflow=fill;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+          <mxGeometry x="300" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-17" value="" style="rounded=0;html=1;labelBackgroundColor=none;endArrow=none;edgeStyle=elbowEdgeStyle;elbow=vertical;startArrow=sysMLPackCont;startSize=12;" edge="1" parent="1" target="bShLwHsbURq6fyHqxZIe-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="240" as="sourcePoint" />
+            <mxPoint x="230" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-19" value="EMA Actuator" style="shape=rect;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+          <mxGeometry x="20" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-21" value="&amp;lt;&amp;lt;satisfy&amp;gt;&amp;gt;" style="endArrow=open;edgeStyle=none;endSize=12;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" source="bShLwHsbURq6fyHqxZIe-19" target="bShLwHsbURq6fyHqxZIe-3" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-22" value="LVDT Sensor" style="shape=rect;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+          <mxGeometry x="160" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-23" value="&amp;lt;&amp;lt;satisfy&amp;gt;&amp;gt;" style="endArrow=open;edgeStyle=none;endSize=12;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="bShLwHsbURq6fyHqxZIe-22" target="bShLwHsbURq6fyHqxZIe-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="450" as="sourcePoint" />
+            <mxPoint x="90" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-25" value="Battery" style="shape=rect;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+          <mxGeometry x="300" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-26" value="Inverter" style="shape=rect;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+          <mxGeometry x="435" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-27" value="&amp;lt;&amp;lt;satisfy&amp;gt;&amp;gt;" style="endArrow=open;edgeStyle=none;endSize=12;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="359.5" y="440" as="sourcePoint" />
+            <mxPoint x="359.5" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-28" value="&amp;lt;&amp;lt;satisfy&amp;gt;&amp;gt;" style="endArrow=open;edgeStyle=none;endSize=12;dashed=1;html=1;rounded=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" target="bShLwHsbURq6fyHqxZIe-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="440" as="sourcePoint" />
+            <mxPoint x="480" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-29" value="Force sensor" style="shape=rect;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+          <mxGeometry x="570" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-30" value="&amp;lt;&amp;lt;satisfy&amp;gt;&amp;gt;" style="endArrow=open;edgeStyle=none;endSize=12;dashed=1;html=1;rounded=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0.45;exitY=0.01;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="bShLwHsbURq6fyHqxZIe-29">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="430" as="sourcePoint" />
+            <mxPoint x="384" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,60 @@
+<mxfile host="Electron" modified="2024-02-23T14:46:24.340Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="wZnOXsKmAupzowy1nXno" version="23.1.5" type="device">
+  <diagram name="Page-1" id="btSO6Okd-ESO7Uli01Kn">
+    <mxGraphModel dx="1863" dy="614" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bShLwHsbURq6fyHqxZIe-18" value="&lt;p style=&quot;margin:0px;margin-top:4px;margin-left:7px;text-align:left;&quot;&gt;&lt;b&gt;req&lt;/b&gt;  TVC System&lt;/p&gt;" style="html=1;shape=mxgraph.sysml.package;overflow=fill;labelX=110;strokeWidth=2;align=center;" vertex="1" parent="1">
+          <mxGeometry y="70" width="830" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-2" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;Position the nozzle along 2 axis" style="shape=rect;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+          <mxGeometry x="160" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-3" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;Generate force and speed" style="shape=rect;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+          <mxGeometry x="20" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-4" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;Mesure position" style="shape=rect;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+          <mxGeometry x="160" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-5" value="" style="rounded=0;html=1;labelBackgroundColor=none;endArrow=none;edgeStyle=elbowEdgeStyle;elbow=vertical;startArrow=sysMLPackCont;startSize=12;" edge="1" source="bShLwHsbURq6fyHqxZIe-2" target="bShLwHsbURq6fyHqxZIe-3" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-6" value="" style="rounded=0;html=1;labelBackgroundColor=none;endArrow=none;edgeStyle=elbowEdgeStyle;elbow=vertical;startArrow=sysMLPackCont;startSize=12;" edge="1" target="bShLwHsbURq6fyHqxZIe-4" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="240" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-7" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;Dampen vibration of the nozzle" style="shape=rect;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+          <mxGeometry x="315" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-9" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;Valide qualification tests" style="shape=rect;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+          <mxGeometry x="610" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-10" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;Valide endurance test" style="shape=rect;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+          <mxGeometry x="520" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-11" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;Valide vibration test" style="shape=rect;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+          <mxGeometry x="700" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-12" value="" style="rounded=0;html=1;labelBackgroundColor=none;endArrow=none;edgeStyle=elbowEdgeStyle;elbow=vertical;startArrow=sysMLPackCont;startSize=12;" edge="1" source="bShLwHsbURq6fyHqxZIe-9" target="bShLwHsbURq6fyHqxZIe-10" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-13" value="" style="rounded=0;html=1;labelBackgroundColor=none;endArrow=none;edgeStyle=elbowEdgeStyle;elbow=vertical;startArrow=sysMLPackCont;startSize=12;" edge="1" source="bShLwHsbURq6fyHqxZIe-9" target="bShLwHsbURq6fyHqxZIe-11" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-14" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;Communicate with On-Board Computer" style="shape=rect;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+          <mxGeometry x="460" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-16" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;Supply the energy and power&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;text-align:left;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="shape=rect;overflow=fill;html=1;whiteSpace=wrap;align=center;" vertex="1" parent="1">
+          <mxGeometry x="300" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bShLwHsbURq6fyHqxZIe-17" value="" style="rounded=0;html=1;labelBackgroundColor=none;endArrow=none;edgeStyle=elbowEdgeStyle;elbow=vertical;startArrow=sysMLPackCont;startSize=12;" edge="1" parent="1" target="bShLwHsbURq6fyHqxZIe-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="240" as="sourcePoint" />
+            <mxPoint x="230" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
