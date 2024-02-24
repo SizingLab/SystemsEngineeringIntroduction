@@ -1,6 +1,6 @@
 # Book settings
 title: Systems Engineering Introduction
-author: Marc Budinger
+author: Marc Budinger, INSA Toulouse
 logo: images/logo.png
 copyright: "2024"
 exclude_patterns: ["LICENSE.md", "README.md", _build, .DS_Store, "**.ipynb_checkpoints"]
