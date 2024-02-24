@@ -1,3 +1,3 @@
 ![](../images/header.jpg)
 
-# Systems Engineering Introduction
+# Introduction to Mechatronics and System Engineering 

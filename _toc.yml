@@ -5,7 +5,7 @@ parts:
   chapters:
   - file: about/syllabus
   - file: about/installation
-- caption: Classes and Labs
+- caption: Thermal control system of a cubesat
   numbered: true
   maxdepth: 2
   chapters:
