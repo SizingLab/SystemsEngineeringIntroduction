@@ -427,7 +427,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -443,6 +445,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sizing-scenarios">1.4.1. Sizing scenarios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modele-a-parametres-localises-dune-tuyere-de-fusee">1.4.2. Modèle à paramètres localisés d’une tuyère de fusée</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.4.3. References</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -460,6 +472,41 @@ document.write(`
 <li><p>Utilisation de Modelica</p></li>
 <li><p>Utilisation de Python : odeint</p></li>
 </ul>
+<section id="sizing-scenarios">
+<h2><span class="section-number">1.4.1. </span>Sizing scenarios<a class="headerlink" href="#sizing-scenarios" title="Permalink to this heading">#</a></h2>
+<p>Exigences niveau fusée ont permis de générer
+des profils d’odre typiques de déplacement au niveau tuyere pour assurer
+ces profils pourront être utlisé sur bancs d’essais pour qualifier les performances du système réalisé</p>
+<p>des critères de rapidité
+72 ms de temps de réponse sur des petits niveaux</p>
+<p>The actuation system of the 1st stage of the launcher consists of a set of Lithium-ion batteries, a control unit (2 inverters and control/command electronics) and two electromechanical actuators (EMA). This set makes it possible to control the nozzle according to 2 axes of rotation. We will be interested here only in one axis axis of rotation and we will neglect the couplings between these 2 axes.</p>
+</section>
+<section id="modele-a-parametres-localises-dune-tuyere-de-fusee">
+<h2><span class="section-number">1.4.2. </span>Modèle à paramètres localisés d’une tuyère de fusée<a class="headerlink" href="#modele-a-parametres-localises-dune-tuyere-de-fusee" title="Permalink to this heading">#</a></h2>
+<p><em>P80 Nozzle (from <a class="reference external" href="http://www.ingaero.uniroma1.it/attachments/1609_VEGA%20%20sapienza%20small.pdf">ESA presentation</a>)</em>:
+<img alt="P80" src="../_images/nozzle.png" /></p>
+<p><img alt="P80 implantation" src="../_images/ImplantationNozzle.png" /></p>
+<p>Caractéristiques de la tuyère :
+Bras de levier
+1,5 m</p>
+<p>Inertie
+7800 kg.m²</p>
+<p>Raideur de la butée flexible
+49000 Nm/deg</p>
+<p>Amortissement de la butée flexible</p>
+<p>Modèle modélica</p>
+<ol class="arabic simple">
+<li><p>Utilisez les composants mécaniques Modelica pour représenter la tuyère de la fusée en utilisant les données de la Figure 25. Le vérin hydraulique sera représenté ici sous la forme d’une source d’effort linéaire.</p></li>
+<li><p>Déterminez la force à appliquer pour obtenir une déflexion de 6°.Vérifiez par simulation (Figure 26a).</p></li>
+<li><p>Implémenter une boucle fermée idéale en position comme représenté Figure 26b. Simulez la réponse à un déplacement  de 2° à 3° en suivant la dynamique d’un second ordre d’amortissement 0.7 et de temps de réponse 72 ms.</p></li>
+<li><p>Observez la force et la vitesse à fournir par le vérin hydraulique pour pouvoir suivre ce profil de mission. Relevez les grandeurs maximales Fmax et vmax des efforts et vitesses qui peuvent être utilisées pour la sélection des composants.</p></li>
+</ol>
+<p>Ingenieurs IS MBSE  –&gt; Ingénieur Mecatronique Modelisaion Multiphysique</p>
+</section>
+<section id="references">
+<h2><span class="section-number">1.4.3. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<p>[Rossi, 2013] Rossi, S., &amp; Ivanov, A. (2013). Thermal model for cubesat: A simple and easy model from the Swisscube’s thermal flight data. In <em>Proceedings of the International Astronautical Congress</em> (Vol. 13, pp. 9919-9928). <a class="reference external" href="https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf">Link</a></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -516,6 +563,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sizing-scenarios">1.4.1. Sizing scenarios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modele-a-parametres-localises-dune-tuyere-de-fusee">1.4.2. Modèle à paramètres localisés d’une tuyère de fusée</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.4.3. References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
