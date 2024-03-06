@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1.6. Thermal Model for CubeSat &#8212; Introduction to Mechatronics and System Engineering</title>
+    <title>1.5. Thermal Model for CubeSat &#8212; Introduction to Mechatronics and System Engineering</title>
   
   
   
@@ -176,8 +176,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="01b_CM1_SystemEngineering.html">1.2. System engineering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_CM2_ThermalControlSystems.html">1.3. Thermal Control System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_CM3_Introduction2MultiPhysicModeling.html">1.4. Introduction to multiphysics modeling of sizing scenarios</a></li>
-
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.6. Thermal Model for CubeSat</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.5. Thermal Model for CubeSat</a></li>
 
 </ul>
 </li>
@@ -453,20 +452,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1.6. Thermal Model for CubeSat</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-nodes-thermal-model">1.6.1. Two nodes thermal model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-conductance">1.6.2. Thermal conductance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-radiation">1.6.3. Thermal radiation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-capacitance">1.6.4. Thermal Capacitance</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1.5. Thermal Model for CubeSat</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-nodes-thermal-model">1.5.1. Two nodes thermal model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-conductance">1.5.2. Thermal conductance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-radiation">1.5.3. Thermal radiation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-capacitance">1.5.4. Thermal Capacitance</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#specification-and-simulation">1.7. Specification and Simulation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-on-cubesat-batteries">1.7.1. ####<strong>INFORMATION ON CUBESAT BATTERIES</strong> 🔋</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-of-thermal-capacitance">1.7.2. ####<strong>EVALUATION OF THERMAL CAPACITANCE</strong> 💡</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-equivalent-aluminum-box">1.7.3. ####<strong>DEFINITION OF EQUIVALENT ALUMINUM BOX</strong> ⏹</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-thermal-model-of-swisscube">1.7.4. ####<strong>2-NODE THERMAL MODEL OF SWISSCUBE</strong> 🌡</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-necessary-for-a-consistent-15c">1.7.5. ####<strong>POWER NECESSARY FOR A CONSISTENT 15°C</strong> ⚡️</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.7.6. References</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#specification-and-simulation">1.6. Specification and Simulation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-on-cubesat-batteries">1.6.1. ####<strong>INFORMATION ON CUBESAT BATTERIES</strong> 🔋</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-of-thermal-capacitance">1.6.2. ####<strong>EVALUATION OF THERMAL CAPACITANCE</strong> 💡</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-equivalent-aluminum-box">1.6.3. ####<strong>DEFINITION OF EQUIVALENT ALUMINUM BOX</strong> ⏹</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-thermal-model-of-swisscube">1.6.4. ####<strong>2-NODE THERMAL MODEL OF SWISSCUBE</strong> 🌡</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-necessary-for-a-consistent-15c">1.6.5. ####<strong>POWER NECESSARY FOR A CONSISTENT 15°C</strong> ⚡️</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.6.6. References</a></li>
 </ul>
 </li>
 </ul>
@@ -482,10 +481,10 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="thermal-model-for-cubesat">
-<h1><span class="section-number">1.6. </span>Thermal Model for CubeSat<a class="headerlink" href="#thermal-model-for-cubesat" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">1.5. </span>Thermal Model for CubeSat<a class="headerlink" href="#thermal-model-for-cubesat" title="Permalink to this heading">#</a></h1>
 <p>The aim of this tutorial is to set up a satellite thermal nodal model in order to assess the power requirements of the thermal control system.</p>
 <section id="two-nodes-thermal-model">
-<h2><span class="section-number">1.6.1. </span>Two nodes thermal model<a class="headerlink" href="#two-nodes-thermal-model" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.5.1. </span>Two nodes thermal model<a class="headerlink" href="#two-nodes-thermal-model" title="Permalink to this heading">#</a></h2>
 <p>The paper [<span class="xref myst">Rossi, 2013</span>] outlines the creation of a Thermal Model Analysis for a CubeSat as based on the SwissCube’s flight data from 2009 to 2012. The external faces and internal components of the CubeSat were simplified into two nodes of the aforementioned respective general locations, with the external node pertaining to a spherical surface representative of the six-phases of a CubeSat 1U at mean temperature, and the internal node being based on the thermally controlled battery pack.</p>
 <p><em>SwissCube thermal model:</em>
 <img alt="SwissCubeThermalModel" src="../_images/SwissCubeThermalModel.PNG" /></p>
@@ -635,7 +634,7 @@ R: 4.0824e-10
 </div>
 </section>
 <section id="thermal-conductance">
-<h2><span class="section-number">1.6.2. </span>Thermal conductance<a class="headerlink" href="#thermal-conductance" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.5.2. </span>Thermal conductance<a class="headerlink" href="#thermal-conductance" title="Permalink to this heading">#</a></h2>
 <p>The conductive heat transfer term depends on the nature and shape of the fasteners linking the cards to the satelitte structure.
 Nylon, invar or permaglass can be used to make cylinder-like spacers.</p>
 <table class="table">
@@ -665,7 +664,7 @@ Nylon, invar or permaglass can be used to make cylinder-like spacers.</p>
 </div></blockquote>
 </section>
 <section id="thermal-radiation">
-<h2><span class="section-number">1.6.3. </span>Thermal radiation<a class="headerlink" href="#thermal-radiation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.5.3. </span>Thermal radiation<a class="headerlink" href="#thermal-radiation" title="Permalink to this heading">#</a></h2>
 <p>Le terme de transfert thermique en radiation Thermal radiation</p>
 <p>En rayonnement:</p>
 <ul class="simple">
@@ -673,14 +672,14 @@ Nylon, invar or permaglass can be used to make cylinder-like spacers.</p>
 </ul>
 </section>
 <section id="thermal-capacitance">
-<h2><span class="section-number">1.6.4. </span>Thermal Capacitance<a class="headerlink" href="#thermal-capacitance" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.5.4. </span>Thermal Capacitance<a class="headerlink" href="#thermal-capacitance" title="Permalink to this heading">#</a></h2>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="specification-and-simulation">
-<h1><span class="section-number">1.7. </span>Specification and Simulation<a class="headerlink" href="#specification-and-simulation" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">1.6. </span>Specification and Simulation<a class="headerlink" href="#specification-and-simulation" title="Permalink to this heading">#</a></h1>
 <p><em>Defining the Needs for a CubeSat Battery Pack Heating Solution</em></p>
 <section id="information-on-cubesat-batteries">
-<h2><span class="section-number">1.7.1. </span>####<strong>INFORMATION ON CUBESAT BATTERIES</strong> 🔋<a class="headerlink" href="#information-on-cubesat-batteries" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.6.1. </span>####<strong>INFORMATION ON CUBESAT BATTERIES</strong> 🔋<a class="headerlink" href="#information-on-cubesat-batteries" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The <strong>OPTIMUS Battery</strong> from <a class="reference external" href="https://www.aac-clyde.space/what-we-do/space-products-components/cubesat-batteries">AAC Clyde Space</a> has strings of cells connected in parallel with cell protection electronics and autonomous integrated heater systems for thermal control. It’s available in varrying battery range capacities [<em>30, 40, and 80 Wh</em>].</p></li>
 <li><p>The <a class="reference external" href="https://https://pw-sat.pl/wp-content/uploads/2014/07/PW-Sat2-A-03.00-EPS-PRR-EN-v1.1.pdf">SwissCube Satellite</a> utilized two (2) <strong>Varta PoLiFlex LiPo [<em>Lithium Polymer</em>]</strong> PLF503759 batteries with a maximum voltage of 4.2 V and a capacity of 1210 mAh</p></li>
@@ -688,7 +687,7 @@ Nylon, invar or permaglass can be used to make cylinder-like spacers.</p>
 </ul>
 </section>
 <section id="evaluation-of-thermal-capacitance">
-<h2><span class="section-number">1.7.2. </span>####<strong>EVALUATION OF THERMAL CAPACITANCE</strong> 💡<a class="headerlink" href="#evaluation-of-thermal-capacitance" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.6.2. </span>####<strong>EVALUATION OF THERMAL CAPACITANCE</strong> 💡<a class="headerlink" href="#evaluation-of-thermal-capacitance" title="Permalink to this heading">#</a></h2>
 <p>Try to evaluate the thermal capacitance of a battery pack composed of :</p>
 <ul class="simple">
 <li><p>2 Varta cells</p></li>
@@ -736,7 +735,7 @@ C_th_alu = 82.34
 </div>
 </section>
 <section id="definition-of-equivalent-aluminum-box">
-<h2><span class="section-number">1.7.3. </span>####<strong>DEFINITION OF EQUIVALENT ALUMINUM BOX</strong> ⏹<a class="headerlink" href="#definition-of-equivalent-aluminum-box" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.6.3. </span>####<strong>DEFINITION OF EQUIVALENT ALUMINUM BOX</strong> ⏹<a class="headerlink" href="#definition-of-equivalent-aluminum-box" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The dimensions will be scaled to that of the SwissCube Satellite’s Varta PoLiFlex LiPo PLF503759, with <strong>58.7 mm length</strong>, <strong>37.0 mm width</strong>, and <strong>5.2 mm height or thickness</strong></p></li>
 <li><p><strong>6061-T6 Aluminum</strong> with a thermal capacitance of 237 J/kg-K and density of 2.7 g/cm^3 is commonly used in satellite applications</p></li>
@@ -777,7 +776,7 @@ Height/Thickness: 0.700117428544917
 <p>With this, all dimensions of the Varta PoLiFlex LiPo PLF503759 shall be multiplied by <strong>2.23</strong> to stay on a scaled factor and obtain a total Thermal Capacitance of <strong>80 J/K</strong>, obtaining the following final equivalent dimensions: <strong>7.90 cm length</strong>, <strong>4.98 cm width</strong>, and <strong>0.700 cm height/thickness</strong></p>
 </section>
 <section id="node-thermal-model-of-swisscube">
-<h2><span class="section-number">1.7.4. </span>####<strong>2-NODE THERMAL MODEL OF SWISSCUBE</strong> 🌡<a class="headerlink" href="#node-thermal-model-of-swisscube" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.6.4. </span>####<strong>2-NODE THERMAL MODEL OF SWISSCUBE</strong> 🌡<a class="headerlink" href="#node-thermal-model-of-swisscube" title="Permalink to this heading">#</a></h2>
 <p>Note that the model is not to scale but follows the same trend as that of the study by Rossi and Ivanov.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -892,7 +891,7 @@ Height/Thickness: 0.700117428544917
 </div>
 </section>
 <section id="power-necessary-for-a-consistent-15c">
-<h2><span class="section-number">1.7.5. </span>####<strong>POWER NECESSARY FOR A CONSISTENT 15°C</strong> ⚡️<a class="headerlink" href="#power-necessary-for-a-consistent-15c" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.6.5. </span>####<strong>POWER NECESSARY FOR A CONSISTENT 15°C</strong> ⚡️<a class="headerlink" href="#power-necessary-for-a-consistent-15c" title="Permalink to this heading">#</a></h2>
 <p><strong>NOTE</strong>: Use the following equation: <em>Power = Heat Load for Desired Temperature / (Thermal Capacitance * Efficiency)</em></p>
 <blockquote>
 <div><p>“In this way the heat produced by the resistance inside the battery-box has been setup to turn off once the temperature is over 5ºC and turn on when below the -5ºC. While turned on, in SwissCube, it produces between 100 mW and 150 mW: <strong>in the model it has been used 100 mW</strong>”</p>
@@ -1067,7 +1066,7 @@ Mean Power: -0.17737055770976012 W
 </div>
 </section>
 <section id="references">
-<h2><span class="section-number">1.7.6. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.6.6. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <p>[Rossi, 2013] Rossi, S., &amp; Ivanov, A. (2013). Thermal model for cubesat: A simple and easy model from the Swisscube’s thermal flight data. In <em>Proceedings of the International Astronautical Congress</em> (Vol. 13, pp. 9919-9928). <a class="reference external" href="https://www.researchgate.net/publication/299535685_THERMAL_MODEL_FOR_CUBESAT_A_SIMPLE_AND_EASY_MODEL_FROM_THE_SWISSCUBE%27S_THERMAL_FLIGHT_DATA">Link</a></p>
 </section>
 </section>
@@ -1135,20 +1134,20 @@ Mean Power: -0.17737055770976012 W
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1.6. Thermal Model for CubeSat</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-nodes-thermal-model">1.6.1. Two nodes thermal model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-conductance">1.6.2. Thermal conductance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-radiation">1.6.3. Thermal radiation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-capacitance">1.6.4. Thermal Capacitance</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1.5. Thermal Model for CubeSat</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-nodes-thermal-model">1.5.1. Two nodes thermal model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-conductance">1.5.2. Thermal conductance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-radiation">1.5.3. Thermal radiation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-capacitance">1.5.4. Thermal Capacitance</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#specification-and-simulation">1.7. Specification and Simulation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-on-cubesat-batteries">1.7.1. ####<strong>INFORMATION ON CUBESAT BATTERIES</strong> 🔋</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-of-thermal-capacitance">1.7.2. ####<strong>EVALUATION OF THERMAL CAPACITANCE</strong> 💡</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-equivalent-aluminum-box">1.7.3. ####<strong>DEFINITION OF EQUIVALENT ALUMINUM BOX</strong> ⏹</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-thermal-model-of-swisscube">1.7.4. ####<strong>2-NODE THERMAL MODEL OF SWISSCUBE</strong> 🌡</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-necessary-for-a-consistent-15c">1.7.5. ####<strong>POWER NECESSARY FOR A CONSISTENT 15°C</strong> ⚡️</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.7.6. References</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#specification-and-simulation">1.6. Specification and Simulation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-on-cubesat-batteries">1.6.1. ####<strong>INFORMATION ON CUBESAT BATTERIES</strong> 🔋</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-of-thermal-capacitance">1.6.2. ####<strong>EVALUATION OF THERMAL CAPACITANCE</strong> 💡</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-equivalent-aluminum-box">1.6.3. ####<strong>DEFINITION OF EQUIVALENT ALUMINUM BOX</strong> ⏹</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-thermal-model-of-swisscube">1.6.4. ####<strong>2-NODE THERMAL MODEL OF SWISSCUBE</strong> 🌡</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-necessary-for-a-consistent-15c">1.6.5. ####<strong>POWER NECESSARY FOR A CONSISTENT 15°C</strong> ⚡️</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.6.6. References</a></li>
 </ul>
 </li>
 </ul>
