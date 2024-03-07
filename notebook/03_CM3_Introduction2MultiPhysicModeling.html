@@ -502,7 +502,7 @@ document.write(`
 <img alt="P80" src="../_images/nozzle.png" /></p>
 <p>The EMA (Electro Mechanical Actuator) is between 2 points of the following drawing. The given values correspond to a nominal case. The lever arm for these nominal dimensions is 1.35 m at neutral position. The variation of lever arm with position order is assumed to be negligeable here due to the small nozzle deflection (+/- 5.7° max)</p>
 <p><em>Actuator implantation</em>:<br />
-</p>
+<img alt="Actuator implantation" src="notebook/figures/ImplantationNozzle.PNG" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -527,7 +527,28 @@ document.write(`
 <blockquote>
 <div><p><strong>Exercice</strong>: Propose a diagram made up of rotational inertia, torsional stiffness and viscous friction to represent the nozzle. Complete it to represent the EMA actuator, assumed here to be a source of force.</p>
 </div></blockquote>
-</section>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Quiz<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Select the diagram corresponding to the previous question: Propose a diagram made up of rotational inertia, torsional stiffness and viscous friction to represent the nozzle.
+<img alt="Quiz images" src="notebook/figures/NozzleDiagram.png" /></p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Modelica diagram  <div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Below is the Modelica diagram equivalent to a nozzle. The linear actuator will provide a force that will generate a rotation of this mechanical load.</p>
+<p class="sd-card-text"><em>Modelica diagram of the mechanical load</em>:
+<img alt="Modelica diagram" src="../_images/NozzleModelicaModel.png" /></p>
+</div>
+</details></section>
 <section id="sizing-scenarios">
 <h2><span class="section-number">1.4.2. </span>Sizing scenarios<a class="headerlink" href="#sizing-scenarios" title="Permalink to this heading">#</a></h2>
 <p>The requirements at launcher level, particularly in terms of flight stability, can be used to generate typical displacement profiles at nozzle level. These profiles can be used on test benches to qualify the performance of the system produced.</p>
@@ -538,11 +559,35 @@ document.write(`
 <blockquote>
 <div><p><strong>Question:</strong> What do you think of this profile?</p>
 </div></blockquote>
-<p>In addition to these order profiles, there are response times which may depend on the amplitude: for example, 72 ms response time for 0.5° level variations. We’ll assume for the rest that the most critical demand is a step of 5.2 to 5.7° angle of deflection to be performed in 72 ms.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Answer<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">These are orders from the on-board computer, but they cannot be perfectly respected because they would require infinite acceleration and infinite power.</p>
+</div>
+</details><p>In addition to these order profiles, there are response times which may depend on the amplitude: for example, 72 ms response time for 0.5° level variations. We’ll assume for the rest that the most critical demand is a step of 5.2 to 5.7° angle of deflection to be performed in 72 ms.</p>
 <blockquote>
 <div><p><strong>Question:</strong> How do you generate a realistic nozzle angle profile from this requirement?</p>
 </div></blockquote>
-<section id="modelica-implementation">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Answer<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">It can be assumed that the closed-loop system will respond as a second-order transfer function. The response or settling time (5%) requirement can then be expressed as a bandwidth.</p>
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(H(p)=\frac{1}{1+\frac{2\xi p}{\omega_0}+\frac{p^2}{\omega_0^2}}\)</span><br />
+with <span class="math notranslate nohighlight">\(\xi=0.7\)</span> and thus <span class="math notranslate nohighlight">\(t_{r5}=\frac{2.9}{\omega_0}\)</span></p>
+<p class="sd-card-text"><em>Settling time</em>:</p>
+<figure class="align-center" id="settling-time">
+<a class="reference internal image-reference" href="../_images/SettlingTime.png"><img alt="../_images/SettlingTime.png" src="../_images/SettlingTime.png" style="width: 50%;" /></a>
+</figure>
+</div>
+</details><section id="modelica-implementation">
 <h3><span class="section-number">1.4.2.1. </span>Modelica implementation<a class="headerlink" href="#modelica-implementation" title="Permalink to this heading">#</a></h3>
 <p>The nozzle load model can be combined with an effrot source (representing the linear actuator) and a position control loop. Modelica has a block that allows the inverse model by requiring two inputs and two outputs to be identical. It can be used as an ideal zero error corrector. In particular, it avoids the tedious calculation of a corrector at the start of the project. However, it is necessary to filter the setpoint in order to obtain realistic movements.</p>
 <p><em>Global model</em>:<br />
