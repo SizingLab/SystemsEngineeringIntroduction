@@ -589,9 +589,11 @@ with <span class="math notranslate nohighlight">\(\xi=0.7\)</span> and thus <spa
 </div>
 </details><section id="modelica-implementation">
 <h3><span class="section-number">1.4.2.1. </span>Modelica implementation<a class="headerlink" href="#modelica-implementation" title="Permalink to this heading">#</a></h3>
-<p>The nozzle load model can be combined with an effrot source (representing the linear actuator) and a position control loop. Modelica has a block that allows the inverse model by requiring two inputs and two outputs to be identical. It can be used as an ideal zero error corrector. In particular, it avoids the tedious calculation of a corrector at the start of the project. However, it is necessary to filter the setpoint in order to obtain realistic movements.</p>
-<p><em>Global model</em>:<br />
-</p>
+<p>The nozzle load model can be combined with a force source (representing the linear actuator) and a position control loop. Modelica has a block that allows the inverse model by requiring two inputs and two outputs to be identical. It can be used as an ideal zero error corrector. In particular, it avoids the tedious calculation of a corrector at the start of the project. However, it is necessary to filter the setpoint in order to obtain realistic movements.</p>
+<p><em>Global model</em>:</p>
+<figure class="align-center" id="globalmodel">
+<a class="reference internal image-reference" href="../_images/IdealCorrectorModelica.PNG"><img alt="../_images/IdealCorrectorModelica.PNG" src="../_images/IdealCorrectorModelica.PNG" style="width: 50%;" /></a>
+</figure>
 <p>Simulations can produce: changes in position, speed and acceleration, as well as the forces to be applied.</p>
 </section>
 <section id="python-implementation">
