@@ -479,7 +479,7 @@ document.write(`
 <h2><span class="section-number">1.5.1. </span>Illumination of satellites<a class="headerlink" href="#illumination-of-satellites" title="Permalink to this heading">#</a></h2>
 <p>Cubsat satellites are generally located in low earth orbit (LEO) at an altitude of between 400 and 600 km.  Their speed is very high, around 27500 km/h or 450 km/min or 7.6 km/s. One rotation around the Earth takes around 90 minutes, and is usually done along an axis perpendicular to the equator. There are therefore around 16 rotations in 24 hours. Their thermal behaviour is strongly influenced by solar radiation and the <a class="reference external" href="http://sesp.esep.pro/fr/pages_nanosats/index.html">Earth’s shadows</a>.</p>
 <p><em>Earth shadow:</em>
-<img alt="Earth shadow" src="http://sesp.esep.pro/fr/pages_nanosats/images_texte/images/pression-radiation-solaire-zone-ombre.png" /></p>
+<img alt="Earth shadow" src="notebook/Figures/pression-radiation-solaire-zone-ombre.png" /></p>
 </section>
 <section id="two-nodes-thermal-model">
 <h2><span class="section-number">1.5.2. </span>Two nodes thermal model<a class="headerlink" href="#two-nodes-thermal-model" title="Permalink to this heading">#</a></h2>
@@ -494,10 +494,9 @@ document.write(`
 [4] Radiation to Deep Space: \)</span><span class="math notranslate nohighlight">\(q_r=A_r\varepsilon\sigma_nT^4\)</span><span class="math notranslate nohighlight">\(&lt;br&gt;
 Among which the first three equations refer to heat input, and the last to heat output. Where \)</span>A<span class="math notranslate nohighlight">\( generally refers to the area, \)</span>\alpha<span class="math notranslate nohighlight">\( the absorptivity, \)</span>J_s<span class="math notranslate nohighlight">\( the Solar Constant mean value, \)</span>F<span class="math notranslate nohighlight">\( the geometric view factor, \)</span>\varepsilon<span class="math notranslate nohighlight">\( the emmisivity, \)</span>\sigma<span class="math notranslate nohighlight">\( the Stefan-Boltzmann constant, and \)</span>T$ the absolute temperature.</p>
 <p>In a more general context, the following equation was used, and the coefficients K and R were derived from the assumption of two concentric nodal spheres with specified radii.<br><br>
-$<span class="math notranslate nohighlight">\(C_i\frac{dT_i}{dt}=\sum_{i\not=j}K_{ij}(T_j-T_i)+\sum_{i\not=j}R_{ij}(T_j^4-T_i^4)+q_i\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(i,j=1,...,n\)</span><span class="math notranslate nohighlight">\(&lt;br&gt;
-\)</span><span class="math notranslate nohighlight">\(K=\frac{4\pi\lambda r_{int}r_{ext}}{r_{ext}-r_{int}}\)</span><span class="math notranslate nohighlight">\(&lt;br&gt;
-\)</span><span class="math notranslate nohighlight">\(R=\frac{4\pi r_{int}^2}{\frac{1}{\varepsilon_{int}}+\frac{1-\varepsilon_{ext}}{\varepsilon_{ext}}(\frac{r_{int}}{r_{ext}})^2}\)</span>$<br></p>
+<span class="math notranslate nohighlight">\(C_i\frac{dT_i}{dt}=\sum_{i\not=j}K_{ij}(T_j-T_i)+\sum_{i\not=j}R_{ij}(T_j^4-T_i^4)+q_i\)</span>, i,j=1,…,n$</p>
+<p><span class="math notranslate nohighlight">\(K=\frac{4\pi\lambda r_{int}r_{ext}}{r_{ext}-r_{int}}\)</span><br />
+<span class="math notranslate nohighlight">\(R=\frac{4\pi r_{int}^2}{\frac{1}{\varepsilon_{int}}+\frac{1-\varepsilon_{ext}}{\varepsilon_{ext}}(\frac{r_{int}}{r_{ext}})^2}\)</span></p>
 <p><span class="math notranslate nohighlight">\(R_{int}\)</span> and <span class="math notranslate nohighlight">\(\lambda\)</span> parameters was tuned given the flight data and theoretical values. The above figure shows the differential equation with respect to the evolution of time in the system. Overall, the simplified model was proven to be close and consistent in terms of slopes with regards to the actual flight data. To be able to use this lumped parameters model, it is necessary to adapt the value of the parameters to the configurations of interest.</p>
 <p><em>Tuned SwissCube parameters:</em>
 <a class="reference internal" href="../_images/SwissCubeParameters.png"><img alt="../_images/SwissCubeParameters.png" src="../_images/SwissCubeParameters.png" style="width: 300px;" /></a></p>
