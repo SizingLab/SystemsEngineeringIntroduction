@@ -177,7 +177,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="02_CM2_ThermalControlSystems.html">1.3. Thermal Control System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_CM3_Introduction2MultiPhysicModeling.html">1.4. Introduction to multiphysics modeling of sizing scenarios</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">1.5. Thermal Model for CubeSat</a></li>
-
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="summaryPartB.html">2. Control software definition</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -452,24 +451,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1.5. Thermal Model for CubeSat</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-nodes-thermal-model">1.5.1. Two nodes thermal model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-conductance">1.5.2. Thermal conductance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-radiation">1.5.3. Thermal radiation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-capacitance">1.5.4. Thermal Capacitance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#illumination-of-satellites">1.5.1. Illumination of satellites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-nodes-thermal-model">1.5.2. Two nodes thermal model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelica-implementation">1.5.3. Modelica implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-radiation">1.5.4. Thermal radiation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-conductance">1.5.5. Thermal conductance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-capacitance">1.5.6. Thermal Capacitance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-transient-response">1.5.7. Python transient response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-the-power-needs-for-a-cubesat-battery-pack-heating-solution">1.5.8. Defining the power needs for a CubeSat Battery Pack Heating Solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework">1.5.9. Homework</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.5.10. References</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#specification-and-simulation">1.6. Specification and Simulation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-on-cubesat-batteries">1.6.1. ####<strong>INFORMATION ON CUBESAT BATTERIES</strong> 🔋</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-of-thermal-capacitance">1.6.2. ####<strong>EVALUATION OF THERMAL CAPACITANCE</strong> 💡</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-equivalent-aluminum-box">1.6.3. ####<strong>DEFINITION OF EQUIVALENT ALUMINUM BOX</strong> ⏹</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-thermal-model-of-swisscube">1.6.4. ####<strong>2-NODE THERMAL MODEL OF SWISSCUBE</strong> 🌡</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-necessary-for-a-consistent-15c">1.6.5. ####<strong>POWER NECESSARY FOR A CONSISTENT 15°C</strong> ⚡️</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.6.6. References</a></li>
-</ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -483,8 +475,14 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="thermal-model-for-cubesat">
 <h1><span class="section-number">1.5. </span>Thermal Model for CubeSat<a class="headerlink" href="#thermal-model-for-cubesat" title="Permalink to this heading">#</a></h1>
 <p>The aim of this tutorial is to set up a satellite thermal nodal model in order to assess the power requirements of the thermal control system.</p>
+<section id="illumination-of-satellites">
+<h2><span class="section-number">1.5.1. </span>Illumination of satellites<a class="headerlink" href="#illumination-of-satellites" title="Permalink to this heading">#</a></h2>
+<p>Cubsat satellites are generally located in low earth orbit (LEO) at an altitude of between 400 and 600 km.  Their speed is very high, around 27500 km/h or 450 km/min or 7.6 km/s. One rotation around the Earth takes around 90 minutes, and is usually done along an axis perpendicular to the equator. There are therefore around 16 rotations in 24 hours. Their thermal behaviour is strongly influenced by solar radiation and the <a class="reference external" href="http://sesp.esep.pro/fr/pages_nanosats/index.html">Earth’s shadows</a>.</p>
+<p><em>Earth shadow:</em>
+<img alt="Earth shadow" src="http://sesp.esep.pro/fr/pages_nanosats/images_texte/images/pression-radiation-solaire-zone-ombre.png" /></p>
+</section>
 <section id="two-nodes-thermal-model">
-<h2><span class="section-number">1.5.1. </span>Two nodes thermal model<a class="headerlink" href="#two-nodes-thermal-model" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.5.2. </span>Two nodes thermal model<a class="headerlink" href="#two-nodes-thermal-model" title="Permalink to this heading">#</a></h2>
 <p>The paper [<span class="xref myst">Rossi, 2013</span>] outlines the creation of a Thermal Model Analysis for a CubeSat as based on the SwissCube’s flight data from 2009 to 2012. The external faces and internal components of the CubeSat were simplified into two nodes of the aforementioned respective general locations, with the external node pertaining to a spherical surface representative of the six-phases of a CubeSat 1U at mean temperature, and the internal node being based on the thermally controlled battery pack.</p>
 <p><em>SwissCube thermal model:</em>
 <img alt="SwissCubeThermalModel" src="../_images/SwissCubeThermalModel.PNG" /></p>
@@ -527,24 +525,73 @@ $<span class="math notranslate nohighlight">\(C_i\frac{dT_i}{dt}=\sum_{i\not=j}K
 <span class="n">C_int</span> <span class="o">=</span> <span class="mi">80</span> <span class="c1"># [J/K] Internal node capacity</span>
 <span class="n">C_ext</span> <span class="o">=</span> <span class="mi">570</span>  <span class="c1"># [J/K] External node capacity</span>
 <span class="n">HC</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="c1"># [W/mK] Heat conductivity</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># [K] temperature for deep space</span>
+
+<span class="n">q_p</span> <span class="o">=</span> <span class="n">A_p</span><span class="o">*</span><span class="n">F_sp</span><span class="o">*</span><span class="n">E_ext</span><span class="o">*</span><span class="n">SB_const</span><span class="o">*</span><span class="p">(</span><span class="n">T_p</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span> <span class="c1"># Planet radiation</span>
+<span class="n">q_r</span> <span class="o">=</span> <span class="n">A_r</span><span class="o">*</span><span class="n">E_ext</span><span class="o">*</span><span class="n">SB_const</span><span class="o">*</span><span class="p">(</span><span class="n">T</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span> <span class="c1"># Deep space radiation</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="modelica-implementation">
+<h2><span class="section-number">1.5.3. </span>Modelica implementation<a class="headerlink" href="#modelica-implementation" title="Permalink to this heading">#</a></h2>
+<p>The figure below shows a Modelica model implementing the various heat transfers described above. The time diagram opposite represents the temporal evolution of the two thermal capacities or nodes of this model.</p>
+<p><em>Modelica Model:</em>
+<img alt="Modelica model" src="../_images/2nodesModelicaModel.png" /></p>
+<blockquote>
+<div><p>Question: indicate the different phenomena represented by this model.</p>
+</div></blockquote>
+</section>
+<section id="thermal-radiation">
+<h2><span class="section-number">1.5.4. </span>Thermal radiation<a class="headerlink" href="#thermal-radiation" title="Permalink to this heading">#</a></h2>
+<p>Heat transfer between the internal and external parts of the satellite can also be achieved by radiative transfer. The  [<span class="xref myst">Rossi, 2013</span>] paper assumes transfer between spheres. However, planar geometries may be more realistic, given the shape of the electronic boards that make up the satellites.</p>
+<p><em>Effect of radiation surface form [<span class="xref myst">Cengel, 2003</span>]</em>
+<img alt="Thermal radiation" src="notebook/Figures/RadiationArea.png" /></p>
+<p>The emissivity coefficient depends on the nature of the surfaces (paint function, for example) or on specfic interfaces such as MLI (Multi-layer insulation) blankets. Link to a <a class="reference external" href="https://www.design1st.com/Design-Resource-Library/engineering_data/ThermalEmissivityValues.pdf">Data base of emissivity coefficients</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The value below is supposed to be the temperature for deep space</span>
-<span class="c1"># Not sure about this, as it doesn&#39;t make much sense for q_r to just be zero</span>
-<span class="n">T</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Radiation</span>
+<span class="c1"># R = (4*math.pi*(r_int**2)*SB_const)/((1/E_int)+(((1-E_ext)/E_ext)*((r_int/r_ext)**2)))</span>
 
-<span class="n">r_ext</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">S</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
-<span class="n">r_int</span> <span class="o">=</span> <span class="mf">0.01</span>
-
-<span class="c1"># Conduction</span>
-<span class="c1"># K = -(4*math.pi*HC*r_ext*r_int)/(r_ext-r_int)*0+1</span>
-
-
-<span class="c1"># calculate this coefficient  assuming that the corresponding thermal resistance is due to spacers</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mf">70e-3</span><span class="o">*</span><span class="mf">70e-3</span><span class="p">)</span><span class="o">*</span><span class="n">SB_const</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">E_int</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">E_ext</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="thermal-conductance">
+<h2><span class="section-number">1.5.5. </span>Thermal conductance<a class="headerlink" href="#thermal-conductance" title="Permalink to this heading">#</a></h2>
+<p>The conductive heat transfer term depends on the nature and shape of the fasteners linking the cards to the satelitte structure.
+Nylon, invar or permaglass can be used to make cylinder-like spacers.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Material</p></th>
+<th class="head"><p>Thermal conductivity</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Nylon</p></td>
+<td><p>0.25 W/mK</p></td>
+</tr>
+<tr class="row-odd"><td><p>Invar</p></td>
+<td><p>5.8 W/mK</p></td>
+</tr>
+<tr class="row-even"><td><p>Stainless steel</p></td>
+<td><p>14 W/mK</p></td>
+</tr>
+<tr class="row-odd"><td><p>Permaglass</p></td>
+<td><p>0.35 W/mK</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note: Nylon has less mechanical strength at high temperatures.</p>
+<blockquote>
+<div><p><strong>Question:</strong> Suggest the expression for a conduction term <span class="math notranslate nohighlight">\(K\)</span> corresponding to 4 spacers of diameter <span class="math notranslate nohighlight">\(D_{spacer}\)</span> and length <span class="math notranslate nohighlight">\(L_{spacer}\)</span>.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate this coefficient  assuming that the corresponding thermal resistance is due to spacers</span>
 <span class="c1"># Rth = L / kS</span>
 <span class="n">Dspacer</span> <span class="o">=</span> <span class="mf">6e-3</span> <span class="c1"># [m] spacer diameter</span>
 <span class="n">Lspacer</span> <span class="o">=</span> <span class="mf">15e-3</span> <span class="c1"># [m] length of a spacer</span>
@@ -555,14 +602,67 @@ $<span class="math notranslate nohighlight">\(C_i\frac{dT_i}{dt}=\sum_{i\not=j}K
 
 <span class="n">Rth</span> <span class="o">=</span> <span class="n">Lspacer</span><span class="o">/</span><span class="n">kspacer</span><span class="o">/</span><span class="n">Sspacer</span>
 <span class="n">K</span> <span class="o">=</span> <span class="n">nspacer</span><span class="o">/</span><span class="n">Rth</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="thermal-capacitance">
+<h2><span class="section-number">1.5.6. </span>Thermal Capacitance<a class="headerlink" href="#thermal-capacitance" title="Permalink to this heading">#</a></h2>
+<p>The internal capacitance, assumed being 80 J/K in the paper, is mainly due to the battery pack. The <a class="reference external" href="https://https://pw-sat.pl/wp-content/uploads/2014/07/PW-Sat2-A-03.00-EPS-PRR-EN-v1.1.pdf">SwissCube Satellite</a> utilized two (2) <strong>Varta PoLiFlex LiPo [<em>Lithium Polymer</em>]</strong> PLF503759 batteries with a maximum voltage of 4.2 V and a capacity of 1210 mAh of mass of 22.5 g, and dimensions of 58.7 x 5.2 x 37.0 mm (L-H-W).</p>
+<blockquote>
+<div><p><em>Question</em>: Evaluate the thermal capacitance of a battery pack composed of :</p>
+<ul class="simple">
+<li><p>2 Varta cells</p></li>
+<li><p>One aluminum box (thickness 1mm)</p></li>
+<li><p>1 mm thick epoxy resin</p></li>
+</ul>
+</div></blockquote>
+<p>with the assumptions:<br />
+<span class="math notranslate nohighlight">\(c_{lipo}=1000 J/(kg.K)\)</span> and <span class="math notranslate nohighlight">\(m=22.5g\)</span><br />
+<span class="math notranslate nohighlight">\(c_{alu}=896 J/(kg.K)\)</span> and <span class="math notranslate nohighlight">\(\rho_{alu}=2700 kg/m^3\)</span><br />
+<span class="math notranslate nohighlight">\(c_{epoxy}=300 J/(kg.K)\)</span> and <span class="math notranslate nohighlight">\(\rho_{epoxy}=1440 kg/m^3\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c_lipo</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">c_alu</span> <span class="o">=</span> <span class="mi">896</span>
+<span class="n">c_epoxy</span> <span class="o">=</span> <span class="mi">300</span>
 
-<span class="c1"># Radiation</span>
-<span class="c1"># R = (4*math.pi*(r_int**2)*SB_const)/((1/E_int)+(((1-E_ext)/E_ext)*((r_int/r_ext)**2)))</span>
+<span class="n">p_alu</span> <span class="o">=</span> <span class="mf">2.7</span>
+<span class="n">p_epoxy</span> <span class="o">=</span> <span class="mf">1.44</span>
 
-<span class="n">R</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mf">70e-3</span><span class="o">*</span><span class="mf">70e-3</span><span class="p">)</span><span class="o">*</span><span class="n">SB_const</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">E_int</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">E_ext</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">l</span> <span class="o">=</span> <span class="mf">1.17</span>
+<span class="n">w</span> <span class="o">=</span> <span class="mf">3.9</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">6.6</span>
 
-<span class="n">q_p</span> <span class="o">=</span> <span class="n">A_p</span><span class="o">*</span><span class="n">F_sp</span><span class="o">*</span><span class="n">E_ext</span><span class="o">*</span><span class="n">SB_const</span><span class="o">*</span><span class="p">(</span><span class="n">T_p</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span> <span class="c1"># Planet radiation</span>
-<span class="n">q_r</span> <span class="o">=</span> <span class="n">A_r</span><span class="o">*</span><span class="n">E_ext</span><span class="o">*</span><span class="n">SB_const</span><span class="o">*</span><span class="p">(</span><span class="n">T</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">SA</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="o">*</span><span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="o">*</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+
+<span class="n">m_lipo</span> <span class="o">=</span> <span class="mf">22.5</span><span class="o">/</span><span class="mi">1000</span>
+<span class="n">m_alu</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.7</span><span class="o">*</span><span class="mf">0.1</span><span class="o">*</span><span class="n">SA</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span>
+<span class="n">m_epoxy</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.44</span><span class="o">*</span><span class="mf">0.1</span><span class="o">*</span><span class="n">SA</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span>
+
+<span class="n">C_th_tot</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">c_lipo</span><span class="o">*</span><span class="n">m_lipo</span><span class="p">)</span> <span class="o">+</span> <span class="n">c_alu</span><span class="o">*</span><span class="n">m_alu</span> <span class="o">+</span> <span class="n">c_epoxy</span><span class="o">*</span><span class="n">m_epoxy</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C_th_total: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">C_th_tot</span><span class="p">)</span> <span class="o">+</span><span class="s2">&quot; J/K&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C_th_total: 66.683376 J/K
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="python-transient-response">
+<h2><span class="section-number">1.5.7. </span>Python transient response<a class="headerlink" href="#python-transient-response" title="Permalink to this heading">#</a></h2>
+<p>The rest of the tutorial will enable you to obtain the same type Modelica result using a simulation based on Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#r_ext = math.sqrt(S/(4*math.pi))</span>
+<span class="c1">#r_int = 0.01</span>
+
+<span class="c1"># Conduction</span>
+<span class="c1"># K = -(4*math.pi*HC*r_ext*r_int)/(r_ext-r_int)*0+1</span>
 
 <span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">power</span>
@@ -633,416 +733,8 @@ R: 4.0824e-10
 </div>
 </div>
 </section>
-<section id="thermal-conductance">
-<h2><span class="section-number">1.5.2. </span>Thermal conductance<a class="headerlink" href="#thermal-conductance" title="Permalink to this heading">#</a></h2>
-<p>The conductive heat transfer term depends on the nature and shape of the fasteners linking the cards to the satelitte structure.
-Nylon, invar or permaglass can be used to make cylinder-like spacers.</p>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Material</p></th>
-<th class="head"><p>Thermal conductivity</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Nylon</p></td>
-<td><p>0.25 W/mK</p></td>
-</tr>
-<tr class="row-odd"><td><p>Invar</p></td>
-<td><p>5.8 W/mK</p></td>
-</tr>
-<tr class="row-even"><td><p>Stainless steel</p></td>
-<td><p>14 W/mK</p></td>
-</tr>
-<tr class="row-odd"><td><p>Permaglass</p></td>
-<td><p>0.35 W/mK</p></td>
-</tr>
-</tbody>
-</table>
-<p>Note: Nylon has less mechanical strength at high temperatures.</p>
-<blockquote>
-<div><p><strong>Question:</strong> Suggest the expression for a conduction term <span class="math notranslate nohighlight">\(K\)</span> corresponding to 4 spacers of diameter <span class="math notranslate nohighlight">\(D_{spacer}\)</span> and length <span class="math notranslate nohighlight">\(L_{spacer}\)</span>.</p>
-</div></blockquote>
-</section>
-<section id="thermal-radiation">
-<h2><span class="section-number">1.5.3. </span>Thermal radiation<a class="headerlink" href="#thermal-radiation" title="Permalink to this heading">#</a></h2>
-<p>Le terme de transfert thermique en radiation Thermal radiation</p>
-<p>En rayonnement:</p>
-<ul class="simple">
-<li><p>coefficient d’emissivité de surfaces typiques (fonction de la peinture par exemple) a priori plutot partir sur des plans</p></li>
-</ul>
-</section>
-<section id="thermal-capacitance">
-<h2><span class="section-number">1.5.4. </span>Thermal Capacitance<a class="headerlink" href="#thermal-capacitance" title="Permalink to this heading">#</a></h2>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="specification-and-simulation">
-<h1><span class="section-number">1.6. </span>Specification and Simulation<a class="headerlink" href="#specification-and-simulation" title="Permalink to this heading">#</a></h1>
-<p><em>Defining the Needs for a CubeSat Battery Pack Heating Solution</em></p>
-<section id="information-on-cubesat-batteries">
-<h2><span class="section-number">1.6.1. </span>####<strong>INFORMATION ON CUBESAT BATTERIES</strong> 🔋<a class="headerlink" href="#information-on-cubesat-batteries" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>The <strong>OPTIMUS Battery</strong> from <a class="reference external" href="https://www.aac-clyde.space/what-we-do/space-products-components/cubesat-batteries">AAC Clyde Space</a> has strings of cells connected in parallel with cell protection electronics and autonomous integrated heater systems for thermal control. It’s available in varrying battery range capacities [<em>30, 40, and 80 Wh</em>].</p></li>
-<li><p>The <a class="reference external" href="https://https://pw-sat.pl/wp-content/uploads/2014/07/PW-Sat2-A-03.00-EPS-PRR-EN-v1.1.pdf">SwissCube Satellite</a> utilized two (2) <strong>Varta PoLiFlex LiPo [<em>Lithium Polymer</em>]</strong> PLF503759 batteries with a maximum voltage of 4.2 V and a capacity of 1210 mAh</p></li>
-<li><p>The Varta PoLiFlex LiPo <a class="reference external" href="https://docs.rs-online.com/a8d7/0900766b80b23eef.pdf">PLF503759</a> has a typical capacity of 1300 mAh, nominal voltage of 3.7 V, nominal capacity of 1250 mAh, mass of 22.5 g, and dimensions of <strong>58.7 x 5.2 x 37.0 mm (L-H-W)</strong></p></li>
-</ul>
-</section>
-<section id="evaluation-of-thermal-capacitance">
-<h2><span class="section-number">1.6.2. </span>####<strong>EVALUATION OF THERMAL CAPACITANCE</strong> 💡<a class="headerlink" href="#evaluation-of-thermal-capacitance" title="Permalink to this heading">#</a></h2>
-<p>Try to evaluate the thermal capacitance of a battery pack composed of :</p>
-<ul class="simple">
-<li><p>2 Varta cells</p></li>
-<li><p>One aluminum box (thickness 1mm)</p></li>
-<li><p>1 mm thick epoxy resin</p></li>
-</ul>
-<p>The inner dimensions of the box are 11.7 mm x 39 mm x 66 mm, which gives enough space for two batteries.</p>
-<p><span class="math notranslate nohighlight">\(C_{th,total}=c_{alu}.M_{alu}+c_{lipo}.M_{lipo}+c_{epoxy}.M_{epoxy}\)</span><br><br>
-with the assumptions:<br>
-<span class="math notranslate nohighlight">\(c_{lipo}=1000 J/(kg.K)\)</span> and <span class="math notranslate nohighlight">\(m=22.5g\)</span><br>
-<a class="reference external" href="https://asm.matweb.com/search/SpecificMaterial.asp?bassnum=ma6061t6"><span class="math notranslate nohighlight">\(c_{alu}=896 J/(kg.K)\)</span> and <span class="math notranslate nohighlight">\(\rho_{alu}=2.7 g/cc	\)</span></a><br>
-<a class="reference external" href="https://www.matweb.com/search/datasheet_print.aspx?matguid=c1ec1ad603c74f628578663aaf44f261"><span class="math notranslate nohighlight">\(c_{epoxy}=300 J/(kg.K)\)</span> and <span class="math notranslate nohighlight">\(\rho_{epoxy}=1.44 g/cc\)</span></a></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c_lipo</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="n">c_alu</span> <span class="o">=</span> <span class="mi">896</span>
-<span class="n">c_epoxy</span> <span class="o">=</span> <span class="mi">300</span>
-
-<span class="n">p_alu</span> <span class="o">=</span> <span class="mf">2.7</span>
-<span class="n">p_epoxy</span> <span class="o">=</span> <span class="mf">1.44</span>
-
-<span class="n">l</span> <span class="o">=</span> <span class="mf">1.17</span>
-<span class="n">w</span> <span class="o">=</span> <span class="mf">3.9</span>
-<span class="n">h</span> <span class="o">=</span> <span class="mf">6.6</span>
-
-<span class="n">SA</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="o">*</span><span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="o">*</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
-
-<span class="n">m_lipo</span> <span class="o">=</span> <span class="mf">22.5</span><span class="o">/</span><span class="mi">1000</span>
-<span class="n">m_alu</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.7</span><span class="o">*</span><span class="mf">0.1</span><span class="o">*</span><span class="n">SA</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span>
-<span class="n">m_epoxy</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.44</span><span class="o">*</span><span class="mf">0.1</span><span class="o">*</span><span class="n">SA</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span>
-
-<span class="n">C_th_tot</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">c_lipo</span><span class="o">*</span><span class="n">m_lipo</span><span class="p">)</span> <span class="o">+</span> <span class="n">c_alu</span><span class="o">*</span><span class="n">m_alu</span> <span class="o">+</span> <span class="n">c_epoxy</span><span class="o">*</span><span class="n">m_epoxy</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C_th_total: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">C_th_tot</span><span class="p">)</span> <span class="o">+</span><span class="s2">&quot; J/K&quot;</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C_th_alu = </span><span class="si">%.2f</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">c_alu</span><span class="o">*</span><span class="n">p_alu</span><span class="o">*</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">w</span><span class="o">+</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">h</span><span class="o">+</span><span class="mf">0.1</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C_th_total: 66.683376 J/K
-C_th_alu = 82.34
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="definition-of-equivalent-aluminum-box">
-<h2><span class="section-number">1.6.3. </span>####<strong>DEFINITION OF EQUIVALENT ALUMINUM BOX</strong> ⏹<a class="headerlink" href="#definition-of-equivalent-aluminum-box" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>The dimensions will be scaled to that of the SwissCube Satellite’s Varta PoLiFlex LiPo PLF503759, with <strong>58.7 mm length</strong>, <strong>37.0 mm width</strong>, and <strong>5.2 mm height or thickness</strong></p></li>
-<li><p><strong>6061-T6 Aluminum</strong> with a thermal capacitance of 237 J/kg-K and density of 2.7 g/cm^3 is commonly used in satellite applications</p></li>
-<li><p>Basing off the Research Paper’s reference to internal node capacity being 80 J/K, the dimensions of the equivalent aluminum box was previously computed as 13.08 cm length, 8.25 cm width, and 1.16 cm height/thickness</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">solve</span><span class="p">,</span> <span class="n">Eq</span>
-<span class="kn">from</span> <span class="nn">sympy.abc</span> <span class="kn">import</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
-
-<span class="n">volume</span> <span class="o">=</span> <span class="mf">66.683376</span><span class="o">/</span><span class="p">(</span><span class="mi">896</span><span class="o">*</span><span class="p">(</span><span class="mf">2.7</span><span class="o">/</span><span class="mi">1000</span><span class="p">))</span>
-<span class="n">sol</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Eq</span><span class="p">((</span><span class="mf">5.87</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">3.7</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">0.52</span><span class="o">*</span><span class="n">x</span><span class="p">),</span> <span class="n">volume</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">sol</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">l</span> <span class="o">=</span> <span class="mf">5.87</span><span class="o">*</span><span class="n">x</span>
-<span class="n">w</span> <span class="o">=</span> <span class="mf">3.7</span><span class="o">*</span><span class="n">x</span>
-<span class="n">h</span> <span class="o">=</span> <span class="mf">0.52</span><span class="o">*</span><span class="n">x</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Volume: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">volume</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Scaling Factor: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Width: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Height/Thickness: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Volume: 27.564226190476187
-Scaling Factor: 1.34637967027869
-Length: 7.90324866453589
-Width: 4.98160478003114
-Height/Thickness: 0.700117428544917
-</pre></div>
-</div>
-</div>
-</div>
-<p>With this, all dimensions of the Varta PoLiFlex LiPo PLF503759 shall be multiplied by <strong>2.23</strong> to stay on a scaled factor and obtain a total Thermal Capacitance of <strong>80 J/K</strong>, obtaining the following final equivalent dimensions: <strong>7.90 cm length</strong>, <strong>4.98 cm width</strong>, and <strong>0.700 cm height/thickness</strong></p>
-</section>
-<section id="node-thermal-model-of-swisscube">
-<h2><span class="section-number">1.6.4. </span>####<strong>2-NODE THERMAL MODEL OF SWISSCUBE</strong> 🌡<a class="headerlink" href="#node-thermal-model-of-swisscube" title="Permalink to this heading">#</a></h2>
-<p>Note that the model is not to scale but follows the same trend as that of the study by Rossi and Ivanov.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_int</span> <span class="o">=</span> <span class="mf">0.01</span>
-
-<span class="c1"># Conduction</span>
-<span class="c1"># K = -(4*math.pi*HC*r_ext*r_int)/(r_ext-r_int)*0+1</span>
-
-<span class="c1"># calculate this coefficient  assuming that the corresponding thermal resistance is due to spacers</span>
-<span class="c1"># Rth = L / kS</span>
-<span class="n">Lspacer</span> <span class="o">=</span> <span class="mf">10e-3</span> <span class="c1"># [m] length of a spacer</span>
-<span class="n">Sspacer</span> <span class="o">=</span> <span class="mf">3.14</span><span class="o">*</span><span class="p">(</span><span class="mf">8e-3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span> <span class="c1"># [m²] area with diameter 8mm</span>
-<span class="n">kspacer</span> <span class="o">=</span> <span class="mf">0.25</span><span class="o">*</span><span class="mi">0</span><span class="o">+</span><span class="mi">10</span> <span class="c1"># [W/m/K] thermal conductivity</span>
-
-<span class="n">nspacer</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># [-] spacers number</span>
-
-<span class="n">Rth</span> <span class="o">=</span> <span class="n">Lspacer</span><span class="o">/</span><span class="n">kspacer</span><span class="o">/</span><span class="n">Sspacer</span>
-<span class="n">K</span> <span class="o">=</span> <span class="n">nspacer</span><span class="o">/</span><span class="n">Rth</span>
-
-<span class="c1"># Radiation</span>
-<span class="c1"># R = (4*math.pi*(r_int**2)*SB_const)/((1/E_int)+(((1-E_ext)/E_ext)*((r_int/r_ext)**2)))</span>
-
-<span class="n">R</span> <span class="o">=</span> <span class="p">(</span><span class="mf">70e-3</span><span class="o">*</span><span class="mf">70e-3</span><span class="p">)</span><span class="o">*</span><span class="n">SB_const</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">E_int</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">E_ext</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="n">q_p</span> <span class="o">=</span> <span class="n">A_p</span><span class="o">*</span><span class="n">F_sp</span><span class="o">*</span><span class="n">E_ext</span><span class="o">*</span><span class="n">SB_const</span><span class="o">*</span><span class="p">(</span><span class="n">T_p</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">q_r</span> <span class="o">=</span> <span class="n">A_r</span><span class="o">*</span><span class="n">E_ext</span><span class="o">*</span><span class="n">SB_const</span><span class="o">*</span><span class="p">(</span><span class="n">T</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">power</span>
-    <span class="n">T1</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">T2</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-
-    <span class="k">if</span> <span class="n">t</span><span class="o">&lt;</span><span class="mi">35</span><span class="o">*</span><span class="mi">60</span><span class="p">:</span>
-      <span class="n">q_int</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="n">q_s</span> <span class="o">=</span> <span class="n">A_s</span><span class="o">*</span><span class="n">ABS_const</span><span class="o">*</span><span class="n">J_s</span>
-      <span class="n">q_a</span> <span class="o">=</span> <span class="n">A_p</span><span class="o">*</span><span class="n">F_a</span><span class="o">*</span><span class="n">ABS_const</span><span class="o">*</span><span class="n">J_s</span><span class="o">*</span><span class="n">a</span>
-    <span class="k">elif</span> <span class="n">t</span><span class="o">&lt;</span><span class="mi">75</span><span class="o">*</span><span class="mi">60</span><span class="p">:</span>
-      <span class="n">q_int</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="n">q_s</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="n">q_a</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">else</span><span class="p">:</span>
-      <span class="n">q_int</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="n">q_s</span> <span class="o">=</span> <span class="n">A_s</span><span class="o">*</span><span class="n">ABS_const</span><span class="o">*</span><span class="n">J_s</span>
-      <span class="n">q_a</span> <span class="o">=</span> <span class="n">A_p</span><span class="o">*</span><span class="n">F_a</span><span class="o">*</span><span class="n">ABS_const</span><span class="o">*</span><span class="n">J_s</span><span class="o">*</span><span class="n">a</span>
-
-    <span class="n">q_sp</span> <span class="o">=</span> <span class="n">A_p</span><span class="o">*</span><span class="n">F_sp</span><span class="o">*</span><span class="n">E_ext</span><span class="o">*</span><span class="n">SB_const</span><span class="o">*</span><span class="p">((</span><span class="n">T2</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">q_sr</span> <span class="o">=</span> <span class="n">A_r</span><span class="o">*</span><span class="n">E_ext</span><span class="o">*</span><span class="n">SB_const</span><span class="o">*</span><span class="p">((</span><span class="n">T2</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
-
-    <span class="n">Pint</span><span class="o">=</span><span class="p">(</span><span class="n">K</span><span class="o">*</span><span class="p">(</span><span class="n">T2</span><span class="o">-</span><span class="n">T1</span><span class="p">))</span><span class="o">+</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="p">((</span><span class="n">T2</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="o">-</span><span class="p">(</span><span class="n">T1</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">))</span> <span class="o">+</span> <span class="n">q_int</span>
-        <span class="c1">#utilized q_int to keep heat target</span>
-        <span class="c1">#find a peak value for Power so it doesn&#39;t get too cold; hysterisis control</span>
-    <span class="n">dT1dt</span> <span class="o">=</span> <span class="n">Pint</span><span class="o">/</span><span class="n">C_int</span>
-
-    <span class="n">dT2dt</span> <span class="o">=</span> <span class="p">((</span><span class="n">K</span><span class="o">*</span><span class="p">((</span><span class="n">T1</span><span class="o">-</span><span class="n">T2</span><span class="p">)))</span><span class="o">+</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="p">((</span><span class="n">T1</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="o">-</span><span class="p">(</span><span class="n">T2</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">))</span> <span class="o">+</span> <span class="n">q_s</span> <span class="o">+</span> <span class="n">q_p</span> <span class="o">+</span> <span class="n">q_a</span> <span class="o">+</span> <span class="n">q_r</span> <span class="o">-</span> <span class="n">q_sp</span> <span class="o">-</span> <span class="n">q_sr</span><span class="p">)</span><span class="o">/</span><span class="n">C_ext</span>
-    <span class="c1"># print(((K*(T2-T1))+(R*((T2+273.15)**4-(T1+273.15)**4)) + q_int)/C_int)</span>
-    <span class="n">dydt</span> <span class="o">=</span> <span class="p">[</span><span class="n">dT1dt</span><span class="p">,</span><span class="n">dT2dt</span><span class="p">]</span>
-
-    <span class="k">return</span> <span class="n">dydt</span>
-
-<span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">90</span><span class="o">*</span><span class="mi">60</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;K: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">K</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">R</span><span class="p">))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [min]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature [°C]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="n">T1</span><span class="o">=</span><span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">T2</span><span class="o">=</span><span class="n">y</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">Pint</span><span class="o">=</span><span class="n">K</span><span class="o">*</span><span class="p">(</span><span class="n">T2</span><span class="o">-</span><span class="n">T1</span><span class="p">)</span><span class="o">+</span><span class="n">R</span><span class="o">*</span><span class="p">((</span><span class="n">T2</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="o">-</span><span class="p">(</span><span class="n">T1</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span><span class="n">Pint</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [min]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Thermal Power [W]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">59</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span> <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">90</span><span class="o">*</span><span class="mi">60</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">59</span> <span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">61</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;K: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">K</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">R</span><span class="p">))</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/scipy/integrate/_odepack_py.py:241,</span> in <span class="ni">odeint</span><span class="nt">(func, y0, t, args, Dfun, col_deriv, full_output, ml, mu, rtol, atol, tcrit, h0, hmax, hmin, ixpr, mxstep, mxhnil, mxordn, mxords, printmessg, tfirst)</span>
-<span class="g g-Whitespace">    </span><span class="mi">239</span> <span class="n">t</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">240</span> <span class="n">y0</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">y0</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">241</span> <span class="n">output</span> <span class="o">=</span> <span class="n">_odepack</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">Dfun</span><span class="p">,</span> <span class="n">col_deriv</span><span class="p">,</span> <span class="n">ml</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">242</span>                          <span class="n">full_output</span><span class="p">,</span> <span class="n">rtol</span><span class="p">,</span> <span class="n">atol</span><span class="p">,</span> <span class="n">tcrit</span><span class="p">,</span> <span class="n">h0</span><span class="p">,</span> <span class="n">hmax</span><span class="p">,</span> <span class="n">hmin</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">243</span>                          <span class="n">ixpr</span><span class="p">,</span> <span class="n">mxstep</span><span class="p">,</span> <span class="n">mxhnil</span><span class="p">,</span> <span class="n">mxordn</span><span class="p">,</span> <span class="n">mxords</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">244</span>                          <span class="nb">int</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">tfirst</span><span class="p">)))</span>
-<span class="g g-Whitespace">    </span><span class="mi">245</span> <span class="k">if</span> <span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">246</span>     <span class="n">warning_msg</span> <span class="o">=</span> <span class="n">_msgs</span><span class="p">[</span><span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+</span> <span class="s2">&quot; Run with full_output = 1 to get quantitative information.&quot;</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/sympy/core/expr.py:345,</span> in <span class="ni">Expr.__float__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">343</span> <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">is_number</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">as_real_imag</span><span class="p">()[</span><span class="mi">1</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">344</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Cannot convert complex to float&quot;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">345</span> <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Cannot convert expression to float&quot;</span><span class="p">)</span>
-
-<span class="ne">TypeError</span>: Cannot convert expression to float
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="power-necessary-for-a-consistent-15c">
-<h2><span class="section-number">1.6.5. </span>####<strong>POWER NECESSARY FOR A CONSISTENT 15°C</strong> ⚡️<a class="headerlink" href="#power-necessary-for-a-consistent-15c" title="Permalink to this heading">#</a></h2>
-<p><strong>NOTE</strong>: Use the following equation: <em>Power = Heat Load for Desired Temperature / (Thermal Capacitance * Efficiency)</em></p>
-<blockquote>
-<div><p>“In this way the heat produced by the resistance inside the battery-box has been setup to turn off once the temperature is over 5ºC and turn on when below the -5ºC. While turned on, in SwissCube, it produces between 100 mW and 150 mW: <strong>in the model it has been used 100 mW</strong>”</p>
-</div></blockquote>
-<p>SwissCube’s batteries only performed at <a class="reference external" href="https://www.eoportal.org/satellite-missions/swisscube#rf-communications">maximum 25% efficiency</a>. The heat load to 5ºC is 100 mW, therefore that until 15ºC is computed below along with the equivalent necessary power.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">S</span> <span class="o">=</span> <span class="mf">0.06</span>
-<span class="n">A</span> <span class="o">=</span> <span class="mf">0.06462</span>
-<span class="n">A_s</span> <span class="o">=</span> <span class="mf">0.03231</span>
-<span class="n">A_p</span> <span class="o">=</span> <span class="mf">0.03231</span>
-<span class="n">A_r</span> <span class="o">=</span> <span class="mf">0.06462</span>
-<span class="n">F_sp</span> <span class="o">=</span> <span class="mf">0.5</span>
-<span class="n">F_a</span> <span class="o">=</span> <span class="mf">0.5</span>
-<span class="n">J_s</span> <span class="o">=</span> <span class="mi">1366</span>
-<span class="n">E_ext</span> <span class="o">=</span> <span class="mf">0.9</span>
-<span class="n">E_int</span> <span class="o">=</span> <span class="mf">0.05</span><span class="o">*</span><span class="mi">1</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="mi">0</span>
-<span class="n">SB_const</span> <span class="o">=</span> <span class="mf">5.67e-8</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mf">0.34</span>
-<span class="n">T_p</span> <span class="o">=</span> <span class="mi">288</span>
-<span class="n">ABS_const</span> <span class="o">=</span> <span class="mf">0.65</span>
-<span class="n">C_int</span> <span class="o">=</span> <span class="mi">80</span>
-<span class="n">C_ext</span> <span class="o">=</span> <span class="mi">570</span>
-<span class="n">HC</span> <span class="o">=</span> <span class="mf">0.25</span>
-
-<span class="c1"># As derived from the literature</span>
-<span class="n">T_lower</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>  <span class="c1"># Lower temperature threshold (in °C)</span>
-<span class="n">T_upper</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># Upper temperature threshold (in °C)</span>
-
-<span class="n">T</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">r_ext</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">S</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
-<span class="n">r_int</span> <span class="o">=</span> <span class="mf">0.01</span>
-
-<span class="c1"># Calculate this coefficient  assuming that the corresponding thermal resistance is due to spacers</span>
-<span class="c1"># Rth = L / kS</span>
-<span class="n">Lspacer</span> <span class="o">=</span> <span class="mf">10e-3</span>  <span class="c1"># [m] length of a spacer</span>
-<span class="n">Sspacer</span> <span class="o">=</span> <span class="mf">3.14</span> <span class="o">*</span> <span class="p">(</span><span class="mf">8e-3</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># [m²] area with diameter 8mm</span>
-<span class="n">kspacer</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">10</span>  <span class="c1"># [W/m/K] thermal conductivity</span>
-<span class="n">nspacer</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># [-] spacers number</span>
-
-<span class="n">Rth</span> <span class="o">=</span> <span class="n">Lspacer</span> <span class="o">/</span> <span class="n">kspacer</span> <span class="o">/</span> <span class="n">Sspacer</span>
-<span class="n">K</span> <span class="o">=</span> <span class="n">nspacer</span> <span class="o">/</span> <span class="n">Rth</span>
-
-<span class="n">R</span> <span class="o">=</span> <span class="p">(</span><span class="mf">70e-3</span> <span class="o">*</span> <span class="mf">70e-3</span><span class="p">)</span> <span class="o">*</span> <span class="n">SB_const</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">E_int</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">E_ext</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">power</span>
-    <span class="n">T1</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">T2</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-
-    <span class="k">if</span> <span class="n">t</span><span class="o">&lt;</span><span class="mi">35</span><span class="o">*</span><span class="mi">60</span><span class="p">:</span>
-      <span class="n">q_int</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="n">q_s</span> <span class="o">=</span> <span class="n">A_s</span><span class="o">*</span><span class="n">ABS_const</span><span class="o">*</span><span class="n">J_s</span>
-      <span class="n">q_a</span> <span class="o">=</span> <span class="n">A_p</span><span class="o">*</span><span class="n">F_a</span><span class="o">*</span><span class="n">ABS_const</span><span class="o">*</span><span class="n">J_s</span><span class="o">*</span><span class="n">a</span>
-    <span class="k">elif</span> <span class="n">t</span><span class="o">&lt;</span><span class="mi">75</span><span class="o">*</span><span class="mi">60</span><span class="p">:</span>
-      <span class="n">q_int</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="n">q_s</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="n">q_a</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">else</span><span class="p">:</span>
-      <span class="n">q_int</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="n">q_s</span> <span class="o">=</span> <span class="n">A_s</span><span class="o">*</span><span class="n">ABS_const</span><span class="o">*</span><span class="n">J_s</span>
-      <span class="n">q_a</span> <span class="o">=</span> <span class="n">A_p</span><span class="o">*</span><span class="n">F_a</span><span class="o">*</span><span class="n">ABS_const</span><span class="o">*</span><span class="n">J_s</span><span class="o">*</span><span class="n">a</span>
-
-    <span class="n">q_sp</span> <span class="o">=</span> <span class="n">A_p</span><span class="o">*</span><span class="n">F_sp</span><span class="o">*</span><span class="n">E_ext</span><span class="o">*</span><span class="n">SB_const</span><span class="o">*</span><span class="p">((</span><span class="n">T2</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">q_sr</span> <span class="o">=</span> <span class="n">A_r</span><span class="o">*</span><span class="n">E_ext</span><span class="o">*</span><span class="n">SB_const</span><span class="o">*</span><span class="p">((</span><span class="n">T2</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
-
-    <span class="n">Pint</span><span class="o">=</span><span class="p">(</span><span class="n">K</span><span class="o">*</span><span class="p">(</span><span class="n">T2</span><span class="o">-</span><span class="n">T1</span><span class="p">))</span><span class="o">+</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="p">((</span><span class="n">T2</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="o">-</span><span class="p">(</span><span class="n">T1</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">))</span> <span class="o">+</span> <span class="n">q_int</span>
-    <span class="n">dT1dt</span> <span class="o">=</span> <span class="n">Pint</span><span class="o">/</span><span class="n">C_int</span>
-
-    <span class="n">dT2dt</span> <span class="o">=</span> <span class="p">((</span><span class="n">K</span><span class="o">*</span><span class="p">((</span><span class="n">T1</span><span class="o">-</span><span class="n">T2</span><span class="p">)))</span><span class="o">+</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="p">((</span><span class="n">T1</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="o">-</span><span class="p">(</span><span class="n">T2</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">))</span> <span class="o">+</span> <span class="n">q_s</span> <span class="o">+</span> <span class="n">q_p</span> <span class="o">+</span> <span class="n">q_a</span> <span class="o">+</span> <span class="n">q_r</span> <span class="o">-</span> <span class="n">q_sp</span> <span class="o">-</span> <span class="n">q_sr</span><span class="p">)</span><span class="o">/</span><span class="n">C_ext</span>
-    <span class="c1"># print(((K*(T2-T1))+(R*((T2+273.15)**4-(T1+273.15)**4)) + q_int)/C_int)</span>
-    <span class="n">dydt</span> <span class="o">=</span> <span class="p">[</span><span class="n">dT1dt</span><span class="p">,</span><span class="n">dT2dt</span><span class="p">]</span>
-
-    <span class="k">return</span> <span class="n">dydt</span>
-
-<span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span> <span class="o">*</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-
-<span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
-
-<span class="n">T1</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">T2</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">Pint</span> <span class="o">=</span> <span class="n">K</span> <span class="o">*</span> <span class="p">(</span><span class="n">T2</span> <span class="o">-</span> <span class="n">T1</span><span class="p">)</span> <span class="o">+</span> <span class="n">R</span> <span class="o">*</span> <span class="p">((</span><span class="n">T2</span> <span class="o">+</span> <span class="mf">273.15</span><span class="p">)</span> <span class="o">**</span> <span class="mi">4</span> <span class="o">-</span> <span class="p">(</span><span class="n">T1</span> <span class="o">+</span> <span class="mf">273.15</span><span class="p">)</span> <span class="o">**</span> <span class="mi">4</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">power_control</span><span class="p">(</span><span class="n">temperature</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">temperature</span> <span class="o">&lt;=</span> <span class="n">T_lower</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">100</span>
-    <span class="k">elif</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="n">T_upper</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
-
-<span class="n">T1</span><span class="o">=</span><span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">T2</span><span class="o">=</span><span class="n">y</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">Pint</span><span class="o">=</span><span class="n">K</span><span class="o">*</span><span class="p">(</span><span class="n">T2</span><span class="o">-</span><span class="n">T1</span><span class="p">)</span><span class="o">+</span><span class="n">R</span><span class="o">*</span><span class="p">((</span><span class="n">T2</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="o">-</span><span class="p">(</span><span class="n">T1</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span><span class="n">Pint</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [min]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Thermal Power [W]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [min]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature [°C]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Internal&#39;</span><span class="p">,</span> <span class="s1">&#39;External&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="n">max_temperature</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
-<span class="n">min_temperature</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Maximum Temperature of Internal Node (T1):&quot;</span><span class="p">,</span> <span class="n">max_temperature</span><span class="p">,</span> <span class="s2">&quot;°C&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minimum Temperature of Internal Node (T1):&quot;</span><span class="p">,</span> <span class="n">min_temperature</span><span class="p">,</span> <span class="s2">&quot;°C&quot;</span><span class="p">)</span>
-
-<span class="n">power_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">power_control</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">T1</span><span class="p">]</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span> <span class="o">/</span> <span class="mi">60</span><span class="p">,</span> <span class="n">power_values</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [min]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Power [mW]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Hysteresis Control&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="c1"># With the literature, it was said that the active control of 100mW was only activated</span>
-<span class="c1"># once the temperature reached -5 degrees Celcius, and stopped once it reached 5 degrees Celsius</span>
-
-<span class="n">peak_power</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Pint</span><span class="p">)</span>
-<span class="n">mean_power</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Pint</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Peak Power:&quot;</span><span class="p">,</span> <span class="n">peak_power</span><span class="p">,</span> <span class="s2">&quot;W&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean Power:&quot;</span><span class="p">,</span> <span class="n">mean_power</span><span class="p">,</span> <span class="s2">&quot;W&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/20485b012d2e4009bae188794d7c0481029015eb6b8ef9ed81640ab9914947ff.png" src="../_images/20485b012d2e4009bae188794d7c0481029015eb6b8ef9ed81640ab9914947ff.png" />
-<img alt="../_images/708610b1f8eda3e5b5e31123b321866f5bd2758f3dafa0e6ceb83a676f720603.png" src="../_images/708610b1f8eda3e5b5e31123b321866f5bd2758f3dafa0e6ceb83a676f720603.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum Temperature of Internal Node (T1): 23.343665483525747 °C
-Minimum Temperature of Internal Node (T1): -18.620854817968667 °C
-</pre></div>
-</div>
-<img alt="../_images/16864c3cd2bdcdaaebc24920172e65747f78bff64c7cc5c95cda52b2abae549c.png" src="../_images/16864c3cd2bdcdaaebc24920172e65747f78bff64c7cc5c95cda52b2abae549c.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Peak Power: 1.353387383482923 W
-Mean Power: -0.17737055770976012 W
-</pre></div>
-</div>
-</div>
-</div>
+<section id="defining-the-power-needs-for-a-cubesat-battery-pack-heating-solution">
+<h2><span class="section-number">1.5.8. </span>Defining the power needs for a CubeSat Battery Pack Heating Solution<a class="headerlink" href="#defining-the-power-needs-for-a-cubesat-battery-pack-heating-solution" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Computing for necessary resistance</span>
@@ -1065,9 +757,13 @@ Mean Power: -0.17737055770976012 W
 </div>
 </div>
 </section>
+<section id="homework">
+<h2><span class="section-number">1.5.9. </span>Homework<a class="headerlink" href="#homework" title="Permalink to this heading">#</a></h2>
+</section>
 <section id="references">
-<h2><span class="section-number">1.6.6. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.5.10. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <p>[Rossi, 2013] Rossi, S., &amp; Ivanov, A. (2013). Thermal model for cubesat: A simple and easy model from the Swisscube’s thermal flight data. In <em>Proceedings of the International Astronautical Congress</em> (Vol. 13, pp. 9919-9928). <a class="reference external" href="https://www.researchgate.net/publication/299535685_THERMAL_MODEL_FOR_CUBESAT_A_SIMPLE_AND_EASY_MODEL_FROM_THE_SWISSCUBE%27S_THERMAL_FLIGHT_DATA">Link</a></p>
+<p>[Cengel, 2003] Cengel, A. (2003). Heht transfer. New York: McGraw-Hill.</p>
 </section>
 </section>
 
@@ -1134,24 +830,17 @@ Mean Power: -0.17737055770976012 W
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1.5. Thermal Model for CubeSat</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-nodes-thermal-model">1.5.1. Two nodes thermal model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-conductance">1.5.2. Thermal conductance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-radiation">1.5.3. Thermal radiation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-capacitance">1.5.4. Thermal Capacitance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#illumination-of-satellites">1.5.1. Illumination of satellites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-nodes-thermal-model">1.5.2. Two nodes thermal model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelica-implementation">1.5.3. Modelica implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-radiation">1.5.4. Thermal radiation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-conductance">1.5.5. Thermal conductance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-capacitance">1.5.6. Thermal Capacitance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-transient-response">1.5.7. Python transient response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-the-power-needs-for-a-cubesat-battery-pack-heating-solution">1.5.8. Defining the power needs for a CubeSat Battery Pack Heating Solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework">1.5.9. Homework</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.5.10. References</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#specification-and-simulation">1.6. Specification and Simulation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-on-cubesat-batteries">1.6.1. ####<strong>INFORMATION ON CUBESAT BATTERIES</strong> 🔋</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-of-thermal-capacitance">1.6.2. ####<strong>EVALUATION OF THERMAL CAPACITANCE</strong> 💡</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-equivalent-aluminum-box">1.6.3. ####<strong>DEFINITION OF EQUIVALENT ALUMINUM BOX</strong> ⏹</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-thermal-model-of-swisscube">1.6.4. ####<strong>2-NODE THERMAL MODEL OF SWISSCUBE</strong> 🌡</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-necessary-for-a-consistent-15c">1.6.5. ####<strong>POWER NECESSARY FOR A CONSISTENT 15°C</strong> ⚡️</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">1.6.6. References</a></li>
-</ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>

@@ -177,7 +177,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="02_CM2_ThermalControlSystems.html">1.3. Thermal Control System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_CM3_Introduction2MultiPhysicModeling.html">1.4. Introduction to multiphysics modeling of sizing scenarios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_TD1_CubeSatThermalModeling.html">1.5. Thermal Model for CubeSat</a></li>
-
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="summaryPartB.html">2. Control software definition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
@@ -599,8 +598,8 @@ $<span class="math notranslate nohighlight">\( G_1(s) = \frac{\Delta T_1(s)}{Q_1
 <p>La fonction de transfert d’un controleur Proportionnel - Integral PI est la suivante :
 <span class="math notranslate nohighlight">\(G_c(s)=k_p+\frac{k_i}{s}+k_d s\)</span></p>
 <p>Given a process variable <span class="math notranslate nohighlight">\(PV\)</span> and setpoint <span class="math notranslate nohighlight">\(SP\)</span>, proportional-integral-derivative control determines the value of a manipulated variable MV by the rule</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e30ea295-7c13-493a-b2b6-2d3fc7fcd415">
-<span class="eqno">(2.1)<a class="headerlink" href="#equation-e30ea295-7c13-493a-b2b6-2d3fc7fcd415" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-93f36dd6-7efe-4267-a654-929bb9d923b1">
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-93f36dd6-7efe-4267-a654-929bb9d923b1" title="Permalink to this equation">#</a></span>\[\begin{align}
 MV &amp; = \bar{MV} + K_p\left(SP - PV\right) + K_i \int_0^t \left(SP-PV)\right)dt + K_d \frac{d\left(SP-PV\right)}{dt}
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(K_p\)</span>, <span class="math notranslate nohighlight">\(K_i\)</span>, and <span class="math notranslate nohighlight">\(K_d\)</span> are the proportional, integral, and derivative coefficients, respectively.</p>
