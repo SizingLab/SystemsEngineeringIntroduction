@@ -551,17 +551,9 @@ Among which the first three equations refer to heat input, and the last to heat 
 <p><strong>Note:</strong> Link to a <a class="reference external" href="https://www.design1st.com/Design-Resource-Library/engineering_data/ThermalEmissivityValues.pdf">Data base of emissivity coefficients</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Radiation</span>
-<span class="c1"># R = (4*math.pi*(r_int**2)*SB_const)/((1/E_int)+(((1-E_ext)/E_ext)*((r_int/r_ext)**2)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># R = .....  # Plate radiation coefficient</span>
 
-<span class="n">R</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mf">70e-3</span><span class="o">*</span><span class="mf">70e-3</span><span class="p">)</span><span class="o">*</span><span class="n">SB_const</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">E_int</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">E_ext</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Plate radiation coefficient</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Radiation coefficient : R=</span><span class="si">%.2e</span><span class="s2"> W/K^4&quot;</span><span class="o">%</span><span class="k">R</span>)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Radiation coefficient : R=4.08e-10 W/K^4
+<span class="c1"># print(&quot;Radiation coefficient : R=%.2e W/K^4&quot;%R)</span>
 </pre></div>
 </div>
 </div>
@@ -598,24 +590,17 @@ Nylon, invar or permaglass can be used to make cylinder-like spacers.</p>
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate this coefficient  assuming that the corresponding thermal resistance is due to spacers</span>
-<span class="c1"># Rth = L / kS</span>
-<span class="n">Dspacer</span> <span class="o">=</span> <span class="mf">6e-3</span> <span class="c1"># [m] spacer diameter</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Dspacer</span> <span class="o">=</span> <span class="mf">6e-3</span> <span class="c1"># [m] spacer diameter</span>
 <span class="n">Lspacer</span> <span class="o">=</span> <span class="mf">15e-3</span> <span class="c1"># [m] length of a spacer</span>
 <span class="n">Sspacer</span> <span class="o">=</span> <span class="mf">3.14</span><span class="o">*</span><span class="p">(</span><span class="n">Dspacer</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># [m²] area with diameter</span>
 <span class="n">kspacer</span> <span class="o">=</span> <span class="mf">0.35</span> <span class="c1"># [W/m/K] thermal conductivity</span>
 
 <span class="n">nspacer</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># [-] spacers number</span>
 
-<span class="n">Rth</span> <span class="o">=</span> <span class="n">Lspacer</span><span class="o">/</span><span class="n">kspacer</span><span class="o">/</span><span class="n">Sspacer</span>
-<span class="n">K</span> <span class="o">=</span> <span class="n">nspacer</span><span class="o">/</span><span class="n">Rth</span>
+<span class="c1"># Rth = ...</span>
+<span class="c1"># K = ....</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Conduction coefficient : K=</span><span class="si">%.2e</span><span class="s2"> W/K&quot;</span><span class="o">%</span><span class="k">K</span>)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Conduction coefficient : K=2.64e-03 W/K
+<span class="c1"># print(&quot;Conduction coefficient : K=%.2e W/K&quot;%K)</span>
 </pre></div>
 </div>
 </div>
@@ -653,13 +638,9 @@ Nylon, invar or permaglass can be used to make cylinder-like spacers.</p>
 <span class="n">m_epoxy</span> <span class="o">=</span> <span class="n">p_epoxy</span><span class="o">*</span><span class="mf">1e-3</span><span class="o">*</span><span class="n">SA</span><span class="o">*</span><span class="mi">2</span>
 <span class="n">m_pcb</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="mf">90e-3</span><span class="o">*</span><span class="mf">90e-3</span><span class="o">*</span><span class="mf">1.8e-3</span><span class="o">*</span><span class="n">p_epoxy</span>
 
-<span class="n">C_th_tot</span> <span class="o">=</span> <span class="n">c_lipo</span><span class="o">*</span><span class="n">m_lipo</span> <span class="o">+</span> <span class="n">c_alu</span><span class="o">*</span><span class="n">m_alu</span> <span class="o">+</span> <span class="n">c_epoxy</span><span class="o">*</span><span class="p">(</span><span class="n">m_epoxy</span><span class="o">+</span><span class="n">m_pcb</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Internal Capacitance C_th_int: </span><span class="si">%.1f</span><span class="s2"> J/K&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">C_th_tot</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Internal Capacitance C_th_int: 77.2 J/K
+<span class="c1"># C_th_tot = ...</span>
+
+<span class="c1"># print(&quot;Internal Capacitance C_th_int: %.1f J/K&quot; % (C_th_tot))</span>
 </pre></div>
 </div>
 </div>
@@ -700,57 +681,24 @@ Nylon, invar or permaglass can be used to make cylinder-like spacers.</p>
         <span class="c1">#utilized q_int to keep heat target</span>
 
     <span class="c1"># Internal temperature variation</span>
-    <span class="n">dT1dt</span> <span class="o">=</span> <span class="n">XXXXXX</span>
+    <span class="c1"># dT1dt = ....</span>
 
     <span class="c1"># External temperature variation</span>
-    <span class="n">dT2dt</span> <span class="o">=</span> <span class="n">XXXXXX</span>
+    <span class="c1"># dT2dt = ....</span>
     
     <span class="n">dydt</span> <span class="o">=</span> <span class="p">[</span><span class="n">dT1dt</span><span class="p">,</span><span class="n">dT2dt</span><span class="p">]</span>
 
     <span class="k">return</span> <span class="n">dydt</span>
 
-<span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30000</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+<span class="c1">#y0 = [0,5]</span>
+<span class="c1">#t = np.linspace(0,30000,1000)</span>
+<span class="c1">#y = odeint(model,y0,t)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="s1">&#39;Int&#39;</span><span class="p">,</span> <span class="s1">&#39;Ext&#39;</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [min]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature [°C]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">39</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30000</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">39</span> <span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="s1">&#39;Int&#39;</span><span class="p">,</span> <span class="s1">&#39;Ext&#39;</span><span class="p">))</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/scipy/integrate/_odepack_py.py:241,</span> in <span class="ni">odeint</span><span class="nt">(func, y0, t, args, Dfun, col_deriv, full_output, ml, mu, rtol, atol, tcrit, h0, hmax, hmin, ixpr, mxstep, mxhnil, mxordn, mxords, printmessg, tfirst)</span>
-<span class="g g-Whitespace">    </span><span class="mi">239</span> <span class="n">t</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">240</span> <span class="n">y0</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">y0</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">241</span> <span class="n">output</span> <span class="o">=</span> <span class="n">_odepack</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">Dfun</span><span class="p">,</span> <span class="n">col_deriv</span><span class="p">,</span> <span class="n">ml</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">242</span>                          <span class="n">full_output</span><span class="p">,</span> <span class="n">rtol</span><span class="p">,</span> <span class="n">atol</span><span class="p">,</span> <span class="n">tcrit</span><span class="p">,</span> <span class="n">h0</span><span class="p">,</span> <span class="n">hmax</span><span class="p">,</span> <span class="n">hmin</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">243</span>                          <span class="n">ixpr</span><span class="p">,</span> <span class="n">mxstep</span><span class="p">,</span> <span class="n">mxhnil</span><span class="p">,</span> <span class="n">mxordn</span><span class="p">,</span> <span class="n">mxords</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">244</span>                          <span class="nb">int</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">tfirst</span><span class="p">)))</span>
-<span class="g g-Whitespace">    </span><span class="mi">245</span> <span class="k">if</span> <span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">246</span>     <span class="n">warning_msg</span> <span class="o">=</span> <span class="n">_msgs</span><span class="p">[</span><span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+</span> <span class="s2">&quot; Run with full_output = 1 to get quantitative information.&quot;</span>
-
-<span class="nn">Cell In[5], line 28,</span> in <span class="ni">model</span><span class="nt">(y, t)</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">Pint</span><span class="o">=</span> <span class="p">(</span><span class="n">K</span><span class="o">*</span><span class="p">(</span><span class="n">T2</span><span class="o">-</span><span class="n">T1</span><span class="p">))</span><span class="o">+</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="p">((</span><span class="n">T2</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="o">-</span><span class="p">(</span><span class="n">T1</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">))</span> <span class="o">+</span> <span class="n">q_int</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="c1">#utilized q_int to keep heat target</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> 
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="c1"># Internal temperature variation</span>
-<span class="ne">---&gt; </span><span class="mi">28</span> <span class="n">dT1dt</span> <span class="o">=</span> <span class="n">XXXXXX</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="c1"># External temperature variation</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="n">dT2dt</span> <span class="o">=</span> <span class="n">XXXXXX</span>
-
-<span class="ne">NameError</span>: name &#39;XXXXXX&#39; is not defined
+<span class="c1">#plt.plot(t/60,y)</span>
+<span class="c1">#plt.legend((&#39;Int&#39;, &#39;Ext&#39;))</span>
+<span class="c1">#plt.xlabel(&#39;Time [min]&#39;)</span>
+<span class="c1">#plt.ylabel(&#39;Temperature [°C]&#39;)</span>
+<span class="c1">#plt.show()</span>
 </pre></div>
 </div>
 </div>
@@ -763,26 +711,15 @@ Nylon, invar or permaglass can be used to make cylinder-like spacers.</p>
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T1</span><span class="o">=</span><span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">T2</span><span class="o">=</span><span class="n">y</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">Pint</span><span class="o">=</span><span class="n">XXXXXX</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#T1=y[:,0]</span>
+<span class="c1">#T2=y[:,1]</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span><span class="n">Pint</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [min]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Thermal Power [W]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">T1</span><span class="o">=</span><span class="n">y</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">T2</span><span class="o">=</span><span class="n">y</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">Pint</span><span class="o">=</span><span class="n">XXXXXX</span>
+<span class="c1"># Pint=......</span>
 
-<span class="ne">NameError</span>: name &#39;y&#39; is not defined
+<span class="c1">#plt.plot(t/60,Pint)</span>
+<span class="c1">#plt.xlabel(&#39;Time [min]&#39;)</span>
+<span class="c1">#plt.ylabel(&#39;Thermal Power [W]&#39;)</span>
+<span class="c1">#plt.show()</span>
 </pre></div>
 </div>
 </div>
@@ -794,68 +731,28 @@ Nylon, invar or permaglass can be used to make cylinder-like spacers.</p>
 <img alt="Modelica model" src="../_images/RelayControl.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Heat</span> <span class="o">=</span> <span class="mf">1.5</span>
-<span class="n">StateHeat</span> <span class="o">=</span> <span class="kc">True</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Heat = ...</span>
+<span class="c1">#StateHeat = True</span>
 
-<span class="k">def</span> <span class="nf">relay</span><span class="p">(</span><span class="n">Temp</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">StateHeat</span><span class="p">,</span> <span class="n">Heat</span>
-    
-    <span class="k">if</span> <span class="n">Temp</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
-        <span class="n">XXXXX</span>
-    <span class="k">elif</span> <span class="n">Temp</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="p">:</span>
-        <span class="n">XXXXX</span>
-        
-    <span class="k">return</span> <span class="n">Heat</span> <span class="k">if</span> <span class="n">StateHeat</span> <span class="k">else</span> <span class="mi">0</span>
+<span class="c1">#def relay(Temp):</span>
+<span class="c1">#    global StateHeat, Heat</span>
+<span class="c1">#    </span>
+<span class="c1"># ...</span>
+<span class="c1"># </span>
+<span class="c1">#    return Heat if StateHeat else 0</span>
 
-<span class="n">HYST</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="c1">#HYST = True</span>
 
-<span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30000</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+<span class="c1">#y0 = [0,5]</span>
+<span class="c1">#t = np.linspace(0,30000,1000)</span>
+<span class="c1">#y = odeint(model,y0,t)</span>
 
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="s1">&#39;Int&#39;</span><span class="p">,</span> <span class="s1">&#39;Ext&#39;</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [min]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature [°C]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">18</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30000</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">18</span> <span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="s1">&#39;Int&#39;</span><span class="p">,</span> <span class="s1">&#39;Ext&#39;</span><span class="p">))</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/scipy/integrate/_odepack_py.py:241,</span> in <span class="ni">odeint</span><span class="nt">(func, y0, t, args, Dfun, col_deriv, full_output, ml, mu, rtol, atol, tcrit, h0, hmax, hmin, ixpr, mxstep, mxhnil, mxordn, mxords, printmessg, tfirst)</span>
-<span class="g g-Whitespace">    </span><span class="mi">239</span> <span class="n">t</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">240</span> <span class="n">y0</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">y0</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">241</span> <span class="n">output</span> <span class="o">=</span> <span class="n">_odepack</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">Dfun</span><span class="p">,</span> <span class="n">col_deriv</span><span class="p">,</span> <span class="n">ml</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">242</span>                          <span class="n">full_output</span><span class="p">,</span> <span class="n">rtol</span><span class="p">,</span> <span class="n">atol</span><span class="p">,</span> <span class="n">tcrit</span><span class="p">,</span> <span class="n">h0</span><span class="p">,</span> <span class="n">hmax</span><span class="p">,</span> <span class="n">hmin</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">243</span>                          <span class="n">ixpr</span><span class="p">,</span> <span class="n">mxstep</span><span class="p">,</span> <span class="n">mxhnil</span><span class="p">,</span> <span class="n">mxordn</span><span class="p">,</span> <span class="n">mxords</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">244</span>                          <span class="nb">int</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">tfirst</span><span class="p">)))</span>
-<span class="g g-Whitespace">    </span><span class="mi">245</span> <span class="k">if</span> <span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">246</span>     <span class="n">warning_msg</span> <span class="o">=</span> <span class="n">_msgs</span><span class="p">[</span><span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+</span> <span class="s2">&quot; Run with full_output = 1 to get quantitative information.&quot;</span>
-
-<span class="nn">Cell In[5], line 20,</span> in <span class="ni">model</span><span class="nt">(y, t)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="c1"># Power exchange between external and internal node</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="k">if</span> <span class="n">HYST</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">20</span>     <span class="n">q_int</span><span class="o">=</span><span class="n">relay</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="k">else</span><span class="p">:</span> 
-<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">q_int</span><span class="o">=</span><span class="mi">0</span>
-
-<span class="nn">Cell In[7], line 10,</span> in <span class="ni">relay</span><span class="nt">(Temp)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">XXXXX</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="k">elif</span> <span class="n">Temp</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">10</span>     <span class="n">XXXXX</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="k">return</span> <span class="n">Heat</span> <span class="k">if</span> <span class="n">StateHeat</span> <span class="k">else</span> <span class="mi">0</span>
-
-<span class="ne">NameError</span>: name &#39;XXXXX&#39; is not defined
+<span class="c1">#plt.plot(t/60,y)</span>
+<span class="c1">#plt.legend((&#39;Int&#39;, &#39;Ext&#39;))</span>
+<span class="c1">#plt.xlabel(&#39;Time [min]&#39;)</span>
+<span class="c1">#plt.ylabel(&#39;Temperature [°C]&#39;)</span>
+<span class="c1">#plt.show()</span>
 </pre></div>
 </div>
 </div>
