@@ -493,7 +493,23 @@ document.write(`
 <li><p>Who does it affect? Sur quoi le Produit agit-il ?</p></li>
 <li><p>“For what purpose” (what for?) « Dans quel but ? » (pour_quoi faire ?)</p></li>
 </ul>
-</section>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Thrust Vector Control System, fundamental need:<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">Who does it serve? À qui le Produit rend-il service ? <em>The launcher flight control system</em></p></li>
+<li><p class="sd-card-text">Who does it affect? Sur quoi le Produit agit-il ? <em>The system acts on the nozzle</em></p></li>
+<li><p class="sd-card-text">“For what purpose” (what for?) « Dans quel but ? » (pour_quoi faire ?) <em>To control the angular velocities of the vehicle</em></p></li>
+</ul>
+<p class="sd-card-text">The Initial Function Statement is thus:
+The Thrust Vector Control (TVC) actuation system  shall control the nozzle position in order to control the vehicle about the pitch and yaw axes.
+This statement describes a high-level function that the TVC actuation system must perform.</p>
+</div>
+</details></section>
 <section id="life-cycle-analysis">
 <h3><span class="section-number">1.2.2.2. </span>Life cycle analysis<a class="headerlink" href="#life-cycle-analysis" title="Permalink to this heading">#</a></h3>
 <p>An analysis of the various life phases can help to determine which of them may have a significant influence on the solution finally developed.
@@ -534,7 +550,20 @@ Examples of life phases:</p>
 </tr>
 </tbody>
 </table>
-</section>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+The main ones or Concept of Operations (ConOps) scenarios for our example are:<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">Qualification tests</p></li>
+<li><p class="sd-card-text">The operating phase from take-off to separation of the propulsion stage</p></li>
+<li><p class="sd-card-text">Recovery and return to service</p></li>
+</ul>
+</div>
+</details></section>
 <section id="system-boundaries-definition">
 <h3><span class="section-number">1.2.2.3. </span>System boundaries definition<a class="headerlink" href="#system-boundaries-definition" title="Permalink to this heading">#</a></h3>
 <p>It is also important to define the boundaries of the system under study. This will make it possible to
@@ -543,7 +572,20 @@ define:</p>
 <li><p>what is imposed = the external elements with which the system will interact</p></li>
 <li><p>on what the designer can act = the system</p></li>
 </ul>
-<p>The context diagram of SysML language can help to give a graphical representation of the system and stakeholders.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Main interfaces of the TVC system:<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">The system shall be self-sufficient in energy = no power interface</p></li>
+<li><p class="sd-card-text">The system shall communicate with the on-board computer via a data bus = data communication interfaces</p></li>
+<li><p class="sd-card-text">The system shall be mechanically connected to the nozzle and skirt of the launcher stage = structural interfaces</p></li>
+</ul>
+</div>
+</details><p>The context diagram of SysML language can help to give a graphical representation of the system and stakeholders.</p>
 </section>
 </section>
 <section id="requirements-definition">
@@ -571,7 +613,19 @@ functional tree thanks the questions ‘Why?’ and ‘How?’. This can also he
 Performance Requirements - How well the “system” executes the function<br />
 Interface Requirements - An Interface Requirement is a requirement that specifies the ports for connecting systems and parts of a system.</p>
 </div></blockquote>
-<ul class="simple">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Example of Functional Requirements with Associated Performance Requirements (from Nasa Handbook):<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">• The TVC shall gimbal the engine a maximum of 9 degrees, ± 0.1 degree.
+• The TVC shall gimbal the engine at a maximum rate of 5 degrees/second ± 0.3 degrees/second.
+• The TVC shall provide a force of 40,000 pounds, ± 500 pounds.
+• The TVC shall have a frequency response of 20 Hz, ± 0.1 Hz.</p>
+</div>
+</details><ul class="simple">
 <li><p>According to APTE method: <em>A function is made up of a verb or verbal group characterising the action, and complements representing the elements of the external environment affected by the function. The subject of the sentence does not appear, but it always refers to the product.</em></p></li>
 </ul>
 <table class="table">
@@ -605,7 +659,19 @@ Interface Requirements - An Interface Requirement is a requirement that specifie
 </tr>
 </tbody>
 </table>
-<p>The requirement diagram of SysML Language can represent the same informations.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+The functions are grouped together in a Functional Specification in the form of a table :<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>Criterion:</strong> Characteristic used to assess the way in which a function is fulfilled or a constraint met.
+A scale must be used to assess the level.</p>
+<p class="sd-card-text"><strong>Level of an assessment criterion:</strong> Quantity identified in the scale adopted for a function assessment criterion. This quantity may be that sought as an objective or that achieved for a proposed solution.
+Quantified values with tolerance (Dimensions, Operating parameters, Costs, Noise level, etc.).</p>
+</div>
+</details><p>The requirement diagram of SysML Language can represent the same informations.</p>
 <p>There are different specification documents depending on the design stage.</p>
 <ul class="simple">
 <li><p>Requirements specification: they are independent of the solution and technological choices to avoid influencing the designers or sub-contractors and focus on the fundamental need to be met.</p></li>

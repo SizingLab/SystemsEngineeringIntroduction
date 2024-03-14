@@ -535,6 +535,7 @@ Modelica diagram  <div class="sd-summary-down docutils">
 <p class="sd-card-text">Below is the Modelica diagram equivalent to a nozzle. The linear actuator will provide a force that will generate a rotation of this mechanical load.</p>
 <p class="sd-card-text"><em>Modelica diagram of the mechanical load</em>:
 <img alt="Modelica diagram" src="../_images/NozzleModelicaModel.png" /></p>
+<p class="sd-card-text"><strong>Note:</strong> You can install OpenModelica from this <a class="reference external" href="https://openmodelica.org/download/download-windows/">link</a> to simulate the Modelica <span class="xref myst">models</span> of this course.</p>
 </div>
 </details></section>
 <section id="sizing-scenarios">
@@ -593,6 +594,7 @@ with <span class="math notranslate nohighlight">\(\xi=0.7\)</span> and thus <spa
 <li><p>speed <span class="math notranslate nohighlight">\(\frac{p}{1+\frac{2\xi p}{\omega_0}+\frac{p^2}{\omega_0^2}}\)</span></p></li>
 <li><p>acceleration <span class="math notranslate nohighlight">\(\frac{p^2}{1+\frac{2\xi p}{\omega_0}+\frac{p^2}{\omega_0^2}}\)</span></p></li>
 </ul>
+<p>For linear models that can be represented by transfer functions or state models, it is possible to use the function <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.step.html"><code class="docutils literal notranslate"><span class="pre">scipy.signal.step</span></code></a> to calculate the desired response.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import from scipy of the step response</span>
@@ -625,17 +627,102 @@ with <span class="math notranslate nohighlight">\(\xi=0.7\)</span> and thus <spa
 <span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span><span class="p">,</span><span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Position (°)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">yp</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Speed (°/s)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">ypp</span><span class="p">)</span>
 <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Acceleration (°/s²)&#39;</span><span class="p">)</span>
 <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/83886bbd3876d508838e92569909ba6daa1c7668ce333cdab290ec310c3d776e.png" src="../_images/83886bbd3876d508838e92569909ba6daa1c7668ce333cdab290ec310c3d776e.png" />
+<img alt="../_images/a7ca80f11b0211b965c7bb59a682c72f6cbf03add08feea90bbfc3379001d347.png" src="../_images/a7ca80f11b0211b965c7bb59a682c72f6cbf03add08feea90bbfc3379001d347.png" />
+</div>
+</div>
+<p>For potentially non-linear systems represented by a set of differential equations and algebraic equations, it is possible to use the function <a class="reference external" href="https://apmonitor.com/pdc/index.php/Main/SolveDifferentialEquations"><code class="docutils literal notranslate"><span class="pre">scipy.integrate.odeint</span></code></a> to numerically integrate the system model.</p>
+<p><code class="docutils literal notranslate"><span class="pre">scipy.integrate.odeint</span></code> requires three inputs:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>model</strong>: Function name that returns derivative values at requested y and t values as dydt = model(y,t)</p>
+<p><strong>y0</strong>: Initial conditions of the differential states</p>
+<p><strong>t</strong>: Time points at which the solution should be reported. Additional internal points are often calculated to maintain accuracy of the solution but are not reported.</p>
+<blockquote>
+<div><p><strong>Question:</strong> Transform the previous transfert function <span class="math notranslate nohighlight">\(H(p)=\frac{\theta(p)}{\theta_{order}(p)}=\frac{1}{1+\frac{2\xi p}{\omega_0}+\frac{p^2}{\omega_0^2}}\)</span> representation into differential equations usable by <code class="docutils literal notranslate"><span class="pre">scipy.integrate.odeint</span></code>.</p>
+</div></blockquote>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Answer<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(H(p)=\frac{\theta(p)}{\theta_{order}(p)}=\frac{1}{1+\frac{2\xi p}{\omega_0}+\frac{p^2}{\omega_0^2}}\)</span><br />
+is equivalent to this differential equation<br />
+<span class="math notranslate nohighlight">\(\theta(t) +\frac{2\xi}{\omega_0} \dot\theta(t) + \frac{1}{\omega_0^2} \ddot\theta(t) = \theta_{order}(t)\)</span><br />
+and the <code class="docutils literal notranslate"><span class="pre">model</span></code> function can be set up with the following vectors:
+$y=\left(</p>
+<div class="amsmath math notranslate nohighlight" id="equation-23ea3495-627c-474d-b66a-681b62e29f21">
+<span class="eqno">(1.1)<a class="headerlink" href="#equation-23ea3495-627c-474d-b66a-681b62e29f21" title="Permalink to this equation">#</a></span>\[\begin{matrix} 
+        \theta(t)\\ 
+        \dot\theta(t)         
+\end{matrix}\]</div>
+<p class="sd-card-text">and
+$\dot y=\left(</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e2d1f6b6-1c23-4ab8-9ba2-10d1832aef0d">
+<span class="eqno">(1.2)<a class="headerlink" href="#equation-e2d1f6b6-1c23-4ab8-9ba2-10d1832aef0d" title="Permalink to this equation">#</a></span>\[\begin{matrix} 
+        \dot\theta(t)\\ 
+        \omega_0^2 (\theta_{order}(t) - \theta(t)) -2\xi\omega_0 \dot\theta(t)  
+\end{matrix}\]</div>
+</div>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import from scipy of odeint solver</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Definition of time response, damping coef, and angular frequency of the filter</span>
+<span class="n">tr</span><span class="o">=</span><span class="mf">72e-3</span>
+<span class="n">w0</span><span class="o">=</span><span class="mf">2.9</span><span class="o">/</span><span class="n">tr</span>
+<span class="n">Xsi</span><span class="o">=</span><span class="mf">0.7</span>
+
+<span class="c1"># function that returns dy/dt</span>
+<span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">theta_order</span><span class="o">=</span><span class="mf">5.7</span> <span class="k">if</span> <span class="n">t</span><span class="o">&gt;</span><span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">thetap</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">thetapp</span> <span class="o">=</span> <span class="n">w0</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">theta_order</span><span class="o">-</span><span class="n">theta</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">Xsi</span><span class="o">*</span><span class="n">w0</span><span class="o">*</span><span class="n">thetap</span>
+    <span class="n">dydt</span> <span class="o">=</span> <span class="p">[</span><span class="n">thetap</span><span class="p">,</span><span class="n">thetapp</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">dydt</span>
+
+<span class="c1"># initial condition</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># time points</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> 
+
+<span class="c1"># solve ODE</span>
+<span class="n">y_odeint</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+
+<span class="c1"># plot of the different dynamic answers</span>
+<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y_odeint</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Position (°)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_odeint</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Speed (°/s)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/00e8055d2e4b50f6ba947d79fe857c865f0c6b2fac39b1b1c0242ddbd1cc2756.png" src="../_images/00e8055d2e4b50f6ba947d79fe857c865f0c6b2fac39b1b1c0242ddbd1cc2756.png" />
 </div>
 </div>
 </section>
@@ -677,7 +764,7 @@ with <span class="math notranslate nohighlight">\(\xi=0.7\)</span> and thus <spa
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a2f7745632642158eaca895859221fdeaa268e760ef34f61f9b4de411ae150e4.png" src="../_images/a2f7745632642158eaca895859221fdeaa268e760ef34f61f9b4de411ae150e4.png" />
+<img alt="../_images/3bf8a8b53ec565a97861143fd9d3e0a2799b5f9268d5bfb1b8f8d0aa74b2b4b4.png" src="../_images/3bf8a8b53ec565a97861143fd9d3e0a2799b5f9268d5bfb1b8f8d0aa74b2b4b4.png" />
 </div>
 </div>
 </section>
