@@ -496,7 +496,7 @@ Answer<div class="sd-summary-down docutils">
 <p class="sd-card-text">(d) MIL: Simulation model with controller principle</p>
 <p class="sd-card-text">(b) RCP: Cylinder test bench with DSPACE controller</p>
 <p class="sd-card-text">(a) SIL: Simulation model with software and clock sampling</p>
-<p class="sd-card-text">© HIL: microcontroller electronic board with HIL target</p>
+<p class="sd-card-text">(c ) HIL: microcontroller electronic board with HIL target</p>
 </div>
 </details></section>
 <section id="digitizing-a-controller-and-the-effect-of-sampling-frequencies">
@@ -515,7 +515,7 @@ Answer<div class="sd-summary-down docutils">
 </ul>
 <p><strong>EMA actuator:</strong><br />
 <img alt="TVC test" src="../_images/SmallLoopController.PNG" />
-<img alt="TVC test" src="notebook/figures/P80EMA.png" /></p>
+<img alt="TVC test" src="../_images/P80EMA.PNG" /></p>
 <blockquote>
 <div><p><strong>Question:</strong> Explain in simplified terms how force feedback can be used to introduce damping.</p>
 </div></blockquote>
@@ -538,7 +538,7 @@ Damping with forcefeedback<div class="sd-summary-down docutils">
 <li><p>the rack-and-pinion assembly representing the screw/nut system and the EMA motor</p></li>
 </ul>
 <p><em>Mechanical models:</em>
-<img alt="TVC test" src="notebook/figures/EMA_Nozzle_Modelica.PNG" /></p>
+<img alt="TVC test" src="../_images/EMA_Nozzle_Modelica.png" /></p>
 <blockquote>
 <div><p><strong>Exercice:</strong> Explain how to represent the previous model a) by the equivalent model in rotation b). Determine the transfer function relating torque to motor speed under these conditions.</p>
 </div></blockquote>
@@ -584,12 +584,12 @@ Transfer function<div class="sd-summary-down docutils">
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting control
   Downloading control-0.9.4-py3-none-any.whl.metadata (7.6 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from control) (1.24.4)
+Requirement already satisfied: numpy in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from control) (1.24.4)
 Requirement already satisfied: scipy&gt;=1.3 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from control) (1.9.3)
 Requirement already satisfied: matplotlib in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from control) (3.7.4)
-Requirement already satisfied: contourpy&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (1.1.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: contourpy&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (1.1.1)
 Requirement already satisfied: cycler&gt;=0.10 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (0.12.1)
 Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (4.47.2)
 Requirement already satisfied: kiwisolver&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (1.4.5)
@@ -608,7 +608,7 @@ Downloading control-0.9.4-py3-none-any.whl (455 kB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/455.1 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">455.1/455.1 kB</span> <span class=" -Color -Color-Red">53.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">455.1/455.1 kB</span> <span class=" -Color -Color-Red">54.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -626,7 +626,9 @@ Downloading control-0.9.4-py3-none-any.whl (455 kB)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parameters</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">control</span> <span class="k">as</span> <span class="nn">ct</span>
+
+<span class="c1"># Parameters</span>
 <span class="n">pitch</span><span class="o">=</span><span class="mf">1.25e-3</span> <span class="c1"># [m/rad] pitch</span>
 <span class="n">Jmot</span><span class="o">=</span><span class="mf">3e-3</span> <span class="c1"># [kg] motor inertia</span>
 <span class="n">fn</span><span class="o">=</span><span class="mi">5475</span> <span class="c1"># [N/(m/s)] nozzle  equivalent viscous friction </span>
@@ -650,18 +652,7 @@ Downloading control-0.9.4-py3-none-any.whl (455 kB)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">15</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">Jtot</span><span class="o">=</span><span class="n">Jmot</span><span class="o">+</span><span class="n">Jeq</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># Transfer function</span>
-<span class="ne">---&gt; </span><span class="mi">15</span> <span class="n">sys_meca</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">Jtot</span><span class="p">,</span> <span class="n">feq</span><span class="p">,</span> <span class="n">Keq</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">sys_iLoop</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">*</span><span class="mi">500</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="mf">0.7</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">*</span><span class="mi">500</span><span class="p">),</span> <span class="mi">1</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">sys_open</span><span class="o">=</span><span class="n">sys_iLoop</span><span class="o">*</span><span class="n">sys_meca</span>
-
-<span class="ne">NameError</span>: name &#39;ct&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/f07bf59e762ce325a08dc806269a5f4bb0c5ab31b14da8bb9202cde6a7d0d6c3.png" src="../_images/f07bf59e762ce325a08dc806269a5f4bb0c5ab31b14da8bb9202cde6a7d0d6c3.png" />
 </div>
 </div>
 <blockquote>
@@ -698,18 +689,12 @@ Controller definition  <div class="sd-summary-down docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">Kp</span><span class="o">=</span><span class="mf">1.05</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">tau_i</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">PI</span><span class="o">=</span><span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">([</span><span class="n">Kp</span><span class="o">*</span><span class="n">tau_i</span><span class="p">,</span> <span class="n">Kp</span><span class="p">],</span> <span class="p">[</span><span class="n">tau_i</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Open loop</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">PISys</span><span class="o">=</span><span class="n">PI</span><span class="o">*</span><span class="n">sys_open</span>
-
-<span class="ne">NameError</span>: name &#39;ct&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PI controller:
+Kp = 1.05
+Tau = 3.18e-02
 </pre></div>
 </div>
+<img alt="../_images/1ace8e6dac553ebbfb70fb94d0e982ab450a95e00968c47778c0e7648c7076fc.png" src="../_images/1ace8e6dac553ebbfb70fb94d0e982ab450a95e00968c47778c0e7648c7076fc.png" />
 </div>
 </div>
 </section>
@@ -762,18 +747,13 @@ However, digital control has one main weakness: the introduction of delay in the
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.008</span><span class="o">/</span><span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#pade=ct.tf(ct.pade(delay, 1))</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">num</span><span class="p">,</span><span class="n">den</span><span class="o">=</span><span class="n">ct</span><span class="o">.</span><span class="n">pade</span><span class="p">(</span><span class="n">delay</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">pade</span><span class="o">=</span><span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">den</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">mag</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">pade</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">omega_limits</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">*</span><span class="mi">100</span><span class="p">],</span> <span class="n">Hz</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;ct&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f68888db460&gt;
 </pre></div>
 </div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../_images/37e9f539851a74857fcc5b9ec05ca0bd37933ad56c38e2355e84f6132d6ccdca.png" src="../_images/37e9f539851a74857fcc5b9ec05ca0bd37933ad56c38e2355e84f6132d6ccdca.png" />
 </div>
 </div>
 <p><strong>Note:</strong> Delays can come from a variety of sources:</p>
@@ -794,15 +774,7 @@ However, digital control has one main weakness: the introduction of delay in the
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">PISysPade</span><span class="o">=</span><span class="n">PISys</span><span class="o">*</span><span class="n">pade</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">mag</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">PISysPade</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">Hz</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">initial_phase</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;PISys&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/f0cfc1ab05e50c290cfd44fbe70454464d21326f7c0c589c93ab44e708925783.png" src="../_images/f0cfc1ab05e50c290cfd44fbe70454464d21326f7c0c589c93ab44e708925783.png" />
 </div>
 </div>
 </section>
