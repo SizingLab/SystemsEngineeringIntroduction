@@ -1,0 +1,944 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2.1. Control software development and TCLab Introduction &#8212; Introduction to Mechatronics and System Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebook/05_CM4_SoftwareDevelopment_TCLabIntroduction';</script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.2. Temperature Control Lab, step identification" href="06a_TD2_TCLab_IdentificationStep.html" />
+    <link rel="prev" title="2. Part B : Control and software development" href="summaryPartB.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../about/homepage.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Introduction to Mechatronics and System Engineering - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Introduction to Mechatronics and System Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction and overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../about/syllabus.html">Systems Engineering Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/installation.html">Installation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermal control system of a cubesat</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="summaryPartA.html">1. Technical requirements definition</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="01a_CM1_Systems_SpaceSystems.html">1.1. Complex technological systems and space systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01b_CM1_SystemEngineering.html">1.2. System engineering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_CM2_ThermalControlSystems.html">1.3. Thermal Control System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_CM3_Introduction2MultiPhysicModeling.html">1.4. Introduction to multiphysics modeling of sizing scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_TD1_CubeSatThermalModeling_Student.html">1.5. Thermal Model for CubeSat</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="summaryPartB.html">2. Control software definition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.1. Control software development and TCLab Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06a_TD2_TCLab_IdentificationStep.html">2.2. Temperature Control Lab, step identification</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/SizingLab/SystemsEngineeringIntroduction/main?urlpath=lab/tree/notebook/05_CM4_SoftwareDevelopment_TCLabIntroduction.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/SizingLab/SystemsEngineeringIntroduction/blob/main/notebook/05_CM4_SoftwareDevelopment_TCLabIntroduction.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/SizingLab/SystemsEngineeringIntroduction" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/SizingLab/SystemsEngineeringIntroduction/edit/main/notebook/05_CM4_SoftwareDevelopment_TCLabIntroduction.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/SizingLab/SystemsEngineeringIntroduction/issues/new?title=Issue%20on%20page%20%2Fnotebook/05_CM4_SoftwareDevelopment_TCLabIntroduction.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebook/05_CM4_SoftwareDevelopment_TCLabIntroduction.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Control software development and TCLab Introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-controller-development-cycle">2.1.1. Digital controller development cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digitizing-a-controller-and-the-effect-of-sampling-frequencies">2.1.2. Digitizing a controller and the effect of sampling frequencies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-loops-of-a-position-control">2.1.2.1. Nested loops of a position control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-loop-of-an-ema">2.1.2.2. Speed loop of an EMA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delay-in-digital-controller">2.1.2.3. Delay in digital controller</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">2.1.3. References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="control-software-development-and-tclab-introduction">
+<h1><span class="section-number">2.1. </span>Control software development and TCLab Introduction<a class="headerlink" href="#control-software-development-and-tclab-introduction" title="Permalink to this heading">#</a></h1>
+<p>This lecture will look at the information processing part of a mechatronic system in terms of control loops and digital implementation of controllers.</p>
+<p><em>Information processing part of a mechatronic system:</em>
+<img alt="Mechatronics" src="../_images/mechatronics.png" /></p>
+<section id="digital-controller-development-cycle">
+<h2><span class="section-number">2.1.1. </span>Digital controller development cycle<a class="headerlink" href="#digital-controller-development-cycle" title="Permalink to this heading">#</a></h2>
+<p>Software components and digital controllers are becoming essential in the development of new automated systems.  They offer a wide range of functions at low cost and are flexible in terms of use and maintenance. However, development times are potentially long with specific stages and test times to detect coding errors.</p>
+<p>To maximise the benefits of the software and minimise the disadvantages of development, engineers have access to tools at the various stages of the V cycle:</p>
+<ul class="simple">
+<li><p><strong>MIL or Model In the Loop:</strong> the controller principle is tested by simulation.</p></li>
+<li><p><strong>RCP or Rapid Control Prototyping:</strong> a digital implementation of the controller is implemented in a powerful dedicated processor. The code is generated using specific tools. The physical system is real and can take the form of a reduced-scale model or part of the system.</p></li>
+<li><p><strong>SIL or Sofwtare In the Loop:</strong> the controller software code is computer-tested on a simulated physical system.</p></li>
+<li><p><strong>HIL or Hardware In the Loop:</strong> the software code is implemented in the product’s digital controller. This software/controller assembly is tested electronically on a simulated physical system in an HIL digital target.</p></li>
+</ul>
+<p><strong>Software V design cycle:</strong><br />
+<img alt="Mechatronics" src="../_images/VcycleHIL.jpg" /></p>
+<blockquote>
+<div><p><strong>Question:</strong> Using the example of the control of a gyropode (segway), indicate which stage in the development of the digital controller each image below corresponds to.</p>
+</div></blockquote>
+<p><strong>HIL quiz:</strong><br />
+<img alt="HIL quiz" src="../_images/HIl_quiz.png" /></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Answer<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">(d) MIL: Simulation model with controller principle</p>
+<p class="sd-card-text">(b) RCP: Cylinder test bench with DSPACE controller</p>
+<p class="sd-card-text">(a) SIL: Simulation model with software and clock sampling</p>
+<p class="sd-card-text">© HIL: microcontroller electronic board with HIL target</p>
+</div>
+</details></section>
+<section id="digitizing-a-controller-and-the-effect-of-sampling-frequencies">
+<h2><span class="section-number">2.1.2. </span>Digitizing a controller and the effect of sampling frequencies<a class="headerlink" href="#digitizing-a-controller-and-the-effect-of-sampling-frequencies" title="Permalink to this heading">#</a></h2>
+<section id="nested-loops-of-a-position-control">
+<h3><span class="section-number">2.1.2.1. </span>Nested loops of a position control<a class="headerlink" href="#nested-loops-of-a-position-control" title="Permalink to this heading">#</a></h3>
+<p>We will illustrate the effects of digitisation on a launcher nozzle TVC controller. The TVC actuator considered here is an EMA (Electro-Mechanical) linear actuator. Its body is anchored on the booster frame while its rod is attached to the nozzle. In the normal mode, the TVC Actuator must perform a closed loop angular position control of the nozzle, following the demand of the flight control computer and rejecting the disturbances generated by the pulsed jet throught the nozzle. The TVC Actuator must also behave as a damper in order to limit the mechanical resonance effects.</p>
+<p><strong>TVC actuator: position and tests</strong><br />
+<img alt="TVC test" src="../_images/TVA_system.png" />
+<img alt="TVC test" src="../_images/TVC_tests.png" /></p>
+<p>Each of the 2 actuators consists of a brushless permanent magnet synchronous motor that drives a roller screw through a gearbox. This way the rotational motion of the motor is transformed into a linear motion. A typical and generic architecture of small loop controller (big loop = launcher control) is represented below. Classical approach for the design of loop control foresees multiple nested loops (cascade):</p>
+<ul class="simple">
+<li><p>The inner current or torque loop is generally associated to a much larger bandwidth than the other loops.</p></li>
+<li><p>A velocity loop:  for EMA, the motor angular position is measured using a resolver and derived to obtain a velocity feedback. A force sensor is added to drive the actuator in order to reduce the transient force and to damp oscillations.</p></li>
+<li><p>A external position loop: technical constraints impose to have a feedback on actuator position rather than nozzle position itself (which is the controlled parameter). LVDT sensor is generally used to measure the length variation of the actuator.</p></li>
+</ul>
+<p><strong>EMA actuator:</strong><br />
+<img alt="TVC test" src="../_images/SmallLoopController.PNG" />
+<img alt="TVC test" src="notebook/figures/P80EMA.png" /></p>
+<blockquote>
+<div><p><strong>Question:</strong> Explain in simplified terms how force feedback can be used to introduce damping.</p>
+</div></blockquote>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Damping with forcefeedback<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The force feedback is achieved by measuring the force generated by the actuator, using an instrumented rod end for example, and by using this measurment as a setpoint on the speed loop.</p>
+<p class="sd-card-text">A proportional link is therefore created between the actuator force and the linear speed, similar to that of a viscous damper. The gain applied on the force feedback enables to set the damping.</p>
+</div>
+</details></section>
+<section id="speed-loop-of-an-ema">
+<h3><span class="section-number">2.1.2.2. </span>Speed loop of an EMA<a class="headerlink" href="#speed-loop-of-an-ema" title="Permalink to this heading">#</a></h3>
+<p>We will focus here on the speed loop. We will represent the mechanical assembly nozzle / actuator by the diagram a) below with:</p>
+<ul class="simple">
+<li><p>the mass/spring/viscous friction assembly for the nozzle</p></li>
+<li><p>the rack-and-pinion assembly representing the screw/nut system and the EMA motor</p></li>
+</ul>
+<p><em>Mechanical models:</em>
+<img alt="TVC test" src="notebook/figures/EMA_Nozzle_Modelica.PNG" /></p>
+<blockquote>
+<div><p><strong>Exercice:</strong> Explain how to represent the previous model a) by the equivalent model in rotation b). Determine the transfer function relating torque to motor speed under these conditions.</p>
+</div></blockquote>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Equivalent parameters<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The equivalent parameters must make it possible to represent :</p>
+<ul class="simple">
+<li><p class="sd-card-text">the kinetic energy <span class="math notranslate nohighlight">\(\frac{1}{2}M_{nozzle}v^2=\frac{1}{2}J_{eq}\Omega^2\)</span> thus <span class="math notranslate nohighlight">\(J_{eq,nozzle}=M_{nozzle}p^2\)</span> with <span class="math notranslate nohighlight">\(p\)</span> the pitch in [m/rad]<br />
+or</p></li>
+<li><p class="sd-card-text">elastic energy  <span class="math notranslate nohighlight">\(\frac{1}{2}K_{nozzle}x^2=\frac{1}{2}K_{eq}\theta^2\)</span> thus <span class="math notranslate nohighlight">\(K_{eq,nozzle}=K_{nozzle}p^2\)</span> with <span class="math notranslate nohighlight">\(p\)</span> the pitch in [m/rad]</p></li>
+</ul>
+<p class="sd-card-text">stored in the system as a whole.</p>
+<p class="sd-card-text">Finally:<br />
+<span class="math notranslate nohighlight">\(J_{eq}=J_{mot}+M_{nozzle}p^2\)</span><br />
+<span class="math notranslate nohighlight">\(K_{eq}=K_{nozzle}p^2\)</span><br />
+<span class="math notranslate nohighlight">\(f_{eq}=f_{nozzle}p^2\)</span></p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Transfer function<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\frac{\Omega(p)}{T(p)}=\frac{p}{K_{eq}+f_{eq}p+J_{eq}p^2}\)</span></p>
+</div>
+</details><p>The Bode diagram of the transfer function can be displayed using the <a class="reference external" href="https://python-control.readthedocs.io/en/0.9.4/">python-control library</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">control</span> <span class="k">as</span> <span class="nn">ct</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="c1"># Install Python-Control package</span>
+    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>control<span class="w"> </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting control
+  Downloading control-0.9.4-py3-none-any.whl.metadata (7.6 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from control) (1.24.4)
+Requirement already satisfied: scipy&gt;=1.3 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from control) (1.9.3)
+Requirement already satisfied: matplotlib in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from control) (3.7.4)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (1.1.1)
+Requirement already satisfied: cycler&gt;=0.10 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (4.47.2)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (1.4.5)
+Requirement already satisfied: packaging&gt;=20.0 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (23.2)
+Requirement already satisfied: pillow&gt;=6.2.0 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (10.2.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (3.1.1)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (2.8.2)
+Requirement already satisfied: importlib-resources&gt;=3.2.0 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (6.1.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: zipp&gt;=3.1.0 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from importlib-resources&gt;=3.2.0-&gt;matplotlib-&gt;control) (3.17.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib-&gt;control) (1.16.0)
+Downloading control-0.9.4-py3-none-any.whl (455 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/455.1 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">455.1/455.1 kB</span> <span class=" -Color -Color-Red">53.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: control
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed control-0.9.4
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">23.0.1</span> -&gt; <span class=" -Color -Color-Green">24.0</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parameters</span>
+<span class="n">pitch</span><span class="o">=</span><span class="mf">1.25e-3</span> <span class="c1"># [m/rad] pitch</span>
+<span class="n">Jmot</span><span class="o">=</span><span class="mf">3e-3</span> <span class="c1"># [kg] motor inertia</span>
+<span class="n">fn</span><span class="o">=</span><span class="mi">5475</span> <span class="c1"># [N/(m/s)] nozzle  equivalent viscous friction </span>
+<span class="n">Mn</span><span class="o">=</span><span class="mi">770</span> <span class="c1"># [kg] Nozzle equivalent mass</span>
+<span class="n">Kn</span><span class="o">=</span><span class="mi">478000</span> <span class="c1"># [N/m] Nozzle equivalent stiffness</span>
+
+<span class="c1"># Rotational equivalent parameters</span>
+<span class="n">Jeq</span><span class="o">=</span><span class="n">Mn</span><span class="o">*</span><span class="n">pitch</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">Keq</span><span class="o">=</span><span class="n">Kn</span><span class="o">*</span><span class="n">pitch</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">feq</span><span class="o">=</span><span class="n">fn</span><span class="o">*</span><span class="n">pitch</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">Jtot</span><span class="o">=</span><span class="n">Jmot</span><span class="o">+</span><span class="n">Jeq</span>
+
+<span class="c1"># Transfer function</span>
+<span class="n">sys_meca</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">Jtot</span><span class="p">,</span> <span class="n">feq</span><span class="p">,</span> <span class="n">Keq</span><span class="p">])</span>
+<span class="n">sys_iLoop</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">*</span><span class="mi">500</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="mf">0.7</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">*</span><span class="mi">500</span><span class="p">),</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">sys_open</span><span class="o">=</span><span class="n">sys_iLoop</span><span class="o">*</span><span class="n">sys_meca</span>
+
+<span class="c1"># Bode diagram</span>
+<span class="n">mag</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">sys_open</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">Hz</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">initial_phase</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span><span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">15</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">Jtot</span><span class="o">=</span><span class="n">Jmot</span><span class="o">+</span><span class="n">Jeq</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># Transfer function</span>
+<span class="ne">---&gt; </span><span class="mi">15</span> <span class="n">sys_meca</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">Jtot</span><span class="p">,</span> <span class="n">feq</span><span class="p">,</span> <span class="n">Keq</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">sys_iLoop</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">*</span><span class="mi">500</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="mf">0.7</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">*</span><span class="mi">500</span><span class="p">),</span> <span class="mi">1</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">sys_open</span><span class="o">=</span><span class="n">sys_iLoop</span><span class="o">*</span><span class="n">sys_meca</span>
+
+<span class="ne">NameError</span>: name &#39;ct&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p><strong>Exercice:</strong> Propose a corrector with zero static error and a closed bandwidth of 40 Hz. Make sure you have a minimum phase margin of 45° and a minimum gain margin of 10 dB.</p>
+</div></blockquote>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Controller definition  <div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The static error requires the addition of an integral term. We can therefore propose a PI corrector if the stability conditions allow.<br />
+<span class="math notranslate nohighlight">\(C(p)=K_p(1+\frac{1}{\tau_i p})=\frac{K_p+K_p\tau_i p}{\tau_i p}\)</span></p>
+<p class="sd-card-text">The bandwidth in the closed loop can be approximated in the open loop by the frequency with unity gain.</p>
+</div>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># PI controller</span>
+<span class="n">Kp</span><span class="o">=</span><span class="mf">1.05</span>
+<span class="n">tau_i</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="p">)</span>
+<span class="n">PI</span><span class="o">=</span><span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">([</span><span class="n">Kp</span><span class="o">*</span><span class="n">tau_i</span><span class="p">,</span> <span class="n">Kp</span><span class="p">],</span> <span class="p">[</span><span class="n">tau_i</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Open loop</span>
+<span class="n">PISys</span><span class="o">=</span><span class="n">PI</span><span class="o">*</span><span class="n">sys_open</span>
+
+<span class="c1"># Bode diagram</span>
+<span class="n">mag</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">PISys</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">Hz</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PI controller:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kp = </span><span class="si">%.2f</span><span class="s2">&quot;</span><span class="o">%</span> <span class="n">Kp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tau = </span><span class="si">%.2e</span><span class="s2">&quot;</span><span class="o">%</span> <span class="n">tau_i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">Kp</span><span class="o">=</span><span class="mf">1.05</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">tau_i</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">PI</span><span class="o">=</span><span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">([</span><span class="n">Kp</span><span class="o">*</span><span class="n">tau_i</span><span class="p">,</span> <span class="n">Kp</span><span class="p">],</span> <span class="p">[</span><span class="n">tau_i</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Open loop</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">PISys</span><span class="o">=</span><span class="n">PI</span><span class="o">*</span><span class="n">sys_open</span>
+
+<span class="ne">NameError</span>: name &#39;ct&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="delay-in-digital-controller">
+<h3><span class="section-number">2.1.2.3. </span>Delay in digital controller<a class="headerlink" href="#delay-in-digital-controller" title="Permalink to this heading">#</a></h3>
+<p>The previous synthesis of the corrector was done in the continuous domain. However, its implementation will most often be digital rather than analogue. Digital control (using a µC microcontroller or a DSP signal processor) offers the following advantages [<span class="xref myst">Ellis, 2012</span>]:</p>
+<ul class="simple">
+<li><p>lower noise sensitivity, better accuracy, less performance drift</p></li>
+<li><p>ease of changing gains or parameters.<br />
+However, digital control has one main weakness: the introduction of delay in the control loop. These delays generate phase shifts that can lead to instability or limit the gains and ultimately the bandwidth of the system.</p></li>
+</ul>
+<p>Digital systems operate in discrete time steps. At regular intervals, the controller reads the feedback and command information, executes control algorithms, and outputs control orders. Between intervals, the output is held at a fixed level. This is what gives digital control waveforms their characteristic “stair step” appearance. The figure below shows a sinusoidal waveform at its sampled equivalent. The effect of sampling with a period T can be approximated as a pure delay of T/2.</p>
+<p><em>Sampling effects:</em>
+<img alt="Sampling" src="../_images/SamplingDelay.PNG" /></p>
+<blockquote>
+<div><p><strong>Exercice:</strong>  Characterise the effect of sampling on gain and phase. Perform the numerical applications for a sampling period of 8 ms (125 Hz).</p>
+</div></blockquote>
+<p><strong>Note:</strong> Delays can be approximated by Padé transfer functions with python implementation in the <a class="reference external" href="https://python-control.readthedocs.io/en/latest/generated/control.pade.html">control package</a>. A first-order Padé approximation of a T time delay is <span class="math notranslate nohighlight">\(e^{-Tp}=\frac{1-\frac{T}{2}p}{1+\frac{T}{2}p}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delay</span><span class="o">=</span><span class="mf">0.008</span><span class="o">/</span><span class="mi">2</span>
+<span class="c1">#pade=ct.tf(ct.pade(delay, 1))</span>
+<span class="n">num</span><span class="p">,</span><span class="n">den</span><span class="o">=</span><span class="n">ct</span><span class="o">.</span><span class="n">pade</span><span class="p">(</span><span class="n">delay</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">pade</span><span class="o">=</span><span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">den</span><span class="p">)</span>
+
+<span class="n">mag</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">pade</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">omega_limits</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">*</span><span class="mi">100</span><span class="p">],</span> <span class="n">Hz</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                        
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">freq</span><span class="o">=</span><span class="n">omega</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>    <span class="c1"># get subplot axes</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">ax1</span><span class="p">)</span>                 <span class="c1"># magnitude plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">omega</span><span class="p">),</span><span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Exact&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">mag</span><span class="p">,</span><span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pade&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Gain&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">ax2</span><span class="p">)</span>                 <span class="c1"># phase plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="o">-</span><span class="n">delay</span><span class="o">*</span><span class="n">omega</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Exact&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">phase</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pade&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Hz)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Phase (°)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.008</span><span class="o">/</span><span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#pade=ct.tf(ct.pade(delay, 1))</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">num</span><span class="p">,</span><span class="n">den</span><span class="o">=</span><span class="n">ct</span><span class="o">.</span><span class="n">pade</span><span class="p">(</span><span class="n">delay</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">pade</span><span class="o">=</span><span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">den</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">mag</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">pade</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">omega_limits</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">*</span><span class="mi">100</span><span class="p">],</span> <span class="n">Hz</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;ct&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Note:</strong> Delays can come from a variety of sources:</p>
+<ul class="simple">
+<li><p>Sample-and-hold: 0.5T</p></li>
+<li><p>Calculation delay: 0.1T-0.9T</p></li>
+<li><p>Velocity estimation: 0.5T (motion systems)</p></li>
+</ul>
+<p>Their effects are added together to produce a total delay. The anti-aliasing filter can also create phase shifts that need to be taken into account. The sampling frequency must be chosen carefully with all these effects.</p>
+<blockquote>
+<div><p><strong>Exercice:</strong> Evaluate the effect of sampling at a period of 8 ms on the previous corrector. Suggest a sampling frequency compatible with the desired performance.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PISysPade</span><span class="o">=</span><span class="n">PISys</span><span class="o">*</span><span class="n">pade</span>
+<span class="n">mag</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">PISysPade</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">Hz</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">initial_phase</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">PISysPade</span><span class="o">=</span><span class="n">PISys</span><span class="o">*</span><span class="n">pade</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">mag</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">PISysPade</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">Hz</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">initial_phase</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;PISys&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="references">
+<h2><span class="section-number">2.1.3. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<p>[Mihalič, 2022 ] Mihalič, F., Truntič, M., &amp; Hren, A. (2022). Hardware-in-the-loop simulations: A historical overview of engineering challenges. Electronics, 11(15), 2462. <a class="reference external" href="https://www.researchgate.net/publication/362572593_Hardware-in-the-Loop_Simulations_A_Historical_Overview_of_Engineering_Challenges">Link</a></p>
+<p>[Vanthuyne, 2009 ] Vanthuyne, T. (2009, September). An electrical thrust vector control system for the VEGA launcher. In Proceedings of the 13th European Space Mechanisms and Tribology Symposium (Vol. 670). <a class="reference external" href="http://esmats.eu/esmatspapers/pastpapers/pdfs/2009/vanthuyne.pdf">Link</a></p>
+<p>[Carpentier, 2011 ] Carpentier, B., Puel, F., Cros, C., Pin, B., Gerbe, L., &amp; Solide, S. S. P. (2011). Stability analysis using a coupled model of TVC actuator control loop and structural dynamics of a Launch Vehicle. In 4th European Conference For Aerospace Sciences (EUCASS).</p>
+<p>[Ellis, 2012] Ellis, G. (2012). Control system design guide: using your computer to understand and diagnose feedback controllers. Butterworth-Heinemann.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebook"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="summaryPartB.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Part B : Control and software development</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="06a_TD2_TCLab_IdentificationStep.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2.2. </span>Temperature Control Lab, step identification</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-controller-development-cycle">2.1.1. Digital controller development cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digitizing-a-controller-and-the-effect-of-sampling-frequencies">2.1.2. Digitizing a controller and the effect of sampling frequencies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-loops-of-a-position-control">2.1.2.1. Nested loops of a position control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-loop-of-an-ema">2.1.2.2. Speed loop of an EMA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delay-in-digital-controller">2.1.2.3. Delay in digital controller</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">2.1.3. References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Marc Budinger, INSA Toulouse
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

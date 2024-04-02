@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>2.1. Temperature Control Lab, step identification &#8212; Introduction to Mechatronics and System Engineering</title>
+    <title>2.2. Temperature Control Lab, step identification &#8212; Introduction to Mechatronics and System Engineering</title>
   
   
   
@@ -69,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="2. Part B : Control and software development" href="summaryPartB.html" />
+    <link rel="prev" title="2.1. Control software development and TCLab Introduction" href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -179,7 +179,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="summaryPartB.html">2. Control software definition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.1. Temperature Control Lab, step identification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html">2.1. Control software development and TCLab Introduction</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. Temperature Control Lab, step identification</a></li>
 </ul>
 </li>
 </ul>
@@ -443,32 +444,32 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-tclab-arduino-package">2.1.1. The TCLab Arduino Package</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-main-tclab-components">2.1.1.1. The main TCLab components</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assembly">2.1.1.2. Assembly</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">2.1.1.3. Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-tclab-arduino-package">2.2.1. The TCLab Arduino Package</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-main-tclab-components">2.2.1.1. The main TCLab components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assembly">2.2.1.2. Assembly</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">2.2.1.3. Setup</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-grips-with-the-arduino-code">2.1.2. Getting to grips with the Arduino code</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-and-uploading-code-to-an-arduino-microcontroller">2.1.2.1. Compiling and uploading code to an Arduino microcontroller</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-temperatures-with-serial-monitor">2.1.2.2. Reading Temperatures with serial monitor</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-heaters">2.1.2.3. Setting Heaters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-grips-with-the-arduino-code">2.2.2. Getting to grips with the Arduino code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-and-uploading-code-to-an-arduino-microcontroller">2.2.2.1. Compiling and uploading code to an Arduino microcontroller</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-temperatures-with-serial-monitor">2.2.2.2. Reading Temperatures with serial monitor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-heaters">2.2.2.3. Setting Heaters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.1.3. Getting to grips with the Arduino code</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.1.3.1. Getting to grips with the Arduino code</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-tclab-library">2.1.3.2. Installing the tclab library</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing">2.1.3.3. Importing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.2.3. Getting to grips with the Arduino code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.2.3.1. Getting to grips with the Arduino code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-tclab-library">2.2.3.2. Installing the tclab library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing">2.2.3.3. Importing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-temperatures">2.1.4. Reading Temperatures</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.1.5. Setting Heaters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronizing-with-real-time-using-clock">2.1.6. Synchronizing with Real Time using <code class="docutils literal notranslate"><span class="pre">clock</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-response-using-clock-with-tclab">2.1.7. Step response using <code class="docutils literal notranslate"><span class="pre">clock</span></code> with TCLab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-the-step-change-data-to-a-first-order-model">2.1.8. Fitting the Step Change Data to a First Order Model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nodal-thermal-model">2.1.9. Nodal thermal model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-state-model-for-a-single-heater">2.1.10. Two State Model for a Single Heater</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">2.1.11. References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-temperatures">2.2.4. Reading Temperatures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.2.5. Setting Heaters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronizing-with-real-time-using-clock">2.2.6. Synchronizing with Real Time using <code class="docutils literal notranslate"><span class="pre">clock</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-response-using-clock-with-tclab">2.2.7. Step response using <code class="docutils literal notranslate"><span class="pre">clock</span></code> with TCLab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-the-step-change-data-to-a-first-order-model">2.2.8. Fitting the Step Change Data to a First Order Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nodal-thermal-model">2.2.9. Nodal thermal model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-state-model-for-a-single-heater">2.2.10. Two State Model for a Single Heater</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">2.2.11. References</a></li>
 </ul>
             </nav>
         </div>
@@ -481,7 +482,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="temperature-control-lab-step-identification">
-<h1><span class="section-number">2.1. </span>Temperature Control Lab, step identification<a class="headerlink" href="#temperature-control-lab-step-identification" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2.2. </span>Temperature Control Lab, step identification<a class="headerlink" href="#temperature-control-lab-step-identification" title="Permalink to this heading">#</a></h1>
 <p>The <a class="reference external" href="https://apmonitor.com/pdc/index.php/Main/ArduinoTemperatureControl">temperature control lab</a> or TCLab is a laboratory device used for thermal projects. It can be used to simulate and develop thermal control and regulation systems. The TCLab features a feedback control application with an Arduino, an LED, 2 heaters and 2 temperature sensors:</p>
 <ul class="simple">
 <li><p>one heater will represent the TCS heating elements used for temperature control.</p></li>
@@ -489,7 +490,7 @@ document.write(`
 </ul>
 <p>During this tutorial we will start using this card and carry out temperature measurements on control steps. The aim is to identify a dynamic model that can be used to synthesise the control.</p>
 <section id="the-tclab-arduino-package">
-<h2><span class="section-number">2.1.1. </span>The TCLab Arduino Package<a class="headerlink" href="#the-tclab-arduino-package" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.1. </span>The TCLab Arduino Package<a class="headerlink" href="#the-tclab-arduino-package" title="Permalink to this heading">#</a></h2>
 <p>The Temperature Control Laboratory hardware consists of five components:</p>
 <ol class="arabic simple">
 <li><p>Arduino microcontroller board (Arduino Uno, Arduino Leonardo, or equivalents).</p></li>
@@ -502,21 +503,21 @@ Leonardo.)</p></li>
 <p><em>TCLab kit:</em>
 <img alt="TCLab" src="../_images/B.00-arduino_lab_kit.png" /></p>
 <section id="the-main-tclab-components">
-<h3><span class="section-number">2.1.1.1. </span>The main TCLab components<a class="headerlink" href="#the-main-tclab-components" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.1.1. </span>The main TCLab components<a class="headerlink" href="#the-main-tclab-components" title="Permalink to this heading">#</a></h3>
 <p>Thermistors: These are temperature sensors, there are two thermistors on a TCLab to measure at two different points.
 The TCLab is equipped with 2 heaters to heat the system for temperature control experiments.</p>
 </section>
 <section id="assembly">
-<h3><span class="section-number">2.1.1.2. </span>Assembly<a class="headerlink" href="#assembly" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.1.2. </span>Assembly<a class="headerlink" href="#assembly" title="Permalink to this heading">#</a></h3>
 <p>The TCLab is attached to the inputs of the arduino board (sort of metal teeth), then a blue cable connects the micro USB type B port on the arduino board to the USBA port on the PC. The TCLab is powered via the mains and its DC power port.</p>
 </section>
 <section id="setup">
-<h3><span class="section-number">2.1.1.3. </span>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.1.3. </span>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
 <p>Before going further, be sure to complete the steps outlined under <em>Hardware setup</em> as described in TCLab <a class="reference external" href="https://github.com/jckantor/TCLab/blob/master/README.rst">README</a>. Mac OS users may need to install a serial driver available <a class="reference external" href="https://github.com/adrianmihalko/ch340g-ch34g-ch34x-mac-os-x-driver">here</a>. Normally the TCLab shield will already be mounted on the Arduino board, and the firmware driver will have been loaded on to the Arduino.</p>
 </section>
 </section>
 <section id="getting-to-grips-with-the-arduino-code">
-<h2><span class="section-number">2.1.2. </span>Getting to grips with the Arduino code<a class="headerlink" href="#getting-to-grips-with-the-arduino-code" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.2. </span>Getting to grips with the Arduino code<a class="headerlink" href="#getting-to-grips-with-the-arduino-code" title="Permalink to this heading">#</a></h2>
 <p>The Arduino sketch, when downloaded and installed on a compatible Arduino device, supports the Temperature Control Lab. The sketch is used in conjunction with the compatible Python library TCLab for programmable control of the Temperature Control Lab with Python via Python Serial library.</p>
 <blockquote>
 <div><p>Read the Arduino .ino code in C language from the file <a class="reference external" href="https://github.com/jckantor/TCLab-sketch/blob/master/TCLab-sketch/TCLab-sketch.ino">here</a>. Describe its structure and, in particular, its temporal execution. Copy below the part of the code that initalises the microntroleur at start-up, as well as the main loop.</p>
@@ -554,7 +555,7 @@ void setup() {
 </div>
 </div>
 </details><section id="compiling-and-uploading-code-to-an-arduino-microcontroller">
-<h3><span class="section-number">2.1.2.1. </span>Compiling and uploading code to an Arduino microcontroller<a class="headerlink" href="#compiling-and-uploading-code-to-an-arduino-microcontroller" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.2.1. </span>Compiling and uploading code to an Arduino microcontroller<a class="headerlink" href="#compiling-and-uploading-code-to-an-arduino-microcontroller" title="Permalink to this heading">#</a></h3>
 <p>Complete the following steps:</p>
 <ul class="simple">
 <li><p>install Arduino software (if not done)</p></li>
@@ -564,7 +565,7 @@ void setup() {
 </ul>
 </section>
 <section id="reading-temperatures-with-serial-monitor">
-<h3><span class="section-number">2.1.2.2. </span>Reading Temperatures with serial monitor<a class="headerlink" href="#reading-temperatures-with-serial-monitor" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.2.2. </span>Reading Temperatures with serial monitor<a class="headerlink" href="#reading-temperatures-with-serial-monitor" title="Permalink to this heading">#</a></h3>
 <p>The temperature sensors on the temperature control lab can be acccessed with the attributes <code class="docutils literal notranslate"><span class="pre">T1</span></code> and <code class="docutils literal notranslate"><span class="pre">T2</span></code>.</p>
 <blockquote>
 <div><p>In the serial monitor, send orders <code class="docutils literal notranslate"><span class="pre">T1</span></code> and <code class="docutils literal notranslate"><span class="pre">T2</span></code> what do you observe? Can you find the corresponding part of the code?</p>
@@ -623,7 +624,7 @@ void sendFloatResponse(float val) {
 </div>
 </section>
 <section id="setting-heaters">
-<h3><span class="section-number">2.1.2.3. </span>Setting Heaters<a class="headerlink" href="#setting-heaters" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.2.3. </span>Setting Heaters<a class="headerlink" href="#setting-heaters" title="Permalink to this heading">#</a></h3>
 <p>Both heaters can be set between 0 to 100% power with the functions <code class="docutils literal notranslate"><span class="pre">Q1</span> <span class="pre">x</span></code> ou <code class="docutils literal notranslate"><span class="pre">Q2</span> <span class="pre">x</span></code> (where x is between 0 and 100). The device firmware limits the heaters to a range of 0 to 100%. The current value of attributes may be accessed via</p>
 <blockquote>
 <div><p>Using the serial monitor, set source Q1 to 100% heat and observe the change in temperatures T1 and T2. What do you observe? <strong>Stop all the heaters</strong> with the <code class="docutils literal notranslate"><span class="pre">X</span></code> command.</p>
@@ -660,12 +661,12 @@ Each command returns a result string.</p>
 </section>
 </section>
 <section id="id1">
-<h2><span class="section-number">2.1.3. </span>Getting to grips with the Arduino code<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.3. </span>Getting to grips with the Arduino code<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <section id="id2">
-<h3><span class="section-number">2.1.3.1. </span>Getting to grips with the Arduino code<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.3.1. </span>Getting to grips with the Arduino code<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 </section>
 <section id="installing-the-tclab-library">
-<h3><span class="section-number">2.1.3.2. </span>Installing the tclab library<a class="headerlink" href="#installing-the-tclab-library" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.3.2. </span>Installing the tclab library<a class="headerlink" href="#installing-the-tclab-library" title="Permalink to this heading">#</a></h3>
 <p>The TCLab package is installed from a terminal window (MacOS) or command window (PC) with the command</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install tclab
 </pre></div>
@@ -682,27 +683,10 @@ Each command returns a result string.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tclab
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: tclab in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (1.0.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading tclab-1.0.0-py2.py3-none-any.whl.metadata (6.2 kB)
-Collecting pyserial (from tclab)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pyserial-3.5-py2.py3-none-any.whl.metadata (1.6 kB)
-Downloading tclab-1.0.0-py2.py3-none-any.whl (20 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading pyserial-3.5-py2.py3-none-any.whl (90 kB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/90.6 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">90.6/90.6 kB</span> <span class=" -Color -Color-Red">4.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pyserial, tclab
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed pyserial-3.5 tclab-1.0.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyserial in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from tclab) (3.5)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">23.0.1</span> -&gt; <span class=" -Color -Color-Green">24.0</span>
@@ -713,7 +697,7 @@ Downloading tclab-1.0.0-py2.py3-none-any.whl (20 kB)
 </div>
 </section>
 <section id="importing">
-<h3><span class="section-number">2.1.3.3. </span>Importing<a class="headerlink" href="#importing" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.3.3. </span>Importing<a class="headerlink" href="#importing" title="Permalink to this heading">#</a></h3>
 <p>Once installed, the <code class="docutils literal notranslate"><span class="pre">tclab</span></code> package can be imported into Python and an instance created with the Python statements</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>from tclab import TCLab
 lab = TCLab()
@@ -734,7 +718,9 @@ lab = TCLab()
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab version 1.0.0
 --- Serial Ports ---
-/dev/ttyS1 ttyS1 PNP0501
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/dev/ttyS1 ttyS1 PNP0501
 /dev/ttyS0 ttyS0 PNP0501
 </pre></div>
 </div>
@@ -761,7 +747,7 @@ lab = TCLab()
 </section>
 </section>
 <section id="reading-temperatures">
-<h2><span class="section-number">2.1.4. </span>Reading Temperatures<a class="headerlink" href="#reading-temperatures" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.4. </span>Reading Temperatures<a class="headerlink" href="#reading-temperatures" title="Permalink to this heading">#</a></h2>
 <p>Once a tclab instance is created and connected to a device, the temperature sensors on the temperature control lab can be acccessed with the attributes <code class="docutils literal notranslate"><span class="pre">.T1</span></code> and <code class="docutils literal notranslate"><span class="pre">.T2</span></code>.  For example, given an instance <code class="docutils literal notranslate"><span class="pre">lab</span></code>, the temperatures are accessed as</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>T1 = lab.T1
 T2 = lab.T2
@@ -792,7 +778,7 @@ T2 = lab.T2
 </div>
 </section>
 <section id="id3">
-<h2><span class="section-number">2.1.5. </span>Setting Heaters<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.5. </span>Setting Heaters<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>For legacy reasons, there are two ways to set the power levels of the heaters.</p>
 <p>The first way is to the functions<code class="docutils literal notranslate"><span class="pre">.Q1()</span></code> and <code class="docutils literal notranslate"><span class="pre">.Q2()</span></code> of a <code class="docutils literal notranslate"><span class="pre">TCLab</span></code> instance. For example, both heaters can be set to 100% power with the functions</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>lab = TCLab()
@@ -853,7 +839,7 @@ Q2 = lab.Q2()
 </div>
 </section>
 <section id="synchronizing-with-real-time-using-clock">
-<h2><span class="section-number">2.1.6. </span>Synchronizing with Real Time using <code class="docutils literal notranslate"><span class="pre">clock</span></code><a class="headerlink" href="#synchronizing-with-real-time-using-clock" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.6. </span>Synchronizing with Real Time using <code class="docutils literal notranslate"><span class="pre">clock</span></code><a class="headerlink" href="#synchronizing-with-real-time-using-clock" title="Permalink to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">tclab</span></code> module includes <code class="docutils literal notranslate"><span class="pre">clock</span></code> for synchronizing calculations with real time.  <code class="docutils literal notranslate"><span class="pre">clock(tperiod,</span> <span class="pre">tstep)</span></code> generates a sequence of iterations over a period of <code class="docutils literal notranslate"><span class="pre">tperiod</span></code> seconds evenly by <code class="docutils literal notranslate"><span class="pre">tstep</span></code> seconds. If <code class="docutils literal notranslate"><span class="pre">tstep</span></code> is omitted then the default period is set to 1 second.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -947,7 +933,7 @@ space
 </div>
 </section>
 <section id="step-response-using-clock-with-tclab">
-<h2><span class="section-number">2.1.7. </span>Step response using <code class="docutils literal notranslate"><span class="pre">clock</span></code> with TCLab<a class="headerlink" href="#step-response-using-clock-with-tclab" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.7. </span>Step response using <code class="docutils literal notranslate"><span class="pre">clock</span></code> with TCLab<a class="headerlink" href="#step-response-using-clock-with-tclab" title="Permalink to this heading">#</a></h2>
 <blockquote>
 <div><p><strong>Exercise:</strong> write a code cell that turns on heater 1 at 50% power, then log the temperature responses (T1 and T2) once per second for 600 seconds. The output of the cell should report the time, power level, and temperature for each measurement. You will need the <code class="docutils literal notranslate"><span class="pre">clock</span></code> function from tclab for this exercise. The data have to be stored into vectors : <code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">Q1</span></code>, <code class="docutils literal notranslate"><span class="pre">T1</span></code>, <code class="docutils literal notranslate"><span class="pre">T2</span></code>.</p>
 </div></blockquote>
@@ -1039,7 +1025,7 @@ space
 </div>
 </section>
 <section id="fitting-the-step-change-data-to-a-first-order-model">
-<h2><span class="section-number">2.1.8. </span>Fitting the Step Change Data to a First Order Model<a class="headerlink" href="#fitting-the-step-change-data-to-a-first-order-model" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.8. </span>Fitting the Step Change Data to a First Order Model<a class="headerlink" href="#fitting-the-step-change-data-to-a-first-order-model" title="Permalink to this heading">#</a></h2>
 <p>For a first-order linear system initially at steady-state, the response to a step input change at <span class="math notranslate nohighlight">\(t=0\)</span> is given by</p>
 <div class="math notranslate nohighlight">
 \[y(t) = y(0) + K(1 - e^{-t/\tau}) \Delta U\]</div>
@@ -1117,7 +1103,7 @@ space
 </div>
 </section>
 <section id="nodal-thermal-model">
-<h2><span class="section-number">2.1.9. </span>Nodal thermal model<a class="headerlink" href="#nodal-thermal-model" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.9. </span>Nodal thermal model<a class="headerlink" href="#nodal-thermal-model" title="Permalink to this heading">#</a></h2>
 <p>We will show here that a physical model made up of thermal resistances and capacities can explain the dynamic responses observed and the transfer functions identified previously.</p>
 <blockquote>
 <div><p><strong>Questions:</strong></p>
@@ -1194,10 +1180,10 @@ space
 </div>
 </section>
 <section id="two-state-model-for-a-single-heater">
-<h2><span class="section-number">2.1.10. </span>Two State Model for a Single Heater<a class="headerlink" href="#two-state-model-for-a-single-heater" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.10. </span>Two State Model for a Single Heater<a class="headerlink" href="#two-state-model-for-a-single-heater" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="references">
-<h2><span class="section-number">2.1.11. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.11. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <p>[Kantor, 2021] Kantor, JC., Chemical Process Control class materials. <a class="reference external" href="https://jckantor.github.io/cbe30338-2021/">Link</a> / <a class="reference external" href="https://github.com/jckantor/cbe30338-2021">Github</a></p>
 </section>
 </section>
@@ -1233,12 +1219,12 @@ space
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="summaryPartB.html"
+       href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Part B : Control and software development</p>
+        <p class="prev-next-title"><span class="section-number">2.1. </span>Control software development and TCLab Introduction</p>
       </div>
     </a>
 </div>
@@ -1256,32 +1242,32 @@ space
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-tclab-arduino-package">2.1.1. The TCLab Arduino Package</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-main-tclab-components">2.1.1.1. The main TCLab components</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assembly">2.1.1.2. Assembly</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">2.1.1.3. Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-tclab-arduino-package">2.2.1. The TCLab Arduino Package</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-main-tclab-components">2.2.1.1. The main TCLab components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assembly">2.2.1.2. Assembly</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">2.2.1.3. Setup</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-grips-with-the-arduino-code">2.1.2. Getting to grips with the Arduino code</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-and-uploading-code-to-an-arduino-microcontroller">2.1.2.1. Compiling and uploading code to an Arduino microcontroller</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-temperatures-with-serial-monitor">2.1.2.2. Reading Temperatures with serial monitor</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-heaters">2.1.2.3. Setting Heaters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-grips-with-the-arduino-code">2.2.2. Getting to grips with the Arduino code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-and-uploading-code-to-an-arduino-microcontroller">2.2.2.1. Compiling and uploading code to an Arduino microcontroller</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-temperatures-with-serial-monitor">2.2.2.2. Reading Temperatures with serial monitor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-heaters">2.2.2.3. Setting Heaters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.1.3. Getting to grips with the Arduino code</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.1.3.1. Getting to grips with the Arduino code</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-tclab-library">2.1.3.2. Installing the tclab library</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing">2.1.3.3. Importing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.2.3. Getting to grips with the Arduino code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.2.3.1. Getting to grips with the Arduino code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-tclab-library">2.2.3.2. Installing the tclab library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing">2.2.3.3. Importing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-temperatures">2.1.4. Reading Temperatures</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.1.5. Setting Heaters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronizing-with-real-time-using-clock">2.1.6. Synchronizing with Real Time using <code class="docutils literal notranslate"><span class="pre">clock</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-response-using-clock-with-tclab">2.1.7. Step response using <code class="docutils literal notranslate"><span class="pre">clock</span></code> with TCLab</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-the-step-change-data-to-a-first-order-model">2.1.8. Fitting the Step Change Data to a First Order Model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nodal-thermal-model">2.1.9. Nodal thermal model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-state-model-for-a-single-heater">2.1.10. Two State Model for a Single Heater</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">2.1.11. References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-temperatures">2.2.4. Reading Temperatures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.2.5. Setting Heaters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronizing-with-real-time-using-clock">2.2.6. Synchronizing with Real Time using <code class="docutils literal notranslate"><span class="pre">clock</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-response-using-clock-with-tclab">2.2.7. Step response using <code class="docutils literal notranslate"><span class="pre">clock</span></code> with TCLab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-the-step-change-data-to-a-first-order-model">2.2.8. Fitting the Step Change Data to a First Order Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nodal-thermal-model">2.2.9. Nodal thermal model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-state-model-for-a-single-heater">2.2.10. Two State Model for a Single Heater</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">2.2.11. References</a></li>
 </ul>
   </nav></div>
 
