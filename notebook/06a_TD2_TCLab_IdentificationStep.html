@@ -686,17 +686,16 @@ Each command returns a result string.</p>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading tclab-1.0.0-py2.py3-none-any.whl.metadata (6.2 kB)
+Collecting pyserial (from tclab)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pyserial (from tclab)
-  Downloading pyserial-3.5-py2.py3-none-any.whl.metadata (1.6 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pyserial-3.5-py2.py3-none-any.whl.metadata (1.6 kB)
 Downloading tclab-1.0.0-py2.py3-none-any.whl (20 kB)
-Downloading pyserial-3.5-py2.py3-none-any.whl (90 kB)
-?25l
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/90.6 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">90.6/90.6 kB</span> <span class=" -Color -Color-Red">19.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading pyserial-3.5-py2.py3-none-any.whl (90 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/90.6 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">90.6/90.6 kB</span> <span class=" -Color -Color-Red">4.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -747,7 +746,7 @@ lab = TCLab()
 <span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">lab</span> <span class="o">=</span> <span class="n">TCLab</span><span class="p">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">lab</span><span class="o">.</span><span class="n">LED</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/tclab/tclab.py:61,</span> in <span class="ni">TCLab.__init__</span><span class="nt">(self, port, debug)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/tclab/tclab.py:61,</span> in <span class="ni">TCLab.__init__</span><span class="nt">(self, port, debug)</span>
 <span class="g g-Whitespace">     </span><span class="mi">59</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">arduino</span> <span class="o">=</span> <span class="n">find_arduino</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">60</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span class="ne">---&gt; </span><span class="mi">61</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;No Arduino device found.&#39;</span><span class="p">)</span>

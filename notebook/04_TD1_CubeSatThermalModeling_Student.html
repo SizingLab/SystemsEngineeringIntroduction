@@ -476,7 +476,7 @@ document.write(`
 </section>
 <section id="two-nodes-thermal-model">
 <h2><span class="section-number">1.5.2. </span>Two nodes thermal model<a class="headerlink" href="#two-nodes-thermal-model" title="Permalink to this heading">#</a></h2>
-<p>The paper [<span class="xref myst">Rossi, 2013</span>] outlines the creation of a Thermal Model Analysis for a CubeSat as based on the SwissCube’s flight data from 2009 to 2012. The external faces and internal components of the CubeSat were simplified into two nodes of the aforementioned respective general locations, with the external node pertaining to a spherical surface representative of the six-phases of a CubeSat 1U at mean temperature, and the internal node being based on the thermally controlled battery pack.</p>
+<p>The paper [<span class="xref myst">Rossi, 2013</span>] outlines the creation of a Thermal Model Analysis for a CubeSat as based on the SwissCube’s flight data from 2009 to 2012. The external faces and internal components of the CubeSat were simplified into two nodes of the aforementioned respective general locations, with the external node pertaining to a spherical surface representative of the six faces of a CubeSat 1U at mean temperature, and the internal node being based on the thermally controlled battery pack.</p>
 <p><em>SwissCube thermal model:</em>
 <img alt="SwissCubeThermalModel" src="../_images/SwissCubeThermalModel.PNG" /></p>
 <p>The above illustrated figures show the simplified two node model defined to eventually simulate heat transfers between and within the internal and external references of a cube satellite (left), and the comparison or validation of the created thermal model by [<span class="xref myst">Rossi, 2013</span>] as compared to the actual experimental data from the SwissCube satellite (right).</p>
@@ -540,8 +540,11 @@ document.write(`
 <p>Heat transfer between the internal and external parts of the satellite can also be achieved by radiative transfer. The  [<span class="xref myst">Rossi, 2013</span>] paper assumes transfer between spheres. However, planar geometries may be more realistic, given the shape of the electronic boards that make up the satellites.</p>
 <p><em>Effect of radiation surface form [<span class="xref myst">Cengel, 2003</span>]</em>
 <img alt="Thermal radiation" src="../_images/RadiationArea.png" /></p>
-<p>The emissivity coefficient depends on the nature of the surfaces (paint function, for example) or on specfic interfaces such as MLI (Multi-layer insulation) blankets.</p>
+<p>The emissivity coefficient depends on the nature of the surfaces (paint function, for example) or on specfic interfaces such as MLI (Multi-Layer Insulation) blankets.</p>
 <p><strong>Note:</strong> Link to a <a class="reference external" href="https://www.design1st.com/Design-Resource-Library/engineering_data/ThermalEmissivityValues.pdf">Data base of emissivity coefficients</a>.</p>
+<blockquote>
+<div><p><strong>Exercice:</strong> Implement the python code defining the radiation coefficient <span class="math notranslate nohighlight">\(R\)</span> between the internal and external nodes of the thermal model. It will be assumed that this corresponds to the radiation from the 2 faces of a flat parallelepiped with a square surface area of 70 mm on each side.</p>
+</div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># R = .....  # Plate radiation coefficient</span>
@@ -603,7 +606,7 @@ Nylon, invar or permaglass can be used to make cylinder-like spacers.</p>
 <h2><span class="section-number">1.5.6. </span>Thermal Capacitance<a class="headerlink" href="#thermal-capacitance" title="Permalink to this heading">#</a></h2>
 <p>The internal capacitance, assumed being 80 J/K in the paper, is mainly due to the battery pack. The <a class="reference external" href="https://https://pw-sat.pl/wp-content/uploads/2014/07/PW-Sat2-A-03.00-EPS-PRR-EN-v1.1.pdf">SwissCube Satellite</a> utilized two (2) Varta PoLiFlex LiPo (Lithium Polymer) PLF503759 batteries with a maximum voltage of 4.2 V and a capacity of 1210 mAh of mass of 22.5 g, and dimensions of 58.7 x 5.2 x 37.0 mm (L-H-W).</p>
 <blockquote>
-<div><p><em>Question</em>: Evaluate the thermal capacitance of a battery pack + instrumentation cards composed of :</p>
+<div><p><strong>Question:</strong> Evaluate the thermal capacitance of a battery pack + instrumentation cards composed of :</p>
 <ul class="simple">
 <li><p>2 Varta cells</p></li>
 <li><p>One aluminum box of thickness 0.5 mm</p></li>
@@ -763,8 +766,8 @@ Nylon, invar or permaglass can be used to make cylinder-like spacers.</p>
 </section>
 <section id="references">
 <h2><span class="section-number">1.5.10. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
-<p>[Rossi, 2013]  CBE 303338 Chemical Process Control</p>
-<p>[Cengel, 2003] Cengel, A. (2003). Heht transfer. New York: McGraw-Hill.</p>
+<p>[Rossi, 2013] Rossi, S., &amp; Ivanov, A. (2013, September). Thermal model for cubesat: A simple and easy model from the Swisscube’s thermal flight data. In Proceedings of the International Astronautical Congress (Vol. 13, pp. 9919-9928). <a class="reference external" href="https://www.researchgate.net/publication/299535685_THERMAL_MODEL_FOR_CUBESAT_A_SIMPLE_AND_EASY_MODEL_FROM_THE_SWISSCUBE%27S_THERMAL_FLIGHT_DATA">Link</a></p>
+<p>[Cengel, 2003] Cengel, A. (2003). Heat transfer. New York: McGraw-Hill.</p>
 </section>
 </section>
 
