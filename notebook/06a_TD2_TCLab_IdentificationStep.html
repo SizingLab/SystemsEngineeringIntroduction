@@ -456,14 +456,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-heaters">2.2.2.3. Setting Heaters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.2.3. Getting to grips with the Arduino code</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.2.3.1. Getting to grips with the Arduino code</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-tclab-library">2.2.3.2. Installing the tclab library</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing">2.2.3.3. Importing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-grips-with-the-python-code">2.2.3. Getting to grips with the Python code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-tclab-library">2.2.3.1. Installing the tclab library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing">2.2.3.2. Importing</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-temperatures">2.2.4. Reading Temperatures</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.2.5. Setting Heaters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.2.5. Setting Heaters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronizing-with-real-time-using-clock">2.2.6. Synchronizing with Real Time using <code class="docutils literal notranslate"><span class="pre">clock</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-response-using-clock-with-tclab">2.2.7. Step response using <code class="docutils literal notranslate"><span class="pre">clock</span></code> with TCLab</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-the-step-change-data-to-a-first-order-model">2.2.8. Fitting the Step Change Data to a First Order Model</a></li>
@@ -660,13 +659,10 @@ Each command returns a result string.</p>
 |  X    |     stop, enter sleep mode. Returns “Stop”  |</p>
 </section>
 </section>
-<section id="id1">
-<h2><span class="section-number">2.2.3. </span>Getting to grips with the Arduino code<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<section id="id2">
-<h3><span class="section-number">2.2.3.1. </span>Getting to grips with the Arduino code<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
-</section>
+<section id="getting-to-grips-with-the-python-code">
+<h2><span class="section-number">2.2.3. </span>Getting to grips with the Python code<a class="headerlink" href="#getting-to-grips-with-the-python-code" title="Permalink to this heading">#</a></h2>
 <section id="installing-the-tclab-library">
-<h3><span class="section-number">2.2.3.2. </span>Installing the tclab library<a class="headerlink" href="#installing-the-tclab-library" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.3.1. </span>Installing the tclab library<a class="headerlink" href="#installing-the-tclab-library" title="Permalink to this heading">#</a></h3>
 <p>The TCLab package is installed from a terminal window (MacOS) or command window (PC) with the command</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install tclab
 </pre></div>
@@ -697,7 +693,7 @@ Each command returns a result string.</p>
 </div>
 </section>
 <section id="importing">
-<h3><span class="section-number">2.2.3.3. </span>Importing<a class="headerlink" href="#importing" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.3.2. </span>Importing<a class="headerlink" href="#importing" title="Permalink to this heading">#</a></h3>
 <p>Once installed, the <code class="docutils literal notranslate"><span class="pre">tclab</span></code> package can be imported into Python and an instance created with the Python statements</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>from tclab import TCLab
 lab = TCLab()
@@ -775,8 +771,8 @@ T2 = lab.T2
 </div>
 </div>
 </section>
-<section id="id3">
-<h2><span class="section-number">2.2.5. </span>Setting Heaters<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<section id="id1">
+<h2><span class="section-number">2.2.5. </span>Setting Heaters<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>For legacy reasons, there are two ways to set the power levels of the heaters.</p>
 <p>The first way is to the functions<code class="docutils literal notranslate"><span class="pre">.Q1()</span></code> and <code class="docutils literal notranslate"><span class="pre">.Q2()</span></code> of a <code class="docutils literal notranslate"><span class="pre">TCLab</span></code> instance. For example, both heaters can be set to 100% power with the functions</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>lab = TCLab()
@@ -1182,6 +1178,7 @@ space
 </section>
 <section id="references">
 <h2><span class="section-number">2.2.11. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<p>[Hedengren] Hedengren, J., Process Dynamics and Control, Brigham Young University.  <a class="reference external" href="http://apmonitor.com/pdc/index.php/Main/ArduinoTemperatureControl">Link</a></p>
 <p>[Kantor, 2021] Kantor, JC., Chemical Process Control class materials. <a class="reference external" href="https://jckantor.github.io/cbe30338-2021/">Link</a> / <a class="reference external" href="https://github.com/jckantor/cbe30338-2021">Github</a></p>
 </section>
 </section>
@@ -1252,14 +1249,13 @@ space
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-heaters">2.2.2.3. Setting Heaters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.2.3. Getting to grips with the Arduino code</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.2.3.1. Getting to grips with the Arduino code</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-tclab-library">2.2.3.2. Installing the tclab library</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing">2.2.3.3. Importing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-grips-with-the-python-code">2.2.3. Getting to grips with the Python code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-tclab-library">2.2.3.1. Installing the tclab library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing">2.2.3.2. Importing</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-temperatures">2.2.4. Reading Temperatures</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.2.5. Setting Heaters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.2.5. Setting Heaters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronizing-with-real-time-using-clock">2.2.6. Synchronizing with Real Time using <code class="docutils literal notranslate"><span class="pre">clock</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-response-using-clock-with-tclab">2.2.7. Step response using <code class="docutils literal notranslate"><span class="pre">clock</span></code> with TCLab</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-the-step-change-data-to-a-first-order-model">2.2.8. Fitting the Step Change Data to a First Order Model</a></li>
