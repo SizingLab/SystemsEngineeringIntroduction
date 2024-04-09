@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>2.1. Control software development and TCLab Introduction &#8212; Introduction to Mechatronics and System Engineering</title>
+    <title>2.1. Control software development &#8212; Introduction to Mechatronics and System Engineering</title>
   
   
   
@@ -180,7 +180,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="summaryPartB.html">2. Control software definition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.1. Control software development and TCLab Introduction</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.1. Control software development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06a_TD2_TCLab_IdentificationStep.html">2.2. Temperature Control Lab, step identification</a></li>
 </ul>
 </li>
@@ -435,7 +435,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Control software development and TCLab Introduction</h1>
+    <h1>Control software development</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -446,13 +446,17 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-controller-development-cycle">2.1.1. Digital controller development cycle</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digitizing-a-controller-and-the-effect-of-sampling-frequencies">2.1.2. Digitizing a controller and the effect of sampling frequencies</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-controller">2.1.2. Continuous controller</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-loops-of-a-position-control">2.1.2.1. Nested loops of a position control</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-loop-of-an-ema">2.1.2.2. Speed loop of an EMA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delay-in-digital-controller">2.1.2.3. Delay in digital controller</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">2.1.3. References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digitizing-a-controller-and-the-effect-of-sampling-frequencies">2.1.3. Digitizing a controller and the effect of sampling frequencies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delay-in-digital-controller">2.1.3.1. Delay in digital controller</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-time-pid-controller-implementation">2.1.3.2. Discrete-time PID Controller Implementation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">2.1.4. References</a></li>
 </ul>
             </nav>
         </div>
@@ -464,8 +468,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="control-software-development-and-tclab-introduction">
-<h1><span class="section-number">2.1. </span>Control software development and TCLab Introduction<a class="headerlink" href="#control-software-development-and-tclab-introduction" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="control-software-development">
+<h1><span class="section-number">2.1. </span>Control software development<a class="headerlink" href="#control-software-development" title="Permalink to this heading">#</a></h1>
 <p>This lecture will look at the information processing part of a mechatronic system in terms of control loops and digital implementation of controllers.</p>
 <p><em>Information processing part of a mechatronic system:</em>
 <img alt="Mechatronics" src="../_images/mechatronics.png" /></p>
@@ -499,8 +503,8 @@ Answer<div class="sd-summary-down docutils">
 <p class="sd-card-text">(c ) HIL: microcontroller electronic board with HIL target</p>
 </div>
 </details></section>
-<section id="digitizing-a-controller-and-the-effect-of-sampling-frequencies">
-<h2><span class="section-number">2.1.2. </span>Digitizing a controller and the effect of sampling frequencies<a class="headerlink" href="#digitizing-a-controller-and-the-effect-of-sampling-frequencies" title="Permalink to this heading">#</a></h2>
+<section id="continuous-controller">
+<h2><span class="section-number">2.1.2. </span>Continuous controller<a class="headerlink" href="#continuous-controller" title="Permalink to this heading">#</a></h2>
 <section id="nested-loops-of-a-position-control">
 <h3><span class="section-number">2.1.2.1. </span>Nested loops of a position control<a class="headerlink" href="#nested-loops-of-a-position-control" title="Permalink to this heading">#</a></h3>
 <p>We will illustrate the effects of digitisation on a launcher nozzle TVC controller. The TVC actuator considered here is an EMA (Electro-Mechanical) linear actuator. Its body is anchored on the booster frame while its rod is attached to the nozzle. In the normal mode, the TVC Actuator must perform a closed loop angular position control of the nozzle, following the demand of the flight control computer and rejecting the disturbances generated by the pulsed jet throught the nozzle. The TVC Actuator must also behave as a damper in order to limit the mechanical resonance effects.</p>
@@ -509,9 +513,9 @@ Answer<div class="sd-summary-down docutils">
 <img alt="TVC test" src="../_images/TVC_tests.png" /></p>
 <p>Each of the 2 actuators consists of a brushless permanent magnet synchronous motor that drives a roller screw through a gearbox. This way the rotational motion of the motor is transformed into a linear motion. A typical and generic architecture of small loop controller (big loop = launcher control) is represented below. Classical approach for the design of loop control foresees multiple nested loops (cascade):</p>
 <ul class="simple">
-<li><p>The inner current or torque loop is generally associated to a much larger bandwidth than the other loops.</p></li>
-<li><p>A velocity loop:  for EMA, the motor angular position is measured using a resolver and derived to obtain a velocity feedback. A force sensor is added to drive the actuator in order to reduce the transient force and to damp oscillations.</p></li>
-<li><p>A external position loop: technical constraints impose to have a feedback on actuator position rather than nozzle position itself (which is the controlled parameter). LVDT sensor is generally used to measure the length variation of the actuator.</p></li>
+<li><p>The inner <strong>current or torque loop</strong> is generally associated to a much larger bandwidth than the other loops.</p></li>
+<li><p>A <strong>velocity loop</strong>:  for EMA, the motor angular position is measured using a resolver and derived to obtain a velocity feedback. A force sensor is added to drive the actuator in order to reduce the transient force and to damp oscillations.</p></li>
+<li><p>A external <strong>position loop</strong>: technical constraints impose to have a feedback on actuator position rather than nozzle position itself (which is the controlled parameter). LVDT sensor is generally used to measure the length variation of the actuator.</p></li>
 </ul>
 <p><strong>EMA actuator:</strong><br />
 <img alt="TVC test" src="../_images/SmallLoopController.PNG" />
@@ -583,10 +587,10 @@ Transfer function<div class="sd-summary-down docutils">
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting control
+  Downloading control-0.9.4-py3-none-any.whl.metadata (7.6 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading control-0.9.4-py3-none-any.whl.metadata (7.6 kB)
-Requirement already satisfied: numpy in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from control) (1.24.4)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from control) (1.24.4)
 Requirement already satisfied: scipy&gt;=1.3 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from control) (1.9.3)
 Requirement already satisfied: matplotlib in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from control) (3.7.4)
 Requirement already satisfied: contourpy&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (1.1.1)
@@ -602,17 +606,11 @@ Requirement already satisfied: importlib-resources&gt;=3.2.0 in /opt/hostedtoolc
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: zipp&gt;=3.1.0 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from importlib-resources&gt;=3.2.0-&gt;matplotlib-&gt;control) (3.17.0)
 Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib-&gt;control) (1.16.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading control-0.9.4-py3-none-any.whl (455 kB)
+Downloading control-0.9.4-py3-none-any.whl (455 kB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/455.1 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">92.2/455.1 kB</span> <span class=" -Color -Color-Red">3.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">450.6/455.1 kB</span> <span class=" -Color -Color-Red">7.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">455.1/455.1 kB</span> <span class=" -Color -Color-Red">6.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">455.1/455.1 kB</span> <span class=" -Color -Color-Red">47.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -684,11 +682,12 @@ Controller definition  <div class="sd-summary-down docutils">
 <span class="n">PISys</span><span class="o">=</span><span class="n">PI</span><span class="o">*</span><span class="n">sys_open</span>
 
 <span class="c1"># Bode diagram</span>
-<span class="n">mag</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">PISys</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">Hz</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">mag</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">PISys</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">Hz</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">initial_phase</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PI controller:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kp = </span><span class="si">%.2f</span><span class="s2">&quot;</span><span class="o">%</span> <span class="n">Kp</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tau = </span><span class="si">%.2e</span><span class="s2">&quot;</span><span class="o">%</span> <span class="n">tau_i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ki = Kp/Tau_i = </span><span class="si">%.2e</span><span class="s2">&quot;</span><span class="o">%</span> <span class="p">(</span><span class="n">Kp</span><span class="o">/</span><span class="n">tau_i</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -696,21 +695,25 @@ Controller definition  <div class="sd-summary-down docutils">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PI controller:
 Kp = 1.05
 Tau = 3.18e-02
+Ki = Kp/Tau_i = 3.30e+01
 </pre></div>
 </div>
-<img alt="../_images/1ace8e6dac553ebbfb70fb94d0e982ab450a95e00968c47778c0e7648c7076fc.png" src="../_images/1ace8e6dac553ebbfb70fb94d0e982ab450a95e00968c47778c0e7648c7076fc.png" />
+<img alt="../_images/1b41e7f9c21e5a7301c3c334cf6c43ac5a224146261c756d94b80f2ef67b6ce8.png" src="../_images/1b41e7f9c21e5a7301c3c334cf6c43ac5a224146261c756d94b80f2ef67b6ce8.png" />
 </div>
 </div>
 </section>
+</section>
+<section id="digitizing-a-controller-and-the-effect-of-sampling-frequencies">
+<h2><span class="section-number">2.1.3. </span>Digitizing a controller and the effect of sampling frequencies<a class="headerlink" href="#digitizing-a-controller-and-the-effect-of-sampling-frequencies" title="Permalink to this heading">#</a></h2>
 <section id="delay-in-digital-controller">
-<h3><span class="section-number">2.1.2.3. </span>Delay in digital controller<a class="headerlink" href="#delay-in-digital-controller" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.1.3.1. </span>Delay in digital controller<a class="headerlink" href="#delay-in-digital-controller" title="Permalink to this heading">#</a></h3>
 <p>The previous synthesis of the corrector was done in the continuous domain. However, its implementation will most often be digital rather than analogue. Digital control (using a µC microcontroller or a DSP signal processor) offers the following advantages [<span class="xref myst">Ellis, 2012</span>]:</p>
 <ul class="simple">
 <li><p>lower noise sensitivity, better accuracy, less performance drift</p></li>
-<li><p>ease of changing gains or parameters.<br />
-However, digital control has one main weakness: the introduction of delay in the control loop. These delays generate phase shifts that can lead to instability or limit the gains and ultimately the bandwidth of the system.</p></li>
+<li><p>ease of changing gains or parameters.</p></li>
 </ul>
-<p>Digital systems operate in discrete time steps. At regular intervals, the controller reads the feedback and command information, executes control algorithms, and outputs control orders. Between intervals, the output is held at a fixed level. This is what gives digital control waveforms their characteristic “stair step” appearance. The figure below shows a sinusoidal waveform at its sampled equivalent. The effect of sampling with a period T can be approximated as a pure delay of T/2.</p>
+<p>However, digital control has one main weakness: the introduction of delay in the control loop. These delays generate phase shifts that can lead to instability or limit the gains and ultimately the bandwidth of the system.</p>
+<p>Digital systems operate in discrete time steps. At regular intervals, the controller reads the feedback and command information, executes control algorithms, and outputs control orders. Between intervals, the output is held at a fixed level. This is what gives digital control waveforms their characteristic “stair step” appearance. The figure below shows a sinusoidal waveform at its sampled equivalent. The effect of sampling with a period <span class="math notranslate nohighlight">\(T_s\)</span> can be approximated as a pure delay of <span class="math notranslate nohighlight">\(T_s/2\)</span>.</p>
 <p><em>Sampling effects:</em>
 <img alt="Sampling" src="../_images/SamplingDelay.PNG" /></p>
 <blockquote>
@@ -719,31 +722,39 @@ However, digital control has one main weakness: the introduction of delay in the
 <p><strong>Note:</strong> Delays can be approximated by Padé transfer functions with python implementation in the <a class="reference external" href="https://python-control.readthedocs.io/en/latest/generated/control.pade.html">control package</a>. A first-order Padé approximation of a T time delay is <span class="math notranslate nohighlight">\(e^{-Tp}=\frac{1-\frac{T}{2}p}{1+\frac{T}{2}p}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delay</span><span class="o">=</span><span class="mf">0.008</span><span class="o">/</span><span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delay</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">125</span><span class="o">/</span><span class="mi">2</span>
+
 <span class="c1">#pade=ct.tf(ct.pade(delay, 1))</span>
 <span class="n">num</span><span class="p">,</span><span class="n">den</span><span class="o">=</span><span class="n">ct</span><span class="o">.</span><span class="n">pade</span><span class="p">(</span><span class="n">delay</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">pade</span><span class="o">=</span><span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">den</span><span class="p">)</span>
+<span class="n">pade3</span><span class="o">=</span><span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">den</span><span class="p">)</span>
 
-<span class="n">mag</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">pade</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">omega_limits</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">*</span><span class="mi">100</span><span class="p">],</span> <span class="n">Hz</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">num</span><span class="p">,</span><span class="n">den</span><span class="o">=</span><span class="n">ct</span><span class="o">.</span><span class="n">pade</span><span class="p">(</span><span class="n">delay</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">pade1</span><span class="o">=</span><span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">den</span><span class="p">)</span>
+
+<span class="n">mag1</span><span class="p">,</span> <span class="n">phase1</span><span class="p">,</span> <span class="n">omega1</span><span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">pade1</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">omega_limits</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">*</span><span class="mi">100</span><span class="p">],</span> <span class="n">Hz</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">mag3</span><span class="p">,</span> <span class="n">phase3</span><span class="p">,</span> <span class="n">omega3</span><span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">pade3</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">omega_limits</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">*</span><span class="mi">100</span><span class="p">],</span> <span class="n">Hz</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
                         
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">freq</span><span class="o">=</span><span class="n">omega</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+<span class="n">freq1</span><span class="o">=</span><span class="n">omega1</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+<span class="n">freq3</span><span class="o">=</span><span class="n">omega3</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>    <span class="c1"># get subplot axes</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">ax1</span><span class="p">)</span>                 <span class="c1"># magnitude plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">omega</span><span class="p">),</span><span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Exact&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">mag</span><span class="p">,</span><span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pade&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq3</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">omega3</span><span class="p">),</span><span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Exact&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq1</span><span class="p">,</span> <span class="n">mag1</span><span class="p">,</span><span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pade 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq3</span><span class="p">,</span> <span class="n">mag3</span><span class="p">,</span><span class="s1">&#39;g--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pade 3&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Gain&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">ax2</span><span class="p">)</span>                 <span class="c1"># phase plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="o">-</span><span class="n">delay</span><span class="o">*</span><span class="n">omega</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Exact&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">phase</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pade&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq3</span><span class="p">,</span><span class="o">-</span><span class="n">delay</span><span class="o">*</span><span class="n">omega3</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Exact&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq1</span><span class="p">,</span> <span class="n">phase1</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pade 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq3</span><span class="p">,</span> <span class="n">phase3</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="s1">&#39;g--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pade 3&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Hz)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Phase (°)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -751,13 +762,13 @@ However, digital control has one main weakness: the introduction of delay in the
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f57cbb220d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8451945cd0&gt;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../_images/37e9f539851a74857fcc5b9ec05ca0bd37933ad56c38e2355e84f6132d6ccdca.png" src="../_images/37e9f539851a74857fcc5b9ec05ca0bd37933ad56c38e2355e84f6132d6ccdca.png" />
+<img alt="../_images/ae06378f5ebd6e7729e34c9fe51a54d4151c104fe19993e1d2dc75e01fc6bf93.png" src="../_images/ae06378f5ebd6e7729e34c9fe51a54d4151c104fe19993e1d2dc75e01fc6bf93.png" />
 </div>
 </div>
 <p><strong>Note:</strong> Delays can come from a variety of sources:</p>
@@ -772,8 +783,8 @@ However, digital control has one main weakness: the introduction of delay in the
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PISysPade</span><span class="o">=</span><span class="n">PISys</span><span class="o">*</span><span class="n">pade</span>
-<span class="n">mag</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">PISysPade</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">Hz</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">initial_phase</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PISysPade</span><span class="o">=</span><span class="n">PISys</span><span class="o">*</span><span class="n">pade3</span>
+<span class="n">mag</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">PISysPade</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">Hz</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">initial_phase</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -781,10 +792,122 @@ However, digital control has one main weakness: the introduction of delay in the
 <img alt="../_images/f0cfc1ab05e50c290cfd44fbe70454464d21326f7c0c589c93ab44e708925783.png" src="../_images/f0cfc1ab05e50c290cfd44fbe70454464d21326f7c0c589c93ab44e708925783.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find unity gain frequency</span>
+<span class="n">difference_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">mag</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">index_wu</span> <span class="o">=</span> <span class="n">difference_array</span><span class="o">.</span><span class="n">argmin</span><span class="p">()</span>
+
+<span class="c1"># plot Nichols around unity gain frequency</span>
+<span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">omega</span><span class="p">[</span><span class="n">index_wu</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span><span class="p">,</span><span class="n">omega</span><span class="p">[</span><span class="n">index_wu</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span>
+<span class="n">ct</span><span class="o">.</span><span class="n">nichols</span><span class="p">(</span><span class="n">PISysPade</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span><span class="n">w</span><span class="p">,</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/662388ee16934afa3fc6cdda03b36676e9caee9cfc157c6b3a04c2a0c1921543.png" src="../_images/662388ee16934afa3fc6cdda03b36676e9caee9cfc157c6b3a04c2a0c1921543.png" />
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Sampling frequency selection  <div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Gain margins and phase margins have fallen sharply compared with the continuous configuration. The sampling frequency must therefore be increased. Assuming a accepted phase variation of 5° for the unity gain angular frequency <span class="math notranslate nohighlight">\(\omega_u\)</span>:<br />
+<span class="math notranslate nohighlight">\(\omega_u \frac{T_{total}}{2} = \frac{5\pi}{180}\)</span><br />
+<span class="math notranslate nohighlight">\(T_{total} = \frac{10\pi}{180\omega_u}\)</span><br />
+If we assume this total delay <span class="math notranslate nohighlight">\(T_{total} = 1.5 T_{s}\)</span>, we obtain the minimum sampling frequency <span class="math notranslate nohighlight">\(f_{s}=\frac{1}{T_{s}}\)</span></p>
+</div>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w_u</span><span class="o">=</span><span class="mi">40</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span> <span class="c1"># [rad/s] unity gain angular frequency</span>
+<span class="n">Ttotal</span><span class="o">=</span><span class="mi">10</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="mi">180</span><span class="o">/</span><span class="n">w_u</span> <span class="c1"># [s] total delay</span>
+
+<span class="n">fs</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">Ttotal</span><span class="o">/</span><span class="mf">1.5</span><span class="p">)</span> <span class="c1"># [Hz] sampling frequency</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sampling minimum frequency = </span><span class="si">%.2f</span><span class="s2"> Hz&quot;</span><span class="o">%</span><span class="k">fsampling</span>)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">Ttotal</span><span class="o">=</span><span class="mi">10</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="mi">180</span><span class="o">/</span><span class="n">w_u</span> <span class="c1"># [s] total delay</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">fs</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">Ttotal</span><span class="o">/</span><span class="mf">1.5</span><span class="p">)</span> <span class="c1"># [Hz] sampling frequency</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sampling minimum frequency = </span><span class="si">%.2f</span><span class="s2"> Hz&quot;</span><span class="o">%</span><span class="k">fsampling</span>)
+
+<span class="ne">NameError</span>: name &#39;fsampling&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following figure shows the effects of sampling on stability trough Modelica simulations. It can be seen that (without taking into account delays due to speed calculation or calculation times) a sampling time of 1 ms gives a behaviour identical to that of the continuous controller. However, with a sampling time of 5 ms, the system is much less stable: the loss of phase margin is far too great in this case.</p>
+<p><em>Sampling effect:</em>
+<img alt="TVC test" src="../_images/SamplingEffect.png" /></p>
+</section>
+<section id="discrete-time-pid-controller-implementation">
+<h3><span class="section-number">2.1.3.2. </span>Discrete-time PID Controller Implementation<a class="headerlink" href="#discrete-time-pid-controller-implementation" title="Permalink to this heading">#</a></h3>
+<p>Since computers and microcontrollers cannot deal with continuous time, the control law has to be discretized. We’ll use
+the parrallel form of a PID controller:<br />
+<span class="math notranslate nohighlight">\(C(p)=\frac{O(p)}{E(p)}=K_p+\frac{K_i}{p}+K_dp\)</span></p>
+<p><em>PID schema block:</em><br />
+<img alt="PID" src="https://tttapa.github.io/Pages/Arduino/Control-Theory/Motor-Fader/images/tex/closed-loop-pid-time/closed-loop-pid-time.svg" /></p>
+<p><strong>Note:</strong> Other forms of PID controller are:</p>
+<ul class="simple">
+<li><p>serial form <span class="math notranslate nohighlight">\(C(p)=K_p(1+\frac{1}{\tau_ip})(1+\tau_sp)\)</span></p></li>
+<li><p>standard form <span class="math notranslate nohighlight">\(C(p)=K_p(1+\frac{1}{\tau_ip}+\tau_sp)\)</span></p></li>
+</ul>
+<p>The time expression of this corrector is as follows:<br />
+<span class="math notranslate nohighlight">\(o(t)=K_p.e(t) + K_i \int e(t)dt + K_d \frac{de(t)}{dt}\)</span><br />
+with the error: <span class="math notranslate nohighlight">\(e(t)=SetPoint(t)-Input(t)\)</span></p>
+<p>One of simplest methods available is to approximate this continuous-time ordinary differential equation by discrete-time difference equations or recurrence relations.</p>
+<p>A first approach with parrallel form of the PID controller is:</p>
+<ul class="simple">
+<li><p>for  proportionnal term: <span class="math notranslate nohighlight">\(K_p.e(t) \approx K_p.e_k\)</span> where <span class="math notranslate nohighlight">\(e_k = e(k.T_s)\)</span></p></li>
+<li><p>for integration term: <span class="math notranslate nohighlight">\(K_i\int e(t)dt \approx K_i\sum_{j=0}^{k} e_{j} T_s= K_i.I_k\)</span> where  <span class="math notranslate nohighlight">\(I_k=I_k-1+e_{k}T_s\)</span></p></li>
+<li><p>for derivation term: <span class="math notranslate nohighlight">\(K_d\frac{de(t)}{dt} \approx K_d\frac{e_k - e_{k-1}}{T_s}\)</span><br />
+with the time step or sampling interval <span class="math notranslate nohighlight">\(T_s\)</span>.</p></li>
+</ul>
+<p>The PID output in response to measurements is thus:<br />
+<span class="math notranslate nohighlight">\(I_k=I_{k-1}+e_{k}T_s\)</span><br />
+<span class="math notranslate nohighlight">\(O_{k} = K_p e_{k} + K_i I_k +  K_d\frac{e_k - e_{k-1}}{T_s}\)</span></p>
+<p>Another more general approach applicable to any transfer function and therefore any form of corrector is as follows:</p>
+<ul class="simple">
+<li><p>Write the transfer function in numerator/denominator form<br />
+<span class="math notranslate nohighlight">\(C(p)=\frac{O(p)}{E(p)}=\frac{K_p p+K_i+K_d p^2}{p}\)</span></p></li>
+<li><p>Reformulate in the form of a differential equation<br />
+<span class="math notranslate nohighlight">\(pO(p)=(K_p p+K_i+K_d p^2)E(p)\)</span><br />
+<span class="math notranslate nohighlight">\(\dot o(t)=K_i e(t) + K_p \dot e(t) +K_d \ddot e(t)\)</span></p></li>
+<li><p>Discretize in the form of a recurrence equation<br />
+<span class="math notranslate nohighlight">\(\frac{o_k-o_{k-1}}{T_q}=K_i e_k + K_p \frac{e_k-e_{k-1}}{T_s} + K_d \frac{e_k+ e_{k-2}-2e_{k-1}}{T_s^2}\)</span><br />
+<span class="math notranslate nohighlight">\(o_k = o_{k-1} + K_i e_k T_s + K_p (e_k-e_{k-1}) +  \frac{K_d}{T_s}(e_k+ e_{k-2}-2e_{k-1})\)</span></p></li>
+</ul>
+<p>with<br />
+<span class="math notranslate nohighlight">\(f_k=f(kT_s)\)</span><br />
+<span class="math notranslate nohighlight">\(\dot f(t) \approx \frac{f(t)-f(t-T_s)}{T_s}\)</span><br />
+<span class="math notranslate nohighlight">\(\ddot f(t) \approx \frac{f(t)+f(t-2T_s)-2f(t-T_s)}{T_s^2}\)</span></p>
+<p><strong>Note:</strong></p>
+<ul class="simple">
+<li><p>More advanced transformation or discretization method are <a class="reference external" href="https://tttapa.github.io/Pages/Arduino/Control-Theory/Motor-Fader/PID-Controllers.html">avalaible</a>.</p></li>
+<li><p>More advanced PID controller forms can be find <a class="reference external" href="http://brettbeauregard.com/blog/2011/04/improving-the-beginners-pid-introduction/">here</a></p></li>
+</ul>
+<p>The following figure shows the effects of the digital implementation of the controller. Overall, the digital controller makes it possible to recover the behaviour of the continuous controller:</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(C(p)=\frac{O(p)}{E(p)}=K_p+\frac{K_i}{p}\)</span></p>
+</div></blockquote>
+<p>using a simple recursive equation:</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(o_k = o_{k-1} + K_i e_k T_s + K_p (e_k-e_{k-1})\)</span></p>
+</div></blockquote>
+<p><em>Digital controller:</em>
+<img alt="Digital controller" src="../_images/SamplingDiscreteEffect.png" /></p>
 </section>
 </section>
 <section id="references">
-<h2><span class="section-number">2.1.3. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.4. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <p>[Mihalič, 2022 ] Mihalič, F., Truntič, M., &amp; Hren, A. (2022). Hardware-in-the-loop simulations: A historical overview of engineering challenges. Electronics, 11(15), 2462. <a class="reference external" href="https://www.researchgate.net/publication/362572593_Hardware-in-the-Loop_Simulations_A_Historical_Overview_of_Engineering_Challenges">Link</a></p>
 <p>[Vanthuyne, 2009 ] Vanthuyne, T. (2009, September). An electrical thrust vector control system for the VEGA launcher. In Proceedings of the 13th European Space Mechanisms and Tribology Symposium (Vol. 670). <a class="reference external" href="http://esmats.eu/esmatspapers/pastpapers/pdfs/2009/vanthuyne.pdf">Link</a></p>
 <p>[Carpentier, 2011 ] Carpentier, B., Puel, F., Cros, C., Pin, B., Gerbe, L., &amp; Solide, S. S. P. (2011). Stability analysis using a coupled model of TVC actuator control loop and structural dynamics of a Launch Vehicle. In 4th European Conference For Aerospace Sciences (EUCASS).</p>
@@ -856,13 +979,17 @@ However, digital control has one main weakness: the introduction of delay in the
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-controller-development-cycle">2.1.1. Digital controller development cycle</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digitizing-a-controller-and-the-effect-of-sampling-frequencies">2.1.2. Digitizing a controller and the effect of sampling frequencies</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-controller">2.1.2. Continuous controller</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-loops-of-a-position-control">2.1.2.1. Nested loops of a position control</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-loop-of-an-ema">2.1.2.2. Speed loop of an EMA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delay-in-digital-controller">2.1.2.3. Delay in digital controller</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">2.1.3. References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digitizing-a-controller-and-the-effect-of-sampling-frequencies">2.1.3. Digitizing a controller and the effect of sampling frequencies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delay-in-digital-controller">2.1.3.1. Delay in digital controller</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-time-pid-controller-implementation">2.1.3.2. Discrete-time PID Controller Implementation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">2.1.4. References</a></li>
 </ul>
   </nav></div>
 
