@@ -69,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.2. Temperature Control Lab, step identification" href="06a_TD2_TCLab_IdentificationStep.html" />
+    <link rel="next" title="2.2. Temperature Control Lab, step identification" href="06_TD2_TCLab_IdentificationStep-Student.html" />
     <link rel="prev" title="2. Part B : Control and software development" href="summaryPartB.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -181,7 +181,8 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="summaryPartB.html">2. Control software definition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">2.1. Control software development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06a_TD2_TCLab_IdentificationStep.html">2.2. Temperature Control Lab, step identification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_TD2_TCLab_IdentificationStep-Student.html">2.2. Temperature Control Lab, step identification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_TD_PID_ControlLoops-Student.html">2.3. PID digital controller: Python implementation</a></li>
 </ul>
 </li>
 </ul>
@@ -597,9 +598,7 @@ Requirement already satisfied: matplotlib in /opt/hostedtoolcache/Python/3.9.19/
 Requirement already satisfied: contourpy&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (1.1.1)
 Requirement already satisfied: cycler&gt;=0.10 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (0.12.1)
 Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (4.47.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: kiwisolver&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (1.4.5)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (1.4.5)
 Requirement already satisfied: packaging&gt;=20.0 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (23.2)
 Requirement already satisfied: pillow&gt;=6.2.0 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (10.2.0)
 Requirement already satisfied: pyparsing&gt;=2.3.1 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (3.1.1)
@@ -615,15 +614,8 @@ Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.9.19
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/455.1 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">450.6/455.1 kB</span> <span class=" -Color -Color-Red">23.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">450.6/455.1 kB</span> <span class=" -Color -Color-Red">23.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">450.6/455.1 kB</span> <span class=" -Color -Color-Red">23.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">450.6/455.1 kB</span> <span class=" -Color -Color-Red">23.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">455.1/455.1 kB</span> <span class=" -Color -Color-Red">2.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">92.2/455.1 kB</span> <span class=" -Color -Color-Red">3.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">455.1/455.1 kB</span> <span class=" -Color -Color-Red">7.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -775,7 +767,7 @@ Ki = Kp/Tau_i = 3.30e+01
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9584fe3b50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb6dbe17370&gt;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
@@ -970,7 +962,7 @@ with the time step or sampling interval <span class="math notranslate nohighligh
       </div>
     </a>
     <a class="right-next"
-       href="06a_TD2_TCLab_IdentificationStep.html"
+       href="06_TD2_TCLab_IdentificationStep-Student.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>

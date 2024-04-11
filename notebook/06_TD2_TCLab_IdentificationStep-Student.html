@@ -65,10 +65,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebook/06a_TD2_TCLab_IdentificationStep';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebook/06_TD2_TCLab_IdentificationStep-Student';</script>
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.3. PID digital controller: Python implementation" href="07_TD_PID_ControlLoops-Student.html" />
     <link rel="prev" title="2.1. Control software development" href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -181,6 +182,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="summaryPartB.html">2. Control software definition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html">2.1. Control software development</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. Temperature Control Lab, step identification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_TD_PID_ControlLoops-Student.html">2.3. PID digital controller: Python implementation</a></li>
 </ul>
 </li>
 </ul>
@@ -237,7 +239,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/SizingLab/SystemsEngineeringIntroduction/main?urlpath=lab/tree/notebook/06a_TD2_TCLab_IdentificationStep.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/SizingLab/SystemsEngineeringIntroduction/main?urlpath=lab/tree/notebook/06_TD2_TCLab_IdentificationStep-Student.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -255,7 +257,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/SizingLab/SystemsEngineeringIntroduction/blob/main/notebook/06a_TD2_TCLab_IdentificationStep.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/SizingLab/SystemsEngineeringIntroduction/blob/main/notebook/06_TD2_TCLab_IdentificationStep-Student.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -303,7 +305,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/SizingLab/SystemsEngineeringIntroduction/edit/main/notebook/06a_TD2_TCLab_IdentificationStep.ipynb" target="_blank"
+      <li><a href="https://github.com/SizingLab/SystemsEngineeringIntroduction/edit/main/notebook/06_TD2_TCLab_IdentificationStep-Student.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -320,7 +322,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/SizingLab/SystemsEngineeringIntroduction/issues/new?title=Issue%20on%20page%20%2Fnotebook/06a_TD2_TCLab_IdentificationStep.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/SizingLab/SystemsEngineeringIntroduction/issues/new?title=Issue%20on%20page%20%2Fnotebook/06_TD2_TCLab_IdentificationStep-Student.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -350,7 +352,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/notebook/06a_TD2_TCLab_IdentificationStep.ipynb" target="_blank"
+      <li><a href="../_sources/notebook/06_TD2_TCLab_IdentificationStep-Student.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -467,7 +469,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-response-using-clock-with-tclab">2.2.7. Step response using <code class="docutils literal notranslate"><span class="pre">clock</span></code> with TCLab</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-the-step-change-data-to-a-first-order-model">2.2.8. Fitting the Step Change Data to a First Order Model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nodal-thermal-model">2.2.9. Nodal thermal model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-state-model-for-a-single-heater">2.2.10. Two State Model for a Single Heater</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-state-model">2.2.10. Two State Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-first-order-to-second-order-thermal-model">2.2.10.1. From first order to second order thermal model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-second-order-model-by-least-squares">2.2.10.2. Fitting a Second Order Model by Least Squares</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">2.2.11. References</a></li>
 </ul>
             </nav>
@@ -521,7 +527,7 @@ The TCLab is equipped with 2 heaters to heat the system for temperature control 
 <blockquote>
 <div><p>Read the Arduino .ino code in C language from the file <a class="reference external" href="https://github.com/jckantor/TCLab-sketch/blob/master/TCLab-sketch/TCLab-sketch.ino">here</a>. Describe its structure and, in particular, its temporal execution. Copy below the part of the code that initalises the microntroleur at start-up, as well as the main loop.</p>
 </div></blockquote>
-<p><strong>Note:</strong> For a better understanding, read the following page <a class="reference external" href="https://arduinogetstarted.com/tutorials/arduino-code-structure">Basic structure of an arduino code</a></p>
+<p><strong>Note:</strong> For a better understanding, read the following page <a class="reference external" href="https://catsr.vse.gmu.edu/SYST460/Intro%20to%20Arduino%20Programming.pdf">Basic structure of an arduino code</a></p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Answers<div class="sd-summary-down docutils">
@@ -557,10 +563,10 @@ void setup() {
 <h3><span class="section-number">2.2.2.1. </span>Compiling and uploading code to an Arduino microcontroller<a class="headerlink" href="#compiling-and-uploading-code-to-an-arduino-microcontroller" title="Permalink to this heading">#</a></h3>
 <p>Complete the following steps:</p>
 <ul class="simple">
-<li><p>install Arduino software (if not done)</p></li>
-<li><p>if necessary upload the Tclab <a class="reference external" href="https://github.com/jckantor/TCLab-sketch/blob/master/TCLab-sketch/TCLab-sketch.ino">TCLab-sketch.ino</a> code in the Arduino microcontroller (select the right Arduino card before with <code class="docutils literal notranslate"><span class="pre">Tools/Card</span></code> the right card type)</p></li>
-<li><p>select the communication port <code class="docutils literal notranslate"><span class="pre">Tools/Port</span></code></p></li>
-<li><p>open the serial monitor <code class="docutils literal notranslate"><span class="pre">Tools/Serial</span> <span class="pre">Monitor</span></code></p></li>
+<li><p>Install Arduino software (if not done)</p></li>
+<li><p>If necessary upload the TClab <a class="reference external" href="https://github.com/jckantor/TCLab-sketch/blob/master/TCLab-sketch/TCLab-sketch.ino">TCLab-sketch.ino</a> code in the Arduino microcontroller (select the right Arduino card before with <code class="docutils literal notranslate"><span class="pre">Tools/Card</span></code> the right card type)</p></li>
+<li><p>Select the communication port <code class="docutils literal notranslate"><span class="pre">Tools/Port</span></code></p></li>
+<li><p>Open the serial monitor <code class="docutils literal notranslate"><span class="pre">Tools/Serial</span> <span class="pre">Monitor</span></code></p></li>
 </ul>
 </section>
 <section id="reading-temperatures-with-serial-monitor">
@@ -569,29 +575,30 @@ void setup() {
 <blockquote>
 <div><p>In the serial monitor, send orders <code class="docutils literal notranslate"><span class="pre">T1</span></code> and <code class="docutils literal notranslate"><span class="pre">T2</span></code> what do you observe? Can you find the corresponding part of the code?</p>
 </div></blockquote>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>:::{dropdown} Answers  
-
-The `dispatchcommand()` function in the main execution loop executes commands (cmd) received over the serial link from the serial monitor or the python environment. 
-
-```
-void dispatchCommand(void) {
-[...]
-  else if (cmd == &quot;T1&quot;) {
-    sendFloatResponse(readTemperature(pinT1));
-  }
-[...]
-  else if (cmd == &quot;T2&quot;) {
-    sendFloatResponse(readTemperature(pinT2));
-  }
-```
-
-In our case, it executes commands T1 or T2 and calls the functions below: 
-- Reading an analogue input with analogue-to-digital conversion and scaling. Averaging several acquisitions reduces sensitivity to measurement noise. 
-
-``` 
-// return average  of n reads of thermister temperature in °C
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Answers<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The <code class="docutils literal notranslate"><span class="pre">dispatchcommand()</span></code> function in the main execution loop executes commands (cmd) received over the serial link from the serial monitor or the python environment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">dispatchCommand</span><span class="p">(</span><span class="n">void</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">[</span><span class="o">...</span><span class="p">]</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">cmd</span> <span class="o">==</span> <span class="s2">&quot;T1&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">sendFloatResponse</span><span class="p">(</span><span class="n">readTemperature</span><span class="p">(</span><span class="n">pinT1</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">[</span><span class="o">...</span><span class="p">]</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">cmd</span> <span class="o">==</span> <span class="s2">&quot;T2&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">sendFloatResponse</span><span class="p">(</span><span class="n">readTemperature</span><span class="p">(</span><span class="n">pinT2</span><span class="p">));</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p class="sd-card-text">In our case, it executes commands T1 or T2 and calls the functions below:</p>
+<ul class="simple">
+<li><p class="sd-card-text">Reading an analogue input with analogue-to-digital conversion and scaling. Averaging several acquisitions reduces sensitivity to measurement noise.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// return average  of n reads of thermister temperature in °C
 inline float readTemperature(int pin) {
   float degC = 0.0;
   for (int i = 0; i &lt; n; i++) {
@@ -600,28 +607,18 @@ inline float readTemperature(int pin) {
   }
   return degC / float(n);
 }
-```
-
-- The averaged value is sent via the serial link. 
-```
-void sendFloatResponse(float val) {
-  Serial.println(String(val, 3));
-}
-```
-:::
+</pre></div>
+</div>
+<ul class="simple">
+<li><p class="sd-card-text">The averaged value is sent via the serial link.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">sendFloatResponse</span><span class="p">(</span><span class="nb">float</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-    <span class="p">:::{</span><span class="n">dropdown</span><span class="p">}</span> <span class="n">Answers</span>
-    <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
-</div>
-</section>
+</details></section>
 <section id="setting-heaters">
 <h3><span class="section-number">2.2.2.3. </span>Setting Heaters<a class="headerlink" href="#setting-heaters" title="Permalink to this heading">#</a></h3>
 <p>Both heaters can be set between 0 to 100% power with the functions <code class="docutils literal notranslate"><span class="pre">Q1</span> <span class="pre">x</span></code> ou <code class="docutils literal notranslate"><span class="pre">Q2</span> <span class="pre">x</span></code> (where x is between 0 and 100). The device firmware limits the heaters to a range of 0 to 100%. The current value of attributes may be accessed via</p>
@@ -638,25 +635,25 @@ void sendFloatResponse(float val) {
 </ol>
 <p><strong>Note B:</strong><br />
 Each command returns a result string.</p>
-<p>| Command | Action  |
-| -:- | -:-  |
-|  A |        software restart. Returns “Start”|<br />
-|  LED float | set LED to float for 10 sec. range 0 to 100. Returns actual float  |
-|  P1 float  | set pwm limit on heater 1, range 0 to 255. Default 200. Returns P1.  |
-|  P2 float  | set pwm limit on heater 2, range 0 to 255. Default 100. Returns P2.  |
-|  Q1 float  | set Heater 1, range 0 to 100. Returns value of Q1.  |
-|  Q2 float  | set Heater 2, range 0 to 100. Returns value of Q2.  |
-|  Q1B float | set Heater 1, range 0 to 100. Returns value of Q1 as a 32-bit float.  |
-|  Q2B float | set Heater 2, range 0 to 100. Returns value of Q2 as a 32-bit float.  |
-|  R1  |      get value of Heater 1, range 0 to 100  |
-|  R2   |     get value of Heater 2, range 0 to 100  |
-|  SCAN  |    get values T1 T2 Q1 Q1 in line delimited values  |
-|  T1   |     get Temperature T1. Returns value of T1 in °C.  |
-|  T2   |     get Temperature T2. Returns value of T2 in °C.  |
-|  T1B  |     get Temperature T1. Returns value of T1 in °C as a 32-bit float.  |
-|  T2B  |     get Temperature T2. Returns value of T2 in °C as a 32-bit float.  |
-|  VER  |     get firmware version string  |
-|  X    |     stop, enter sleep mode. Returns “Stop”  |</p>
+<p>Command | Action<br />
+-:- | -:-<br />
+A |        software restart. Returns “Start”<br />
+LED float | set LED to float for 10 sec. range 0 to 100. Returns actual float<br />
+P1 float  | set pwm limit on heater 1, range 0 to 255. Default 200. Returns P1.<br />
+P2 float  | set pwm limit on heater 2, range 0 to 255. Default 100. Returns P2.<br />
+Q1 float  | set Heater 1, range 0 to 100. Returns value of Q1.<br />
+Q2 float  | set Heater 2, range 0 to 100. Returns value of Q2.<br />
+Q1B float | set Heater 1, range 0 to 100. Returns value of Q1 as a 32-bit float.<br />
+Q2B float | set Heater 2, range 0 to 100. Returns value of Q2 as a 32-bit float.<br />
+R1  |      get value of Heater 1, range 0 to 100<br />
+R2   |     get value of Heater 2, range 0 to 100<br />
+SCAN  |    get values T1 T2 Q1 Q1 in line delimited values<br />
+T1   |     get Temperature T1. Returns value of T1 in °C.<br />
+T2   |     get Temperature T2. Returns value of T2 in °C.<br />
+T1B  |     get Temperature T1. Returns value of T1 in °C as a 32-bit float.<br />
+T2B  |     get Temperature T2. Returns value of T2 in °C as a 32-bit float.<br />
+VER  |     get firmware version string<br />
+X    |     stop, enter sleep mode. Returns “Stop”</p>
 </section>
 </section>
 <section id="getting-to-grips-with-the-python-code">
@@ -701,44 +698,14 @@ lab = TCLab()
 </div>
 <p>TCLab() attempts to find a device connected to a serial port and return a connection. An error is generated if no device is found.  The connection should be closed when no longer in use.</p>
 <p>The following cell demonstrates this process, and uses the tclab <code class="docutils literal notranslate"><span class="pre">LED()</span></code> function to flash the LED on the Temperature Control Lab for a period of 10 seconds at a 100% brightness level.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#from tclab import TCLab</span>
+<p>Connect TCLab card:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#from tclab import TCLab</span>
+
 <span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span>
 
 <span class="n">lab</span> <span class="o">=</span> <span class="n">TCLab</span><span class="p">()</span>
 <span class="n">lab</span><span class="o">.</span><span class="n">LED</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TCLab version 1.0.0
---- Serial Ports ---
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/dev/ttyS1 ttyS1 PNP0501
-/dev/ttyS0 ttyS0 PNP0501
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#from tclab import TCLab</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">lab</span> <span class="o">=</span> <span class="n">TCLab</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">lab</span><span class="o">.</span><span class="n">LED</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/tclab/tclab.py:61,</span> in <span class="ni">TCLab.__init__</span><span class="nt">(self, port, debug)</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">arduino</span> <span class="o">=</span> <span class="n">find_arduino</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">61</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;No Arduino device found.&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">63</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">64</span>     <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">baud</span><span class="o">=</span><span class="mi">115200</span><span class="p">)</span>
-
-<span class="ne">RuntimeError</span>: No Arduino device found.
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 </section>
@@ -762,7 +729,7 @@ T2 = lab.T2
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># from tclab import TCLab</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature 1: </span><span class="si">%0.2f</span><span class="s2"> °C&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature 2: </span><span class="si">%0.2f</span><span class="s2"> °C&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">))</span>
@@ -822,7 +789,7 @@ Q2 = lab.Q2()
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">time</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Starting Temperature 1: </span><span class="si">%0.2f</span><span class="s2"> °C&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting Temperature 2: </span><span class="si">%0.2f</span><span class="s2"> °C&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">))</span>
@@ -969,7 +936,7 @@ space
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
 <span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">T2</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Turn Heater Q1 On&quot;</span><span class="p">)</span>
 <span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
@@ -1085,7 +1052,7 @@ space
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
 <span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">Q1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Q1&#39;</span><span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># Static gain</span>
 <span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">DeltaT1</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
@@ -1144,7 +1111,7 @@ space
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># parameter values and units</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">P1</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="mi">4</span>                 <span class="c1"># watts</span>
 <span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">Rth</span> <span class="o">=</span> <span class="n">K1</span><span class="o">*</span><span class="mi">50</span><span class="o">/</span><span class="n">P1</span>              <span class="c1"># watts/deg C</span>
@@ -1166,7 +1133,7 @@ space
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Equivalent mass : </span><span class="si">%.2f</span><span class="s2"> g&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">Cth</span><span class="o">/</span><span class="mf">0.9</span><span class="p">))</span>
 
 <span class="ne">NameError</span>: name &#39;Cth&#39; is not defined
@@ -1175,13 +1142,144 @@ space
 </div>
 </div>
 </section>
-<section id="two-state-model-for-a-single-heater">
-<h2><span class="section-number">2.2.10. </span>Two State Model for a Single Heater<a class="headerlink" href="#two-state-model-for-a-single-heater" title="Permalink to this heading">#</a></h2>
+<section id="two-state-model">
+<h2><span class="section-number">2.2.10. </span>Two State Model<a class="headerlink" href="#two-state-model" title="Permalink to this heading">#</a></h2>
+<section id="from-first-order-to-second-order-thermal-model">
+<h3><span class="section-number">2.2.10.1. </span>From first order to second order thermal model<a class="headerlink" href="#from-first-order-to-second-order-thermal-model" title="Permalink to this heading">#</a></h3>
+<blockquote>
+<div><p><strong>Question:</strong> Explain why the 1st order model is not completely satisfactory.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Question:</strong> Propose a nodal thermal diagram to represent the observed dynamics, taking into account the response of the temperature sensor. For this third model, we consider the possibility that the heater and sensor may not be at the same temperature. In other words, that the heater/sensor assembly is not at a uniform temperature. To account for this possibility, we introduce <span class="math notranslate nohighlight">\(𝑇_𝐻\)</span> to denote the temperature of heater one and <span class="math notranslate nohighlight">\(𝑇_𝑆\)</span> to denote the temperature of the corresponding sensor. We’ll further assume that sensor mainly exchanges heat with the heater, and the dominant heat transfer to the surroundings is through the heat sink attached to the heater.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Exercice or homework:</strong> Determine the form of the transfer function corresponding to this thermal diagram. The input is the temperature rise in %, the output is the temperature measurement in °C.</p>
+</div></blockquote>
+</section>
+<section id="fitting-a-second-order-model-by-least-squares">
+<h3><span class="section-number">2.2.10.2. </span>Fitting a Second Order Model by Least Squares<a class="headerlink" href="#fitting-a-second-order-model-by-least-squares" title="Permalink to this heading">#</a></h3>
+<p>Graphically determining a large number of parameters can be difficult. Second-order parameters can be determined using the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.least_squares.html">least_square function</a>, which minimises an error by optimisation.</p>
+<blockquote>
+<div><p><strong>Exercice:</strong> Propose a Python code to determine the second-order transfer function best suited to the measurement.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">least_squares</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">Qmax</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="c1"># complete</span>
+    <span class="k">return</span> <span class="n">resid</span>
+
+<span class="n">ic</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.86</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">130</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">least_squares</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">ic</span><span class="p">,</span><span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">))</span>
+<span class="n">r</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="k">return</span> <span class="n">resid</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">ic</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.86</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">130</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">r</span> <span class="o">=</span> <span class="n">least_squares</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">ic</span><span class="p">,</span><span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">r</span><span class="o">.</span><span class="n">x</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/scipy/optimize/_lsq/least_squares.py:820,</span> in <span class="ni">least_squares</span><span class="nt">(fun, x0, jac, bounds, method, ftol, xtol, gtol, x_scale, loss, f_scale, diff_step, tr_solver, tr_options, jac_sparsity, max_nfev, verbose, args, kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">817</span> <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;trf&#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">818</span>     <span class="n">x0</span> <span class="o">=</span> <span class="n">make_strictly_feasible</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">lb</span><span class="p">,</span> <span class="n">ub</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">820</span> <span class="n">f0</span> <span class="o">=</span> <span class="n">fun_wrapped</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">822</span> <span class="k">if</span> <span class="n">f0</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">823</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;`fun` must return at most 1-d array_like. &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">824</span>                      <span class="s2">&quot;f0.shape: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f0</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/scipy/optimize/_lsq/least_squares.py:815,</span> in <span class="ni">least_squares.&lt;locals&gt;.fun_wrapped</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">    </span><span class="mi">814</span> <span class="k">def</span> <span class="nf">fun_wrapped</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">815</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+
+<span class="nn">Cell In[13], line 7,</span> in <span class="ni">f</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># complete</span>
+<span class="ne">----&gt; </span><span class="mi">7</span>     <span class="k">return</span> <span class="n">resid</span>
+
+<span class="ne">NameError</span>: name &#39;resid&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the next tutorial, we’ll use the following transfer function:
+<span class="math notranslate nohighlight">\( G_1(s) = \frac{0.65}{(27s + 1)(160s + 1)} \)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                  <span class="c1"># basic package for numerical calculations</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>     <span class="c1"># plotting package</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">step</span>       <span class="c1"># Import from scipy of the step response</span>
+
+<span class="c1"># First order step response</span>
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.657</span><span class="p">]</span>
+<span class="n">den</span> <span class="o">=</span> <span class="p">[</span><span class="mi">160</span><span class="o">*</span><span class="mi">27</span><span class="p">,</span><span class="mi">160</span><span class="o">+</span><span class="mi">27</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">system</span><span class="o">=</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">den</span><span class="p">),</span><span class="n">T</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">600</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">T1_est</span> <span class="o">=</span> <span class="mf">20.25</span>  <span class="o">+</span> <span class="n">y</span><span class="o">*</span><span class="mi">50</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;T1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">T1_est</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Step Test Data Compared to Model&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">14</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">14</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;T1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">T1_est</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Step Test Data Compared to Model&#39;</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/pandas/plotting/_core.py:1000,</span> in <span class="ni">PlotAccessor.__call__</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">997</span>             <span class="n">label_name</span> <span class="o">=</span> <span class="n">label_kw</span> <span class="ow">or</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span>
+<span class="g g-Whitespace">    </span><span class="mi">998</span>             <span class="n">data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">label_name</span>
+<span class="ne">-&gt; </span><span class="mi">1000</span> <span class="k">return</span> <span class="n">plot_backend</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/pandas/plotting/_matplotlib/__init__.py:71,</span> in <span class="ni">plot</span><span class="nt">(data, kind, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>         <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;ax&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="s2">&quot;left_ax&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">70</span> <span class="n">plot_obj</span> <span class="o">=</span> <span class="n">PLOT_CLASSES</span><span class="p">[</span><span class="n">kind</span><span class="p">](</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">71</span> <span class="n">plot_obj</span><span class="o">.</span><span class="n">generate</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span> <span class="n">plot_obj</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span> <span class="k">return</span> <span class="n">plot_obj</span><span class="o">.</span><span class="n">result</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/pandas/plotting/_matplotlib/core.py:450,</span> in <span class="ni">MPLPlot.generate</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span> <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_args_adjust</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">450</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_compute_plot_data</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_setup_subplots</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_make_plot</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/pandas/plotting/_matplotlib/core.py:635,</span> in <span class="ni">MPLPlot._compute_plot_data</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">633</span> <span class="c1"># no non-numeric frames or series allowed</span>
+<span class="g g-Whitespace">    </span><span class="mi">634</span> <span class="k">if</span> <span class="n">is_empty</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">635</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;no numeric data to plot&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">637</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">numeric_data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_convert_to_ndarray</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: no numeric data to plot
+</pre></div>
+</div>
+<img alt="../_images/13543d02b3a79578ec40687057d43a6a0787c1ff799905d51a405985d5147ca1.png" src="../_images/13543d02b3a79578ec40687057d43a6a0787c1ff799905d51a405985d5147ca1.png" />
+</div>
+</div>
+</section>
 </section>
 <section id="references">
 <h2><span class="section-number">2.2.11. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <p>[Hedengren] Hedengren, J., Process Dynamics and Control, Brigham Young University.  <a class="reference external" href="http://apmonitor.com/pdc/index.php/Main/ArduinoTemperatureControl">Link</a></p>
-<p>[Kantor, 2021] Kantor, JC., Chemical Process Control class materials. <a class="reference external" href="https://jckantor.github.io/cbe30338-2021/">Link</a> / <a class="reference external" href="https://github.com/jckantor/cbe30338-2021">Github</a></p>
+<p>[Kantor, 2021] Kantor, JC., Chemical Process Control class materials, University of Notre Dame. <a class="reference external" href="https://jckantor.github.io/cbe30338-2021/">Link</a> / <a class="reference external" href="https://github.com/jckantor/cbe30338-2021">Github</a></p>
 </section>
 </section>
 
@@ -1224,6 +1322,15 @@ space
         <p class="prev-next-title"><span class="section-number">2.1. </span>Control software development</p>
       </div>
     </a>
+    <a class="right-next"
+       href="07_TD_PID_ControlLoops-Student.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2.3. </span>PID digital controller: Python implementation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1262,7 +1369,11 @@ space
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-response-using-clock-with-tclab">2.2.7. Step response using <code class="docutils literal notranslate"><span class="pre">clock</span></code> with TCLab</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-the-step-change-data-to-a-first-order-model">2.2.8. Fitting the Step Change Data to a First Order Model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nodal-thermal-model">2.2.9. Nodal thermal model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-state-model-for-a-single-heater">2.2.10. Two State Model for a Single Heater</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-state-model">2.2.10. Two State Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-first-order-to-second-order-thermal-model">2.2.10.1. From first order to second order thermal model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-second-order-model-by-least-squares">2.2.10.2. Fitting a Second Order Model by Least Squares</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">2.2.11. References</a></li>
 </ul>
   </nav></div>
