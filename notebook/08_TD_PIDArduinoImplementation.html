@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>2. Part B : Control and software development &#8212; Introduction to Mechatronics and System Engineering</title>
+    <title>2.4. Digital controller: Arduino implementation &#8212; Introduction to Mechatronics and System Engineering</title>
   
   
   
@@ -63,12 +63,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebook/summaryPartB';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebook/08_TD_PIDArduinoImplementation';</script>
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.1. Control software development" href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html" />
-    <link rel="prev" title="1.5. Thermal Model for CubeSat" href="04_TD1_CubeSatThermalModeling_Student.html" />
+    <link rel="prev" title="2.3. PID digital controller: Python implementation" href="07_TD_PID_ControlLoops-Student.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -177,11 +178,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="04_TD1_CubeSatThermalModeling_Student.html">1.5. Thermal Model for CubeSat</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">2. Control software definition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="summaryPartB.html">2. Control software definition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html">2.1. Control software development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06_TD2_TCLab_IdentificationStep-Student.html">2.2. Temperature Control Lab, step identification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07_TD_PID_ControlLoops-Student.html">2.3. PID digital controller: Python implementation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="08_TD_PIDArduinoImplementation.html">2.4. Digital controller: Arduino implementation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.4. Digital controller: Arduino implementation</a></li>
 </ul>
 </li>
 </ul>
@@ -230,6 +231,55 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/SizingLab/SystemsEngineeringIntroduction/main?urlpath=lab/tree/notebook/08_TD_PIDArduinoImplementation.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/SizingLab/SystemsEngineeringIntroduction/blob/main/notebook/08_TD_PIDArduinoImplementation.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -255,7 +305,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/SizingLab/SystemsEngineeringIntroduction/edit/main/notebook/summaryPartB.md" target="_blank"
+      <li><a href="https://github.com/SizingLab/SystemsEngineeringIntroduction/edit/main/notebook/08_TD_PIDArduinoImplementation.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -272,7 +322,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/SizingLab/SystemsEngineeringIntroduction/issues/new?title=Issue%20on%20page%20%2Fnotebook/summaryPartB.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/SizingLab/SystemsEngineeringIntroduction/issues/new?title=Issue%20on%20page%20%2Fnotebook/08_TD_PIDArduinoImplementation.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -302,7 +352,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/notebook/summaryPartB.md" target="_blank"
+      <li><a href="../_sources/notebook/08_TD_PIDArduinoImplementation.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -312,7 +362,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -373,7 +423,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -384,11 +436,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Part B : Control and software development</h1>
+    <h1>Digital controller: Arduino implementation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pid-controller">2.4.1. PID controller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-code-analysis">2.4.2. C code analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arduino-digital-controller">2.4.3. Arduino digital controller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-tests">2.4.4. Real tests</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -398,20 +461,101 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="part-b-control-and-software-development">
-<span id="page-lecture-1"></span><h1><span class="section-number">2. </span>Part B : Control and software development<a class="headerlink" href="#part-b-control-and-software-development" title="Permalink to this heading">#</a></h1>
-<p>Program:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="digital-controller-arduino-implementation">
+<h1><span class="section-number">2.4. </span>Digital controller: Arduino implementation<a class="headerlink" href="#digital-controller-arduino-implementation" title="Permalink to this heading">#</a></h1>
+<p>This tutorial aims to implement temperature control on the µ-controller of the TCLab board. The process will be carried out in the Arduino IDE and will involve the following stages:</p>
 <ul class="simple">
-<li><p>Lecture (1.25 h): Control software development and TCLab Introduction</p></li>
-<li><p>Tutorial (2.5h): TClab card, identification step</p></li>
-<li><p>Homework (2.5h): Identification of a model (1st, 2nd order) for control</p></li>
-<li><p>Tutorial (2.5h): Control and validation by simulation &amp; test (TCLab card + python)</p></li>
-<li><p>Homework (2.5h): Control and validation by simulation on linearised model (Cubesat)</p></li>
-<li><p>Lab (3.75h): Control prototyping (PID anti-windup) on microcontroller (arduino + TCLab card)</p></li>
-<li><p>Lab (2.5h): Response to a new need, examination</p></li>
+<li><p>analysing the proposed C code</p></li>
+<li><p>implementing the previously defined numerical PID corrector</p></li>
+<li><p>downloading the program into the Arduino µController for real testing.</p></li>
 </ul>
-<div class="toctree-wrapper compound">
+<section id="pid-controller">
+<h2><span class="section-number">2.4.1. </span>PID controller<a class="headerlink" href="#pid-controller" title="Permalink to this heading">#</a></h2>
+<p>The PID corrector will take the parrallel form:<br />
+<span class="math notranslate nohighlight">\(G_c(p)=k_p+\frac{k_i}{p}+k_d p\)</span><br />
+form and will be implemented as a recurrence equation:<br />
+<span class="math notranslate nohighlight">\(o_k = o_{k-1} + k_i e_k T_s + k_p (e_k-e_{k-1}) +  \frac{k_d}{T_s}(e_k+ e_{k-2}-2e_{k-1})\)</span></p>
+<p>The PID algorithm functions best if it is evaluated at a regular interval but managing a call to exact timing can be complicated to implement. Instead, the sample time <span class="math notranslate nohighlight">\(T_s\)</span> will be calculated at each step using a <code class="docutils literal notranslate"><span class="pre">millis()</span></code> time measurement function, as proposed by <a class="reference external" href="http://brettbeauregard.com/blog/2011/04/improving-the-beginners-pid-introduction/">Beauregard</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="o">/*</span><span class="n">How</span> <span class="n">long</span> <span class="n">since</span> <span class="n">we</span> <span class="n">last</span> <span class="n">calculated</span><span class="o">*/</span>
+   <span class="n">unsigned</span> <span class="n">long</span> <span class="n">now</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+   <span class="n">double</span> <span class="n">timeChange</span> <span class="o">=</span> <span class="p">(</span><span class="n">double</span><span class="p">)(</span><span class="n">now</span> <span class="o">-</span> <span class="n">lastTime</span><span class="p">);</span>
+</pre></div>
 </div>
+</section>
+<section id="c-code-analysis">
+<h2><span class="section-number">2.4.2. </span>C code analysis<a class="headerlink" href="#c-code-analysis" title="Permalink to this heading">#</a></h2>
+<p>We’re going to work on an Arduino code that evolves from the <a class="reference download internal" download="" href="../_downloads/e4c3174b9bf6b4cea58bced9852b2554/TCLab-sketch.ino"><span class="xref download myst">following code</span></a> already present on the TCLab board. We want to retain the ability to communicate with the board via the USB serial port.  But certain functions will evolve to enable us to include a temperature controller directly on the board, and to configure it.
+In particular, the following commands will be required:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Command</p></th>
+<th class="head text-left"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>PIDON</p></td>
+<td class="text-left"><p>PID output active</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>PIDOFF</p></td>
+<td class="text-left"><p>PID output inactive</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>T1ORDER float</p></td>
+<td class="text-left"><p>set Temperature T1 order. Returns T1 value in °C.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>PID_KP float</p></td>
+<td class="text-left"><p>set Kp coefficient value.</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>PID_KI float</p></td>
+<td class="text-left"><p>set Ki coefficient value</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>PID_KD float</p></td>
+<td class="text-left"><p>set Kd coefficient value</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>PID_TS float</p></td>
+<td class="text-left"><p>define time sample value</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>ECHOON</p></td>
+<td class="text-left"><p>Active echo of PID status</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>ECHOOFF</p></td>
+<td class="text-left"><p>Inactive PID echo state</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><strong>Exercice:</strong> Analyze the code <a class="reference download internal" download="" href="../_downloads/e4c3174b9bf6b4cea58bced9852b2554/TCLab-sketch.ino"><span class="xref download myst">here</span></a>. Complete certain points:</p>
+<ul class="simple">
+<li><p>In the command management section, <strong>complete the ‘PIDON’ command processing field</strong>: declare the <code class="docutils literal notranslate"><span class="pre">PIDOn</span></code> variable as True, initialize the output and error memory variables to zero (<code class="docutils literal notranslate"><span class="pre">o_k_1</span></code>, <code class="docutils literal notranslate"><span class="pre">e_k_1,</span> </code>e_k_2<code class="docutils literal notranslate"><span class="pre">),</span> <span class="pre">and</span> <span class="pre">initialize</span> <span class="pre">the</span> </code>lastTime<code class="docutils literal notranslate"><span class="pre">variable</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">current</span> <span class="pre">time</span> <span class="pre">(use</span> <span class="pre">the</span></code>millis()` function), Send a response to the serial port indicating that the controller is active and recalling the corrector gain values.</p></li>
+<li><p>In the <strong>setup section</strong>, complete de PID initialisation with the following parameters: <span class="math notranslate nohighlight">\(k_p=10.336\)</span>, <span class="math notranslate nohighlight">\(k_i=0.063\)</span>, <span class="math notranslate nohighlight">\(k_d=0\)</span>, a <code class="docutils literal notranslate"><span class="pre">Setpoint</span></code> at 35°C, initialize the output and error memory variables to zero, eclare the <code class="docutils literal notranslate"><span class="pre">PIDOn</span></code> variable as False, a ‘sampleTime’ of 2000 ms.</p></li>
+</ul>
+</div></blockquote>
+<p>To do this work, use the Arduino IDE 1.8 (installation <a class="reference external" href="https://www.arduino.cc/en/software">link</a>).</p>
+</section>
+<section id="arduino-digital-controller">
+<h2><span class="section-number">2.4.3. </span>Arduino digital controller<a class="headerlink" href="#arduino-digital-controller" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><p><strong>Exercice:</strong> Complete de <code class="docutils literal notranslate"><span class="pre">ComputePID()</span></code> function of the C code with the:</p>
+<ul class="simple">
+<li><p>Compute of error variable <code class="docutils literal notranslate"><span class="pre">e_k</span></code></p></li>
+<li><p>Compute of PID <code class="docutils literal notranslate"><span class="pre">Output</span></code> with recurrence equation</p></li>
+<li><p>Output variable limited to 100</p></li>
+<li><p>Storage of certain variables for the next calculation step</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="real-tests">
+<h2><span class="section-number">2.4.4. </span>Real tests<a class="headerlink" href="#real-tests" title="Permalink to this heading">#</a></h2>
+<p>Perform the following steps:</p>
+<ul class="simple">
+<li><p><strong>Select your board:</strong> Go to the “Tools” computer menu from the menu bar. Select the “Board” option and another menu will appear, where you’ll select your Arduino model (Leonardo) from the list.</p></li>
+<li><p><strong>Select your serial port:</strong> Select the serial device of the Arduino board. Go to Tools, and then the serial port menu. You might see COM3 or higher (COM1 and COM2 are usually reserved for hardware serial ports).</p></li>
+<li><p><strong>Upload the program:</strong> Confirm the Arduino is plugged in, and the green light is on - therefore the correct board and port is chosen. Select Upload from the Sketch drop-down menu. After a few seconds, you will get this screen, with the message “Done uploading.”</p></li>
+<li><p><strong>Activate the controller</strong> and allow its status to be displayed: Go to Tools, and then the serial monitor. Type <code class="docutils literal notranslate"><span class="pre">PIDON</span></code> and <code class="docutils literal notranslate"><span class="pre">ECHOON</span></code>.</p></li>
+<li><p><strong>Visualize controller behavior graphically</strong>:  Go to Tools, and then the serial plotter. The Serial Plotter is a really useful tool for tracking your variables.</p></li>
+</ul>
+<p><em>Serial Plotter Tool:</em><br />
+<img alt="SerialPlotter" src="notebook/figures/SerialPlotter.png" /></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -445,22 +589,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="04_TD1_CubeSatThermalModeling_Student.html"
+       href="07_TD_PID_ControlLoops-Student.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1.5. </span>Thermal Model for CubeSat</p>
+        <p class="prev-next-title"><span class="section-number">2.3. </span>PID digital controller: Python implementation</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.1. </span>Control software development</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -468,6 +603,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pid-controller">2.4.1. PID controller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-code-analysis">2.4.2. C code analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arduino-digital-controller">2.4.3. Arduino digital controller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-tests">2.4.4. Real tests</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

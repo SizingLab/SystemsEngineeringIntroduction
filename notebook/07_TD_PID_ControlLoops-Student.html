@@ -69,6 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.4. Digital controller: Arduino implementation" href="08_TD_PIDArduinoImplementation.html" />
     <link rel="prev" title="2.2. Temperature Control Lab, step identification" href="06_TD2_TCLab_IdentificationStep-Student.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -182,7 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html">2.1. Control software development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06_TD2_TCLab_IdentificationStep-Student.html">2.2. Temperature Control Lab, step identification</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">2.3. PID digital controller: Python implementation</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="08_TD_PIDArduinoImplementation.html">2.4. Digital controller: Arduino implementation</a></li>
 </ul>
 </li>
 </ul>
@@ -446,7 +447,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2.3. PID digital controller: Python implementation</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">2.3.1. Requirements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-controller">2.3.2. Continuous controller</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-transfer-functions">2.3.2.1. System transfer functions</a></li>
@@ -466,10 +466,6 @@ document.write(`
 </ul>
 </li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-mode">2.4. Interactive mode</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -494,12 +490,12 @@ document.write(`
 <blockquote>
 <div><p><strong>Exercice:</strong> Complete the requirements for the temperature control in the following table.</p>
 </div></blockquote>
-<p>Requirement | Assessment Criteria  | Level
--:- | -:- | -:-
-Control the temperature at 30°C  | Temperature reference tracking | ?
-| Settling time at 5 % | ?
-| Overshoot | ?
-| Disturbance rejection | ?</p>
+<p>| Requirement | Assessment Criteria  | Level |
+| -:- | -:- | -:- |
+|Control the temperature at 30°C  | Temperature reference tracking | ? |
+| | Settling time at 5 % | ? |
+| | Overshoot | ? |
+| | Disturbance rejection | ? |</p>
 </section>
 <section id="continuous-controller">
 <h2><span class="section-number">2.3.2. </span>Continuous controller<a class="headerlink" href="#continuous-controller" title="Permalink to this heading">#</a></h2>
@@ -525,19 +521,19 @@ with</p>
 </ul>
 <p>The form (P, PI, PD or PID) of the PID controller can then be chosen according to the value of <span class="math notranslate nohighlight">\(\tau\)</span> compared
 to <span class="math notranslate nohighlight">\(L\)</span> by using following table:</p>
-<p><span class="math notranslate nohighlight">\(\frac{Time Constant}{Delay}=\frac{\tau}{L}\)</span> | Best controller
--:- | -:-
-<span class="math notranslate nohighlight">\(\frac{\tau}{L} &gt; 20 \)</span> | On-Off controller
-<span class="math notranslate nohighlight">\(10 &lt; \frac{\tau}{L} &lt; 20 \)</span> | P controller
-<span class="math notranslate nohighlight">\(5 &lt; \frac{\tau}{L} &lt; 10 \)</span> | PI controller
-<span class="math notranslate nohighlight">\(2 &lt; \frac{\tau}{L} &lt; 5 \)</span> | PID controller</p>
+<p>| <span class="math notranslate nohighlight">\(\frac{Time Constant}{Delay}=\frac{\tau}{L}\)</span> | Best controller |
+| -:- | -:- |
+| <span class="math notranslate nohighlight">\(\frac{\tau}{L} &gt; 20 \)</span> | On-Off controller |
+| <span class="math notranslate nohighlight">\(10 &lt; \frac{\tau}{L} &lt; 20 \)</span> | P controller |
+| <span class="math notranslate nohighlight">\(5 &lt; \frac{\tau}{L} &lt; 10 \)</span> | PI controller |
+|  <span class="math notranslate nohighlight">\(2 &lt; \frac{\tau}{L} &lt; 5 \)</span> | PID controller |</p>
 <p>Then the following table defines the parameters of a P, PI or PID controller:
 <span class="math notranslate nohighlight">\(G_c(s)=k_p(1+\frac{1}{\tau_i s}+\tau_d s)=k_p+\frac{k_i}{s}+k_s s\)</span></p>
-<p>Type|<span class="math notranslate nohighlight">\(k_p\)</span>|<span class="math notranslate nohighlight">\(k_i\)</span>|<span class="math notranslate nohighlight">\(k_d\)</span>
--:- | -:- | -:- | -:-
-P | <span class="math notranslate nohighlight">\(\frac{1}{RL}\)</span> | |
-PI | <span class="math notranslate nohighlight">\(\frac{0.9}{RL}\)</span> |<span class="math notranslate nohighlight">\(\frac{3}{10RL^2}\)</span> |
-PID | <span class="math notranslate nohighlight">\(\frac{1.2}{RL}\)</span> |<span class="math notranslate nohighlight">\(\frac{0.6}{RL^2}\)</span> | <span class="math notranslate nohighlight">\(\frac{0.6}{R}\)</span></p>
+<p>| Type|<span class="math notranslate nohighlight">\(k_p\)</span>|<span class="math notranslate nohighlight">\(k_i\)</span>|<span class="math notranslate nohighlight">\(k_d\)</span> |
+| -:- | -:- | -:- | -:- |
+| P | <span class="math notranslate nohighlight">\(\frac{1}{RL}\)</span> | | |
+| PI | <span class="math notranslate nohighlight">\(\frac{0.9}{RL}\)</span> |<span class="math notranslate nohighlight">\(\frac{3}{10RL^2}\)</span> |  |
+| PID | <span class="math notranslate nohighlight">\(\frac{1.2}{RL}\)</span> |<span class="math notranslate nohighlight">\(\frac{0.6}{RL^2}\)</span> | <span class="math notranslate nohighlight">\(\frac{0.6}{R}\)</span> |</p>
 <blockquote>
 <div><p><strong>Exercice:</strong>  Select and calculate the corrector.</p>
 </div></blockquote>
@@ -740,7 +736,7 @@ PID | <span class="math notranslate nohighlight">\(\frac{1.2}{RL}\)</span> |<spa
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum sampling time: 1.00e+00 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9501dfdd30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc530c04bb0&gt;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
@@ -814,51 +810,6 @@ The first step is to check that your card is responding correctly.</p>
 </div>
 </div>
 <p>The following cell provides an initial implementation of PID control for heater T1.</p>
-<p>print(“Temperature 1: %0.2f °C”%(lab.T1))
-print(“Temperature 2: %0.2f °C”%(lab.T2))</p>
-<p>import matplotlib.pyplot as plt
-import numpy as np</p>
-<p>time = []
-Q1 = []
-Kperror = []
-T1 = []</p>
-<p>Torder =35</p>
-<p>tfinal = 400
-tstep = T_s</p>
-</section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="interactive-mode">
-<h1><span class="section-number">2.4. </span>Interactive mode<a class="headerlink" href="#interactive-mode" title="Permalink to this heading">#</a></h1>
-<p>plt.ion()   # ion =&gt; interactive on / ioff =&gt; interactive off
-plt.figure()
-plt.plot(time, T1,‘b-’, label=‘T1’)
-plt.plot(time, Q1,‘r-’, label=‘Q1’)
-plt.plot(time, np.ones(len(time))*Torder,‘g-’, label=‘Order’)
-plt.xlabel(‘Time (s)’)
-plt.ylabel(‘Temperature (°C) - Heating power /2 (%)’)
-plt.legend()
-plt.show(block=False)</p>
-<p>for t in clock(tfinal, tstep):
-Tmes=lab.T1
-Q = PID(Torder, Tmes)
-lab.Q1(Q)
-time = time + [t]
-T1 = T1 + [Tmes]
-Q1 = Q1 + [Q]</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Title=&#39;T1 = %.1f °C - Q1 = %.1f&#39;%(Tmes,Q)
-plt.title(Title)
-plt.plot(time, T1,&#39;b-&#39;)
-plt.plot(time, Q1,&#39;y-&#39;)
-plt.plot(time, np.ones(len(time))*Torder,&#39;g-&#39;)
-#plt.show(block=False)
-plt.pause(0.05)
-</pre></div>
-</div>
-<p>plt.ioff()<br />
-print(“\nTurn Heater Q1 Off”)
-lab.Q1(0)
-#lab.close()</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Turn Heater Q1 Off&quot;</span><span class="p">)</span>
@@ -873,18 +824,8 @@ lab.Q1(0)
 </div>
 </div>
 <p>Finally, you can display the temperature and power curves:</p>
-<p>plt.ioff()<br />
-plt.plot(time, T1,‘b-’, label=‘T1’)
-plt.plot(time, np.ones(len(time))*Torder,‘g-’, label=‘Order’)
-plt.xlabel(‘Time (s)’)
-plt.ylabel(‘Temperature (°C)’)
-plt.legend()
-plt.show()</p>
-<p>plt.plot(time, Q1,‘r-’, label=‘Q1’)
-plt.xlabel(‘Time (s)’)
-plt.ylabel(‘Puissance de chauffe (%)’)
-plt.legend()
-plt.show()</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -926,6 +867,15 @@ plt.show()</p>
         <p class="prev-next-title"><span class="section-number">2.2. </span>Temperature Control Lab, step identification</p>
       </div>
     </a>
+    <a class="right-next"
+       href="08_TD_PIDArduinoImplementation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2.4. </span>Digital controller: Arduino implementation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -941,7 +891,6 @@ plt.show()</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2.3. PID digital controller: Python implementation</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">2.3.1. Requirements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-controller">2.3.2. Continuous controller</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-transfer-functions">2.3.2.1. System transfer functions</a></li>
@@ -961,10 +910,6 @@ plt.show()</p>
 </ul>
 </li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-mode">2.4. Interactive mode</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
