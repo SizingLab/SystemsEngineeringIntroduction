@@ -23,6 +23,8 @@ parts:
       - file: notebook/05_CM4_SoftwareDevelopment_TCLabIntroduction
       - file: notebook/06_TD2_TCLab_IdentificationStep-Student
       - file: notebook/07_TD_PID_ControlLoops-Student
+      - file: notebook/08_TD_PIDArduinoImplementation
+      
       
       
       
