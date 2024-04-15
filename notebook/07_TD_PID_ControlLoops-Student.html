@@ -182,6 +182,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html">2.1. Control software development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06_TD2_TCLab_IdentificationStep-Student.html">2.2. Temperature Control Lab, step identification</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">2.3. PID digital controller: Python implementation</a></li>
+
 </ul>
 </li>
 </ul>
@@ -445,6 +446,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2.3. PID digital controller: Python implementation</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">2.3.1. Requirements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-controller">2.3.2. Continuous controller</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-transfer-functions">2.3.2.1. System transfer functions</a></li>
@@ -464,6 +466,10 @@ document.write(`
 </ul>
 </li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-mode">2.4. Interactive mode</a></li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -734,7 +740,7 @@ PID | <span class="math notranslate nohighlight">\(\frac{1.2}{RL}\)</span> |<spa
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum sampling time: 1.00e+00 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff409e7ec70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9501dfdd30&gt;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
@@ -808,69 +814,51 @@ The first step is to check that your card is responding correctly.</p>
 </div>
 </div>
 <p>The following cell provides an initial implementation of PID control for heater T1.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">print(&quot;Temperature 1: %0.2f °C&quot;%(lab.T1))</span>
-<span class="sd">print(&quot;Temperature 2: %0.2f °C&quot;%(lab.T2))</span>
-
-<span class="sd">import matplotlib.pyplot as plt</span>
-<span class="sd">import numpy as np</span>
-
-<span class="sd">time = []</span>
-<span class="sd">Q1 = []</span>
-<span class="sd">Kperror = []</span>
-<span class="sd">T1 = []</span>
-
-<span class="sd">Torder =35</span>
-
-<span class="sd">tfinal = 400</span>
-<span class="sd">tstep = T_s</span>
-
-<span class="sd">%matplotlib qt</span>
-
-<span class="sd"># Interactive mode</span>
-<span class="sd">plt.ion()   # ion =&gt; interactive on / ioff =&gt; interactive off</span>
-<span class="sd">plt.figure()</span>
-<span class="sd">plt.plot(time, T1,&#39;b-&#39;, label=&#39;T1&#39;)</span>
-<span class="sd">plt.plot(time, Q1,&#39;r-&#39;, label=&#39;Q1&#39;)</span>
-<span class="sd">plt.plot(time, np.ones(len(time))*Torder,&#39;g-&#39;, label=&#39;Order&#39;)</span>
-<span class="sd">plt.xlabel(&#39;Time (s)&#39;)</span>
-<span class="sd">plt.ylabel(&#39;Temperature (°C) - Heating power /2 (%)&#39;)</span>
-<span class="sd">plt.legend()</span>
-<span class="sd">plt.show(block=False)</span>
-
-<span class="sd">for t in clock(tfinal, tstep):</span>
-<span class="sd">    Tmes=lab.T1</span>
-<span class="sd">    Q = PID(Torder, Tmes)</span>
-<span class="sd">    lab.Q1(Q)</span>
-<span class="sd">    time = time + [t]</span>
-<span class="sd">    T1 = T1 + [Tmes]</span>
-<span class="sd">    Q1 = Q1 + [Q]</span>
-
-<span class="sd">    Title=&#39;T1 = %.1f °C - Q1 = %.1f&#39;%(Tmes,Q)</span>
-<span class="sd">    plt.title(Title)</span>
-<span class="sd">    plt.plot(time, T1,&#39;b-&#39;)</span>
-<span class="sd">    plt.plot(time, Q1,&#39;y-&#39;)</span>
-<span class="sd">    plt.plot(time, np.ones(len(time))*Torder,&#39;g-&#39;)</span>
-<span class="sd">    #plt.show(block=False)</span>
-<span class="sd">    plt.pause(0.05)</span>
-
-<span class="sd">   </span>
-<span class="sd">plt.ioff()    </span>
-<span class="sd">print(&quot;\nTurn Heater Q1 Off&quot;)</span>
-<span class="sd">lab.Q1(0)</span>
-<span class="sd">#lab.close()</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<p>print(“Temperature 1: %0.2f °C”%(lab.T1))
+print(“Temperature 2: %0.2f °C”%(lab.T2))</p>
+<p>import matplotlib.pyplot as plt
+import numpy as np</p>
+<p>time = []
+Q1 = []
+Kperror = []
+T1 = []</p>
+<p>Torder =35</p>
+<p>tfinal = 400
+tstep = T_s</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="interactive-mode">
+<h1><span class="section-number">2.4. </span>Interactive mode<a class="headerlink" href="#interactive-mode" title="Permalink to this heading">#</a></h1>
+<p>plt.ion()   # ion =&gt; interactive on / ioff =&gt; interactive off
+plt.figure()
+plt.plot(time, T1,‘b-’, label=‘T1’)
+plt.plot(time, Q1,‘r-’, label=‘Q1’)
+plt.plot(time, np.ones(len(time))*Torder,‘g-’, label=‘Order’)
+plt.xlabel(‘Time (s)’)
+plt.ylabel(‘Temperature (°C) - Heating power /2 (%)’)
+plt.legend()
+plt.show(block=False)</p>
+<p>for t in clock(tfinal, tstep):
+Tmes=lab.T1
+Q = PID(Torder, Tmes)
+lab.Q1(Q)
+time = time + [t]
+T1 = T1 + [Tmes]
+Q1 = Q1 + [Q]</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Title=&#39;T1 = %.1f °C - Q1 = %.1f&#39;%(Tmes,Q)
+plt.title(Title)
+plt.plot(time, T1,&#39;b-&#39;)
+plt.plot(time, Q1,&#39;y-&#39;)
+plt.plot(time, np.ones(len(time))*Torder,&#39;g-&#39;)
+#plt.show(block=False)
+plt.pause(0.05)
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\nprint(&quot;Temperature 1: %0.2f °C&quot;%(lab.T1))\nprint(&quot;Temperature 2: %0.2f °C&quot;%(lab.T2))\n\nimport matplotlib.pyplot as plt\nimport numpy as np\n\ntime = []\nQ1 = []\nKperror = []\nT1 = []\n\nTorder =35\n\ntfinal = 400\ntstep = T_s\n\n%matplotlib qt\n\n# Interactive mode\nplt.ion()   # ion =&gt; interactive on / ioff =&gt; interactive off\nplt.figure()\nplt.plot(time, T1,\&#39;b-\&#39;, label=\&#39;T1\&#39;)\nplt.plot(time, Q1,\&#39;r-\&#39;, label=\&#39;Q1\&#39;)\nplt.plot(time, np.ones(len(time))*Torder,\&#39;g-\&#39;, label=\&#39;Order\&#39;)\nplt.xlabel(\&#39;Time (s)\&#39;)\nplt.ylabel(\&#39;Temperature (°C) - Heating power /2 (%)\&#39;)\nplt.legend()\nplt.show(block=False)\n\nfor t in clock(tfinal, tstep):\n    Tmes=lab.T1\n    Q = PID(Torder, Tmes)\n    lab.Q1(Q)\n    time = time + [t]\n    T1 = T1 + [Tmes]\n    Q1 = Q1 + [Q]\n\n    Title=\&#39;T1 = %.1f °C - Q1 = %.1f\&#39;%(Tmes,Q)\n    plt.title(Title)\n    plt.plot(time, T1,\&#39;b-\&#39;)\n    plt.plot(time, Q1,\&#39;y-\&#39;)\n    plt.plot(time, np.ones(len(time))*Torder,\&#39;g-\&#39;)\n    #plt.show(block=False)\n    plt.pause(0.05)\n\n   \nplt.ioff()    \nprint(&quot;\nTurn Heater Q1 Off&quot;)\nlab.Q1(0)\n#lab.close()\n&#39;
-</pre></div>
-</div>
-</div>
-</div>
+<p>plt.ioff()<br />
+print(“\nTurn Heater Q1 Off”)
+lab.Q1(0)
+#lab.close()</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Turn Heater Q1 Off&quot;</span><span class="p">)</span>
@@ -885,36 +873,18 @@ The first step is to check that your card is responding correctly.</p>
 </div>
 </div>
 <p>Finally, you can display the temperature and power curves:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">%matplotlib inline</span>
-
-<span class="sd">plt.ioff()  </span>
-<span class="sd">plt.plot(time, T1,&#39;b-&#39;, label=&#39;T1&#39;)</span>
-<span class="sd">plt.plot(time, np.ones(len(time))*Torder,&#39;g-&#39;, label=&#39;Order&#39;)</span>
-<span class="sd">plt.xlabel(&#39;Time (s)&#39;)</span>
-<span class="sd">plt.ylabel(&#39;Temperature (°C)&#39;)</span>
-<span class="sd">plt.legend()</span>
-<span class="sd">plt.show()</span>
-
-<span class="sd">plt.plot(time, Q1,&#39;r-&#39;, label=&#39;Q1&#39;)</span>
-<span class="sd">plt.xlabel(&#39;Time (s)&#39;)</span>
-<span class="sd">plt.ylabel(&#39;Puissance de chauffe (%)&#39;)</span>
-<span class="sd">plt.legend()</span>
-<span class="sd">plt.show()</span>
-<span class="sd">&#39;&#39;&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;\n%matplotlib inline\n\nplt.ioff()  \nplt.plot(time, T1,&#39;b-&#39;, label=&#39;T1&#39;)\nplt.plot(time, np.ones(len(time))*Torder,&#39;g-&#39;, label=&#39;Order&#39;)\nplt.xlabel(&#39;Time (s)&#39;)\nplt.ylabel(&#39;Temperature (°C)&#39;)\nplt.legend()\nplt.show()\n\nplt.plot(time, Q1,&#39;r-&#39;, label=&#39;Q1&#39;)\nplt.xlabel(&#39;Time (s)&#39;)\nplt.ylabel(&#39;Puissance de chauffe (%)&#39;)\nplt.legend()\nplt.show()\n&quot;
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
+<p>plt.ioff()<br />
+plt.plot(time, T1,‘b-’, label=‘T1’)
+plt.plot(time, np.ones(len(time))*Torder,‘g-’, label=‘Order’)
+plt.xlabel(‘Time (s)’)
+plt.ylabel(‘Temperature (°C)’)
+plt.legend()
+plt.show()</p>
+<p>plt.plot(time, Q1,‘r-’, label=‘Q1’)
+plt.xlabel(‘Time (s)’)
+plt.ylabel(‘Puissance de chauffe (%)’)
+plt.legend()
+plt.show()</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -971,6 +941,7 @@ The first step is to check that your card is responding correctly.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2.3. PID digital controller: Python implementation</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">2.3.1. Requirements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-controller">2.3.2. Continuous controller</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-transfer-functions">2.3.2.1. System transfer functions</a></li>
@@ -990,6 +961,10 @@ The first step is to check that your card is responding correctly.</p>
 </ul>
 </li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-mode">2.4. Interactive mode</a></li>
+</ul>
+
   </nav></div>
 
 </div></div>
