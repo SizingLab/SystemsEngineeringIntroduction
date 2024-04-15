@@ -490,12 +490,32 @@ document.write(`
 <blockquote>
 <div><p><strong>Exercice:</strong> Complete the requirements for the temperature control in the following table.</p>
 </div></blockquote>
-<p>| Requirement | Assessment Criteria  | Level |
-| -:- | -:- | -:- |
-|Control the temperature at 30°C  | Temperature reference tracking | ? |
-| | Settling time at 5 % | ? |
-| | Overshoot | ? |
-| | Disturbance rejection | ? |</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Requirement</p></th>
+<th class="head text-center"><p>Assessment Criteria</p></th>
+<th class="head text-center"><p>Level</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Control the temperature at 30°C</p></td>
+<td class="text-center"><p>Temperature reference tracking</p></td>
+<td class="text-center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p></p></td>
+<td class="text-center"><p>Settling time at 5 %</p></td>
+<td class="text-center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p>Overshoot</p></td>
+<td class="text-center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p></p></td>
+<td class="text-center"><p>Disturbance rejection</p></td>
+<td class="text-center"><p>?</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="continuous-controller">
 <h2><span class="section-number">2.3.2. </span>Continuous controller<a class="headerlink" href="#continuous-controller" title="Permalink to this heading">#</a></h2>
@@ -521,19 +541,40 @@ with</p>
 </ul>
 <p>The form (P, PI, PD or PID) of the PID controller can then be chosen according to the value of <span class="math notranslate nohighlight">\(\tau\)</span> compared
 to <span class="math notranslate nohighlight">\(L\)</span> by using following table:</p>
-<p>| <span class="math notranslate nohighlight">\(\frac{Time Constant}{Delay}=\frac{\tau}{L}\)</span> | Best controller |
-| -:- | -:- |
-| <span class="math notranslate nohighlight">\(\frac{\tau}{L} &gt; 20 \)</span> | On-Off controller |
-| <span class="math notranslate nohighlight">\(10 &lt; \frac{\tau}{L} &lt; 20 \)</span> | P controller |
-| <span class="math notranslate nohighlight">\(5 &lt; \frac{\tau}{L} &lt; 10 \)</span> | PI controller |
+<p>| <span class="math notranslate nohighlight">\(\frac{Time Constant}{Delay}=\frac{\tau}{L}\)</span> | Best controller |<br />
+| -:- | -:- |<br />
+| <span class="math notranslate nohighlight">\(\frac{\tau}{L} &gt; 20 \)</span> | On-Off controller |<br />
+| <span class="math notranslate nohighlight">\(10 &lt; \frac{\tau}{L} &lt; 20 \)</span> | P controller |<br />
+| <span class="math notranslate nohighlight">\(5 &lt; \frac{\tau}{L} &lt; 10 \)</span> | PI controller |<br />
 |  <span class="math notranslate nohighlight">\(2 &lt; \frac{\tau}{L} &lt; 5 \)</span> | PID controller |</p>
 <p>Then the following table defines the parameters of a P, PI or PID controller:
 <span class="math notranslate nohighlight">\(G_c(s)=k_p(1+\frac{1}{\tau_i s}+\tau_d s)=k_p+\frac{k_i}{s}+k_s s\)</span></p>
-<p>| Type|<span class="math notranslate nohighlight">\(k_p\)</span>|<span class="math notranslate nohighlight">\(k_i\)</span>|<span class="math notranslate nohighlight">\(k_d\)</span> |
-| -:- | -:- | -:- | -:- |
-| P | <span class="math notranslate nohighlight">\(\frac{1}{RL}\)</span> | | |
-| PI | <span class="math notranslate nohighlight">\(\frac{0.9}{RL}\)</span> |<span class="math notranslate nohighlight">\(\frac{3}{10RL^2}\)</span> |  |
-| PID | <span class="math notranslate nohighlight">\(\frac{1.2}{RL}\)</span> |<span class="math notranslate nohighlight">\(\frac{0.6}{RL^2}\)</span> | <span class="math notranslate nohighlight">\(\frac{0.6}{R}\)</span> |</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Type</p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(k_p\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(k_i\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(k_d\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>P</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\frac{1}{RL}\)</span></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>PI</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\frac{0.9}{RL}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\frac{3}{10RL^2}\)</span></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>PID</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\frac{1.2}{RL}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\frac{0.6}{RL^2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\frac{0.6}{R}\)</span></p></td>
+</tr>
+</tbody>
+</table>
 <blockquote>
 <div><p><strong>Exercice:</strong>  Select and calculate the corrector.</p>
 </div></blockquote>
@@ -736,7 +777,7 @@ to <span class="math notranslate nohighlight">\(L\)</span> by using following ta
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum sampling time: 1.00e+00 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc530c04bb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f1886b09d00&gt;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
