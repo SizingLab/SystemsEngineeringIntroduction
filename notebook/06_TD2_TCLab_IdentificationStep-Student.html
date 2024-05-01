@@ -677,25 +677,10 @@ X    |     stop, enter sleep mode. Returns “Stop”</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tclab
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: tclab in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (1.0.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading tclab-1.0.0-py2.py3-none-any.whl.metadata (6.2 kB)
-Collecting pyserial (from tclab)
-  Downloading pyserial-3.5-py2.py3-none-any.whl.metadata (1.6 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading tclab-1.0.0-py2.py3-none-any.whl (20 kB)
-Downloading pyserial-3.5-py2.py3-none-any.whl (90 kB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/90.6 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">90.6/90.6 kB</span> <span class=" -Color -Color-Red">11.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pyserial, tclab
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed pyserial-3.5 tclab-1.0.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyserial in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from tclab) (3.5)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">23.0.1</span> -&gt; <span class=" -Color -Color-Green">24.0</span>
@@ -715,9 +700,14 @@ lab = TCLab()
 <p>TCLab() attempts to find a device connected to a serial port and return a connection. An error is generated if no device is found.  The connection should be closed when no longer in use.</p>
 <p>The following cell demonstrates this process, and uses the tclab <code class="docutils literal notranslate"><span class="pre">LED()</span></code> function to flash the LED on the Temperature Control Lab for a period of 10 seconds at a 100% brightness level.</p>
 <p>Connect TCLab card:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#from tclab import TCLab</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span>
 
-<span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span>
+<span class="n">lab</span> <span class="o">=</span> <span class="n">TCLab</span><span class="p">()</span>
+<span class="n">lab</span><span class="o">.</span><span class="n">LED</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you have no TCLab card use the simulator:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLabModel</span> <span class="k">as</span> <span class="n">TCLab</span>
 
 <span class="n">lab</span> <span class="o">=</span> <span class="n">TCLab</span><span class="p">()</span>
 <span class="n">lab</span><span class="o">.</span><span class="n">LED</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
@@ -1032,17 +1022,12 @@ space
 <span class="n">T1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;T1&#39;</span><span class="p">]</span>
 <span class="n">Q1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Q1&#39;</span><span class="p">]</span>
 
-<span class="c1"># Static gain</span>
-<span class="n">DeltaT1</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
-<span class="n">DeltaQ1</span> <span class="o">=</span> <span class="n">Q1</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="c1"># Static gain K1</span>
+<span class="c1"># complete</span>
 
-<span class="n">K1</span> <span class="o">=</span> <span class="n">DeltaT1</span><span class="o">/</span><span class="n">DeltaQ1</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;K1 is approximately : </span><span class="si">%.2f</span><span class="s1"> °C/</span><span class="si">%%</span><span class="s1">&#39;</span><span class="o">%</span><span class="k">K1</span>)
+<span class="c1"># Time constant tau1</span>
+<span class="c1"># complete</span>
 
-<span class="c1"># find when the increase in T1 gets larger than 63.2% of the final increase</span>
-<span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">T1</span> <span class="o">-</span> <span class="n">T1</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mf">0.632</span><span class="o">*</span><span class="p">(</span><span class="n">T1</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">T1</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
-<span class="n">tau1</span> <span class="o">=</span> <span class="n">T1</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;tau1 is approximately&quot;</span><span class="p">,</span> <span class="n">tau1</span><span class="p">,</span> <span class="s2">&quot;seconds&quot;</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1067,15 +1052,15 @@ space
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">Q1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Q1&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># Static gain</span>
-<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">DeltaT1</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">DeltaQ1</span> <span class="o">=</span> <span class="n">Q1</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">K1</span> <span class="o">=</span> <span class="n">DeltaT1</span><span class="o">/</span><span class="n">DeltaQ1</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">25</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">t</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span>
+<span class="ne">---&gt; </span><span class="mi">25</span> <span class="n">T1_est</span> <span class="o">=</span> <span class="n">T1</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">+</span> <span class="n">K1</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="o">/</span><span class="n">tau1</span><span class="p">))</span><span class="o">*</span><span class="n">DeltaQ1</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="ne">ValueError</span>: max() arg is an empty sequence
+<span class="ne">NameError</span>: name &#39;K1&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1101,10 +1086,7 @@ space
 <span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">step</span>       <span class="c1"># Import from scipy of the step response</span>
 
 <span class="c1"># parameter values and units</span>
-<span class="n">P1</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="mi">4</span>                 <span class="c1"># watts</span>
-<span class="n">Rth</span> <span class="o">=</span> <span class="n">K1</span><span class="o">*</span><span class="mi">50</span><span class="o">/</span><span class="n">P1</span>              <span class="c1"># watts/deg C</span>
-<span class="n">Cth</span> <span class="o">=</span> <span class="n">tau1</span><span class="o">/</span><span class="n">Rth</span>                 <span class="c1"># joules/deg C</span>
-<span class="n">T_ambient</span> <span class="o">=</span> <span class="mi">21</span>         <span class="c1"># ambient temperature</span>
+<span class="c1"># complete</span>
 
 <span class="c1"># First order step response</span>
 <span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">Rth</span><span class="p">]</span>
@@ -1127,14 +1109,17 @@ space
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">step</span>       <span class="c1"># Import from scipy of the step response</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># parameter values and units</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">P1</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="mi">4</span>                 <span class="c1"># watts</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">Rth</span> <span class="o">=</span> <span class="n">K1</span><span class="o">*</span><span class="mi">50</span><span class="o">/</span><span class="n">P1</span>              <span class="c1"># watts/deg C</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">Cth</span> <span class="o">=</span> <span class="n">tau1</span><span class="o">/</span><span class="n">Rth</span>                 <span class="c1"># joules/deg C</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">T_ambient</span> <span class="o">=</span> <span class="mi">21</span>         <span class="c1"># ambient temperature</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># complete</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># First order step response</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="n">Rth</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">den</span> <span class="o">=</span> <span class="p">[</span><span class="n">Rth</span><span class="o">*</span><span class="n">Cth</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">system</span><span class="o">=</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">den</span><span class="p">))</span>
 
-<span class="ne">NameError</span>: name &#39;K1&#39; is not defined
+<span class="ne">NameError</span>: name &#39;Rth&#39; is not defined
 </pre></div>
 </div>
 </div>
