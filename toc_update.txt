@@ -2,8 +2,6 @@
     title: Control software definition  
     sections:  
       - file: notebook/05_CM4_SoftwareDevelopment_TCLabIntroduction
-      - file: notebook/06a_TD2_TCLab_IdentificationStep
-      - file: notebook/06b_Home_IdentificationTransferFunctions
-      - file: notebook/07a_TD_ControlLoops
-      - file: notebook/07b_TD_LinearizationCubesatControlLoops
-      - file: notebook/08a_TD_PIDnumericalimplementation
+      - file: notebook/06_TD2_TCLab_IdentificationStep-Student
+      - file: notebook/07_TD_PID_ControlLoops-Student
+      - file: notebook/08_TD_PIDArduinoImplementation
