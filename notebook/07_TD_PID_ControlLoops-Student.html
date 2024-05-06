@@ -792,7 +792,7 @@ to <span class="math notranslate nohighlight">\(L\)</span> by using following ta
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum sampling time: 1.00e+00 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f2ab0531d30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f874328ab80&gt;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
@@ -842,6 +842,10 @@ The first step is to check that your card is responding correctly.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span>
+
+<span class="c1"># if no card you can use the simulator:</span>
+<span class="c1"># from tclab import TCLabModel as TCLab</span>
+
 <span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">clock</span> <span class="c1"># from tclab import clock</span>
 
 <span class="c1"># Start TCLab</span>
@@ -861,6 +865,260 @@ The first step is to check that your card is responding correctly.</p>
 <span class="c1">#    print(&quot;Time %4.1f sec. : Temp = %.2f&quot;%(t,lab.T1))</span>
            
 <span class="c1">#lab.Q1(0)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will use a specific window to plot corrector results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>PySide6
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>PyQt6
+
+<span class="kn">import</span> <span class="nn">PyQt6</span>
+<span class="kn">import</span> <span class="nn">PySide6</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting PySide6
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading PySide6-6.7.0-cp39-abi3-manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting shiboken6==6.7.0 (from PySide6)
+  Downloading shiboken6-6.7.0-cp39-abi3-manylinux_2_28_x86_64.whl.metadata (2.5 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting PySide6-Essentials==6.7.0 (from PySide6)
+  Downloading PySide6_Essentials-6.7.0-cp39-abi3-manylinux_2_28_x86_64.whl.metadata (3.7 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting PySide6-Addons==6.7.0 (from PySide6)
+  Downloading PySide6_Addons-6.7.0-cp39-abi3-manylinux_2_28_x86_64.whl.metadata (4.0 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading PySide6-6.7.0-cp39-abi3-manylinux_2_28_x86_64.whl (525 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/525.9 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">225.3/525.9 kB</span> <span class=" -Color -Color-Red">6.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">525.9/525.9 kB</span> <span class=" -Color -Color-Red">9.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading PySide6_Addons-6.7.0-cp39-abi3-manylinux_2_28_x86_64.whl (137.2 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/137.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.7/137.2 MB</span> <span class=" -Color -Color-Red">109.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">10.6/137.2 MB</span> <span class=" -Color -Color-Red">155.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">17.4/137.2 MB</span> <span class=" -Color -Color-Red">197.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">24.4/137.2 MB</span> <span class=" -Color -Color-Red">205.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">31.5/137.2 MB</span> <span class=" -Color -Color-Red">206.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">38.6/137.2 MB</span> <span class=" -Color -Color-Red">205.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">45.4/137.2 MB</span> <span class=" -Color -Color-Red">198.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">52.3/137.2 MB</span> <span class=" -Color -Color-Red">201.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">59.3/137.2 MB</span> <span class=" -Color -Color-Red">201.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">66.2/137.2 MB</span> <span class=" -Color -Color-Red">201.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">73.0/137.2 MB</span> <span class=" -Color -Color-Red">200.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">80.0/137.2 MB</span> <span class=" -Color -Color-Red">198.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">86.8/137.2 MB</span> <span class=" -Color -Color-Red">201.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━ <span class=" -Color -Color-Green">93.7/137.2 MB</span> <span class=" -Color -Color-Red">199.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━ <span class=" -Color -Color-Green">100.6/137.2 MB</span> <span class=" -Color -Color-Red">200.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━ <span class=" -Color -Color-Green">105.9/137.2 MB</span> <span class=" -Color -Color-Red">206.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green">111.8/137.2 MB</span> <span class=" -Color -Color-Red">162.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━ <span class=" -Color -Color-Green">119.0/137.2 MB</span> <span class=" -Color -Color-Red">189.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━ <span class=" -Color -Color-Green">126.0/137.2 MB</span> <span class=" -Color -Color-Red">202.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ <span class=" -Color -Color-Green">132.8/137.2 MB</span> <span class=" -Color -Color-Red">197.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">137.2/137.2 MB</span> <span class=" -Color -Color-Red">201.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">137.2/137.2 MB</span> <span class=" -Color -Color-Red">201.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">137.2/137.2 MB</span> <span class=" -Color -Color-Red">201.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">137.2/137.2 MB</span> <span class=" -Color -Color-Red">201.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">137.2/137.2 MB</span> <span class=" -Color -Color-Red">201.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">137.2/137.2 MB</span> <span class=" -Color -Color-Red">201.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">137.2/137.2 MB</span> <span class=" -Color -Color-Red">40.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading PySide6_Essentials-6.7.0-cp39-abi3-manylinux_2_28_x86_64.whl (87.2 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/87.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.0/87.2 MB</span> <span class=" -Color -Color-Red">209.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">14.0/87.2 MB</span> <span class=" -Color -Color-Red">200.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">20.9/87.2 MB</span> <span class=" -Color -Color-Red">199.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">27.8/87.2 MB</span> <span class=" -Color -Color-Red">196.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">35.0/87.2 MB</span> <span class=" -Color -Color-Red">207.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">41.9/87.2 MB</span> <span class=" -Color -Color-Red">202.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">48.6/87.2 MB</span> <span class=" -Color -Color-Red">194.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">55.2/87.2 MB</span> <span class=" -Color -Color-Red">191.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━ <span class=" -Color -Color-Green">61.0/87.2 MB</span> <span class=" -Color -Color-Red">176.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━ <span class=" -Color -Color-Green">66.7/87.2 MB</span> <span class=" -Color -Color-Red">167.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━ <span class=" -Color -Color-Green">72.3/87.2 MB</span> <span class=" -Color -Color-Red">164.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━ <span class=" -Color -Color-Green">78.3/87.2 MB</span> <span class=" -Color -Color-Red">168.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ <span class=" -Color -Color-Green">84.4/87.2 MB</span> <span class=" -Color -Color-Red">177.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">87.2/87.2 MB</span> <span class=" -Color -Color-Red">181.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">87.2/87.2 MB</span> <span class=" -Color -Color-Red">181.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">87.2/87.2 MB</span> <span class=" -Color -Color-Red">181.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">87.2/87.2 MB</span> <span class=" -Color -Color-Red">181.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">87.2/87.2 MB</span> <span class=" -Color -Color-Red">53.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading shiboken6-6.7.0-cp39-abi3-manylinux_2_28_x86_64.whl (183 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/183.5 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">183.5/183.5 kB</span> <span class=" -Color -Color-Red">52.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: shiboken6, PySide6-Essentials, PySide6-Addons, PySide6
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed PySide6-6.7.0 PySide6-Addons-6.7.0 PySide6-Essentials-6.7.0 shiboken6-6.7.0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">23.0.1</span> -&gt; <span class=" -Color -Color-Green">24.0</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting PyQt6
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading PyQt6-6.7.0-cp38-abi3-manylinux_2_28_x86_64.whl.metadata (2.1 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting PyQt6-sip&lt;14,&gt;=13.6 (from PyQt6)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading PyQt6_sip-13.6.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl.metadata (503 bytes)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting PyQt6-Qt6&lt;6.8.0,&gt;=6.7.0 (from PyQt6)
+  Downloading PyQt6_Qt6-6.7.0-py3-none-manylinux_2_28_x86_64.whl.metadata (534 bytes)
+Downloading PyQt6-6.7.0-cp38-abi3-manylinux_2_28_x86_64.whl (7.9 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/7.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.1/7.9 MB</span> <span class=" -Color -Color-Red">3.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.5/7.9 MB</span> <span class=" -Color -Color-Red">8.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.2/7.9 MB</span> <span class=" -Color -Color-Red">22.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━ <span class=" -Color -Color-Green">7.2/7.9 MB</span> <span class=" -Color -Color-Red">52.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.9/7.9 MB</span> <span class=" -Color -Color-Red">50.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading PyQt6_Qt6-6.7.0-py3-none-manylinux_2_28_x86_64.whl (74.0 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/74.0 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.2/74.0 MB</span> <span class=" -Color -Color-Red">170.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">10.6/74.0 MB</span> <span class=" -Color -Color-Red">157.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">16.0/74.0 MB</span> <span class=" -Color -Color-Red">160.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">21.4/74.0 MB</span> <span class=" -Color -Color-Red">158.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">26.9/74.0 MB</span> <span class=" -Color -Color-Red">159.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">31.5/74.0 MB</span> <span class=" -Color -Color-Red">143.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">37.2/74.0 MB</span> <span class=" -Color -Color-Red">152.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">42.7/74.0 MB</span> <span class=" -Color -Color-Red">161.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ <span class=" -Color -Color-Green">48.6/74.0 MB</span> <span class=" -Color -Color-Red">164.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━ <span class=" -Color -Color-Green">54.5/74.0 MB</span> <span class=" -Color -Color-Red">168.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green">60.1/74.0 MB</span> <span class=" -Color -Color-Red">166.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━ <span class=" -Color -Color-Green">65.4/74.0 MB</span> <span class=" -Color -Color-Red">158.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━ <span class=" -Color -Color-Green">70.8/74.0 MB</span> <span class=" -Color -Color-Red">154.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">74.0/74.0 MB</span> <span class=" -Color -Color-Red">160.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">74.0/74.0 MB</span> <span class=" -Color -Color-Red">160.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">74.0/74.0 MB</span> <span class=" -Color -Color-Red">160.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">74.0/74.0 MB</span> <span class=" -Color -Color-Red">160.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">74.0/74.0 MB</span> <span class=" -Color -Color-Red">54.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading PyQt6_sip-13.6.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl (297 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/297.3 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">297.3/297.3 kB</span> <span class=" -Color -Color-Red">67.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: PyQt6-Qt6, PyQt6-sip, PyQt6
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed PyQt6-6.7.0 PyQt6-Qt6-6.7.0 PyQt6-sip-13.6.0
+
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">23.0.1</span> -&gt; <span class=" -Color -Color-Green">24.0</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
 </pre></div>
 </div>
 </div>
