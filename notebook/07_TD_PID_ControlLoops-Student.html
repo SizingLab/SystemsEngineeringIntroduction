@@ -527,7 +527,6 @@ document.write(`
 <blockquote>
 <div><p><strong>Question:</strong> Approximate the transfer function <span class="math notranslate nohighlight">\(G_1(p)\)</span> as a 1st order with pure delay.</p>
 </div></blockquote>
-<p><span class="math notranslate nohighlight">\( G_1(s) = \frac{\Delta T_1(s)}{Q_1(s)}= \frac{0.65e^{-27s}}{160s + 1} \)</span></p>
 </section>
 <section id="zielgler-nichols-method">
 <h3><span class="section-number">2.3.2.2. </span>Zielgler-Nichols method<a class="headerlink" href="#zielgler-nichols-method" title="Permalink to this heading">#</a></h3>
@@ -563,7 +562,7 @@ to <span class="math notranslate nohighlight">\(L\)</span> by using following ta
 </tbody>
 </table>
 <p>Then the following table defines the parameters of a P, PI or PID controller:
-<span class="math notranslate nohighlight">\(G_c(s)=k_p(1+\frac{1}{\tau_i s}+\tau_d s)=k_p+\frac{k_i}{s}+k_s s\)</span></p>
+<span class="math notranslate nohighlight">\(G_c(s)=k_p(1+\frac{1}{\tau_i s}+\tau_d s)=k_p+\frac{k_i}{s}+k_d s\)</span></p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Type</p></th>
@@ -792,7 +791,7 @@ to <span class="math notranslate nohighlight">\(L\)</span> by using following ta
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum sampling time: 1.00e+00 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fbedf03fca0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc59b507d00&gt;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
@@ -875,7 +874,9 @@ The first step is to check that your card is responding correctly.</p>
 <p>import PyQt6<br />
 import PySide6</p>
 <p>The following cell provides an initial implementation of PID control for heater T1.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature 1: </span><span class="si">%0.2f</span><span class="s2"> °C&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">))</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature 1: </span><span class="si">%0.2f</span><span class="s2"> °C&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature 2: </span><span class="si">%0.2f</span><span class="s2"> °C&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">))</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -891,7 +892,7 @@ import PySide6</p>
 <span class="n">tfinal</span> <span class="o">=</span> <span class="mi">400</span>
 <span class="n">tstep</span> <span class="o">=</span> <span class="n">T_s</span>
 
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">qt</span>
+<span class="o">%</span><span class="k">matplotlib</span> qt
 
 <span class="c1"># Interactive mode</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>   <span class="c1"># ion =&gt; interactive on / ioff =&gt; interactive off</span>
@@ -926,6 +927,20 @@ import PySide6</p>
 <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="c1">#lab.close()</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature 1: </span><span class="si">%0.2f</span><span class="s2"> °C&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature 2: </span><span class="si">%0.2f</span><span class="s2"> °C&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="ne">NameError</span>: name &#39;lab&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
