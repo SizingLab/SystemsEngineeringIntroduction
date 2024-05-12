@@ -113,13 +113,14 @@ boolean newData = false;       // boolean flag indicating new command
 int n =  10;                   // number of samples for each temperature measurement
 
 // PID variables
-unsigned long lastTime, sampleTime;         // pour calcul du pas de temps (en ms)
-double Input, Output, Setpoint; // differentes variables pour calculer l'erreur et la consigne
-double o_k_1, e_k_1, e_k_2;       // variables pour l'equation de recurrence du PID
-double kp, ki, kd;            // parametres du correcteur PID sous la forme output = kd.erreur + ki. int erreur + kd. derivee de l'erreur
-boolean PIDOn = false;        // Activation ou non du PID
-boolean PIDEcho = false;      // Echo ou pas des resultats du PID
+unsigned long lastTime, sampleTime;         // for sample time calculation (en ms)
+double Input, Output, Setpoint;             // variable for measurment, output and order of controller
+double o_k_1, e_k_1, e_k_2;                 // variables recurrence equaiton
+double kp, ki, kd;                          // PID gains where output = kd.error + ki. int error + kd. error derivate
+boolean PIDOn = false;                      // Activation or not of PID
+boolean PIDEcho = false;                    // Results echo (or not) of PID
 
+// 
 void readCommand() {
   while (Serial && (Serial.available() > 0) && (newData == false)) {
     int byte = Serial.read();
@@ -264,13 +265,9 @@ void dispatchCommand(void) {
     sendResponse("Kd =" + String(kd));
   }
   else if (cmd == "PIDON") {
-    PIDOn = true;
-    o_k_1=0; // init de la sortie
-    e_k_1=0;   // pas d'erreur pour le moment
-    e_k_2=0; // pas d'erreur pour le moment
-    lastTime=millis(); // temps
-    sendResponse("PID is ON");
-    sendResponse(" Kp = "+ String(kp) + " Ki = "+ String(ki) + " Kd = "+ String(kd));
+    // !
+    // To be completed
+    // !
   }
   else if (cmd == "PIDOFF") {
     PIDOn = false;
@@ -371,16 +368,11 @@ void setup() {
   setHeater2(0);
   ledTimeout = millis() + 1000;
 
-  // Initialisation du PID
-  kp=10.336; // Gain Kp Pour TCLab
-  ki=0.061; // Gain Ki Pour TCLab
-  kd=0; // Ici PI uniquement
-  Setpoint=35; // Temperature objective
-  o_k_1=0; // init de la sortie
-  e_k_1=0;   // pas d'erreur pour le moment
-  e_k_2=0; // pas d'erreur pour le moment
-  PIDOn = false; // PID starts off
-  sampleTime=2000; // 2000 ms = 2s
+  // PID init
+    // !
+    // To be completed
+    // !
+
 }
 
 void ComputePID()
@@ -390,18 +382,18 @@ void ComputePID()
    unsigned long now = millis();
    double timeChange = (double)(now - lastTime)/1000;
   
-   /*Compute all the working error variables*/
+   /*Compute error variable*/
    double e_k = Setpoint - Input;
   
    /*Compute PID Output*/
-   Output = o_k_1 +  ki*timeChange*e_k + kp*(e_k-e_k_1) + kd/timeChange*(e_k+ e_k_2-2*e_k_1);
+    // !
+    // To be completed
+    // !
     
    /*Remember some variables for next time*/
-   e_k_2 = e_k_1;
-   e_k_1 = e_k;
-   o_k_1 = max(0., min(Output, 100.));
-   Output = o_k_1;
-   lastTime = now;
+    // !
+    // To be completed
+    // !
 
    /*Print data for serial plotter*/ 
    if (PIDEcho == true) {    
