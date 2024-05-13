@@ -383,8 +383,10 @@ void ComputePID()
    double timeChange = (double)(now - lastTime)/1000;
   
    /*Compute error variable*/
-   double e_k = Setpoint - Input;
-  
+    // !
+    // To be completed: define e_k as a double in function of Setpoint and Input
+    // !
+     
    /*Compute PID Output*/
     // !
     // To be completed
