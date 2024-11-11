@@ -67,4 +67,4 @@ sphinx:
     - substitution
 
     myst_substitutions:
-      TITLE: "Introduction to Mechatronics and System Engineering"
+      TITLE: "Introduction to Mechatronics and System Engineering: application to Cubesats"
