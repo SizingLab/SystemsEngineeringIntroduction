@@ -12,9 +12,8 @@ parts:
   - file: notebook/01b_CM1_SystemEngineering
   - file: notebook/03_CM3_Introduction2MultiPhysicModeling 
   - file: notebook/05_CM4_SoftwareDevelopment_TCLabIntroduction
-  
-      
- - caption: Thermal control system of a cubesat
+
+- caption: Thermal control system of a cubesat
   numbered: true
   maxdepth: 2
   chapters:
