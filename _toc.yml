@@ -6,7 +6,7 @@ parts:
   - file: about/syllabus
   - file: about/installation
   
-- caption: "Lectures: Systems Engineering Introduction"
+- caption: Systems Engineering Introduction
   chapters:
   - file: notebook/01a_CM1_Systems_SpaceSystems
   - file: notebook/01b_CM1_SystemEngineering
