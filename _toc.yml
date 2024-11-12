@@ -6,7 +6,7 @@ parts:
   - file: about/syllabus
   - file: about/installation
   
-- caption: Lectures: Systems Engineering Introduction 
+- caption: "Lectures: Systems Engineering Introduction"
   chapters:
   - file: notebook/01a_CM1_Systems_SpaceSystems
   - file: notebook/01b_CM1_SystemEngineering
@@ -14,7 +14,25 @@ parts:
   - file: notebook/05_CM4_SoftwareDevelopment_TCLabIntroduction
   
       
+ - caption: Thermal control system of a cubesat
+  numbered: true
+  maxdepth: 2
+  chapters:
+  - file: notebook/summaryPartA
+    title: Technical requirements definition
+    sections:
+      - file: notebook/02_CM2_ThermalControlSystems
+      - file: notebook/04_TD1_CubeSatThermalModeling_Student
+  - file: notebook/summaryPartB
+    title: Control software definition
+    sections:
+      - file: notebook/06_TD2_TCLab_IdentificationStep-Student
+      - file: notebook/07_TD_PID_ControlLoops-Student
+      - file: notebook/08_TD_PIDArduinoImplementation
       
+- caption: Attitude control system of a cubesat
+  numbered: true
+  maxdepth: 2
       
       
       
