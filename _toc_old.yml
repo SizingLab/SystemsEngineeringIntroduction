@@ -36,7 +36,9 @@ parts:
   maxdepth: 2
       
       
-      
+ - caption: Attitude control system of a cubesat
+  numbered: true
+  maxdepth: 2     
       
       
       

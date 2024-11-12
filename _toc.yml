@@ -29,9 +29,7 @@ parts:
       - file: notebook/07_TD_PID_ControlLoops-Student
       - file: notebook/08_TD_PIDArduinoImplementation
       
-- caption: Attitude control system of a cubesat
-  numbered: true
-  maxdepth: 2
+
       
       
       
