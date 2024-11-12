@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>2.1. Control software development &#8212; Introduction to Mechatronics and System Engineering</title>
+    <title>Control software development &#8212; Introduction to Mechatronics and System Engineering</title>
   
   
   
@@ -69,8 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.2. Temperature Control Lab, step identification" href="06_TD2_TCLab_IdentificationStep-Student.html" />
-    <link rel="prev" title="2. Part B : Control and software development" href="summaryPartB.html" />
+    <link rel="prev" title="Introduction to multiphysics modeling of sizing scenarios" href="03_CM3_Introduction2MultiPhysicModeling.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -164,28 +163,17 @@ const thebe_selector_output = ".output, .cell_output"
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction and overview</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../about/syllabus.html">Systems Engineering Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/syllabus.html">Course Description</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about/installation.html">Installation</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermal control system of a cubesat</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures: Systems Engineering Introduction</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="summaryPartA.html">1. Technical requirements definition</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="01a_CM1_Systems_SpaceSystems.html">1.1. Complex technological systems and space systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="01b_CM1_SystemEngineering.html">1.2. System engineering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_CM2_ThermalControlSystems.html">1.3. Thermal Control System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_CM3_Introduction2MultiPhysicModeling.html">1.4. Introduction to multiphysics modeling of sizing scenarios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_TD1_CubeSatThermalModeling_Student.html">1.5. Thermal Model for CubeSat</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="summaryPartB.html">2. Control software definition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.1. Control software development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06_TD2_TCLab_IdentificationStep-Student.html">2.2. Temperature Control Lab, step identification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07_TD_PID_ControlLoops-Student.html">2.3. PID digital controller: Python implementation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="08_TD_PIDArduinoImplementation.html">2.4. Digital controller: Arduino implementation</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="01a_CM1_Systems_SpaceSystems.html">Complex technological systems and space systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01b_CM1_SystemEngineering.html">System engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_CM3_Introduction2MultiPhysicModeling.html">Introduction to multiphysics modeling of sizing scenarios</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Control software development</a></li>
 </ul>
 
     </div>
@@ -447,19 +435,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-controller-development-cycle">2.1.1. Digital controller development cycle</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-controller">2.1.2. Continuous controller</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-loops-of-a-position-control">2.1.2.1. Nested loops of a position control</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-loop-of-an-ema">2.1.2.2. Speed loop of an EMA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-controller-development-cycle">Digital controller development cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-controller">Continuous controller</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-loops-of-a-position-control">Nested loops of a position control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-loop-of-an-ema">Speed loop of an EMA</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digitizing-a-controller-and-the-effect-of-sampling-frequencies">2.1.3. Digitizing a controller and the effect of sampling frequencies</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delay-in-digital-controller">2.1.3.1. Delay in digital controller</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-time-pid-controller-implementation">2.1.3.2. Discrete-time PID Controller Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digitizing-a-controller-and-the-effect-of-sampling-frequencies">Digitizing a controller and the effect of sampling frequencies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delay-in-digital-controller">Delay in digital controller</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-time-pid-controller-implementation">Discrete-time PID Controller Implementation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework">2.1.4. Homework</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">2.1.5. References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework">Homework</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
             </nav>
         </div>
@@ -472,12 +460,12 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="control-software-development">
-<h1><span class="section-number">2.1. </span>Control software development<a class="headerlink" href="#control-software-development" title="Permalink to this heading">#</a></h1>
+<h1>Control software development<a class="headerlink" href="#control-software-development" title="Permalink to this heading">#</a></h1>
 <p>This lecture will look at the information processing part of a mechatronic system in terms of control loops and digital implementation of controllers.</p>
 <p><em>Information processing part of a mechatronic system:</em>
 <img alt="Mechatronics" src="../_images/mechatronics.png" /></p>
 <section id="digital-controller-development-cycle">
-<h2><span class="section-number">2.1.1. </span>Digital controller development cycle<a class="headerlink" href="#digital-controller-development-cycle" title="Permalink to this heading">#</a></h2>
+<h2>Digital controller development cycle<a class="headerlink" href="#digital-controller-development-cycle" title="Permalink to this heading">#</a></h2>
 <p>Software components and digital controllers are becoming essential in the development of new automated systems.  They offer a wide range of functions at low cost and are flexible in terms of use and maintenance. However, development times are potentially long with specific stages and test times to detect coding errors.</p>
 <p>To maximise the benefits of the software and minimise the disadvantages of development, engineers have access to tools at the various stages of the V cycle:</p>
 <ul class="simple">
@@ -507,9 +495,9 @@ Answer<div class="sd-summary-down docutils">
 </div>
 </details></section>
 <section id="continuous-controller">
-<h2><span class="section-number">2.1.2. </span>Continuous controller<a class="headerlink" href="#continuous-controller" title="Permalink to this heading">#</a></h2>
+<h2>Continuous controller<a class="headerlink" href="#continuous-controller" title="Permalink to this heading">#</a></h2>
 <section id="nested-loops-of-a-position-control">
-<h3><span class="section-number">2.1.2.1. </span>Nested loops of a position control<a class="headerlink" href="#nested-loops-of-a-position-control" title="Permalink to this heading">#</a></h3>
+<h3>Nested loops of a position control<a class="headerlink" href="#nested-loops-of-a-position-control" title="Permalink to this heading">#</a></h3>
 <p>We will illustrate the effects of digitisation on a launcher nozzle TVC controller. The TVC actuator considered here is an EMA (Electro-Mechanical) linear actuator. Its body is anchored on the booster frame while its rod is attached to the nozzle. In the normal mode, the TVC Actuator must perform a closed loop angular position control of the nozzle, following the demand of the flight control computer and rejecting the disturbances generated by the pulsed jet throught the nozzle. The TVC Actuator must also behave as a damper in order to limit the mechanical resonance effects.</p>
 <p><strong>TVC actuator: position and tests</strong><br />
 <img alt="TVC test" src="../_images/TVA_system.png" />
@@ -538,7 +526,7 @@ Damping with forcefeedback<div class="sd-summary-down docutils">
 </div>
 </details></section>
 <section id="speed-loop-of-an-ema">
-<h3><span class="section-number">2.1.2.2. </span>Speed loop of an EMA<a class="headerlink" href="#speed-loop-of-an-ema" title="Permalink to this heading">#</a></h3>
+<h3>Speed loop of an EMA<a class="headerlink" href="#speed-loop-of-an-ema" title="Permalink to this heading">#</a></h3>
 <p>We will focus here on the speed loop. We will represent the mechanical assembly nozzle / actuator by the diagram a) below with:</p>
 <ul class="simple">
 <li><p>the mass/spring/viscous friction assembly for the nozzle</p></li>
@@ -585,6 +573,37 @@ Transfer function<div class="sd-summary-down docutils">
 <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="c1"># Install Python-Control package</span>
     <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>control<span class="w"> </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting control
+  Downloading control-0.9.4-py3-none-any.whl.metadata (7.6 kB)
+Requirement already satisfied: numpy in /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages (from control) (1.24.4)
+Requirement already satisfied: scipy&gt;=1.3 in /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages (from control) (1.9.3)
+Requirement already satisfied: matplotlib in /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages (from control) (3.7.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: contourpy&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (1.1.1)
+Requirement already satisfied: cycler&gt;=0.10 in /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (4.47.2)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (1.4.5)
+Requirement already satisfied: packaging&gt;=20.0 in /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (23.2)
+Requirement already satisfied: pillow&gt;=6.2.0 in /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (10.2.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (3.1.1)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (2.8.2)
+Requirement already satisfied: importlib-resources&gt;=3.2.0 in /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages (from matplotlib-&gt;control) (6.1.1)
+Requirement already satisfied: zipp&gt;=3.1.0 in /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages (from importlib-resources&gt;=3.2.0-&gt;matplotlib-&gt;control) (3.17.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib-&gt;control) (1.16.0)
+Downloading control-0.9.4-py3-none-any.whl (455 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: control
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed control-0.9.4
 </pre></div>
 </div>
 </div>
@@ -667,9 +686,9 @@ Ki = Kp/Tau_i = 3.30e+01
 </section>
 </section>
 <section id="digitizing-a-controller-and-the-effect-of-sampling-frequencies">
-<h2><span class="section-number">2.1.3. </span>Digitizing a controller and the effect of sampling frequencies<a class="headerlink" href="#digitizing-a-controller-and-the-effect-of-sampling-frequencies" title="Permalink to this heading">#</a></h2>
+<h2>Digitizing a controller and the effect of sampling frequencies<a class="headerlink" href="#digitizing-a-controller-and-the-effect-of-sampling-frequencies" title="Permalink to this heading">#</a></h2>
 <section id="delay-in-digital-controller">
-<h3><span class="section-number">2.1.3.1. </span>Delay in digital controller<a class="headerlink" href="#delay-in-digital-controller" title="Permalink to this heading">#</a></h3>
+<h3>Delay in digital controller<a class="headerlink" href="#delay-in-digital-controller" title="Permalink to this heading">#</a></h3>
 <p>The previous synthesis of the corrector was done in the continuous domain. However, its implementation will most often be digital rather than analogue. Digital control (using a µC microcontroller or a DSP signal processor) offers the following advantages [<span class="xref myst">Ellis, 2012</span>]:</p>
 <ul class="simple">
 <li><p>lower noise sensitivity, better accuracy, less performance drift</p></li>
@@ -725,7 +744,7 @@ Ki = Kp/Tau_i = 3.30e+01
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f80c39878e0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6687c5a070&gt;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
@@ -805,7 +824,7 @@ If we assume this total delay <span class="math notranslate nohighlight">\(T_{to
 <img alt="TVC test" src="../_images/SamplingEffect.png" /></p>
 </section>
 <section id="discrete-time-pid-controller-implementation">
-<h3><span class="section-number">2.1.3.2. </span>Discrete-time PID Controller Implementation<a class="headerlink" href="#discrete-time-pid-controller-implementation" title="Permalink to this heading">#</a></h3>
+<h3>Discrete-time PID Controller Implementation<a class="headerlink" href="#discrete-time-pid-controller-implementation" title="Permalink to this heading">#</a></h3>
 <p>Since computers and microcontrollers cannot deal with continuous time, the control law has to be discretized. We’ll use
 the parrallel form of a PID controller:<br />
 <span class="math notranslate nohighlight">\(C(p)=\frac{O(p)}{E(p)}=K_p+\frac{K_i}{p}+K_dp\)</span></p>
@@ -863,7 +882,7 @@ with the time step or sampling interval <span class="math notranslate nohighligh
 </section>
 </section>
 <section id="homework">
-<h2><span class="section-number">2.1.4. </span>Homework<a class="headerlink" href="#homework" title="Permalink to this heading">#</a></h2>
+<h2>Homework<a class="headerlink" href="#homework" title="Permalink to this heading">#</a></h2>
 <blockquote>
 <div><p>Install the <a class="reference external" href="https://docs.arduino.cc/software/ide/#ide-v1">Legacy Arduino IDE (1.8.X)</a> + the <a class="reference external" href="https://www.anaconda.com/download">Anaconda environment</a> on your PC</p>
 </div></blockquote>
@@ -872,7 +891,7 @@ with the time step or sampling interval <span class="math notranslate nohighligh
 </div></blockquote>
 </section>
 <section id="references">
-<h2><span class="section-number">2.1.5. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <p>[Mihalič, 2022 ] Mihalič, F., Truntič, M., &amp; Hren, A. (2022). Hardware-in-the-loop simulations: A historical overview of engineering challenges. Electronics, 11(15), 2462. <a class="reference external" href="https://www.researchgate.net/publication/362572593_Hardware-in-the-Loop_Simulations_A_Historical_Overview_of_Engineering_Challenges">Link</a></p>
 <p>[Vanthuyne, 2009 ] Vanthuyne, T. (2009, September). An electrical thrust vector control system for the VEGA launcher. In Proceedings of the 13th European Space Mechanisms and Tribology Symposium (Vol. 670). <a class="reference external" href="http://esmats.eu/esmatspapers/pastpapers/pdfs/2009/vanthuyne.pdf">Link</a></p>
 <p>[Carpentier, 2011 ] Carpentier, B., Puel, F., Cros, C., Pin, B., Gerbe, L., &amp; Solide, S. S. P. (2011). Stability analysis using a coupled model of TVC actuator control loop and structural dynamics of a Launch Vehicle. In 4th European Conference For Aerospace Sciences (EUCASS).</p>
@@ -911,22 +930,13 @@ with the time step or sampling interval <span class="math notranslate nohighligh
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="summaryPartB.html"
+       href="03_CM3_Introduction2MultiPhysicModeling.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Part B : Control and software development</p>
+        <p class="prev-next-title">Introduction to multiphysics modeling of sizing scenarios</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="06_TD2_TCLab_IdentificationStep-Student.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.2. </span>Temperature Control Lab, step identification</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -943,19 +953,19 @@ with the time step or sampling interval <span class="math notranslate nohighligh
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-controller-development-cycle">2.1.1. Digital controller development cycle</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-controller">2.1.2. Continuous controller</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-loops-of-a-position-control">2.1.2.1. Nested loops of a position control</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-loop-of-an-ema">2.1.2.2. Speed loop of an EMA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-controller-development-cycle">Digital controller development cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-controller">Continuous controller</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-loops-of-a-position-control">Nested loops of a position control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#speed-loop-of-an-ema">Speed loop of an EMA</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digitizing-a-controller-and-the-effect-of-sampling-frequencies">2.1.3. Digitizing a controller and the effect of sampling frequencies</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delay-in-digital-controller">2.1.3.1. Delay in digital controller</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-time-pid-controller-implementation">2.1.3.2. Discrete-time PID Controller Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digitizing-a-controller-and-the-effect-of-sampling-frequencies">Digitizing a controller and the effect of sampling frequencies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delay-in-digital-controller">Delay in digital controller</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-time-pid-controller-implementation">Discrete-time PID Controller Implementation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework">2.1.4. Homework</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">2.1.5. References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework">Homework</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
   </nav></div>
 
