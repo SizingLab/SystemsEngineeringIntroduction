@@ -38,7 +38,15 @@ parts:
       
  - caption: Attitude control system of a cubesat
   numbered: true
-  maxdepth: 2     
+  maxdepth: 2
+<<<<<<< HEAD
+
+=======
+- caption: Attitude control system of a cubesat
+  numbered: true
+  maxdepth: 2
+  chapters: []  # Placeholder to ensure correct structure if no chapters exist
+>>>>>>> 0059ea1ef83b8d84dad021e064ff8a24f2f4eca2  
       
       
       
