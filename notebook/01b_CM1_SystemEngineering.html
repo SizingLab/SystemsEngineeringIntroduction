@@ -602,7 +602,14 @@ Main interfaces of the TVC system:<div class="sd-summary-down docutils">
 <h2>Requirements Definition<a class="headerlink" href="#requirements-definition" title="Permalink to this heading">#</a></h2>
 <section id="functional-analysis">
 <h3>Functional analysis<a class="headerlink" href="#functional-analysis" title="Permalink to this heading">#</a></h3>
-<p>By analysing each life phase, the functions can be determinated. Use case diagrams (SysML) or ‘Diagramme pieuvre’ (APTE) can be helpful.</p>
+<p>By analysing each life phase, the functions can be determinated. Use case diagrams (SysML) or ‘Diagramme pieuvre’ (APTE) can be helpful. These diagrams can be constructed by following the steps below:</p>
+<ul class="simple">
+<li><p><strong>Step 1:</strong> Identify Actors. Determine who or what interacts with the system. These are your actors. They can be users, other systems, or external entities.</p></li>
+<li><p><strong>Step 2:</strong> Identify Use Cases (oval). Identify the main functionalities or actions the system must perform. These are your use cases. Each use case should represent a specific piece of functionality.</p></li>
+<li><p><strong>Step 3:</strong> Connect Actors and Use Cases. Draw lines (associations) between actors and the use cases they are involved in. This represents the interactions between actors and the system.</p></li>
+<li><p><strong>Step 4:</strong> Add System Boundary. Draw a box around the actors and use cases to represent the system boundary. This defines the scope of your system.</p></li>
+<li><p><strong>Step 5:</strong> Define Relationships. If certain use cases are related.</p></li>
+</ul>
 <p><strong>Operating phase:</strong></p>
 <p><em>Use Case diagram:</em>
 <img alt="Use Case diagram" src="../_images/UseCaseTVC.png" /></p>
@@ -711,8 +718,14 @@ These chains communicate with each other via sensors and pre-actuators (energy m
 <h2>Homework<a class="headerlink" href="#homework" title="Permalink to this heading">#</a></h2>
 <blockquote>
 <div><ul class="simple">
-<li><p>Follow the steps described here to define the requirements for a thermal control system for a CubeSat battery.</p></li>
-<li><p>Prepare a two-slide presentation with use cases sizing scenarios, an example of a use case diagram and a function tree specifying functions, criteria and requirement levels.</p></li>
+<li><p>Follow the steps described here to define the requirements for a CubeSat battery with a thermal control such as this <a class="reference external" href="https://gomspace.com/UserFiles/Subsystems/datasheet/gs-ds-nanopower-bp4_(DS_-_1013024_-_1_-_31)_-_1.pdf">one</a></p></li>
+</ul>
+</div></blockquote>
+<p><em>Nanopower board of GOMspace</em>
+<img alt="Battery Board" src="notebook/figures/BatteryBoardGomSpace.png" /></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Complete examples of a use case diagram, a function tree (specifying functions, criteria and requirement levels) and an Internal Block diagram (IBD) for the thermal control part.</p></li>
 </ul>
 </div></blockquote>
 <p><strong>Note:</strong> The SysML diagrams on this notebook (see <a class="reference external" href="https://github.com/SizingLab/SystemsEngineeringIntroduction/tree/main/notebook/figures">here</a> .drawio files) were produced using the free <a class="reference external" href="http://Draw.io">Draw.io</a> tool. The software can be installed on a <a class="reference external" href="https://www.drawio.com/blog/diagrams-offline">PC</a> or used online. The SySML library must be <a class="reference external" href="https://www.drawio.com/blog/sysml-vs-uml">activated</a> to be used.</p>

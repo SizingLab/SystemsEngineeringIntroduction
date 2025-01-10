@@ -687,9 +687,7 @@ X    |     stop, enter sleep mode. Returns “Stop”</p>
 Collecting pyserial (from tclab)
   Downloading pyserial-3.5-py2.py3-none-any.whl.metadata (1.6 kB)
 Downloading tclab-1.0.0-py2.py3-none-any.whl (20 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading pyserial-3.5-py2.py3-none-any.whl (90 kB)
+Downloading pyserial-3.5-py2.py3-none-any.whl (90 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pyserial, tclab
@@ -1200,7 +1198,7 @@ space
 <span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">r</span> <span class="o">=</span> <span class="n">least_squares</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">ic</span><span class="p">,</span><span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">))</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">r</span><span class="o">.</span><span class="n">x</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/scipy/optimize/_lsq/least_squares.py:820,</span> in <span class="ni">least_squares</span><span class="nt">(fun, x0, jac, bounds, method, ftol, xtol, gtol, x_scale, loss, f_scale, diff_step, tr_solver, tr_options, jac_sparsity, max_nfev, verbose, args, kwargs)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/scipy/optimize/_lsq/least_squares.py:820,</span> in <span class="ni">least_squares</span><span class="nt">(fun, x0, jac, bounds, method, ftol, xtol, gtol, x_scale, loss, f_scale, diff_step, tr_solver, tr_options, jac_sparsity, max_nfev, verbose, args, kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">817</span> <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;trf&#39;</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">818</span>     <span class="n">x0</span> <span class="o">=</span> <span class="n">make_strictly_feasible</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">lb</span><span class="p">,</span> <span class="n">ub</span><span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">820</span> <span class="n">f0</span> <span class="o">=</span> <span class="n">fun_wrapped</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
@@ -1208,7 +1206,7 @@ space
 <span class="g g-Whitespace">    </span><span class="mi">823</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;`fun` must return at most 1-d array_like. &quot;</span>
 <span class="g g-Whitespace">    </span><span class="mi">824</span>                      <span class="s2">&quot;f0.shape: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f0</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/scipy/optimize/_lsq/least_squares.py:815,</span> in <span class="ni">least_squares.&lt;locals&gt;.fun_wrapped</span><span class="nt">(x)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/scipy/optimize/_lsq/least_squares.py:815,</span> in <span class="ni">least_squares.&lt;locals&gt;.fun_wrapped</span><span class="nt">(x)</span>
 <span class="g g-Whitespace">    </span><span class="mi">814</span> <span class="k">def</span> <span class="nf">fun_wrapped</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="ne">--&gt; </span><span class="mi">815</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
 
@@ -1255,26 +1253,26 @@ space
 <span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">T1_est</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Step Test Data Compared to Model&#39;</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/pandas/plotting/_core.py:1000,</span> in <span class="ni">PlotAccessor.__call__</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/pandas/plotting/_core.py:1000,</span> in <span class="ni">PlotAccessor.__call__</span><span class="nt">(self, *args, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">997</span>             <span class="n">label_name</span> <span class="o">=</span> <span class="n">label_kw</span> <span class="ow">or</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span>
 <span class="g g-Whitespace">    </span><span class="mi">998</span>             <span class="n">data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">label_name</span>
 <span class="ne">-&gt; </span><span class="mi">1000</span> <span class="k">return</span> <span class="n">plot_backend</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/pandas/plotting/_matplotlib/__init__.py:71,</span> in <span class="ni">plot</span><span class="nt">(data, kind, **kwargs)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/pandas/plotting/_matplotlib/__init__.py:71,</span> in <span class="ni">plot</span><span class="nt">(data, kind, **kwargs)</span>
 <span class="g g-Whitespace">     </span><span class="mi">69</span>         <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;ax&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="s2">&quot;left_ax&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">70</span> <span class="n">plot_obj</span> <span class="o">=</span> <span class="n">PLOT_CLASSES</span><span class="p">[</span><span class="n">kind</span><span class="p">](</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span class="ne">---&gt; </span><span class="mi">71</span> <span class="n">plot_obj</span><span class="o">.</span><span class="n">generate</span><span class="p">()</span>
 <span class="g g-Whitespace">     </span><span class="mi">72</span> <span class="n">plot_obj</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 <span class="g g-Whitespace">     </span><span class="mi">73</span> <span class="k">return</span> <span class="n">plot_obj</span><span class="o">.</span><span class="n">result</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/pandas/plotting/_matplotlib/core.py:450,</span> in <span class="ni">MPLPlot.generate</span><span class="nt">(self)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/pandas/plotting/_matplotlib/core.py:450,</span> in <span class="ni">MPLPlot.generate</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">    </span><span class="mi">448</span> <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">449</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_args_adjust</span><span class="p">()</span>
 <span class="ne">--&gt; </span><span class="mi">450</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_compute_plot_data</span><span class="p">()</span>
 <span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_setup_subplots</span><span class="p">()</span>
 <span class="g g-Whitespace">    </span><span class="mi">452</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_make_plot</span><span class="p">()</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.20/x64/lib/python3.9/site-packages/pandas/plotting/_matplotlib/core.py:635,</span> in <span class="ni">MPLPlot._compute_plot_data</span><span class="nt">(self)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/pandas/plotting/_matplotlib/core.py:635,</span> in <span class="ni">MPLPlot._compute_plot_data</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">    </span><span class="mi">633</span> <span class="c1"># no non-numeric frames or series allowed</span>
 <span class="g g-Whitespace">    </span><span class="mi">634</span> <span class="k">if</span> <span class="n">is_empty</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">635</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;no numeric data to plot&quot;</span><span class="p">)</span>
