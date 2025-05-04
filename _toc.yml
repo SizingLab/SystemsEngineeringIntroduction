@@ -17,6 +17,7 @@ parts:
   chapters:
   - file: notebook/Tuto_00_SoftwareInstallation
   - file: notebook/Tuto_01_Python
+  - file: notebook/Tuto_02_ArduinoTCLab
   
 - caption: Thermal control system of a cubesat
   numbered: true
