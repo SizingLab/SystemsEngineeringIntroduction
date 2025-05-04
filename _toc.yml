@@ -13,6 +13,11 @@ parts:
   - file: notebook/03_CM3_Introduction2MultiPhysicModeling 
   - file: notebook/05_CM4_SoftwareDevelopment_TCLabIntroduction
 
+- caption: Preparation of work sessions
+  chapters:
+  - file: notebook/Tuto_00_SoftwareInstallation
+  - file: notebook/Tuto_01_Python
+  
 - caption: Thermal control system of a cubesat
   numbered: true
   maxdepth: 2
