@@ -176,6 +176,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="03_CM3_Introduction2MultiPhysicModeling.html">Introduction to multiphysics modeling of sizing scenarios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html">Control software development</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Preparation of work sessions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Tuto_00_SoftwareInstallation.html">Software Installation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tuto_01_Python.html">Introduction to Python Programming</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermal control system of a cubesat</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="summaryPartA.html">1. Technical requirements definition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
@@ -495,7 +500,7 @@ document.write(`
 <p>In a more general context, the following equation was used, and the coefficients K and R were derived from the assumption of two concentric nodal spheres with specified radii.<br><br>
 <span class="math notranslate nohighlight">\(C_i\frac{dT_i}{dt}=\sum_{i\not=j}K_{ij}(T_j-T_i)+\sum_{i\not=j}R_{ij}(T_j^4-T_i^4)+q_i\)</span>, i,j=1,…,n$</p>
 <p><span class="math notranslate nohighlight">\(K=\frac{4\pi\lambda r_{int}r_{ext}}{r_{ext}-r_{int}}\)</span><br />
-<span class="math notranslate nohighlight">\(R=\frac{4\pi r_{int}^2}{\frac{1}{\varepsilon_{int}}+\frac{1-\varepsilon_{ext}}{\varepsilon_{ext}}(\frac{r_{int}}{r_{ext}})^2}\)</span></p>
+<span class="math notranslate nohighlight">\(R=\frac{4\pi \varepsilon\sigma_n r_{int}^2}{\frac{1}{\varepsilon_{int}}+\frac{1-\varepsilon_{ext}}{\varepsilon_{ext}}(\frac{r_{int}}{r_{ext}})^2}\)</span></p>
 <p><span class="math notranslate nohighlight">\(R_{int}\)</span> and <span class="math notranslate nohighlight">\(\lambda\)</span> parameters was tuned given the flight data and theoretical values. The above figure shows the differential equation with respect to the evolution of time in the system. Overall, the simplified model was proven to be close and consistent in terms of slopes with regards to the actual flight data. To be able to use this lumped parameters model, it is necessary to adapt the value of the parameters to the configurations of interest.</p>
 <p><em>Tuned SwissCube parameters:</em><br />
 <a class="reference internal" href="../_images/SwissCubeParameters.png"><img alt="../_images/SwissCubeParameters.png" src="../_images/SwissCubeParameters.png" style="width: 300px;" /></a></p>

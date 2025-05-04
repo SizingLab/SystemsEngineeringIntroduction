@@ -176,6 +176,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to multiphysics modeling of sizing scenarios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_CM4_SoftwareDevelopment_TCLabIntroduction.html">Control software development</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Preparation of work sessions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Tuto_00_SoftwareInstallation.html">Software Installation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tuto_01_Python.html">Introduction to Python Programming</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Thermal control system of a cubesat</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="summaryPartA.html">1. Technical requirements definition</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -461,6 +466,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework">Homework</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
 </ul>
             </nav>
         </div>
@@ -578,7 +584,7 @@ Answer<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">It can be assumed that the closed-loop system will respond as a second-order transfer function. The response or settling time (5%) requirement can then be expressed as a bandwidth.</p>
+<p class="sd-card-text">It can be assumed that the closed-loop system will respond as a second-order transfer function [<span class="xref myst">Muller</span>]. The response or settling time (5%) requirement can then be expressed as a bandwidth.</p>
 <p class="sd-card-text"><span class="math notranslate nohighlight">\(H(p)=\frac{1}{1+\frac{2\xi p}{\omega_0}+\frac{p^2}{\omega_0^2}}\)</span><br />
 with <span class="math notranslate nohighlight">\(\xi=0.7\)</span> and thus <span class="math notranslate nohighlight">\(t_{r5}=\frac{2.9}{\omega_0}\)</span></p>
 <p class="sd-card-text"><em>Settling time</em>:</p>
@@ -653,7 +659,7 @@ with <span class="math notranslate nohighlight">\(\xi=0.7\)</span> and thus <spa
 <img alt="../_images/a7ca80f11b0211b965c7bb59a682c72f6cbf03add08feea90bbfc3379001d347.png" src="../_images/a7ca80f11b0211b965c7bb59a682c72f6cbf03add08feea90bbfc3379001d347.png" />
 </div>
 </div>
-<p>For potentially non-linear systems represented by a set of differential equations and algebraic equations, it is possible to use the function <a class="reference external" href="https://apmonitor.com/pdc/index.php/Main/SolveDifferentialEquations"><code class="docutils literal notranslate"><span class="pre">scipy.integrate.odeint</span></code></a> to numerically integrate the system model.</p>
+<p>For potentially non-linear systems represented by a set of differential equations and algebraic equations, it is possible to use the function <a class="reference external" href="https://apmonitor.com/pdc/index.php/Main/SolveDifferentialEquations"><code class="docutils literal notranslate"><span class="pre">scipy.integrate.odeint</span></code></a> to numerically integrate the system model [<span class="xref myst">Hedengren</span>].</p>
 <p><code class="docutils literal notranslate"><span class="pre">scipy.integrate.odeint</span></code> requires three inputs:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
 </pre></div>
@@ -853,6 +859,22 @@ Max dynamic force: 73229.72 N and max acceleration: 11.57 m/s²
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <p>[Budinger, 2019] Budinger, M., Hazyuk, I., &amp; Coïc, C. (2019). Multi-physics Modeling of Technological Systems. John Wiley &amp; Sons.</p>
 </section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h2>
+<p>This course assumes certain prerequisites, particularly in:</p>
+<ul class="simple">
+<li><p><strong>Dynamic systems modeling:</strong> differential equations, transfer functions, step response, response time. It may be interesting to read the following support</p></li>
+</ul>
+<blockquote>
+<div><p>[Muller, 2008] Jean-Philippe Muller, Réponse d’un système linéaire,cours et exercices corrigés. <a class="reference external" href="https://jipehem.fr/acrobat-modules/reponse.pdf">Link</a></p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Numerical integration and python programming:</strong>  It may be interesting to read this tutorial</p></li>
+</ul>
+<blockquote>
+<div><p>[Hedengren] Hedengren, J., Solve Differential Equations with ODEINT, Brigham Young University.  <a class="reference external" href="https://apmonitor.com/pdc/index.php/Main/SolveDifferentialEquations">Link</a></p>
+</div></blockquote>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -929,6 +951,7 @@ Max dynamic force: 73229.72 N and max acceleration: 11.57 m/s²
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homework">Homework</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
 </ul>
   </nav></div>
 
