@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>2.2. PID digital controller: Python implementation &#8212; Introduction to Mechatronics and System Engineering</title>
+    <title>2.1. PID digital controller: Python implementation &#8212; Introduction to Mechatronics and System Engineering</title>
   
   
   
@@ -69,8 +69,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.3. Digital controller: Arduino implementation" href="08_TD_PIDArduinoImplementation.html" />
-    <link rel="prev" title="2.1. Temperature Control Lab, step identification" href="06_TD2_TCLab_IdentificationStep-Student.html" />
+    <link rel="next" title="2.2. Digital controller: Arduino implementation" href="08_TD_PIDArduinoImplementation.html" />
+    <link rel="prev" title="2. Part B : Control and software development" href="summaryPartB.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -190,9 +190,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="summaryPartB.html">2. Control software definition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="06_TD2_TCLab_IdentificationStep-Student.html">2.1. Temperature Control Lab, step identification</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. PID digital controller: Python implementation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="08_TD_PIDArduinoImplementation.html">2.3. Digital controller: Arduino implementation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.1. PID digital controller: Python implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_TD_PIDArduinoImplementation.html">2.2. Digital controller: Arduino implementation</a></li>
 </ul>
 </li>
 </ul>
@@ -456,22 +455,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">2.2.1. Requirements</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-controller">2.2.2. Continuous controller</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-transfer-functions">2.2.2.1. System transfer functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zielgler-nichols-method">2.2.2.2. Zielgler-Nichols method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-performances">2.2.2.3. Temporal performances</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-performances">2.2.2.4. Frequency performances</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-design-of-the-controller">2.2.2.5. Optimal design of the controller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">2.1.1. Requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-controller">2.1.2. Continuous controller</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-transfer-functions">2.1.2.1. System transfer functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zielgler-nichols-method">2.1.2.2. Zielgler-Nichols method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-performances">2.1.2.3. Temporal performances</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-performances">2.1.2.4. Frequency performances</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-design-of-the-controller">2.1.2.5. Optimal design of the controller</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-controller">2.2.3. Digital controller</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-minimum-sampling-time">2.2.3.1. Definition of minimum sampling time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-controller">2.1.3. Digital controller</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-minimum-sampling-time">2.1.3.1. Definition of minimum sampling time</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-pid-controller">2.2.4. Digital PID controller</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrence-equation">2.2.4.1. Recurrence equation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-tests">2.2.4.2. Real tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-pid-controller">2.1.4. Digital PID controller</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrence-equation">2.1.4.1. Recurrence equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-tests">2.1.4.2. Real tests</a></li>
 </ul>
 </li>
 </ul>
@@ -486,7 +485,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pid-digital-controller-python-implementation">
-<h1><span class="section-number">2.2. </span>PID digital controller: Python implementation<a class="headerlink" href="#pid-digital-controller-python-implementation" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2.1. </span>PID digital controller: Python implementation<a class="headerlink" href="#pid-digital-controller-python-implementation" title="Permalink to this heading">#</a></h1>
 <p>The aim of this tutorial is to implement temperature control on the TCLab board. The successive stages will be:</p>
 <ul class="simple">
 <li><p>definition of the continuous PID corrector from the transfer function identified previously.</p></li>
@@ -495,7 +494,7 @@ document.write(`
 <li><p>analysis of real performances.</p></li>
 </ul>
 <section id="requirements">
-<h2><span class="section-number">2.2.1. </span>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.1. </span>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading">#</a></h2>
 <blockquote>
 <div><p><strong>Exercice:</strong> Complete the requirements for the temperature control in the following table.</p>
 </div></blockquote>
@@ -527,9 +526,9 @@ document.write(`
 </table>
 </section>
 <section id="continuous-controller">
-<h2><span class="section-number">2.2.2. </span>Continuous controller<a class="headerlink" href="#continuous-controller" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.2. </span>Continuous controller<a class="headerlink" href="#continuous-controller" title="Permalink to this heading">#</a></h2>
 <section id="system-transfer-functions">
-<h3><span class="section-number">2.2.2.1. </span>System transfer functions<a class="headerlink" href="#system-transfer-functions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.1.2.1. </span>System transfer functions<a class="headerlink" href="#system-transfer-functions" title="Permalink to this heading">#</a></h3>
 <p>In previous work, we identified the transfer function linking the heating control (input) <span class="math notranslate nohighlight">\(Q_1\)</span> to the temperature (output) <span class="math notranslate nohighlight">\(T_1\)</span> as second order:</p>
 <p><span class="math notranslate nohighlight">\(G_1(p) = \frac{\Delta T_1(p)}{Q_1(p)}=  \frac{0.65}{(27p + 1)(160p + 1)} \)</span></p>
 <p>with <span class="math notranslate nohighlight">\(\Delta T_1\)</span> expressing the relative difference between the sensor temperature and the ambient temperature (around 20°C).</p>
@@ -538,7 +537,7 @@ document.write(`
 </div></blockquote>
 </section>
 <section id="zielgler-nichols-method">
-<h3><span class="section-number">2.2.2.2. </span>Zielgler-Nichols method<a class="headerlink" href="#zielgler-nichols-method" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.1.2.2. </span>Zielgler-Nichols method<a class="headerlink" href="#zielgler-nichols-method" title="Permalink to this heading">#</a></h3>
 <p>The Ziegler-Nichols approach to setting PID controllers can be used as an initial parameterisation. This approach is based on a transfer function of the form:
 <span class="math notranslate nohighlight">\( G(s) = \frac{Ke^{-Ls}}{\tau s + 1} \)</span> with <span class="math notranslate nohighlight">\(R=K/\tau\)</span>
 with</p>
@@ -638,7 +637,7 @@ to <span class="math notranslate nohighlight">\(L\)</span> by using following ta
 </div>
 </section>
 <section id="temporal-performances">
-<h3><span class="section-number">2.2.2.3. </span>Temporal performances<a class="headerlink" href="#temporal-performances" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.1.2.3. </span>Temporal performances<a class="headerlink" href="#temporal-performances" title="Permalink to this heading">#</a></h3>
 <blockquote>
 <div><p><strong>Exercice:</strong> Analyse the performance by simulation in terms of time: the following code should plot the time response <span class="math notranslate nohighlight">\(T_1\)</span> to a 1° step order. It is also interesting to plot the power demand <span class="math notranslate nohighlight">\(Q_1\)</span>. You can use <code class="docutils literal notranslate"><span class="pre">tf</span></code>, <code class="docutils literal notranslate"><span class="pre">step</span></code> from <code class="docutils literal notranslate"><span class="pre">control.matlab</span></code> package.</p>
 </div></blockquote>
@@ -674,7 +673,7 @@ to <span class="math notranslate nohighlight">\(L\)</span> by using following ta
 </div>
 </section>
 <section id="frequency-performances">
-<h3><span class="section-number">2.2.2.4. </span>Frequency performances<a class="headerlink" href="#frequency-performances" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.1.2.4. </span>Frequency performances<a class="headerlink" href="#frequency-performances" title="Permalink to this heading">#</a></h3>
 <p>By plotting the Bode and Nichols diagrams in open or closed loops, we can establish the stability margins and the bandwidth.</p>
 <blockquote>
 <div><p><strong>Exercice:</strong> Analyse the frequency performances with Bode plots in open loop and closed loop. Adjust PID gains if necessary. Nichols diagram can be also usefull. You can use <code class="docutils literal notranslate"><span class="pre">bode</span></code> (with <code class="docutils literal notranslate"><span class="pre">margins=True</span></code> parameter), <code class="docutils literal notranslate"><span class="pre">nichols</span></code> from <code class="docutils literal notranslate"><span class="pre">control.matlab</span></code> package.</p>
@@ -702,7 +701,7 @@ to <span class="math notranslate nohighlight">\(L\)</span> by using following ta
 </div>
 </section>
 <section id="optimal-design-of-the-controller">
-<h3><span class="section-number">2.2.2.5. </span>Optimal design of the controller<a class="headerlink" href="#optimal-design-of-the-controller" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.1.2.5. </span>Optimal design of the controller<a class="headerlink" href="#optimal-design-of-the-controller" title="Permalink to this heading">#</a></h3>
 <blockquote>
 <div><p><strong>Exercice:</strong> Using the observations made, define an optimum design for the controller. This can be done using an optimisation algorithm such as <code class="docutils literal notranslate"><span class="pre">scipy.optimize.fmin_slsqp(func,</span> <span class="pre">x0,</span> <span class="pre">bounds,</span> <span class="pre">f_ieqcons)</span></code> from the <code class="docutils literal notranslate"><span class="pre">scipy</span></code> package where</p>
 <ul class="simple">
@@ -750,9 +749,9 @@ to <span class="math notranslate nohighlight">\(L\)</span> by using following ta
 </section>
 </section>
 <section id="digital-controller">
-<h2><span class="section-number">2.2.3. </span>Digital controller<a class="headerlink" href="#digital-controller" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.3. </span>Digital controller<a class="headerlink" href="#digital-controller" title="Permalink to this heading">#</a></h2>
 <section id="definition-of-minimum-sampling-time">
-<h3><span class="section-number">2.2.3.1. </span>Definition of minimum sampling time<a class="headerlink" href="#definition-of-minimum-sampling-time" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.1.3.1. </span>Definition of minimum sampling time<a class="headerlink" href="#definition-of-minimum-sampling-time" title="Permalink to this heading">#</a></h3>
 <blockquote>
 <div><p><strong>Exercise:</strong> Calculate the minimum sampling time required to avoid degrading the phase margin by more than 5°.  Check your result using Padé’s approximation.</p>
 </div></blockquote>
@@ -800,7 +799,7 @@ to <span class="math notranslate nohighlight">\(L\)</span> by using following ta
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum sampling time: 1.00e+00 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f0137e6cee0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f1dade22040&gt;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
@@ -820,9 +819,9 @@ to <span class="math notranslate nohighlight">\(L\)</span> by using following ta
 </section>
 </section>
 <section id="digital-pid-controller">
-<h2><span class="section-number">2.2.4. </span>Digital PID controller<a class="headerlink" href="#digital-pid-controller" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1.4. </span>Digital PID controller<a class="headerlink" href="#digital-pid-controller" title="Permalink to this heading">#</a></h2>
 <section id="recurrence-equation">
-<h3><span class="section-number">2.2.4.1. </span>Recurrence equation<a class="headerlink" href="#recurrence-equation" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.1.4.1. </span>Recurrence equation<a class="headerlink" href="#recurrence-equation" title="Permalink to this heading">#</a></h3>
 <blockquote>
 <div><p><strong>Question:</strong> - Discretize the PID controller in the form of a recurrence equation.</p>
 </div></blockquote>
@@ -843,7 +842,7 @@ where <span class="math notranslate nohighlight">\(e_k\)</span> is the error and
 </div>
 </section>
 <section id="real-tests">
-<h3><span class="section-number">2.2.4.2. </span>Real tests<a class="headerlink" href="#real-tests" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.1.4.2. </span>Real tests<a class="headerlink" href="#real-tests" title="Permalink to this heading">#</a></h3>
 <p>The following cells can be used to test your controller.
 The first step is to check that your card is responding correctly.</p>
 <div class="cell docutils container">
@@ -858,6 +857,20 @@ The first step is to check that your card is responding correctly.</p>
 
 <span class="c1"># Start TCLab</span>
 <span class="c1"># lab = TCLab()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;inline&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">TCLab</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># if no card you can use the simulator:</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># from tclab import TCLabModel as TCLab</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">tclab</span> <span class="kn">import</span> <span class="n">clock</span> <span class="c1"># from tclab import clock</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;tclab&#39;
 </pre></div>
 </div>
 </div>
@@ -1017,12 +1030,12 @@ import PySide6</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="06_TD2_TCLab_IdentificationStep-Student.html"
+       href="summaryPartB.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.1. </span>Temperature Control Lab, step identification</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Part B : Control and software development</p>
       </div>
     </a>
     <a class="right-next"
@@ -1030,7 +1043,7 @@ import PySide6</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.3. </span>Digital controller: Arduino implementation</p>
+        <p class="prev-next-title"><span class="section-number">2.2. </span>Digital controller: Arduino implementation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1049,22 +1062,22 @@ import PySide6</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">2.2.1. Requirements</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-controller">2.2.2. Continuous controller</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-transfer-functions">2.2.2.1. System transfer functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zielgler-nichols-method">2.2.2.2. Zielgler-Nichols method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-performances">2.2.2.3. Temporal performances</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-performances">2.2.2.4. Frequency performances</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-design-of-the-controller">2.2.2.5. Optimal design of the controller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">2.1.1. Requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-controller">2.1.2. Continuous controller</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-transfer-functions">2.1.2.1. System transfer functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zielgler-nichols-method">2.1.2.2. Zielgler-Nichols method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-performances">2.1.2.3. Temporal performances</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-performances">2.1.2.4. Frequency performances</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-design-of-the-controller">2.1.2.5. Optimal design of the controller</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-controller">2.2.3. Digital controller</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-minimum-sampling-time">2.2.3.1. Definition of minimum sampling time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-controller">2.1.3. Digital controller</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-minimum-sampling-time">2.1.3.1. Definition of minimum sampling time</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-pid-controller">2.2.4. Digital PID controller</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrence-equation">2.2.4.1. Recurrence equation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-tests">2.2.4.2. Real tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-pid-controller">2.1.4. Digital PID controller</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrence-equation">2.1.4.1. Recurrence equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-tests">2.1.4.2. Real tests</a></li>
 </ul>
 </li>
 </ul>

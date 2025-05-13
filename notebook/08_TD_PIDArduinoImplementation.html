@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>2.3. Digital controller: Arduino implementation &#8212; Introduction to Mechatronics and System Engineering</title>
+    <title>2.2. Digital controller: Arduino implementation &#8212; Introduction to Mechatronics and System Engineering</title>
   
   
   
@@ -69,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="2.2. PID digital controller: Python implementation" href="07_TD_PID_ControlLoops-Student.html" />
+    <link rel="prev" title="2.1. PID digital controller: Python implementation" href="07_TD_PID_ControlLoops-Student.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -189,9 +189,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="summaryPartB.html">2. Control software definition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="06_TD2_TCLab_IdentificationStep-Student.html">2.1. Temperature Control Lab, step identification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07_TD_PID_ControlLoops-Student.html">2.2. PID digital controller: Python implementation</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.3. Digital controller: Arduino implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_TD_PID_ControlLoops-Student.html">2.1. PID digital controller: Python implementation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. Digital controller: Arduino implementation</a></li>
 </ul>
 </li>
 </ul>
@@ -455,10 +454,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pid-controller">2.3.1. PID controller</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-code-analysis">2.3.2. C code analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arduino-digital-controller">2.3.3. Arduino digital controller</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-tests">2.3.4. Real tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pid-controller">2.2.1. PID controller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-code-analysis">2.2.2. C code analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arduino-digital-controller">2.2.3. Arduino digital controller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-tests">2.2.4. Real tests</a></li>
 </ul>
             </nav>
         </div>
@@ -471,7 +470,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="digital-controller-arduino-implementation">
-<h1><span class="section-number">2.3. </span>Digital controller: Arduino implementation<a class="headerlink" href="#digital-controller-arduino-implementation" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2.2. </span>Digital controller: Arduino implementation<a class="headerlink" href="#digital-controller-arduino-implementation" title="Permalink to this heading">#</a></h1>
 <p>This tutorial aims to implement temperature control on the µ-controller of the TCLab board. The process will be carried out in the Arduino IDE and will involve the following stages:</p>
 <ul class="simple">
 <li><p>analysing the proposed C code</p></li>
@@ -479,7 +478,7 @@ document.write(`
 <li><p>downloading the program into the Arduino µController for real testing.</p></li>
 </ul>
 <section id="pid-controller">
-<h2><span class="section-number">2.3.1. </span>PID controller<a class="headerlink" href="#pid-controller" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.1. </span>PID controller<a class="headerlink" href="#pid-controller" title="Permalink to this heading">#</a></h2>
 <p>The PID corrector will take the parrallel form:<br />
 <span class="math notranslate nohighlight">\(G_c(p)=k_p+\frac{k_i}{p}+k_d p\)</span><br />
 form and will be implemented as a recurrence equation:<br />
@@ -492,7 +491,7 @@ form and will be implemented as a recurrence equation:<br />
 </div>
 </section>
 <section id="c-code-analysis">
-<h2><span class="section-number">2.3.2. </span>C code analysis<a class="headerlink" href="#c-code-analysis" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.2. </span>C code analysis<a class="headerlink" href="#c-code-analysis" title="Permalink to this heading">#</a></h2>
 <p>We’re going to work on an Arduino code that evolves from the <a class="reference download internal" download="" href="../_downloads/e4c3174b9bf6b4cea58bced9852b2554/TCLab-sketch.ino"><span class="xref download myst">following code</span></a> already present on the TCLab board. We want to retain the ability to communicate with the board via the USB serial port.  But certain functions will evolve to enable us to include a temperature controller directly on the board, and to configure it.
 In particular, the following commands will be required:</p>
 <table class="table">
@@ -541,7 +540,7 @@ In particular, the following commands will be required:</p>
 <p>To do this work, use the Arduino IDE 1.8 (installation <a class="reference external" href="https://www.arduino.cc/en/software">link</a>).</p>
 </section>
 <section id="arduino-digital-controller">
-<h2><span class="section-number">2.3.3. </span>Arduino digital controller<a class="headerlink" href="#arduino-digital-controller" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.3. </span>Arduino digital controller<a class="headerlink" href="#arduino-digital-controller" title="Permalink to this heading">#</a></h2>
 <blockquote>
 <div><p><strong>Exercice:</strong> Complete the <code class="docutils literal notranslate"><span class="pre">ComputePID()</span></code> function of the C code with the:</p>
 <ul class="simple">
@@ -553,7 +552,7 @@ In particular, the following commands will be required:</p>
 </div></blockquote>
 </section>
 <section id="real-tests">
-<h2><span class="section-number">2.3.4. </span>Real tests<a class="headerlink" href="#real-tests" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.4. </span>Real tests<a class="headerlink" href="#real-tests" title="Permalink to this heading">#</a></h2>
 <p>Perform the following steps:</p>
 <ul class="simple">
 <li><p><strong>Select your board:</strong> Go to the “Tools” computer menu from the menu bar. Select the “Board” option and another menu will appear, where you’ll select your Arduino model (Leonardo) from the list.</p></li>
@@ -603,7 +602,7 @@ In particular, the following commands will be required:</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.2. </span>PID digital controller: Python implementation</p>
+        <p class="prev-next-title"><span class="section-number">2.1. </span>PID digital controller: Python implementation</p>
       </div>
     </a>
 </div>
@@ -621,10 +620,10 @@ In particular, the following commands will be required:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pid-controller">2.3.1. PID controller</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-code-analysis">2.3.2. C code analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arduino-digital-controller">2.3.3. Arduino digital controller</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-tests">2.3.4. Real tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pid-controller">2.2.1. PID controller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-code-analysis">2.2.2. C code analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arduino-digital-controller">2.2.3. Arduino digital controller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-tests">2.2.4. Real tests</a></li>
 </ul>
   </nav></div>
 
