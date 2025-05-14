@@ -31,11 +31,16 @@ parts:
   - file: notebook/summaryPartB
     title: Control software definition
     sections:
-      - file: notebook/06_TD2_TCLab_IdentificationStep-Student
+      - file: notebook/06a_TD2_TCLab_Step-Student
+      - file: notebook/06b_TD2_TCLab_IdentificationStep-Student
       - file: notebook/07_TD_PID_ControlLoops-Student
       - file: notebook/08_TD_PIDArduinoImplementation
       
-
+- caption: Attitude control system of a cubesat
+  chapters:
+  - file: notebook/Bonus_01_SCAO
+  - file: notebook/Bonus_02_Maquette
+  - file: notebook/Bonus_03_Modelica
       
       
       
