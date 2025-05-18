@@ -524,7 +524,7 @@ document.write(`
 <td class="text-center"><p><span class="math notranslate nohighlight">\(\Omega\)</span></p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p>Inductance <span class="math notranslate nohighlight">\(L\)</span></p></td>
-<td class="text-center"><p><span class="math notranslate nohighlight">\(4.6e-3\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(4.6\)</span></p></td>
 <td class="text-center"><p><span class="math notranslate nohighlight">\(mH\)</span></p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p>Torque constante <span class="math notranslate nohighlight">\(K\)</span></p></td>
@@ -738,7 +738,7 @@ We get the transfer function:<br />
 <section id="model-description">
 <h3>Model description<a class="headerlink" href="#model-description" title="Permalink to this heading">#</a></h3>
 <p>You can download the Modelica models <span class="xref myst">here</span>. An example of model is represented below.</p>
-<p><img alt="Modelica Full" src="notebook/Image/ModelicaFull.png" /></p>
+<p><img alt="Modelica Full" src="../_images/ModelicaFull.PNG" /></p>
 <p>This model comprises a setpoint (expressed in radians) followed by a proportional-derivative (PD) controller.</p>
 <p>The “TF” block represents the chopper and acts as a voltage converter, transforming a source with a fixed voltage level - in this case, the battery - into a variable voltage. The battery supplies a constant voltage of 11.1 V, while the converter’s input control adjusts the output voltage between -11.1 V and 11.1 V.</p>
 <p>The motor section models a DC motor. It includes key elements such as resistance, inductance and electromotive force (EMF), which convert electrical energy into rotary motion, as well as a friction torque simulating mechanical losses.</p>
